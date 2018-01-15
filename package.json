@@ -6,6 +6,7 @@
   "author": "NoahLuftYang <ykd1217@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build:storybook": "build-storybook -c .storybook -o .out",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
