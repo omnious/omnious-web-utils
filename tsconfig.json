@@ -1,8 +1,4 @@
 {
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ],
   "compilerOptions": {
     "jsx": "react"
   }

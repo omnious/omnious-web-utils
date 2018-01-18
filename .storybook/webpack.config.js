@@ -1,9 +1,14 @@
+const { resolve } = require('path');
+
 const { SRC, STORYBOOK } = require('../config/paths');
 
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.json', '.jsx', '.ts', '.tsx']
+    extensions: ['.css', '.js', '.json', '.jsx', '.ts', '.tsx'],
+    alias: {
+      Constants: resolve(SRC, 'constants')
+    }
   },
   module: {
     rules: [{
@@ -13,7 +18,13 @@ module.exports = {
     }, {
       test: /\.tsx?$/,
       use: 'ts-loader',
-      include: SRC
+      exclude: /node_modules/
+    }, {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
     }]
   }
 }

@@ -10,15 +10,23 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
+    "@types/node": "^9.3.0",
     "babel-core": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
+    "bootstrap": "4.0.0-beta.2",
+    "css-loader": "^0.28.8",
+    "raw-loader": "^0.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "style-loader": "^0.19.1",
+    "styled-components": "^2.4.0",
     "ts-loader": "^3.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-info": "^3.3.9",
     "@storybook/react": "^3.3.8",
     "eslint": "^4.15.0",
+    "storybook-readme": "^3.2.0",
     "tslint": "^5.9.1",
     "typescript": "^2.6.2"
   }
