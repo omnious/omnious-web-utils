@@ -1,0 +1,25 @@
+version: 2
+
+defaults: &defaults
+  docker:
+    - image: circleci/node:8.1.4
+
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+  test_browser:
+  test_build:
+
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - checkout
+      - test_browser:
+          requires:
+            - checkout
+      - test_build:
+          requires:
+            - checkout

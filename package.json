@@ -1,33 +1,68 @@
 {
-  "name": "omniouskit",
+  "name": "@omnious/kit",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:omnious-dev/omniouskit.git",
-  "author": "NoahLuftYang <ykd1217@gmail.com>",
+  "description": "React components for omnious.",
   "license": "MIT",
+  "author": "NoahLuftYang <ykd1217@gmail.com>",
+  "contributors": [],
+  "homepage": "https://omniouskit.netlify.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omnious-dev/omniouskit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omnious-dev/omniouskit/issues"
+  },
+  "keywords": [
+    "omnious",
+    "react",
+    "ui"
+  ],
+  "main": "./dist/bundle.min.js",
   "scripts": {
+    "build": "node ./scripts/build.js",
     "build:storybook": "build-storybook -c .storybook -o .out",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "lint": "run-s lint:**",
+    "lint:js": "eslint -c .eslintrc **/*.js",
+    "lint:ts": "tslint -p tsconfig.json **/*.ts **/*.tsx",
+    "lint:css": "stylelint -c .stylelintrc **/*.css",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "echo 'hi'",
+    "prepublish": "yarn lint && yarn test && yarn build"
   },
   "dependencies": {
-    "@types/node": "^9.3.0",
     "babel-core": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
-    "bootstrap": "4.0.0-beta.2",
     "css-loader": "^0.28.8",
     "raw-loader": "^0.5.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
     "style-loader": "^0.19.1",
-    "styled-components": "^2.4.0",
     "ts-loader": "^3.2.0"
   },
   "devDependencies": {
-    "@storybook/addon-info": "^3.3.9",
+    "@storybook/addon-knobs": "^3.3.9",
+    "@storybook/addon-options": "^3.3.9",
     "@storybook/react": "^3.3.8",
+    "bootstrap": "4.0.0-beta.2",
+    "enzyme": "^3.3.0",
     "eslint": "^4.15.0",
+    "eslint-config-omnious": "^0.3.1",
+    "eslint-config-omnious-react": "^0.3.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "github-markdown-css": "^2.10.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "storybook-readme": "^3.2.0",
+    "styled-components": "^2.4.0",
+    "stylelint": "^8.4.0",
     "tslint": "^5.9.1",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.9.2"
   }
 }

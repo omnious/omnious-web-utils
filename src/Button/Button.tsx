@@ -1,9 +1,29 @@
 import * as React from 'react';
+import styled from 'styled-components';
 
 
-export default class Button extends React.Component {
+const ButtonContainer = styled.button`
+  // background-color: transparent;
+`;
+
+interface ButtonProps {
+  className?: string;
+  disabled?: boolean;
+  dark?: boolean;
+}
+
+class Button extends React.Component<ButtonProps> {
   render() {
-    const { children } = this.props;
-    return <button>{children}</button>;
+    return (
+      <button className={this.props.className} disabled={this.props.disabled}>
+        {this.props.children}
+      </button>
+    );
   }
 }
+
+const StyledButton = styled(Button)`
+  border: 0;
+`;
+
+export default StyledButton;

@@ -1,14 +1,16 @@
-import * as React from 'react';
+import { boolean } from '@storybook/addon-knobs';
+import React, { Component } from 'react';
 
-import { StoryContainer } from '../shared-style';
+import Button from '../../../src';
 
 
-export default class ButtonStory extends React.Component {
+export default class ButtonStory extends Component {
   render() {
+    const { children, dark, disabled } = this.props;
     return (
-      <StoryContainer>
-        <h1>How To Use</h1>
-      </StoryContainer>
+      <Button disabled={disabled} dark={dark}>
+        {children}
+      </Button>
     );
   }
 }
