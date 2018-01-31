@@ -1,6 +1,6 @@
 {
   "name": "@omniouskit/spinner",
-  "version": "0.0.1-4",
+  "version": "0.0.1-5",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "contributors": [
     {
@@ -27,5 +27,8 @@
   "main": "dist/bindle.min.js",
   "scripts": {
     "build": "node ../../scripts/build.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
