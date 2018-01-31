@@ -1,11 +1,16 @@
 {
-  "name": "@omnious/kit",
-  "version": "1.0.0",
+  "name": "omniouskit",
+  "version": "0.1.0",
   "description": "React components for omnious.",
-  "license": "MIT",
-  "author": "NoahLuftYang <ykd1217@gmail.com>",
-  "contributors": [],
   "homepage": "https://omniouskit.netlify.com",
+  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
+  "contributors": [
+    {
+      "name": "Euihyun Yang",
+      "email": "ykd1217@gmail.com"
+    }
+  ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/omnious-dev/omniouskit.git"
@@ -18,49 +23,51 @@
     "react",
     "ui"
   ],
+  "engines": {
+    "node": ">= 8.0.0"
+  },
   "main": "./dist/bundle.min.js",
   "scripts": {
-    "build": "node ./scripts/build.js",
+    "build": "node scripts/build.js",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "lint": "run-s lint:**",
-    "lint:js": "eslint -c .eslintrc **/*.js",
-    "lint:ts": "tslint -p tsconfig.json **/*.ts **/*.tsx",
-    "lint:css": "stylelint -c .stylelintrc **/*.css",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "test": "echo 'hi'",
-    "prepublish": "yarn lint && yarn test && yarn build"
+    "lint:js": "eslint -c .eslintrc .",
+    "lint:ts": "tslint -c tslint.json **/*.ts **/*.tsx",
+    "lint:css": "stylelint -c .stylelintrc **/*.scss",
+    "release": "lerna publish",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^0.28.8",
-    "raw-loader": "^0.5.1",
-    "style-loader": "^0.19.1",
-    "ts-loader": "^3.2.0"
+    "popmotion": "^8.1.8",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.4.0"
   },
   "devDependencies": {
     "@storybook/addon-knobs": "^3.3.9",
     "@storybook/addon-options": "^3.3.9",
+    "@storybook/addons": "^3.3.11",
     "@storybook/react": "^3.3.8",
+    "babel-core": "^6.26.0",
+    "babel-preset-stage-2": "^6.24.1",
     "bootstrap": "4.0.0-beta.2",
+    "css-loader": "^0.28.8",
     "enzyme": "^3.3.0",
     "eslint": "^4.15.0",
     "eslint-config-omnious": "^0.3.1",
-    "eslint-config-omnious-react": "^0.3.0",
-    "eslint-import-resolver-webpack": "^0.8.4",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-prettier": "^2.5.0",
-    "eslint-plugin-react": "^7.5.1",
     "github-markdown-css": "^2.10.0",
+    "lerna": "^2.8.0",
     "npm-run-all": "^4.1.2",
     "prettier": "^1.10.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "raw-loader": "^0.5.1",
     "storybook-readme": "^3.2.0",
-    "styled-components": "^2.4.0",
+    "style-loader": "^0.19.1",
     "stylelint": "^8.4.0",
+    "ts-loader": "^3.2.0",
     "tslint": "^5.9.1",
+    "tslint-config-omnious": "^0.1.2",
+    "tslint-react": "^3.4.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2"

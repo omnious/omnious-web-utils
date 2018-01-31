@@ -7,8 +7,15 @@
 ```jsx
   import { Button } from '@omnious/kit';
 
-  <Button>
-    <span>This is `<Button />`!</span>
+  <Button
+    color="primary"
+    invert={false}
+    size="md"
+    disabled={false}
+    loading={false}
+    onClick={e => console.log(e)}
+  >
+    This is `<Button />`!
   </Button>
 ```
 
@@ -16,11 +23,12 @@
 
 ## Props
 
-| Name     | Type   | Required | Default   |
-|----------|--------|----------|-----------|
-| disabled | bool   | no       | -         |
-| dark     | bool   | no       | -         |
-| size     | string | no       | 'md'      |
-| type     | string | no       | 'default' |
-| onClick  | func   | no       | 'default' |
-| children | node   | no       | -         |
+| Name     | Type                                    | Required | Default   | Description |
+|----------|-----------------------------------------|----------|-----------|-------------|
+| children | node                                    | no       | -         ||
+| color    | enum: 'primary', 'secondary', 'default' | no       | 'default' ||
+| invert   | bool                                    | no       | false     ||
+| size     | enum: 'xl', 'lg', 'md', 'sm', 'xs'      | no       | 'md'      ||
+| disabled | bool                                    | no       | false     ||
+| loading  | bool                                    | no       | false     ||
+| onClick  | func                                    | no       | -         | - |

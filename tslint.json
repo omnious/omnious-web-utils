@@ -1,7 +1,3 @@
 {
-  "rules": {
-    "no-var-requires": true,
-    "await-promise": true,
-    "quotemark": [true, "single", "jsx-double"]
-  }
+  "extends": ["tslint:all", "tslint-config-omnious"]
 }

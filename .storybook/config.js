@@ -7,7 +7,7 @@ const loadStories = () => {
 }
 
 setOptions({
-  name: 'omniouskit',
+  name: '@omnious/kit',
   url: 'https://omniouskit.netlify.com',
   downPanelInRight: window.innerWidth > 1200
 });

@@ -1,18 +1,5 @@
 {
-  "extends": ["omnious-react"],
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module"
-  },
-  "plugins": ["import", "jsx-a11y", "prettier"],
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": ""
-      }
-    }
-  },
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  "extends": "omnious",
+  "parserOptions": {},
+  "rules": {}
 }

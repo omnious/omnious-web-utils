@@ -3,6 +3,7 @@ import 'github-markdown-css/github-markdown';
 import '../../src/assets/css';
 
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { withDocs } from 'storybook-readme';
@@ -44,15 +45,17 @@ storiesOf('Guide/Font', module)
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
-    'Basic usage',
+    'Single Button',
     withDocs(
       ButtonDocs,
       () => (
         <ButtonStory
+          color={select('color', ['primary', 'secondary', 'default'], 'primary')}
+          invert={boolean('invert', false)}
+          size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
           disabled={boolean('disabled', false)}
-          dark={boolean('dark', false)}
-          size={select('size', {}, 'md')}
-          type={select('type', {}, 'default')}
+          loading={boolean('loading', false)}
+          onClick={action('Button click')}
         >
           {text('Content', 'This is `<Button />`!')}
         </ButtonStory>
