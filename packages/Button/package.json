@@ -1,6 +1,6 @@
 {
   "name": "@omniouskit/button",
-  "version": "0.0.1-0",
+  "version": "0.0.1-1",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "contributors": [
     {
@@ -12,6 +12,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/omnious-dev/omniouskit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omnious-dev/omniouskit/issues"
   },
   "keywords": [
     "omnious",
