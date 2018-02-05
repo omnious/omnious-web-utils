@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-  npm install --save @omniouskit
+  npm install --save @omnious/kit
   # or yarn
-  yarn add @omniouskit
+  yarn add @omnious/kit
 ```

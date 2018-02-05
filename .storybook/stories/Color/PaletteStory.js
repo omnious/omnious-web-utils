@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import styles from 'Constants/styles';
 import { StoryContainer } from '../shared-style';
+import styles from '../../../src/constants/styles';
 
 
 const PaletteContainer = styled(StoryContainer)`
