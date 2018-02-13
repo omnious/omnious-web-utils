@@ -1,9 +1,3 @@
-const commander = require('commander');
+#!/usr/bin/env node
 
-const program = new commander.Command().parse(process.argv);
-
-function webpackScript(options) {
-  console.log(options);
-}
-
-webpackScript();
+require('./buildScripts');

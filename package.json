@@ -34,7 +34,8 @@
   ],
   "scripts": {
     "build": "node scripts/build.js",
-    "lint": "lerna run lint"
+    "lint": "lerna run lint",
+    "release": "lerna publish"
   },
   "dependencies": {
     "prop-types": "^15.6.0",
