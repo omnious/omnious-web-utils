@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 
-const { SRC, STORYBOOK } = require('../config/paths');
+const { SRC, STORYBOOK } = require('../../../config/paths');
 
 
 module.exports = {

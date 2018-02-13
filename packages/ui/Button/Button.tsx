@@ -7,6 +7,7 @@ import STYLES from '../constants/styles';
 interface IProps {
   className?: string;
   color: string;
+  icon?: string;
   invert: boolean;
   size: string;
   disabled: boolean;
@@ -14,11 +15,22 @@ interface IProps {
   onClick(): void;
 }
 
-const Button: React.SFC<IProps> = props => (
-  <button className={props.className} disabled={props.disabled} onClick={props.onClick}>
-    {props.loading ? <Spinner /> : props.children}
-  </button>
-);
+const Button: React.SFC<IProps> = ({ children, className, disabled, icon, loading, onClick }) => {
+  if (loading) {
+    return (
+      <button className={className} disabled={disabled} onClick={onClick}>
+        <Spinner />
+      </button>
+    );
+  }
+
+  return (
+    <button className={className} disabled={disabled} onClick={onClick}>
+      {icon && <img src={icon} />}
+      {children}
+    </button>
+  );
+};
 
 const StyledButton = styled(Button)`
   border: 2px solid transparent;

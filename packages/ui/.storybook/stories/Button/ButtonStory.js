@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { StoryContainer } from '../shared-style';
-import Button from '../../../src/Button';
+import Button from '../../../packages/kit/Button';
+
 
 const ButtonWrapper = styled.section`
   align-items: center;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { StoryContainer } from '../shared-style';
-import styles from '../../../src/constants/styles';
+import styles from '../../../packages/kit/constants/styles';
 
 
 const PaletteContainer = styled(StoryContainer)`

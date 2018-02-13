@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap-reboot.min';
 import 'github-markdown-css/github-markdown';
-import '../../src/assets/css';
+import '../assets/css';
 
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
