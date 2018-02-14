@@ -11,7 +11,7 @@ const WebpackDevServer = require('webpack-dev-server');
 // Local import
 const logger = require('./logger');
 const { env, host, port } = require('../config');
-const devConfig = require('../config/webpack/webpack.config.dev');
+const devConfig = require('../webpack.config.dev');
 
 
 // Initialize console
@@ -26,8 +26,8 @@ const options = {
   historyApiFallback: {
     disableDotRule: true
   },
-  hot: true,
   host,
+  hot: true,
   noInfo: true,
   publicPath: devConfig.output.publicPath,
   stats: {

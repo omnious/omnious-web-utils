@@ -6,7 +6,7 @@
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
 // Local import
-const { PACKAGE, SRC } = require('./paths');
+const { PACKAGE, SRC } = require('./config/paths');
 
 
 module.exports = {
