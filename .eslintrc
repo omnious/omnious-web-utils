@@ -1,5 +1,3 @@
 {
-  "extends": "omnious",
-  "parserOptions": {},
-  "rules": {}
+  "extends": "omnious"
 }
