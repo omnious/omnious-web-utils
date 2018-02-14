@@ -3,6 +3,7 @@
  */
 
 // Global import
+const HappyPack = require('happypack');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 
 // Local import
@@ -18,7 +19,28 @@ module.exports = {
     ]
   },
   module: {
-    rules: []
+    rules: [{
+      test: /\.tsx?$/,
+      use: {
+        loader: 'happypack/loader',
+        options: {
+          id: 'happypack-typescript'
+        }
+      },
+      include: SRC
+    }]
   },
-  plugins: []
+  plugins: [
+    new HappyPack({
+      id: 'happypack-typescript',
+      verbose: false,
+      threads: 5,
+      loaders: [{
+        loader: 'ts-loader',
+        options: {
+          happyPackMode: true
+        }
+      }]
+    })
+  ]
 };

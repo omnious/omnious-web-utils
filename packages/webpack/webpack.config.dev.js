@@ -8,7 +8,7 @@ const { smart } = require('webpack-merge');
 
 // Local import
 const { host, port } = require('./config');
-const { SRC } = require('../config/paths');
+const { SRC } = require('./config/paths');
 const common = require('./webpack.config.common');
 
 

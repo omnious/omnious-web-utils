@@ -19,9 +19,14 @@
     "omniouskit-webpack": "index.js"
   },
   "dependencies": {
+    "happypack": "^4.0.1",
     "react-dev-utils": "^5.0.0",
+    "ts-loader": "^3.5.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^2.7.1"
   }
 }
