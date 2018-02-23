@@ -16,7 +16,7 @@
     "lint:js": "eslint ."
   },
   "bin": {
-    "omniouskit-webpack": "index.js"
+    "omnious-webpack": "index.js"
   },
   "dependencies": {
     "happypack": "^4.0.1",

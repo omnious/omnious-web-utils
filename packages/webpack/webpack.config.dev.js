@@ -3,6 +3,7 @@
 */
 
 // Global import
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { smart } = require('webpack-merge');
 
@@ -24,6 +25,11 @@ module.exports = smart(common, {
     rules: []
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: './index.html',
+      template: './src/index.html'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
