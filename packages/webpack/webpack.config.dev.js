@@ -9,7 +9,7 @@ const { smart } = require('webpack-merge');
 
 // Local import
 const { host, port } = require('./config');
-const { SRC } = require('./config/paths');
+// const { SRC } = require('./config/paths');
 const common = require('./webpack.config.common');
 
 
@@ -18,16 +18,25 @@ module.exports = smart(common, {
   entry: [
     `webpack-dev-server/client?http://${host}:${port}`,
     'webpack/hot/only-dev-server',
-    SRC
+    './src'
   ],
-  output: {},
+  output: {
+    publicPath: '/'
+  },
   module: {
-    rules: []
+    rules: [{
+      test: /\.s?css$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ]
+    }]
   },
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      filename: './index.html',
+      filename: 'index.html',
       template: './src/index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),

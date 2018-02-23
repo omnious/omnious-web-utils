@@ -19,8 +19,12 @@
     "omnious-webpack": "index.js"
   },
   "dependencies": {
+    "css-loader": "^0.28.10",
     "happypack": "^4.0.1",
+    "node-sass": "^4.7.2",
     "react-dev-utils": "^5.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
     "ts-loader": "^3.5.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
