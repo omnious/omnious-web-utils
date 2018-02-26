@@ -1,6 +1,6 @@
 {
   "name": "omnious-web-utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Web utils for omnious.",
   "homepage": "https://github.com/omnious-dev/omnious-web-utils",
@@ -38,22 +38,19 @@
     "release": "lerna publish"
   },
   "dependencies": {
-    "css-loader": "^0.28.8",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.2.0",
-    "style-loader": "^0.20.1",
-    "styled-components": "^3.1.6",
-    "ts-loader": "^3.5.0"
+    "styled-components": "^3.1.6"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.13",
     "@storybook/addon-knobs": "^3.3.13",
     "@storybook/addon-options": "^3.3.13",
     "@storybook/react": "^3.3.13",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
     "babel-preset-stage-2": "^6.24.1",
     "bootstrap": "4.0.0",
     "enzyme": "^3.3.0",
