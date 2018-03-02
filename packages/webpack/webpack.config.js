@@ -1,13 +1,9 @@
 // Global import
 const HappyPack = require('happypack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const { smart } = require('webpack-merge');
 
 // Local import
 const commonConfig = require('./webpack.config.common');
-const devConfig = require('./webpack.config.dev');
-const prodConfig = require('./webpack.config.prod');
 const { srcDir } = require('./config/paths');
 
 
@@ -79,10 +75,14 @@ function mainLoader(language) {
 
 module.exports = (env, language) => {
   switch (env) {
-    case 'development':
+    case 'development': {
+      const devConfig = require('./webpack.config.dev');
       return smart(commonConfig, devConfig, mainLoader(language));
-    case 'production':
+    }
+    case 'production': {
+      const prodConfig = require('./webpack.config.prod');
       return smart(commonConfig, prodConfig, mainLoader(language));
+    }
     case 'test':
     default:
       // TODO: config for test
