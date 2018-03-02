@@ -51,7 +51,7 @@ module.exports = language => {
 
   for (const sig of ['SIGINT', 'SIGTERM']) {
     process.on(sig, code => {
-      logger.end('Shutting down app');
+      logger.info('Shutting down app');
       devServer.close();
       process.exit(code || 0);
     });

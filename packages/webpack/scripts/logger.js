@@ -35,11 +35,11 @@ function write(status, text, verbose) {
 
 exports.start = text => write('start', text);
 
+exports.task = text => write('task', text);
+
 exports.end = text => write('end', text);
 
-exports.info = text => write('info', text);
-
-exports.task = (text, data) => write('task', text, data);
+exports.info = (text, data) => write('info', text, data);
 
 exports.warn = (text, data) => write('warn', text, data);
 

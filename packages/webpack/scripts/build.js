@@ -38,21 +38,19 @@ module.exports = language => {
 
         if (!messages.errors.length && !messages.warnings.length) {
           // Webpack build success
-          logger.success('Client compiled successfully');
-          logger.end(stats.toString({ colors: true }));
-        }
-
-        if (messages.errors.length) {
-          // Build fail
-          logger.error('Failed to compile');
-          messages.errors.forEach(logger.error);
+          logger.end('Client compiled successfully');
+          logger.info('Build outputs', stats.toString({ colors: true }));
         }
 
         if (messages.warnings.length) {
           // Warning occurs
-          logger.warn('Compiled with warnings');
-          messages.warnings.forEach(logger.warn);
-          logger.end(stats.toString({ colors: true, warnings: false }));
+          logger.warn('Compiled with warnings', messages.warnings);
+          logger.info('Build outputs', stats.toString({ colors: true, warnings: false }));
+        }
+
+        if (messages.errors.length) {
+          // Build fail
+          logger.error('Failed to compile', messages.errors);
         }
       });
     })
