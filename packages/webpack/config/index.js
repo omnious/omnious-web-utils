@@ -1,6 +1,9 @@
 // Global import
 const dotenv = require('dotenv');
 
+// Local import
+const logger = require('../scripts/logger');
+
 
 // Load environment variables from .env file
 dotenv.config();

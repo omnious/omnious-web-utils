@@ -3,33 +3,29 @@
  */
 
 // Global import
-const HappyPack = require('happypack');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const webpack = require('webpack');
 
 // Local import
-const { PACKAGE, SRC } = require('./config/paths');
+const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
+const { packageJson, srcDir } = require('./config/paths');
 
 
 module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx'],
     alias: {},
-    plugins: [
-      new ModuleScopePlugin(SRC, [PACKAGE])
-    ]
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   module: {
     rules: [{
-      test: /\.tsx?$/,
-      use: {
-        loader: 'happypack/loader',
-        options: {
-          id: 'happypack-typescript'
-        }
-      },
-      include: SRC
+      test: /\.js$/,
+      use: 'source-map-loader',
+      enforce: 'pre',
+      include: srcDir
     }, {
-      test: /\.png$/,
+      test: /\.(jpg|png)$/,
       use: {
         loader: 'url-loader',
         options: {
@@ -43,16 +39,12 @@ module.exports = {
     }]
   },
   plugins: [
-    new HappyPack({
-      id: 'happypack-typescript',
-      verbose: false,
-      threads: 5,
-      loaders: [{
-        loader: 'ts-loader',
-        options: {
-          happyPackMode: true
-        }
-      }]
+    new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env),
+      'API': JSON.stringify(api),
+      'CHIMP': JSON.stringify(mailchimp),
+      'SENTRY': JSON.stringify(sentry)
     })
   ]
 };

@@ -7,12 +7,12 @@ const commander = require('commander');
 const packageJson = require('./package');
 const logger = require('./scripts/logger');
 
-
 let taskName;
 const program = new commander.Command('omnious-webpack')
-  .version(packageJson.version)
+  .version(packageJson.version, '-v, --version')
   .arguments('<task>')
   .usage('<task> [options]')
+  .option('-l, --language [value]', 'webpack compile language')
   .action(task => {
     taskName = task;
   })
@@ -20,19 +20,23 @@ const program = new commander.Command('omnious-webpack')
 
 if (!taskName) {
   logger.error(`Please specify webpack task!
-   Usage: omniouskit-webpack <task> [options]
+   Usage: omnious-webpack <task> [options]
   `);
   process.exit(1);
 }
 
-function webpackScript(task) {
+function webpackScript(task, language = 'js') {
   switch (task) {
-    case 'build':
-      require('./scripts/build');
+    case 'build': {
+      const builder = require('./scripts/build');
+      builder(language);
       break;
-    case 'watch':
-      require('./scripts/watch');
+    }
+    case 'watch': {
+      const watcher = require('./scripts/watch');
+      watcher(language);
       break;
+    }
     case 'test':
       require('./scripts/test');
       break;
@@ -41,4 +45,4 @@ function webpackScript(task) {
   }
 }
 
-webpackScript(taskName);
+webpackScript(taskName, program.language);

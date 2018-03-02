@@ -2,10 +2,20 @@
 const { resolve } = require('path');
 
 
-const ROOT = process.cwd();
-const PACKAGE = resolve(ROOT, 'package.json');
-const DIST = resolve(ROOT, 'dist');
-const SRC = resolve(ROOT, 'src');
-const STATIC = resolve(ROOT, 'static');
+const root = process.cwd();
+const packageJson = resolve(root, 'package.json');
+const distDir = resolve(root, 'dist');
+const srcDir = resolve(root, 'src');
+const careersHtml = resolve(srcDir, 'careers.html');
+const indexHtml = resolve(srcDir, 'index.html');
+const staticDir = resolve(root, 'static');
 
-module.exports = { DIST, PACKAGE, ROOT, SRC, STATIC };
+module.exports = {
+  careersHtml,
+  distDir,
+  indexHtml,
+  packageJson,
+  root,
+  srcDir,
+  staticDir
+};

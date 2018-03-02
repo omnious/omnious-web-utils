@@ -1,26 +1,27 @@
 /**
  * DEV WEBPACK CONFIG
-*/
+ */
 
 // Global import
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const { smart } = require('webpack-merge');
 
 // Local import
 const { host, port } = require('./config');
-// const { SRC } = require('./config/paths');
-const common = require('./webpack.config.common');
+const { careersHtml, distDir, indexHtml, srcDir } = require('./config/paths');
 
 
-module.exports = smart(common, {
+module.exports = {
   devtool: 'eval-source-map',
   entry: [
     `webpack-dev-server/client?http://${host}:${port}`,
     'webpack/hot/only-dev-server',
-    './src'
+    srcDir
   ],
   output: {
+    path: distDir,
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     publicPath: '/'
   },
   module: {
@@ -36,8 +37,13 @@ module.exports = smart(common, {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      filename: 'index.html',
-      template: './src/index.html'
+      filename: './index.html',
+      template: indexHtml
+    }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: './careers.html',
+      template: careersHtml
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
@@ -46,4 +52,4 @@ module.exports = smart(common, {
   performance: {
     hints: false
   }
-});
+};
