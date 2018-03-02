@@ -3,8 +3,8 @@
  */
 
 // Global import
-const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const webpack = require('webpack');
 
 // Local import
@@ -14,9 +14,11 @@ const { packageJson, srcDir } = require('./config/paths');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {},
-    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
+    plugins: [
+      new ModuleScopePlugin(srcDir, [packageJson])
+    ]
   },
   module: {
     rules: [{
@@ -43,6 +45,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'API': JSON.stringify(api),
+      'CDN': JSON.stringify(cdn),
       'CHIMP': JSON.stringify(mailchimp),
       'SENTRY': JSON.stringify(sentry)
     })
