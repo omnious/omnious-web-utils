@@ -29,6 +29,7 @@
     "ora": "^2.0.0",
     "react-dev-utils": "^5.0.0",
     "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.2",
     "ts-loader": "^3.5.0",
     "url-loader": "^0.6.2",
