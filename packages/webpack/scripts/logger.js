@@ -26,10 +26,15 @@ function write(status, text, verbose) {
 
   // Adds optional verbose output
   if (verbose) {
-    if (typeof verbose === 'object')
+    if (verbose.constructor === Object) {
       console.dir(verbose, { depth: 15 });
-    else
+    } else if (verbose.constructor === Array) {
+      verbose.forEach(msg => {
+        console.log(`\n${msg}`);
+      });
+    } else {
       console.log(`\n${verbose}`);
+    }
   }
 }
 
