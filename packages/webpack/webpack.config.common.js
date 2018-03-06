@@ -5,7 +5,7 @@
 // Global import
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const webpack = require('webpack');
+const { DefinePlugin } = require('webpack');
 
 // Local import
 const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
@@ -41,13 +41,13 @@ module.exports = {
     }]
   },
   plugins: [
-    new InterpolateHtmlPlugin({ cdn, facebook, google }),
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
       'API': JSON.stringify(api),
       'CDN': JSON.stringify(cdn),
       'CHIMP': JSON.stringify(mailchimp),
       'SENTRY': JSON.stringify(sentry)
-    })
+    }),
+    new InterpolateHtmlPlugin({ cdn, facebook, google })
   ]
 };

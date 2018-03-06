@@ -13,6 +13,7 @@ const program = new commander.Command('omnious-webpack')
   .arguments('<task>')
   .usage('<task> [options]')
   .option('-l, --language [value]', 'webpack compile language')
+  .option('-a, --add [value]', 'additional webpack config')
   .action(task => {
     taskName = task;
   })
@@ -25,16 +26,16 @@ if (!taskName) {
   process.exit(1);
 }
 
-function webpackScript(task, language = 'js') {
+function webpackScript(task, options = {}) {
   switch (task) {
     case 'build': {
       const builder = require('./scripts/build');
-      builder(language);
+      builder(options);
       break;
     }
     case 'watch': {
       const watcher = require('./scripts/watch');
-      watcher(language);
+      watcher(options);
       break;
     }
     case 'test':
@@ -45,4 +46,7 @@ function webpackScript(task, language = 'js') {
   }
 }
 
-webpackScript(taskName, program.language);
+webpackScript(taskName, {
+  language: program.language,
+  add: program.add
+});

@@ -9,11 +9,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 const { resolve } = require('path');
-const webpack = require('webpack');
+const { LoaderOptionsPlugin, optimize } = require('webpack');
 
 // Local import
 const { tag } = require('./config');
-const { careersHtml, distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
+const { distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
 
 
 module.exports = {
@@ -72,23 +72,6 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: '../careers.html',
-      template: careersHtml,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      }
-    }),
     new OfflinePlugin({
       safeToUseOptionalCaches: true,
       caches: {
@@ -102,15 +85,15 @@ module.exports = {
       },
       AppCache: false
     }),
-    new webpack.LoaderOptionsPlugin({
+    new LoaderOptionsPlugin({
       minimize: true,
       debug: false
     }),
-    new webpack.optimize.CommonsChunkPlugin({
+    new optimize.CommonsChunkPlugin({
       name: ['bundle', 'vendor', 'polyfills'],
       minChunks: Infinity
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    new optimize.UglifyJsPlugin({
       compress: {
         drop_console: true,
         drop_debugger: true,

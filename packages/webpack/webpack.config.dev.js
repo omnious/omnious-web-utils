@@ -4,11 +4,11 @@
 
 // Global import
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const { HotModuleReplacementPlugin, NamedModulesPlugin, NoEmitOnErrorsPlugin } = require('webpack');
 
 // Local import
 const { host, port } = require('./config');
-const { careersHtml, distDir, indexHtml, srcDir } = require('./config/paths');
+const { distDir, indexHtml, srcDir } = require('./config/paths');
 
 
 module.exports = {
@@ -35,19 +35,14 @@ module.exports = {
     }]
   },
   plugins: [
+    new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       filename: './index.html',
       template: indexHtml
     }),
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: './careers.html',
-      template: careersHtml
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new NamedModulesPlugin(),
+    new NoEmitOnErrorsPlugin()
   ],
   performance: {
     hints: false

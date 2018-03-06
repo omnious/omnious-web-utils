@@ -73,15 +73,21 @@ function mainLoader(language) {
   }
 }
 
-module.exports = (env, language) => {
+module.exports = (env, options) => {
+  const { language = 'js', add } = options;
+
+  let additionalConfig = {};
+  if (add)
+    additionalConfig = require(add);
+
   switch (env) {
     case 'development': {
       const devConfig = require('./webpack.config.dev');
-      return smart(commonConfig, devConfig, mainLoader(language));
+      return smart(commonConfig, devConfig, mainLoader(language), additionalConfig);
     }
     case 'production': {
       const prodConfig = require('./webpack.config.prod');
-      return smart(commonConfig, prodConfig, mainLoader(language));
+      return smart(commonConfig, prodConfig, mainLoader(language), additionalConfig);
     }
     case 'test':
     default:

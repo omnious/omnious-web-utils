@@ -15,15 +15,15 @@ const { staticDir } = require('../config/paths');
 const webpackConfig = require('../webpack.config');
 
 
-module.exports = language => {
+module.exports = options => {
   // Initialize console
   clearConsole();
   logger.start(`Starting build in ${env} mode`);
 
   // Set DevServer
-  const devConfig = webpackConfig(env, language);
+  const devConfig = webpackConfig(env, options);
   const compiler = webpack(devConfig);
-  const options = {
+  const devOptions = {
     contentBase: staticDir,
     historyApiFallback: {
       disableDotRule: true
@@ -36,7 +36,7 @@ module.exports = language => {
       colors: true
     }
   };
-  const devServer = new WebpackDevServer(compiler, options);
+  const devServer = new WebpackDevServer(compiler, devOptions);
 
   // Start server
   devServer.listen(port, host, err => {

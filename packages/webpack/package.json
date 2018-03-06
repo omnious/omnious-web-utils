@@ -28,6 +28,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.9",
     "happypack": "^4.0.1",
+    "html-webpack-plugin": "^3.0.4",
     "node-sass": "^4.7.2",
     "offline-plugin": "^4.9.0",
     "ora": "^2.0.0",
