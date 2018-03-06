@@ -3,9 +3,11 @@
  */
 
 // Global import
+const chalk = require('chalk');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, IgnorePlugin } = require('webpack');
 
 // Local import
 const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
@@ -16,9 +18,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {},
-    plugins: [
-      new ModuleScopePlugin(srcDir, [packageJson])
-    ]
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   module: {
     rules: [{
@@ -48,6 +48,11 @@ module.exports = {
       'CHIMP': JSON.stringify(mailchimp),
       'SENTRY': JSON.stringify(sentry)
     }),
-    new InterpolateHtmlPlugin({ cdn, facebook, google })
+    new IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    new ProgressBarPlugin({
+      format: `build [:bar] ${chalk.green.bold('(:percent)')}`,
+      width: 100
+    })
   ]
 };

@@ -24,8 +24,6 @@ const configValue = {
   // base env
   base: {
     env,
-    host: getEnvOrDefault('HOST', 'localhost'),
-    port: getEnvOrDefault('PORT', 3000),
     google: getEnvOrDefault('GA_ID', 'UA-XXXXX-Y'),
     sentry: getEnvOrDefault('SENTRY_URL', ''),
     cdn: getEnvOrDefault('CDN_URL', '')
@@ -35,6 +33,8 @@ const configValue = {
     tag: getEnvOrDefault('CIRCLE_TAG', 'prod')
   },
   development: {
+    host: getEnvOrDefault('HOST', 'localhost'),
+    port: getEnvOrDefault('PORT', 3000),
     api: getEnvOrDefault('DEV_API_URL', '')
   },
   test: {}
