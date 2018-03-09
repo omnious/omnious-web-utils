@@ -10,7 +10,6 @@ const { HotModuleReplacementPlugin, NamedModulesPlugin, NoEmitOnErrorsPlugin } =
 const { host, port } = require('./config');
 const { distDir, indexHtml, srcDir } = require('./config/paths');
 
-
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
@@ -25,14 +24,12 @@ module.exports = {
     publicPath: '/'
   },
   module: {
-    rules: [{
-      test: /\.s?css$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader'
-      ]
-    }]
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
   },
   plugins: [
     new HotModuleReplacementPlugin(),

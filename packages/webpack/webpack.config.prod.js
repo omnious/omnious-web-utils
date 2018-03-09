@@ -15,7 +15,6 @@ const { LoaderOptionsPlugin, optimize } = require('webpack');
 const { tag } = require('./config');
 const { distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
 
-
 module.exports = {
   devtool: 'source-map',
   entry: {
@@ -30,16 +29,15 @@ module.exports = {
     publicPath: `/${tag}/`
   },
   module: {
-    rules: [{
-      test: /\.s?css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          'css-loader',
-          'sass-loader'
-        ]
-      })
-    }]
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      }
+    ]
   },
   plugins: [
     new CompressionPlugin({
@@ -49,9 +47,7 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8
     }),
-    new CopyWebpackPlugin([
-      { from: staticDir, to: '..' }
-    ]),
+    new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
     new ExtractTextPlugin({
       filename: '[name].[contenthash:8].css'
     }),

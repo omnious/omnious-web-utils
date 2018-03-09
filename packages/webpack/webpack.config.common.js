@@ -13,7 +13,6 @@ const { DefinePlugin, IgnorePlugin } = require('webpack');
 const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
 const { packageJson, srcDir } = require('./config/paths');
 
-
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -21,32 +20,36 @@ module.exports = {
     plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: 'source-map-loader',
-      enforce: 'pre',
-      include: srcDir
-    }, {
-      test: /\.(jpg|png)$/,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: '[name].[hash:8].[ext]'
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'source-map-loader',
+        enforce: 'pre',
+        include: srcDir
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '[name].[hash:8].[ext]'
+          }
         }
+      },
+      {
+        test: /\.svg$/,
+        use: 'file-loader'
       }
-    }, {
-      test: /\.svg$/,
-      use: 'file-loader'
-    }]
+    ]
   },
   plugins: [
     new DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
-      'API': JSON.stringify(api),
-      'CDN': JSON.stringify(cdn),
-      'CHIMP': JSON.stringify(mailchimp),
-      'SENTRY': JSON.stringify(sentry)
+      API: JSON.stringify(api),
+      CDN: JSON.stringify(cdn),
+      CHIMP: JSON.stringify(mailchimp),
+      SENTRY: JSON.stringify(sentry)
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
     new InterpolateHtmlPlugin({ cdn, facebook, google }),

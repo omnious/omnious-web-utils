@@ -6,22 +6,23 @@ const { smart } = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 const { srcDir } = require('./config/paths');
 
-
 function mainLoader(language) {
   switch (language) {
     case 'ts':
       return {
         module: {
-          rules: [{
-            test: /\.tsx?$/,
-            use: {
-              loader: 'happypack/loader',
-              options: {
-                id: 'happypack-typescript'
-              }
-            },
-            include: srcDir
-          }]
+          rules: [
+            {
+              test: /\.tsx?$/,
+              use: {
+                loader: 'happypack/loader',
+                options: {
+                  id: 'happypack-typescript'
+                }
+              },
+              include: srcDir
+            }
+          ]
         },
         plugins: [
           new HappyPack({
@@ -43,16 +44,18 @@ function mainLoader(language) {
     default:
       return {
         module: {
-          rules: [{
-            test: /\.jsx?$/,
-            use: {
-              loader: 'happypack/loader',
-              options: {
-                id: 'happypack-javascript'
-              }
-            },
-            include: srcDir
-          }]
+          rules: [
+            {
+              test: /\.jsx?$/,
+              use: {
+                loader: 'happypack/loader',
+                options: {
+                  id: 'happypack-javascript'
+                }
+              },
+              include: srcDir
+            }
+          ]
         },
         plugins: [
           new HappyPack({
@@ -77,8 +80,7 @@ module.exports = (env, options) => {
   const { language = 'js', add } = options;
 
   let additionalConfig = {};
-  if (add)
-    additionalConfig = require(add);
+  if (add) additionalConfig = require(add);
 
   switch (env) {
     case 'development': {
