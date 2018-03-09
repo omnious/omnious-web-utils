@@ -1,5 +1,6 @@
 // Global import
 const HappyPack = require('happypack');
+const { resolve } = require('path');
 const { smart } = require('webpack-merge');
 
 // Local import
@@ -80,7 +81,7 @@ module.exports = (env, options) => {
   const { language = 'js', add } = options;
 
   let additionalConfig = {};
-  if (add) additionalConfig = require(add);
+  if (add) additionalConfig = require(resolve(process.cwd(), add));
 
   switch (env) {
     case 'development': {
