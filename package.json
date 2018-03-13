@@ -3,22 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "description": "Web utils for omnious.",
-  "homepage": "https://github.com/omnious-dev/omnious-web-utils",
-  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
-  "contributors": [
-    {
-      "name": "Euihyun Yang",
-      "email": "ykd1217@gmail.com"
-    }
-  ],
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/omnious-dev/omnious-web-utils.git"
-  },
-  "bugs": {
-    "url": "https://github.com/omnious-dev/omnious-web-utils/issues"
-  },
   "keywords": [
     "omnious",
     "utils",
@@ -29,11 +14,8 @@
   "engines": {
     "node": ">= 8.9.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
-    "build": "node scripts/build.js",
     "lint": "lerna run lint",
     "release": "lerna publish",
     "prettier": "prettier --write packages/**/*.js"

@@ -1,4 +1,5 @@
 // Global import
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HappyPack = require('happypack');
 const { resolve } = require('path');
 const { smart } = require('webpack-merge');
@@ -26,6 +27,9 @@ function mainLoader(language) {
           ]
         },
         plugins: [
+          new ForkTsCheckerWebpackPlugin({
+            checkSyntacticErrors: true
+          }),
           new HappyPack({
             id: 'happypack-typescript',
             verbose: false,
