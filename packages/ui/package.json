@@ -19,5 +19,14 @@
     "lint:ts": "tslint **/*.ts **/*.tsx",
     "lint:css": "stylelint **/*.css **/*.scss",
     "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "devDependencies": {
+    "@omnious/webpack": "^0.5.3-rc5",
+    "@storybook/addon-options": "^3.3.15",
+    "@storybook/react": "^3.3.15"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   }
 }

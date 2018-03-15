@@ -1,5 +1,4 @@
 // Global import
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HappyPack = require('happypack');
 const { resolve } = require('path');
 const { smart } = require('webpack-merge');
@@ -16,34 +15,11 @@ function mainLoader(language) {
           rules: [
             {
               test: /\.tsx?$/,
-              use: {
-                loader: 'happypack/loader',
-                options: {
-                  id: 'happypack-typescript'
-                }
-              },
+              use: 'ts-loader',
               include: srcDir
             }
           ]
-        },
-        plugins: [
-          new ForkTsCheckerWebpackPlugin({
-            checkSyntacticErrors: true
-          }),
-          new HappyPack({
-            id: 'happypack-typescript',
-            verbose: false,
-            threads: 5,
-            loaders: [
-              {
-                loader: 'ts-loader',
-                options: {
-                  happyPackMode: true
-                }
-              }
-            ]
-          })
-        ]
+        }
       };
     case 'js':
     default:
@@ -52,31 +28,11 @@ function mainLoader(language) {
           rules: [
             {
               test: /\.jsx?$/,
-              use: {
-                loader: 'happypack/loader',
-                options: {
-                  id: 'happypack-javascript'
-                }
-              },
+              use: 'babel-loader',
               include: srcDir
             }
           ]
-        },
-        plugins: [
-          new HappyPack({
-            id: 'happypack-javascript',
-            verbose: false,
-            threads: 5,
-            loaders: [
-              {
-                loader: 'babel-loader',
-                options: {
-                  cacheDirectory: true
-                }
-              }
-            ]
-          })
-        ]
+        }
       };
   }
 }

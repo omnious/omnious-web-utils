@@ -7,8 +7,8 @@ const loadStories = () => {
 }
 
 setOptions({
-  name: '@omnious/kit',
-  url: 'https://omniouskit.netlify.com',
+  name: '@omnious/ui',
+  url: 'https://omniousui.netlify.com',
   downPanelInRight: window.innerWidth > 1200
 });
 

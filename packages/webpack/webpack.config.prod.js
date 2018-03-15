@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
+// const OfflinePlugin = require('offline-plugin');
 const { resolve } = require('path');
 const { LoaderOptionsPlugin, optimize } = require('webpack');
 
@@ -34,7 +34,7 @@ module.exports = {
         test: /\.s?css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
+          use: ['css-loader', 'postcss-loader']
         })
       }
     ]
@@ -48,9 +48,7 @@ module.exports = {
       minRatio: 0.8
     }),
     new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
-    new ExtractTextPlugin({
-      filename: '[name].[contenthash:8].css'
-    }),
+    new ExtractTextPlugin({ filename: '[name].[contenthash:8].css' }),
     new HtmlWebpackPlugin({
       inject: true,
       filename: '../index.html',
@@ -68,19 +66,19 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new OfflinePlugin({
-      safeToUseOptionalCaches: true,
-      caches: {
-        main: ['../index.html', 'polyfills.*.*', 'vendor.*.*', 'bundle.*.*'],
-        additional: ['*.chunk.js', ':externals:'],
-        optional: [':rest:']
-      },
-      ServiceWorker: {
-        output: '../sw.js',
-        events: true
-      },
-      AppCache: false
-    }),
+    // new OfflinePlugin({
+    //   safeToUseOptionalCaches: true,
+    //   caches: {
+    //     main: ['../index.html', 'polyfills.*.*', 'vendor.*.*', 'bundle.*.*'],
+    //     additional: ['*.chunk.js', ':externals:'],
+    //     optional: [':rest:']
+    //   },
+    //   ServiceWorker: {
+    //     output: '../sw.js',
+    //     events: true
+    //   },
+    //   AppCache: false
+    // }),
     new LoaderOptionsPlugin({
       minimize: true,
       debug: false
