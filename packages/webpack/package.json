@@ -1,6 +1,6 @@
 {
   "name": "@omnious/webpack",
-  "version": "0.5.4-rc0",
+  "version": "0.5.4-rc1",
   "description": "Webpack scripts and configurations for omnious.",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "contributors": [
@@ -11,7 +11,10 @@
   ],
   "license": "MIT",
   "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/webpack",
-  "keywords": ["omnious", "webpack"],
+  "keywords": [
+    "omnious",
+    "webpack"
+  ],
   "engines": {
     "node": ">= 8.9.1"
   },
