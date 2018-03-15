@@ -14,7 +14,6 @@ const { env, host, port } = require('../config');
 const { staticDir } = require('../config/paths');
 const webpackConfig = require('../webpack.config');
 
-
 module.exports = options => {
   // Initialize console
   clearConsole();

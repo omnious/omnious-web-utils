@@ -15,7 +15,6 @@ const { env } = require('../config');
 const { distDir } = require('../config/paths');
 const webpackConfig = require('../webpack.config');
 
-
 module.exports = language => {
   // Initialize console
   clearConsole();

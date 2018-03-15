@@ -1,7 +1,6 @@
 // Global import
 const chalk = require('chalk');
 
-
 function write(status, text, verbose) {
   switch (status) {
     case 'task':

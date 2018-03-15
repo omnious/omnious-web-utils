@@ -20,7 +20,7 @@
   "scripts": {
     "lint": "lerna run lint",
     "release": "lerna publish",
-    "prettier": "prettier --write packages/**/*.js"
+    "prettier": "lerna run prettier"
   },
   "devDependencies": {
     "eslint": "^4.18.1",

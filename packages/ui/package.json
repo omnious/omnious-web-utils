@@ -18,6 +18,7 @@
     "lint:js": "eslint .",
     "lint:ts": "tslint **/*.ts **/*.tsx",
     "lint:css": "stylelint **/*.css **/*.scss",
+    "prettier": "prettier --write '**/*.ts'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {

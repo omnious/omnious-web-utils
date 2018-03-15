@@ -1,7 +1,6 @@
 // Global import
 const { resolve } = require('path');
 
-
 const root = process.cwd();
 const packageJson = resolve(root, 'package.json');
 const distDir = resolve(root, 'dist');

@@ -3,16 +3,15 @@
     <img alt="Omnious Web Utils" src="https://raw.githubusercontent.com/omnious-dev/i/master/omnious-logo.png" width="240px" />
   </a>
   <br />
-  <h1>omnious-web-utils</h1>
 </div>
 
-[React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
+# omnious-web-utils [![CircleCI][CircleCI]][CircleCI-url]
 
-[![CircleCI](https://img.shields.io/circleci/project/github/omnious-dev/omnious-web-utils.svg)](https://circleci.com/gh/omnious-dev/omnious-web-utils)
-[![node](https://img.shields.io/node/v/@omnious/webpack.svg)](https://nodejs.org)
-[![npm](https://img.shields.io/npm/v/@omnious/webpack.svg)](https://www.npmjs.com/package/@omnious/webpack)
-[![dt](https://img.shields.io/npm/dt/@omnious/webpack.svg)](https://www.npmjs.com/package/@omnious/webpack)
+[React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
 
 ## License
 
 [MIT](LICENSE)
+
+[CircleCI]: https://circleci.com/gh/omnious-dev/omnious-web-utils.svg?style=svg
+[CircleCI-url]: https://circleci.com/gh/omnious-dev/omnious-web-utils

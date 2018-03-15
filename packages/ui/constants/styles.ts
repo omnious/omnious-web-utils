@@ -25,4 +25,4 @@ export default {
   h4: '1rem',
   h5: '0.75rem',
   h6: '0.5rem'
-}
+};
