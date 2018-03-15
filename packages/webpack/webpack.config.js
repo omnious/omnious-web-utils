@@ -1,5 +1,4 @@
 // Global import
-const HappyPack = require('happypack');
 const { resolve } = require('path');
 const { smart } = require('webpack-merge');
 
