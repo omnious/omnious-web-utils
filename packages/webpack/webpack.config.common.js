@@ -3,8 +3,6 @@
  */
 
 // Global import
-const chalk = require('chalk');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const { DefinePlugin, IgnorePlugin } = require('webpack');
@@ -52,10 +50,6 @@ module.exports = {
       SENTRY: JSON.stringify(sentry)
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new InterpolateHtmlPlugin({ cdn, facebook, google }),
-    new ProgressBarPlugin({
-      format: `build [:bar] ${chalk.green.bold('(:percent)')}`,
-      width: 100
-    })
+    new InterpolateHtmlPlugin({ cdn, facebook, google })
   ]
 };
