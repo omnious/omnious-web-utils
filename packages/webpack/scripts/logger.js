@@ -1,7 +1,6 @@
 // Global import
 const chalk = require('chalk');
 
-
 function write(status, text, verbose) {
   switch (status) {
     case 'task':
@@ -26,20 +25,25 @@ function write(status, text, verbose) {
 
   // Adds optional verbose output
   if (verbose) {
-    if (typeof verbose === 'object')
+    if (verbose.constructor === Object) {
       console.dir(verbose, { depth: 15 });
-    else
+    } else if (verbose.constructor === Array) {
+      verbose.forEach(msg => {
+        console.log(`\n${msg}`);
+      });
+    } else {
       console.log(`\n${verbose}`);
+    }
   }
 }
 
 exports.start = text => write('start', text);
 
+exports.task = text => write('task', text);
+
 exports.end = text => write('end', text);
 
-exports.info = text => write('info', text);
-
-exports.task = (text, data) => write('task', text, data);
+exports.info = (text, data) => write('info', text, data);
 
 exports.warn = (text, data) => write('warn', text, data);
 

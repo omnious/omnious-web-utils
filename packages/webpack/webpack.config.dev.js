@@ -1,34 +1,56 @@
 /**
  * DEV WEBPACK CONFIG
-*/
+ */
 
 // Global import
-const webpack = require('webpack');
-const { smart } = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { HotModuleReplacementPlugin, NamedModulesPlugin, NoEmitOnErrorsPlugin } = require('webpack');
 
 // Local import
 const { host, port } = require('./config');
-const { SRC } = require('./config/paths');
-const common = require('./webpack.config.common');
+const { distDir, indexHtml, srcDir } = require('./config/paths');
 
-
-module.exports = smart(common, {
+module.exports = {
   devtool: 'eval-source-map',
   entry: [
     `webpack-dev-server/client?http://${host}:${port}`,
     'webpack/hot/only-dev-server',
-    SRC
+    srcDir
   ],
-  output: {},
+  output: {
+    path: distDir,
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
+    publicPath: '/'
+  },
   module: {
-    rules: []
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'sass-loader'
+        ]
+      }
+    ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: './index.html',
+      template: indexHtml
+    }),
+    new NamedModulesPlugin(),
+    new NoEmitOnErrorsPlugin()
   ],
   performance: {
     hints: false
   }
-});
+};

@@ -3,44 +3,71 @@
  */
 
 // Global import
-const HappyPack = require('happypack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const { DefinePlugin, IgnorePlugin } = require('webpack');
 
 // Local import
-const { PACKAGE, SRC } = require('./config/paths');
-
+const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
+const { packageJson, srcDir } = require('./config/paths');
 
 module.exports = {
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {},
-    plugins: [
-      new ModuleScopePlugin(SRC, [PACKAGE])
-    ]
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      use: {
-        loader: 'happypack/loader',
-        options: {
-          id: 'happypack-typescript'
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'source-map-loader',
+        enforce: 'pre',
+        include: srcDir
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            name: '[name].[hash:8].[ext]'
+          }
         }
       },
-      include: SRC
-    }]
+      {
+        test: /\.jsx?$/,
+        use: 'babel-loader',
+        include: srcDir
+      },
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
+      },
+      {
+        test: /\.svg$/,
+        use: 'file-loader'
+      }
+    ]
   },
   plugins: [
-    new HappyPack({
-      id: 'happypack-typescript',
-      verbose: false,
-      threads: 5,
-      loaders: [{
-        loader: 'ts-loader',
-        options: {
-          happyPackMode: true
-        }
-      }]
-    })
+    new DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env),
+      API: JSON.stringify(api),
+      CDN: JSON.stringify(cdn),
+      CHIMP: JSON.stringify(mailchimp),
+      SENTRY: JSON.stringify(sentry)
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      watch: srcDir
+    }),
+    new IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new InterpolateHtmlPlugin({ cdn, facebook, google })
   ]
 };

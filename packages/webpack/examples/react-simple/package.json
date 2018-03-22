@@ -1,0 +1,19 @@
+{
+  "name": "react-simple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "omnious-webpack build",
+    "dev": "omnious-webpack watch"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@omnious/webpack": "^0.5.4-rc3",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.2"
+  }
+}

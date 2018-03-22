@@ -1,4 +1,4 @@
-export default {
+export const STYLES = {
   // colors
   primaryBlue: '#23b4ff',
   darkBlue: '#37ade9',
@@ -25,4 +25,4 @@ export default {
   h4: '1rem',
   h5: '0.75rem',
   h6: '0.5rem'
-}
+};

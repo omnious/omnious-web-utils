@@ -1,11 +1,18 @@
 // Global import
 const { resolve } = require('path');
 
+const root = process.cwd();
+const packageJson = resolve(root, 'package.json');
+const distDir = resolve(root, 'dist');
+const srcDir = resolve(root, 'src');
+const indexHtml = resolve(srcDir, 'index.html');
+const staticDir = resolve(root, 'static');
 
-const ROOT = process.cwd();
-const PACKAGE = resolve(ROOT, 'package.json');
-const DIST = resolve(ROOT, 'dist');
-const SRC = resolve(ROOT, 'src');
-const STATIC = resolve(ROOT, 'static');
-
-module.exports = { DIST, PACKAGE, ROOT, SRC, STATIC };
+module.exports = {
+  distDir,
+  indexHtml,
+  packageJson,
+  root,
+  srcDir,
+  staticDir
+};

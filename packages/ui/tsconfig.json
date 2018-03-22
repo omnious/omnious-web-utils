@@ -1,7 +1,58 @@
 {
-  "include": ["packages/**/*.ts", "packages/**/*.tsx"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "forceConsistentCasingInFileNames": false,
+
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "declaration": false,
+
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+
+    "allowJs": false,
+    "checkJs": false,
+    "maxNodeModuleJsDepth": 0,
+
     "strict": true,
-    "jsx": "react"
-  }
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "charset": "utf8",
+    "emitBOM": false,
+    "removeComments": true,
+    "disableSizeLimit": false,
+    "noEmit": false,
+    "noEmitOnError": true,
+    "preserveConstEnums": false,
+
+    "downlevelIteration": false,
+    "experimentalDecorators": true,
+
+    "importHelpers": false,
+    "sourceMap": true,
+    "noResolve": false
+  },
+  "compileOnSave": false
 }
