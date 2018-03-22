@@ -1,6 +1,6 @@
 {
   "name": "@omnious/ui",
-  "version": "0.0.7-0",
+  "version": "0.0.7",
   "description": "React components for omnious.",
   "homepage": "https://omniouskit.netlify.com",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
@@ -32,7 +32,6 @@
     "prettier": "prettier --write '**/*.ts'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
-  "dependencies": {},
   "devDependencies": {
     "@storybook/addon-options": "^3.3.15",
     "@storybook/react": "^3.3.15",

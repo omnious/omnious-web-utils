@@ -1,6 +1,6 @@
 {
   "name": "@omnious/webpack",
-  "version": "0.5.4-rc3",
+  "version": "0.5.4-rc4",
   "description": "Webpack scripts and configurations for omnious.",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "contributors": [
@@ -46,7 +46,6 @@
     "webpack-dev-server": "^2.11.2",
     "webpack-merge": "^4.1.2"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
