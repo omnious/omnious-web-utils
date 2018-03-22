@@ -10,10 +10,21 @@
       "email": "ykd1217@gmail.com"
     }
   ],
-  "main": "dist/bundle.min.js",
   "license": "MIT",
+  "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/ui",
+  "keywords": [
+    "omnious",
+    "ui",
+    "react",
+    "components"
+  ],
+  "engines": {
+    "node": ">= 8.9.1"
+  },
+  "main": "dist/index.js",
   "scripts": {
     "build:storybook": "build-storybook -c .storybook -o .out",
+    "build:ui": "tsc",
     "lint": "run-s lint:**",
     "lint:js": "eslint .",
     "lint:ts": "tslint **/*.ts **/*.tsx",
@@ -21,18 +32,20 @@
     "prettier": "prettier --write '**/*.ts'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@omnious/webpack": "^0.5.4-rc3",
     "@storybook/addon-options": "^3.3.15",
     "@storybook/react": "^3.3.15",
-    "babel-core": "^6.26.0"
+    "@types/react": "^16.0.40",
+    "@types/react-dom": "^16.0.4",
+    "babel-core": "^6.26.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "styled-components": "^3.2.3"
   },
   "peerDependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  },
-  "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "styled-components": "^3.2.3"
   }
 }

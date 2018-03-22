@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import Spinner from '../Spinner';
-import STYLES from '../constants/styles';
+import { Spinner } from '../';
+import { STYLES } from '../constants/styles';
 
-interface IProps {
+// interface
+interface Props {
   className?: string;
   color: string;
   icon?: string;
@@ -15,14 +16,13 @@ interface IProps {
   onClick(): void;
 }
 
-const Button: React.SFC<IProps> = ({ children, className, disabled, icon, loading, onClick }) => {
-  if (loading) {
+const ButtonComponent: React.SFC<Props> = ({ children, className, disabled, icon, loading, onClick }): JSX.Element => {
+  if (loading)
     return (
       <button className={className} disabled={disabled} onClick={onClick}>
         <Spinner />
       </button>
     );
-  }
 
   return (
     <button className={className} disabled={disabled} onClick={onClick}>
@@ -32,7 +32,7 @@ const Button: React.SFC<IProps> = ({ children, className, disabled, icon, loadin
   );
 };
 
-const StyledButton = styled(Button)`
+export const Button = styled(ButtonComponent)`
   border: 2px solid transparent;
   border-radius: ${STYLES.smRad};
   box-shadow: 0 2px 4px 0 ${STYLES.buttonShadow};
@@ -147,5 +147,3 @@ const StyledButton = styled(Button)`
     cursor: not-allowed;
   }
 `;
-
-export default StyledButton;

@@ -34,14 +34,17 @@ module.exports = {
         test: /\.s?css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              minimize: true,
-              sourceMap: true
-            }
-          }, 'sass-loader']
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                minimize: true,
+                sourceMap: true
+              }
+            },
+            'sass-loader'
+          ]
         })
       }
     ]

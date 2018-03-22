@@ -1,2 +1,6 @@
 .storybook
+examples
+src
 test
+.babelrc
+tsconfig.json
