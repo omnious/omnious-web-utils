@@ -4,40 +4,9 @@ const { smart } = require('webpack-merge');
 
 // Local import
 const commonConfig = require('./webpack.config.common');
-const { srcDir } = require('./config/paths');
-
-function mainLoader(language) {
-  switch (language) {
-    case 'ts':
-      return {
-        module: {
-          rules: [
-            {
-              test: /\.tsx?$/,
-              use: 'ts-loader',
-              include: srcDir
-            }
-          ]
-        }
-      };
-    case 'js':
-    default:
-      return {
-        module: {
-          rules: [
-            {
-              test: /\.jsx?$/,
-              use: 'babel-loader',
-              include: srcDir
-            }
-          ]
-        }
-      };
-  }
-}
 
 module.exports = (env, options) => {
-  const { language = 'js', add } = options;
+  const { add } = options;
 
   let additionalConfig = {};
   if (add) additionalConfig = require(resolve(process.cwd(), add));
@@ -45,11 +14,11 @@ module.exports = (env, options) => {
   switch (env) {
     case 'development': {
       const devConfig = require('./webpack.config.dev');
-      return smart(commonConfig, devConfig, mainLoader(language), additionalConfig);
+      return smart(commonConfig, devConfig, additionalConfig);
     }
     case 'production': {
       const prodConfig = require('./webpack.config.prod');
-      return smart(commonConfig, prodConfig, mainLoader(language), additionalConfig);
+      return smart(commonConfig, prodConfig, additionalConfig);
     }
     case 'test':
     default:

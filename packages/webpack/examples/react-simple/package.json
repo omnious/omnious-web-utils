@@ -1,0 +1,17 @@
+{
+  "name": "react-simple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "omnious-webpack build",
+    "build": "omnious-webpack watch"
+  },
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@omnious/webpack": "^0.5.4-rc2"
+  }
+}

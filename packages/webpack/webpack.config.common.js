@@ -3,6 +3,7 @@
  */
 
 // Global import
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const { DefinePlugin, IgnorePlugin } = require('webpack');
@@ -36,6 +37,20 @@ module.exports = {
         }
       },
       {
+        test: /\.jsx?$/,
+        use: 'babel-loader',
+        include: srcDir
+      },
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
+      },
+      {
         test: /\.svg$/,
         use: 'file-loader'
       }
@@ -48,6 +63,9 @@ module.exports = {
       CDN: JSON.stringify(cdn),
       CHIMP: JSON.stringify(mailchimp),
       SENTRY: JSON.stringify(sentry)
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      watch: srcDir
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
     new InterpolateHtmlPlugin({ cdn, facebook, google })

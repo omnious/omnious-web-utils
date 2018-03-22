@@ -24,9 +24,14 @@
   "devDependencies": {
     "@omnious/webpack": "^0.5.4-rc2",
     "@storybook/addon-options": "^3.3.15",
-    "@storybook/react": "^3.3.15"
+    "@storybook/react": "^3.3.15",
+    "babel-core": "^6.26.0"
   },
   "peerDependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   }
