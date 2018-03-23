@@ -8,31 +8,20 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { withDocs } from 'storybook-readme';
 
-import Welcome from './Welcome';
-import PaletteDocs from './Color/PaletteDocs.md';
-import PaletteStory from './Color/PaletteStory';
-import GradientDocs from './Color/GradientDocs.md';
-import GradientStory from './Color/GradientStory';
-import ShadowDocs from './Color/ShadowDocs.md';
-import ShadowStory from './Color/ShadowStory';
-
-import FontDocs from './Font/Docs.md';
-import FontStory from './Font/FontStory';
-
-import ButtonStory from './Button/ButtonStory';
-import ButtonDocs from './Button/Docs.md';
-
+import { WelcomeStory } from './WelcomeStory';
+import { GradientDocs, GradientStory, PaletteDocs, PaletteStory, ShadowDocs, ShadowStory } from './Color';
+import { ButtonStory, ButtonDocs } from './Button';
 
 storiesOf('Guide', module)
-  .add('README', () => <Welcome />);
+  .add('README', () => <WelcomeStory />);
 
 storiesOf('Guide/Color', module)
   .add('Palettes', withDocs(PaletteDocs, () => <PaletteStory />))
   .add('Gradients', withDocs(GradientDocs, () => <GradientStory />))
   .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory />));
 
-storiesOf('Guide/Font', module)
-  .add('Fonts', () => <FontStory />);
+// storiesOf('Guide/Font', module)
+//   .add('Fonts', () => <FontStory />);
 //   .add('Font size', () => null)
 //   .add('Font weight', () => null)
 //   .add('Spacing', () => null)
@@ -61,11 +50,7 @@ storiesOf('Button', module)
         </ButtonStory>
       )
     )
-  )
-  // .add('Color', () => <Button />)
-  // .add('Invert', () => <Button />)
-  // .add('Icon', () => <Button />)
-  // .add('Stats', () => <Button />);
+  );
 
 // storiesOf('Card', module);
 

@@ -2,25 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { StoryContainer } from '../shared-style';
-import Button from '../../../packages/kit/Button';
+import { Button } from '../../../src';
 
 
-const ButtonWrapper = styled.section`
-  align-items: center;
-  border-radius: 0.25rem;
-  display: flex;
-  padding: 0.5rem;
-
-  > button:not(:last-child) {
-    margin-right: 1rem;
-  }
-`;
-
-const InvertWrapper = ButtonWrapper.extend`
-  background: #333;
-`;
-
-export default class ButtonStory extends Component {
+export class ButtonStory extends Component {
   render() {
     const { children, ...options } = this.props;
     return (
@@ -61,3 +46,19 @@ export default class ButtonStory extends Component {
     );
   }
 }
+
+const ButtonWrapper = styled.section`
+  align-items: center;
+  border-radius: 0.25rem;
+  display: flex;
+  padding: 0.5rem;
+
+  > button:not(:last-child) {
+    margin-right: 1rem;
+  }
+`;
+
+const InvertWrapper = ButtonWrapper.extend`
+  background: #333;
+`;
+

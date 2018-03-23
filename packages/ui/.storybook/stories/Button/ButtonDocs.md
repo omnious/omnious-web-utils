@@ -5,7 +5,7 @@
 ## Usage
 
 ```jsx
-  import { Button } from '@omnious/kit';
+  import { Button } from '@omnious/ui';
 
   <Button
     color="primary"
