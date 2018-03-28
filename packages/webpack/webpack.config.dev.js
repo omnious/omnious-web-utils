@@ -4,14 +4,14 @@
 
 // Global import
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { HotModuleReplacementPlugin, NamedModulesPlugin, NoEmitOnErrorsPlugin } = require('webpack');
+const { HotModuleReplacementPlugin } = require('webpack');
 
 // Local import
 const { host, port } = require('./config');
 const { distDir, indexHtml, srcDir } = require('./config/paths');
 
 module.exports = {
-  devtool: 'eval-source-map',
+  mode: 'development',
   entry: [
     `webpack-dev-server/client?http://${host}:${port}`,
     'webpack/hot/only-dev-server',
@@ -20,8 +20,8 @@ module.exports = {
   output: {
     path: distDir,
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
-    publicPath: '/'
+    publicPath: '/',
+    chunkFilename: '[name].chunk.js'
   },
   module: {
     rules: [
@@ -35,10 +35,17 @@ module.exports = {
               importLoaders: 1
             }
           },
-          'sass-loader'
+          'postcss-loader'
         ]
       }
     ]
+  },
+  performance: {
+    hints: false
+  },
+  devtool: 'eval-source-map',
+  optimization: {
+    // TODO: Add optimization options
   },
   plugins: [
     new HotModuleReplacementPlugin(),
@@ -46,11 +53,10 @@ module.exports = {
       inject: true,
       filename: './index.html',
       template: indexHtml
-    }),
-    new NamedModulesPlugin(),
-    new NoEmitOnErrorsPlugin()
+    })
+    // NOTE: Already contained in `development` mode
+    // new NamedModulesPlugin()
   ],
-  performance: {
-    hints: false
-  }
+  // NOTE: Already contained in `development` mode
+  // cache: true
 };

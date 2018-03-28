@@ -13,18 +13,28 @@ const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config
 const { packageJson, srcDir } = require('./config/paths');
 
 module.exports = {
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {},
-    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
-  },
   module: {
     rules: [
       {
         test: /\.js$/,
+        include: srcDir,
         use: 'source-map-loader',
-        enforce: 'pre',
-        include: srcDir
+        enforce: 'pre'
+      },
+      {
+        test: /\.jsx?$/,
+        include: srcDir,
+        use: 'babel-loader'
+      },
+      {
+        test: /\.tsx?$/,
+        include: srcDir,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
       },
       {
         test: /\.(jpg|png)$/,
@@ -37,24 +47,15 @@ module.exports = {
         }
       },
       {
-        test: /\.jsx?$/,
-        use: 'babel-loader',
-        include: srcDir
-      },
-      {
-        test: /\.tsx?$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        }
-      },
-      {
-        test: /\.svg$/,
+        test: /\.(gif|svg|otf|ttf)$/,
         use: 'file-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {},
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   plugins: [
     new DefinePlugin({

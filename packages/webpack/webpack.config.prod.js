@@ -3,10 +3,12 @@
  */
 
 // Global import
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 // const OfflinePlugin = require('offline-plugin');
 const { resolve } = require('path');
 const { LoaderOptionsPlugin, optimize } = require('webpack');
@@ -16,7 +18,7 @@ const { tag } = require('./config');
 const { distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
 
 module.exports = {
-  devtool: 'source-map',
+  mode: 'production',
   entry: {
     bundle: srcDir,
     vendor: resolve(srcDir, 'vendor'),
@@ -25,8 +27,8 @@ module.exports = {
   output: {
     path: resolve(distDir, tag),
     filename: '[name].[chunkhash:8].js',
-    chunkFilename: '[name].[chunkhash:8].chunk.js',
-    publicPath: `/${tag}/`
+    publicPath: `/${tag}/`,
+    chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   module: {
     rules: [
@@ -43,13 +45,21 @@ module.exports = {
                 sourceMap: true
               }
             },
-            'sass-loader'
+            'postcss-loader'
           ]
         })
       }
     ]
   },
+  performance: {
+    hints: 'warning'
+  },
+  devtool: 'source-map',
+  optimization: {
+    // TODO: Add optimization options
+  },
   plugins: [
+    new CleanWebpackPlugin(distDir),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
@@ -76,6 +86,19 @@ module.exports = {
         minifyURLs: true
       }
     }),
+    new LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'cached-app',
+      minify: true
+      // staticFileGlobs: [
+      //   'src/**/**.*',
+      //   'src/**.html'
+      // ]
+    }),
+    new optimize.SplitChunksPlugin()
     // new OfflinePlugin({
     //   safeToUseOptionalCaches: true,
     //   caches: {
@@ -89,27 +112,19 @@ module.exports = {
     //   },
     //   AppCache: false
     // }),
-    new LoaderOptionsPlugin({
-      minimize: true,
-      debug: false
-    }),
-    new optimize.CommonsChunkPlugin({
-      name: ['bundle', 'vendor', 'polyfills'],
-      minChunks: Infinity
-    }),
-    new optimize.UglifyJsPlugin({
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        warnings: false,
-        unused: true
-      },
-      mangle: true,
-      comments: false,
-      sourceMap: true
-    })
-  ],
-  performance: {
-    hints: 'warning'
-  }
+    // NOTE: already contained in `production` mode
+    // new UglifyJsPlugin({
+    //   compress: {
+    //     drop_console: true,
+    //     drop_debugger: true,
+    //     warnings: false,
+    //     unused: true
+    //   },
+    //   mangle: true,
+    //   comments: false,
+    //   sourceMap: true
+    // }),
+    // new optimize.ModuleConcatenationPlugin(),
+    // new NoEmitOnErrorsPlugin()
+  ]
 };
