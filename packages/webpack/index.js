@@ -7,34 +7,36 @@ const commander = require('commander');
 const packageJson = require('./package');
 const logger = require('./scripts/logger');
 
-let taskName;
+let modeName = 'react';
+let taskName = 'watch';
 const program = new commander.Command('omnious-webpack')
   .version(packageJson.version, '-v, --version')
-  .arguments('<task>')
-  .usage('<task> [options]')
+  .arguments('<mode> <task>')
+  .usage('<mode> <task> [options]')
   .option('-a, --add [value]', 'additional webpack config')
-  .action(task => {
+  .action((mode, task) => {
+    modeName = mode;
     taskName = task;
   })
   .parse(process.argv);
 
 if (!taskName) {
-  logger.error(`Please specify webpack task!
-   Usage: omnious-webpack <task> [options]
+  logger.error(`Please specify webpack mode and task!
+   Usage: omnious-webpack <mode> <task> [options]
   `);
   process.exit(1);
 }
 
-function webpackScript(task, options = {}) {
+function webpackScript(mode, task, options = {}) {
   switch (task) {
     case 'build': {
       const builder = require('./scripts/build');
-      builder(options);
+      builder(mode, options);
       break;
     }
     case 'watch': {
       const watcher = require('./scripts/watch');
-      watcher(options);
+      watcher(mode, options);
       break;
     }
     case 'test':
@@ -45,6 +47,6 @@ function webpackScript(task, options = {}) {
   }
 }
 
-webpackScript(taskName, {
+webpackScript(modeName, taskName, {
   add: program.add
 });

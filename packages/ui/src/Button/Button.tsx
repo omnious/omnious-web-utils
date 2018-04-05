@@ -2,17 +2,18 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Spinner } from '../';
-import { STYLES } from '../constants/styles';
+import { COLORS, SIZES } from '../Styles';
 
 // interface
 interface Props {
   className?: string;
   color: string;
+  disabled: boolean;
+  fullWidth?: boolean;
   icon?: string;
   invert: boolean;
-  size: string;
-  disabled: boolean;
   loading: boolean;
+  size: string;
   onClick(): void;
 }
 
@@ -26,53 +27,49 @@ const ButtonComponent: React.SFC<Props> = ({ children, className, disabled, icon
 
   return (
     <button className={className} disabled={disabled} onClick={onClick}>
-      {icon && <img src={icon} />}
+      {icon && <img src={icon} alt="Button icon" />}
       {children}
     </button>
   );
 };
 
 export const Button = styled(ButtonComponent)`
-  border: 2px solid transparent;
-  border-radius: ${STYLES.smRad};
-  box-shadow: 0 2px 4px 0 ${STYLES.buttonShadow};
+  /* border: 1px solid transparent; */
+  border-radius: ${SIZES.xsRad};
+  /* box-shadow: ${COLORS.buttonShadow}; */
   cursor: pointer;
   display: flex;
   justify-content: center;
   transition: all 0.2s;
+  width: ${({ fullWidth }) => fullWidth ? '100%' : ''};
 
   /* size */
   ${({ size }) => {
     switch (size) {
-      /* xl */
       case 'xl':
         return `
-          font-size: ${STYLES.h2};
-          padding: ${STYLES.lgRad} ${STYLES.xlRad};
+          font-size: ${SIZES.h2};
+          padding: ${SIZES.lgRad} ${SIZES.xlRad};
         `;
-      /* lg */
       case 'lg':
         return `
-          font-size: ${STYLES.h3};
-          padding: ${STYLES.mdRad} ${STYLES.lgRad};
+          font-size: ${SIZES.h3};
+          padding: ${SIZES.mdRad} ${SIZES.lgRad};
         `;
-      /* sm */
       case 'sm':
         return `
-          font-size: ${STYLES.h5};
-          padding: ${STYLES.xsRad} ${STYLES.smRad};
+          font-size: ${SIZES.h5};
+          padding: ${SIZES.xsRad} ${SIZES.smRad};
         `;
-      /* xs */
       case 'xs':
         return `
-          font-size: ${STYLES.h6};
-          padding: ${STYLES.xsRad};
+          font-size: ${SIZES.h6};
+          padding: ${SIZES.xsPad};
         `;
-      /* md */
       default:
         return `
-          font-size: ${STYLES.h4};
-          padding: ${STYLES.smRad} ${STYLES.mdRad};
+          font-size: ${SIZES.h4};
+          padding: ${SIZES.smRad} ${SIZES.mdRad};
         `;
     }
   }}
@@ -80,69 +77,71 @@ export const Button = styled(ButtonComponent)`
   /* color */
   ${({ color, invert }) => {
     switch (color) {
-      /* primary */
       case 'primary': {
-        /* invert */
         if (invert) {
           return `
-            background: transparent;
-            border: 2px solid ${STYLES.primaryBlue};
-            color: ${STYLES.primaryBlue};
+            background-color: transparent;
+            border: 1px solid ${COLORS.primaryBlue};
+            box-shadow: ${COLORS.lightShadow};
+            color: ${COLORS.primaryBlue};
 
-            :hover {
-              background: ${STYLES.primaryBlue};
-              color: ${STYLES.white};
+            &:hover {
+              background: ${COLORS.primaryBlue};
+              color: ${COLORS.white};
             }
           `;
         }
 
         return `
-          background: ${STYLES.primaryBlue};
-          color: ${STYLES.white};
+          background-color: ${COLORS.primaryBlue};
+          border: 1px solid ${COLORS.darkBlue};
+          box-shadow: ${COLORS.buttonShadow};
+          color: ${COLORS.white};
 
-          :hover {
+          &:hover {
+            background-color: ${COLORS.primaryBlueHov};
           }
         `;
       }
-      /* secondary */
       case 'secondary': {
-        /* invert */
         if (invert) {
           return `
+            background-color: transparent;
+            border: 1px solid ${COLORS.secondaryBlue};
+            color: ${COLORS.white};
           `;
         }
 
         return `
+          background-color: none;
         `;
       }
-      /* default */
       default: {
-        /* invert */
         if (invert) {
           return `
             background: transparent;
-            border: 2px solid ${STYLES.defaultGray};
-            color: ${STYLES.defaultGray};
+            border: 2px solid ${COLORS.defaultGray};
+            color: ${COLORS.defaultGray};
 
-            :hover {
-              background: ${STYLES.defaultGray};
-              color: ${STYLES.black};
+            &:hover {
+              background: ${COLORS.defaultGray};
+              color: ${COLORS.black};
             }
           `;
         }
 
         return `
-          background: ${STYLES.defaultGray};
+          background: ${COLORS.defaultGray};
         `;
       }
     }
   }}
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
-  :disabled {
+  &:disabled {
     color: graytext;
     cursor: not-allowed;
   }

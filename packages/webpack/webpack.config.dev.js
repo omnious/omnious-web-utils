@@ -7,8 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 // Local import
-const { host, port } = require('./config');
-const { distDir, indexHtml, srcDir } = require('./config/paths');
+const { host, port } = require('./config/env');
+const { distDir, indexHtml, srcDir } = require('./config/path');
 
 module.exports = {
   mode: 'development',
@@ -24,21 +24,19 @@ module.exports = {
     chunkFilename: '[name].chunk.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ]
-      }
-    ]
+    rules: [{
+      test: /\.s?css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1
+          }
+        },
+        'postcss-loader'
+      ]
+    }]
   },
   performance: {
     hints: false

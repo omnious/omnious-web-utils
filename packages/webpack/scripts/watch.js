@@ -10,17 +10,17 @@ const WebpackDevServer = require('webpack-dev-server');
 
 // Local import
 const logger = require('./logger');
-const { env, host, port } = require('../config');
-const { staticDir } = require('../config/paths');
+const { env, host, port } = require('../config/env');
+const { staticDir } = require('../config/path');
 const webpackConfig = require('../webpack.config');
 
-module.exports = options => {
+module.exports = (mode, options) => {
   // Initialize console
   clearConsole();
   logger.start(`Starting build in ${env} mode`);
 
   // Set DevServer
-  const devConfig = webpackConfig(env, options);
+  const devConfig = webpackConfig(env, { mode, ...options });
   const compiler = webpack(devConfig);
   const devOptions = {
     contentBase: staticDir,

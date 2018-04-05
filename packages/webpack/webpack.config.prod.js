@@ -8,6 +8,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 // const OfflinePlugin = require('offline-plugin');
 const { resolve } = require('path');
@@ -90,6 +91,7 @@ module.exports = {
       minimize: true,
       debug: false
     }),
+    new StyleLintPlugin(),
     new SWPrecacheWebpackPlugin({
       cacheId: 'cached-app',
       minify: true

@@ -4,53 +4,33 @@
 
 // Global import
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { DefinePlugin, IgnorePlugin } = require('webpack');
 
 // Local import
-const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
-const { packageJson, srcDir } = require('./config/paths');
+const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config/env');
+const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        include: srcDir,
-        use: 'source-map-loader',
-        enforce: 'pre'
-      },
-      {
-        test: /\.jsx?$/,
-        include: srcDir,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        include: srcDir,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
+    rules: [{
+      test: /\.html$/,
+      loader: 'raw-loader'
+    }, {
+      test: /\.(jpg|png)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[name].[hash:8].[ext]'
         }
-      },
-      {
-        test: /\.(jpg|png)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: '[name].[hash:8].[ext]'
-          }
-        }
-      },
-      {
-        test: /\.(gif|svg|otf|ttf)$/,
-        use: 'file-loader'
       }
-    ]
+    }, {
+      test: /\.(gif|svg|otf|ttf)$/,
+      use: 'file-loader'
+    }]
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -69,6 +49,7 @@ module.exports = {
       watch: srcDir
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new InterpolateHtmlPlugin({ cdn, facebook, google })
+    // new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    new StyleLintPlugin()
   ]
 };

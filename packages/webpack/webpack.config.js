@@ -6,7 +6,8 @@ const { smart } = require('webpack-merge');
 const commonConfig = require('./webpack.config.common');
 
 module.exports = (env, options) => {
-  const { add } = options;
+  const { mode, add } = options;
+  const modeConfig = require(`./config/${mode}`);
 
   let additionalConfig = {};
   if (add) additionalConfig = require(resolve(process.cwd(), add));
@@ -14,11 +15,11 @@ module.exports = (env, options) => {
   switch (env) {
     case 'development': {
       const devConfig = require('./webpack.config.dev');
-      return smart(commonConfig, devConfig, additionalConfig);
+      return smart(commonConfig, modeConfig, devConfig, additionalConfig);
     }
     case 'production': {
       const prodConfig = require('./webpack.config.prod');
-      return smart(commonConfig, prodConfig, additionalConfig);
+      return smart(commonConfig, modeConfig, prodConfig, additionalConfig);
     }
     case 'test':
     default:
