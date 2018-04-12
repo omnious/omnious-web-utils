@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { StoryContainer } from '../shared-style';
 import { Button } from '../../../src';
 
-
 export class ButtonStory extends Component {
   render() {
     const { children, ...options } = this.props;
@@ -22,8 +21,12 @@ export class ButtonStory extends Component {
         <h3>Invert</h3>
         <InvertWrapper>
           <Button invert>Default</Button>
-          <Button color="primary" invert>Primary</Button>
-          <Button color="secondary" invert>Secondary</Button>
+          <Button color="primary" invert>
+            Primary
+          </Button>
+          <Button color="secondary" invert>
+            Secondary
+          </Button>
         </InvertWrapper>
         <h3>Size</h3>
         <ButtonWrapper>
@@ -36,11 +39,21 @@ export class ButtonStory extends Component {
         <h3>Disabled</h3>
         <ButtonWrapper>
           <Button disabled>Disabled</Button>
-          <Button color="primary" disabled>Primary</Button>
-          <Button color="secondary" disabled>Secondary</Button>
-          <Button invert disabled>Default</Button>
-          <Button color="primary" invert disabled>Primary</Button>
-          <Button color="secondary" invert disabled>Secondary</Button>
+          <Button color="primary" disabled>
+            Primary
+          </Button>
+          <Button color="secondary" disabled>
+            Secondary
+          </Button>
+          <Button invert disabled>
+            Default
+          </Button>
+          <Button color="primary" invert disabled>
+            Primary
+          </Button>
+          <Button color="secondary" invert disabled>
+            Secondary
+          </Button>
         </ButtonWrapper>
       </StoryContainer>
     );
@@ -61,4 +74,3 @@ const ButtonWrapper = styled.section`
 const InvertWrapper = ButtonWrapper.extend`
   background: #333;
 `;
-

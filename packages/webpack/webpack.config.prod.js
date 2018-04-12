@@ -6,24 +6,25 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-// const OfflinePlugin = require('offline-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { resolve } = require('path');
 const { LoaderOptionsPlugin, optimize } = require('webpack');
 
 // Local import
-const { tag } = require('./config');
-const { distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
+const { tag } = require('./config/env');
+const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./config/path');
 
 module.exports = {
   mode: 'production',
   entry: {
     bundle: srcDir,
-    vendor: resolve(srcDir, 'vendor'),
-    polyfills: resolve(srcDir, 'polyfills')
+    vendor,
+    polyfills
   },
   output: {
     path: resolve(distDir, tag),
@@ -35,20 +36,16 @@ module.exports = {
     rules: [
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                minimize: true,
-                sourceMap: true
-              }
-            },
-            'postcss-loader'
-          ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
   },
@@ -57,7 +54,31 @@ module.exports = {
   },
   devtool: 'source-map',
   optimization: {
-    // TODO: Add optimization options
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            comparisons: false,
+            drop_console: true,
+            drop_debugger: true,
+            unused: true,
+            warnings: false
+          },
+          mangle: true,
+          output: {
+            comments: false
+          }
+        },
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin()
+    ],
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: true
   },
   plugins: [
     new CleanWebpackPlugin(distDir),
@@ -69,7 +90,6 @@ module.exports = {
       minRatio: 0.8
     }),
     new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
-    new ExtractTextPlugin({ filename: '[name].[contenthash:8].css' }),
     new HtmlWebpackPlugin({
       inject: true,
       filename: '../index.html',
@@ -91,6 +111,10 @@ module.exports = {
       minimize: true,
       debug: false
     }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[name].[contenthash:8].chunk.css'
+    }),
     new StyleLintPlugin(),
     new SWPrecacheWebpackPlugin({
       cacheId: 'cached-app',
@@ -101,31 +125,7 @@ module.exports = {
       // ]
     }),
     new optimize.SplitChunksPlugin()
-    // new OfflinePlugin({
-    //   safeToUseOptionalCaches: true,
-    //   caches: {
-    //     main: ['../index.html', 'polyfills.*.*', 'vendor.*.*', 'bundle.*.*'],
-    //     additional: ['*.chunk.js', ':externals:'],
-    //     optional: [':rest:']
-    //   },
-    //   ServiceWorker: {
-    //     output: '../sw.js',
-    //     events: true
-    //   },
-    //   AppCache: false
-    // }),
     // NOTE: already contained in `production` mode
-    // new UglifyJsPlugin({
-    //   compress: {
-    //     drop_console: true,
-    //     drop_debugger: true,
-    //     warnings: false,
-    //     unused: true
-    //   },
-    //   mangle: true,
-    //   comments: false,
-    //   sourceMap: true
-    // }),
     // new optimize.ModuleConcatenationPlugin(),
     // new NoEmitOnErrorsPlugin()
   ]

@@ -4,32 +4,35 @@ module.exports = {
     alias: {}
   },
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: 'babel-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.s?css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [require('autoprefixer')]
+            }
           }
-        }, {
-          loader: 'postcss-loader',
-          options: {
-            plugins: [
-              require('autoprefixer')
-            ]
-          }
-        }
-      ]
-    }]
+        ]
+      }
+    ]
   }
-}
+};

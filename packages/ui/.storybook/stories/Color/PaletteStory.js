@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { StoryContainer } from '../shared-style';
 import { COLORS } from '../../../src/Styles';
 
-
 export class PaletteStory extends Component {
   render() {
     return (

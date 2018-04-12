@@ -2,6 +2,7 @@
   "name": "@omnious/webpack",
   "version": "0.5.4-rc6",
   "description": "Webpack scripts and configurations for omnious.",
+  "homepage": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/webpack",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "contributors": [
     {
@@ -20,8 +21,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "prettier": "prettier --write '**/*.js'"
+    "lint": "eslint ."
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.19",
@@ -31,17 +31,15 @@
     "css-loader": "^0.28.10",
     "dotenv": "^5.0.1",
     "eslint-loader": "^2.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.9",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
-    "html-webpack-plugin": "^3.0.4",
-    "lerna": "^2.9.1",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.0",
     "ora": "^2.0.0",
     "postcss-loader": "^2.1.1",
     "raw-loader": "^0.5.1",
-    "react": "^16.3.1",
-    "react-dev-utils": "^5.0.0",
-    "react-dom": "^16.3.1",
+    "react-dev-utils": "^6.0.0-next.b2fd8db8",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.2",
     "stylelint-webpack-plugin": "^0.10.3",
@@ -54,6 +52,7 @@
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-beta.44",
+    "angular2-template-loader": "^0.6.2",
     "babel-loader": "^8.0.0-beta",
     "eslint": "^4.19.1",
     "stylelint": "^9.2.0",

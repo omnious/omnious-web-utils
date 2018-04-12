@@ -1,10 +1,9 @@
 import { configure } from '@storybook/react';
 import { setOptions } from '@storybook/addon-options';
 
-
 const loadStories = () => {
   require('./stories');
-}
+};
 
 setOptions({
   name: '@omnious/ui',

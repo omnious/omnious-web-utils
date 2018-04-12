@@ -9,11 +9,17 @@ import React from 'react';
 import { withDocs } from 'storybook-readme';
 
 import { WelcomeStory } from './WelcomeStory';
-import { GradientDocs, GradientStory, PaletteDocs, PaletteStory, ShadowDocs, ShadowStory } from './Color';
+import {
+  GradientDocs,
+  GradientStory,
+  PaletteDocs,
+  PaletteStory,
+  ShadowDocs,
+  ShadowStory
+} from './Color';
 import { ButtonStory, ButtonDocs } from './Button';
 
-storiesOf('Guide', module)
-  .add('README', () => <WelcomeStory />);
+storiesOf('Guide', module).add('README', () => <WelcomeStory />);
 
 storiesOf('Guide/Color', module)
   .add('Palettes', withDocs(PaletteDocs, () => <PaletteStory />))
@@ -35,21 +41,18 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
     'Single Button',
-    withDocs(
-      ButtonDocs,
-      () => (
-        <ButtonStory
-          color={select('color', ['primary', 'secondary', 'default'], 'primary')}
-          invert={boolean('invert', false)}
-          size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
-          disabled={boolean('disabled', false)}
-          loading={boolean('loading', false)}
-          onClick={action('Button click')}
-        >
-          {text('Content', 'This is `<Button />`!')}
-        </ButtonStory>
-      )
-    )
+    withDocs(ButtonDocs, () => (
+      <ButtonStory
+        color={select('color', ['primary', 'secondary', 'default'], 'primary')}
+        invert={boolean('invert', false)}
+        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        onClick={action('Button click')}
+      >
+        {text('Content', 'This is `<Button />`!')}
+      </ButtonStory>
+    ))
   );
 
 // storiesOf('Card', module);
