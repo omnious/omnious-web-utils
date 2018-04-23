@@ -21,7 +21,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "prettier": "prettier --write '**/*.{js,ts,tsx}'"
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.19",
