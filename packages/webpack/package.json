@@ -30,6 +30,7 @@
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.10",
     "dotenv": "^5.0.1",
+    "dotenv-webpack": "^1.5.5",
     "eslint-loader": "^2.0.0",
     "file-loader": "^1.1.9",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
