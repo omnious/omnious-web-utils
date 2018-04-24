@@ -51,9 +51,10 @@ module.exports = {
   plugins: [
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      inject: true,
       filename: './index.html',
-      template: indexHtml
+      template: indexHtml,
+      inject: true,
+      chunksSortMode: 'none'
     })
     // NOTE: Already contained in `development` mode
     // new NamedModulesPlugin()

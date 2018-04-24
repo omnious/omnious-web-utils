@@ -91,9 +91,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
     new HtmlWebpackPlugin({
-      inject: true,
       filename: '../index.html',
       template: indexHtml,
+      inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -105,7 +105,8 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
-      }
+      },
+      chunksSortMode: 'none'
     }),
     new LoaderOptionsPlugin({
       minimize: true,
