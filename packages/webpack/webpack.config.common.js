@@ -4,14 +4,13 @@
 
 // Global import
 const DotenvPlugin = require('dotenv-webpack');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 // const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config/env');
+const { cdn, facebook, google } = require('./config/env');
 const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
@@ -20,13 +19,8 @@ module.exports = {
       {
         test: /\.js$/,
         include: srcDir,
-        use: ['source-map-loader', 'eslint-loader'],
+        use: 'source-map-loader',
         enforce: 'pre'
-      },
-      {
-        test: /\.jsx?$/,
-        include: srcDir,
-        use: 'babel-loader'
       },
       {
         test: /\.html$/,
@@ -56,10 +50,6 @@ module.exports = {
   plugins: [
     new DotenvPlugin({
       systemvars: true
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      watch: srcDir
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
     // new InterpolateHtmlPlugin({ cdn, facebook, google }),

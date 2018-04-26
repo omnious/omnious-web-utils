@@ -9,7 +9,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { resolve } = require('path');
@@ -75,6 +74,7 @@ module.exports = {
       }),
       new OptimizeCSSAssetsPlugin()
     ],
+    noEmitOnErrors: true,
     splitChunks: {
       chunks: 'all'
     },
@@ -116,7 +116,6 @@ module.exports = {
       filename: '[name].[contenthash:8].css',
       chunkFilename: '[name].[contenthash:8].chunk.css'
     }),
-    new StyleLintPlugin(),
     new SWPrecacheWebpackPlugin({
       cacheId: 'cached-app',
       minify: true
@@ -124,8 +123,8 @@ module.exports = {
       //   'src/**/**.*',
       //   'src/**.html'
       // ]
-    }),
-    new optimize.SplitChunksPlugin()
+    })
+    // new optimize.SplitChunksPlugin()
     // NOTE: already contained in `production` mode
     // new optimize.ModuleConcatenationPlugin(),
     // new NoEmitOnErrorsPlugin()

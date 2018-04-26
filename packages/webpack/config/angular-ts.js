@@ -1,4 +1,5 @@
 // Global import
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { ContextReplacementPlugin } = require('webpack');
 
 // Local import
@@ -22,5 +23,11 @@ module.exports = {
       }
     ]
   },
-  plugins: [new ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, srcDir)]
+  plugins: [
+    new ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, srcDir),
+    new ForkTsCheckerWebpackPlugin({
+      tslint: true,
+      watch: srcDir
+    })
+  ]
 };

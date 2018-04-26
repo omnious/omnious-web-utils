@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "node ../../index.js react build",
-    "dev": "node ../../index.js react watch"
+    "build": "node ../../index.js build",
+    "dev": "node ../../index.js watch"
   }
 }
