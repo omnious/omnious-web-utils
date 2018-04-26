@@ -5,7 +5,7 @@
 // Global import
 const DotenvPlugin = require('dotenv-webpack');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
-// const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
@@ -44,8 +44,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {}
-    // plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
+    alias: {},
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   plugins: [
     new DotenvPlugin({

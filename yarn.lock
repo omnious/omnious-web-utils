@@ -38,11 +38,11 @@
   dependencies:
     tslib "^1.7.1"
 
-"@babel/code-frame@7.0.0-beta.42":
-  version "7.0.0-beta.42"
-  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.42.tgz#a9c83233fa7cd06b39dc77adbb908616ff4f1962"
+"@babel/code-frame@7.0.0-beta.44":
+  version "7.0.0-beta.44"
+  resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
   dependencies:
-    "@babel/highlight" "7.0.0-beta.42"
+    "@babel/highlight" "7.0.0-beta.44"
 
 "@babel/code-frame@7.0.0-beta.46":
   version "7.0.0-beta.46"
@@ -108,9 +108,9 @@
     "@babel/traverse" "7.0.0-beta.46"
     "@babel/types" "7.0.0-beta.46"
 
-"@babel/highlight@7.0.0-beta.42":
-  version "7.0.0-beta.42"
-  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.0.0-beta.42.tgz#a502a1c0d6f99b2b0e81d468a1b0c0e81e3f3623"
+"@babel/highlight@7.0.0-beta.44":
+  version "7.0.0-beta.44"
+  resolved "https://registry.yarnpkg.com/@babel/highlight/-/highlight-7.0.0-beta.44.tgz#18c94ce543916a80553edcdcf681890b200747d5"
   dependencies:
     chalk "^2.0.0"
     esutils "^2.0.2"
@@ -3097,13 +3097,6 @@ detect-libc@^1.0.2:
 detect-node@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.3.tgz#a2033c09cc8e158d37748fbde7507832bd6ce127"
-
-detect-port-alt@1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/detect-port-alt/-/detect-port-alt-1.1.5.tgz#a1aa8fc805a4a5df9b905b7ddc7eed036bcce889"
-  dependencies:
-    address "^1.0.1"
-    debug "^2.6.0"
 
 detect-port-alt@1.1.6:
   version "1.1.6"
@@ -7362,16 +7355,16 @@ react-dev-utils@^5.0.0:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dev-utils@^6.0.0-next.b2fd8db8:
-  version "6.0.0-next.b2fd8db8"
-  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-6.0.0-next.b2fd8db8.tgz#f9eaf58131eaaaebbc966f3c0e881e021cb143eb"
+react-dev-utils@^6.0.0-next.66cc7a90:
+  version "6.0.0-next.66cc7a90"
+  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-6.0.0-next.66cc7a90.tgz#9d5fb27615454a94b448c679e4a79ea1fe716fba"
   dependencies:
-    "@babel/code-frame" "7.0.0-beta.42"
+    "@babel/code-frame" "7.0.0-beta.44"
     address "1.0.3"
     browserslist "2.11.3"
     chalk "2.3.0"
     cross-spawn "5.1.0"
-    detect-port-alt "1.1.5"
+    detect-port-alt "1.1.6"
     escape-string-regexp "1.0.5"
     filesize "3.5.11"
     find-pkg "1.0.0"
@@ -7382,7 +7375,7 @@ react-dev-utils@^6.0.0-next.b2fd8db8:
     is-root "1.0.0"
     opn "5.2.0"
     pkg-up "2.0.0"
-    react-error-overlay "5.0.0-next.b2fd8db8"
+    react-error-overlay "5.0.0-next.66cc7a90"
     recursive-readdir "2.2.1"
     shell-quote "1.6.1"
     sockjs-client "1.1.4"
@@ -7410,9 +7403,9 @@ react-dom@^16.0.0, react-dom@^16.3.2:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-error-overlay@5.0.0-next.b2fd8db8:
-  version "5.0.0-next.b2fd8db8"
-  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.0-next.b2fd8db8.tgz#e411264d5e16ffc1b5b27149451be99ed24b43f1"
+react-error-overlay@5.0.0-next.66cc7a90:
+  version "5.0.0-next.66cc7a90"
+  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.0.0-next.66cc7a90.tgz#68379b131ebe74112a12197504bfe7fa53119b3b"
 
 react-error-overlay@^4.0.0:
   version "4.0.0"
