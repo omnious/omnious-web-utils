@@ -3,28 +3,36 @@
  */
 
 // Global import
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const DotenvPlugin = require('dotenv-webpack');
+// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const { DefinePlugin, IgnorePlugin } = require('webpack');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const {
+  IgnorePlugin
+} = require('webpack');
 
 // Local import
-const { api, cdn, env, facebook, google, mailchimp, sentry } = require('./config');
-const { packageJson, srcDir } = require('./config/paths');
+const {
+  cdn,
+  facebook,
+  google
+} = require('./config/env');
+const {
+  packageJson,
+  srcDir
+} = require('./config/path');
 
 module.exports = {
-  resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    alias: {},
-    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
-  },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
+        include: srcDir,
         use: 'source-map-loader',
-        enforce: 'pre',
-        include: srcDir
+        enforce: 'pre'
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
       },
       {
         test: /\.(jpg|png)$/,
@@ -37,37 +45,22 @@ module.exports = {
         }
       },
       {
-        test: /\.jsx?$/,
-        use: 'babel-loader',
-        include: srcDir
-      },
-      {
-        test: /\.tsx?$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        }
-      },
-      {
-        test: /\.svg$/,
+        test: /\.(gif|svg|otf|ttf)$/,
         use: 'file-loader'
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {},
+    plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
+  },
   plugins: [
-    new DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
-      API: JSON.stringify(api),
-      CDN: JSON.stringify(cdn),
-      CHIMP: JSON.stringify(mailchimp),
-      SENTRY: JSON.stringify(sentry)
-    }),
-    new ForkTsCheckerWebpackPlugin({
-      watch: srcDir
+    new DotenvPlugin({
+      systemvars: true
     }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new InterpolateHtmlPlugin({ cdn, facebook, google })
+    // new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    new StyleLintPlugin()
   ]
 };

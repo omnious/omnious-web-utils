@@ -12,6 +12,8 @@ const program = new commander.Command('omnious-webpack')
   .version(packageJson.version, '-v, --version')
   .arguments('<task>')
   .usage('<task> [options]')
+  .option('-m, --mode [value]', 'target UI library')
+  .option('-l, --lang [value]', 'transpile language')
   .option('-a, --add [value]', 'additional webpack config')
   .action(task => {
     taskName = task;
@@ -46,5 +48,7 @@ function webpackScript(task, options = {}) {
 }
 
 webpackScript(taskName, {
+  mode: program.mode || 'react',
+  lang: program.lang || 'ts',
   add: program.add
 });

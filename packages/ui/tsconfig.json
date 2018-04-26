@@ -1,29 +1,23 @@
 {
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": false,
-    "forceConsistentCasingInFileNames": false,
-
     "baseUrl": ".",
     "rootDir": "./src",
     "outDir": "./dist",
 
-    "declaration": false,
-
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-
+    "target": "es5",
+    "lib": ["dom", "es2015"],
     "allowJs": false,
     "checkJs": false,
-    "maxNodeModuleJsDepth": 0,
+    "jsx": "react",
+    "declaration": false,
+    "sourceMap": true,
+    "removeComments": true,
+    "noEmit": false,
+    "importHelpers": false,
+    "downlevelIteration": true,
+    "isolatedModules": false,
 
     "strict": true,
     "noImplicitAny": true,
@@ -32,27 +26,44 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
+
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
 
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
+
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "charset": "utf8",
-    "emitBOM": false,
-    "removeComments": true,
+    "diagnostics": true,
     "disableSizeLimit": false,
-    "noEmit": false,
+    "emitBOM": false,
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "jsxFactory": "React.createElement",
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "module": "commonjs",
+    "noEmitHelpers": false,
     "noEmitOnError": true,
+    "noImplicitUseStrict": false,
+    "noLib": false,
+    "noResolve": false,
+    "noStrictGenericChecks": false,
     "preserveConstEnums": false,
-
-    "downlevelIteration": false,
-    "experimentalDecorators": true,
-
-    "importHelpers": false,
-    "sourceMap": true,
-    "noResolve": false
+    "preserveSymlinks": false,
+    "pretty": true,
+    "skipLibCheck": false,
+    "stripInternal": false,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "traceResolution": false
   },
   "compileOnSave": false
 }

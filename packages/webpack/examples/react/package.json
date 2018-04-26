@@ -1,0 +1,10 @@
+{
+  "name": "react-simple",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "node ../../index.js build",
+    "dev": "node ../../index.js watch"
+  }
+}

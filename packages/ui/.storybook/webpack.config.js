@@ -1,28 +1,38 @@
-const { resolve } = require('path');
-
-const { SRC, STORYBOOK } = require('../../../config/paths');
-
-
 module.exports = {
   resolve: {
-    extensions: ['.css', '.js', '.json', '.ts', '.tsx'],
+    extensions: ['.css', '.js', '.json', '.jsx', '.md', '.ts', '.tsx'],
     alias: {}
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: 'babel-loader',
-      include: STORYBOOK
-    }, {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      include: SRC
-    }, {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        'css-loader'
-      ]
-    }]
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [require('autoprefixer')]
+            }
+          }
+        ]
+      }
+    ]
   }
-}
+};

@@ -3,53 +3,97 @@
  */
 
 // Global import
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const OfflinePlugin = require('offline-plugin');
-const { resolve } = require('path');
-const { LoaderOptionsPlugin, optimize } = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const {
+  resolve
+} = require('path');
+const {
+  LoaderOptionsPlugin,
+  optimize
+} = require('webpack');
 
 // Local import
-const { tag } = require('./config');
-const { distDir, indexHtml, srcDir, staticDir } = require('./config/paths');
+const {
+  tag
+} = require('./config/env');
+const {
+  distDir,
+  indexHtml,
+  polyfills,
+  srcDir,
+  staticDir,
+  vendor
+} = require('./config/path');
 
 module.exports = {
-  devtool: 'source-map',
+  mode: 'production',
   entry: {
     bundle: srcDir,
-    vendor: resolve(srcDir, 'vendor'),
-    polyfills: resolve(srcDir, 'polyfills')
+    vendor,
+    polyfills
   },
   output: {
     path: resolve(distDir, tag),
     filename: '[name].[chunkhash:8].js',
-    chunkFilename: '[name].[chunkhash:8].chunk.js',
-    publicPath: `/${tag}/`
+    publicPath: `/${tag}/`,
+    chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                minimize: true,
-                sourceMap: true
-              }
-            },
-            'sass-loader'
-          ]
-        })
-      }
-    ]
+    rules: [{
+      test: /\.s?css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1
+          }
+        },
+        'postcss-loader'
+      ]
+    }]
+  },
+  performance: {
+    hints: 'warning'
+  },
+  devtool: 'source-map',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            comparisons: false,
+            drop_console: true,
+            drop_debugger: true,
+            unused: true,
+            warnings: false
+          },
+          mangle: true,
+          output: {
+            comments: false
+          }
+        },
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      }),
+      new OptimizeCSSAssetsPlugin()
+    ],
+    noEmitOnErrors: true,
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: true
   },
   plugins: [
+    new CleanWebpackPlugin(distDir),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
@@ -57,12 +101,14 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8
     }),
-    new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
-    new ExtractTextPlugin({ filename: '[name].[contenthash:8].css' }),
+    new CopyWebpackPlugin([{
+      from: staticDir,
+      to: '..'
+    }]),
     new HtmlWebpackPlugin({
-      inject: true,
       filename: '../index.html',
       template: indexHtml,
+      inject: true,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -74,42 +120,28 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true
-      }
+      },
+      chunksSortMode: 'none'
     }),
-    // new OfflinePlugin({
-    //   safeToUseOptionalCaches: true,
-    //   caches: {
-    //     main: ['../index.html', 'polyfills.*.*', 'vendor.*.*', 'bundle.*.*'],
-    //     additional: ['*.chunk.js', ':externals:'],
-    //     optional: [':rest:']
-    //   },
-    //   ServiceWorker: {
-    //     output: '../sw.js',
-    //     events: true
-    //   },
-    //   AppCache: false
-    // }),
     new LoaderOptionsPlugin({
       minimize: true,
       debug: false
     }),
-    new optimize.CommonsChunkPlugin({
-      name: ['bundle', 'vendor', 'polyfills'],
-      minChunks: Infinity
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash:8].css',
+      chunkFilename: '[name].[contenthash:8].chunk.css'
     }),
-    new optimize.UglifyJsPlugin({
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        warnings: false,
-        unused: true
-      },
-      mangle: true,
-      comments: false,
-      sourceMap: true
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'cached-app',
+      minify: true
+      // staticFileGlobs: [
+      //   'src/**/**.*',
+      //   'src/**.html'
+      // ]
     })
-  ],
-  performance: {
-    hints: 'warning'
-  }
+    // new optimize.SplitChunksPlugin()
+    // NOTE: already contained in `production` mode
+    // new optimize.ModuleConcatenationPlugin(),
+    // new NoEmitOnErrorsPlugin()
+  ]
 };

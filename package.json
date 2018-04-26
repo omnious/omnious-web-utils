@@ -4,33 +4,46 @@
   "private": true,
   "description": "Web utils for omnious.",
   "license": "MIT",
-  "keywords": [
-    "omnious",
-    "utils",
-    "ui",
-    "react",
-    "webpack"
-  ],
-  "engines": {
-    "node": ">= 8.9.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
+  "keywords": ["omnious", "utils", "ui", "react", "webpack"],
+  "workspaces": ["packages/*"],
   "scripts": {
-    "lint": "lerna run lint",
-    "release": "lerna publish",
-    "prettier": "lerna run prettier"
+    "release": "lerna publish"
   },
   "devDependencies": {
-    "eslint": "^4.18.1",
-    "lerna": "^3.0.0-alpha.1",
-    "npm-run-all": "^4.1.2",
-    "prettier": "^1.11.0",
-    "stylelint": "^9.1.1",
+    "@angular/common": "^5.2.10",
+    "@angular/compiler": "^5.2.10",
+    "@angular/core": "^5.2.10",
+    "@angular/forms": "^5.2.10",
+    "@angular/platform-browser": "^5.2.10",
+    "@angular/platform-browser-dynamic": "^5.2.10",
+    "@babel/core": "^7.0.0-beta.46",
+    "@omnious/eslint-config": "^0.0.2-rc3",
+    "@storybook/addon-actions": "^3.4.2",
+    "@storybook/addon-knobs": "^3.4.2",
+    "@storybook/addon-options": "^3.4.2",
+    "@storybook/angular": "^3.4.2",
+    "@storybook/react": "^3.4.2",
+    "@types/react": "^16.3.12",
+    "@types/react-dom": "^16.0.5",
+    "angular2-template-loader": "^0.6.2",
+    "autoprefixer": "^8.3.0",
+    "babel-loader": "8.0.0-beta.0",
+    "bootstrap": "^4.1.0",
+    "eslint": "^4.19.1",
+    "fork-ts-checker-webpack-plugin": "^0.4.1",
+    "github-markdown-css": "^2.10.0",
+    "lerna": "^2.11.0",
+    "prettier-eslint-cli": "^4.7.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "rxjs": "^5.5.0",
+    "storybook-readme": "^3.3.0",
+    "styled-components": "^3.2.6",
+    "stylelint": "^8.0.0",
+    "ts-loader": "^4.2.0",
     "tslint": "^5.9.1",
-    "tslint-config-omnious": "^0.1.2",
-    "tslint-react": "^3.5.1",
-    "typescript": "^2.7.2"
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0",
+    "zone.js": "^0.8.26"
   }
 }

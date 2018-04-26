@@ -1,3 +1,0 @@
-{
-  "extends": ["tslint:all", "tslint-config-omnious"]
-}

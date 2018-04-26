@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { StoryContainer } from '../shared-style';
 
-
 export default class FontStory extends React.Component {
   render() {
     return (

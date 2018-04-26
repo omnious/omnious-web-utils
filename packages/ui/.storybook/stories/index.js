@@ -8,31 +8,26 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { withDocs } from 'storybook-readme';
 
-import Welcome from './Welcome';
-import PaletteDocs from './Color/PaletteDocs.md';
-import PaletteStory from './Color/PaletteStory';
-import GradientDocs from './Color/GradientDocs.md';
-import GradientStory from './Color/GradientStory';
-import ShadowDocs from './Color/ShadowDocs.md';
-import ShadowStory from './Color/ShadowStory';
+import { WelcomeStory } from './WelcomeStory';
+import {
+  GradientDocs,
+  GradientStory,
+  PaletteDocs,
+  PaletteStory,
+  ShadowDocs,
+  ShadowStory
+} from './Color';
+import { ButtonStory, ButtonDocs } from './Button';
 
-import FontDocs from './Font/Docs.md';
-import FontStory from './Font/FontStory';
-
-import ButtonStory from './Button/ButtonStory';
-import ButtonDocs from './Button/Docs.md';
-
-
-storiesOf('Guide', module)
-  .add('README', () => <Welcome />);
+storiesOf('Guide', module).add('README', () => <WelcomeStory />);
 
 storiesOf('Guide/Color', module)
   .add('Palettes', withDocs(PaletteDocs, () => <PaletteStory />))
   .add('Gradients', withDocs(GradientDocs, () => <GradientStory />))
   .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory />));
 
-storiesOf('Guide/Font', module)
-  .add('Fonts', () => <FontStory />);
+// storiesOf('Guide/Font', module)
+//   .add('Fonts', () => <FontStory />);
 //   .add('Font size', () => null)
 //   .add('Font weight', () => null)
 //   .add('Spacing', () => null)
@@ -46,26 +41,19 @@ storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
     'Single Button',
-    withDocs(
-      ButtonDocs,
-      () => (
-        <ButtonStory
-          color={select('color', ['primary', 'secondary', 'default'], 'primary')}
-          invert={boolean('invert', false)}
-          size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
-          disabled={boolean('disabled', false)}
-          loading={boolean('loading', false)}
-          onClick={action('Button click')}
-        >
-          {text('Content', 'This is `<Button />`!')}
-        </ButtonStory>
-      )
-    )
-  )
-  // .add('Color', () => <Button />)
-  // .add('Invert', () => <Button />)
-  // .add('Icon', () => <Button />)
-  // .add('Stats', () => <Button />);
+    withDocs(ButtonDocs, () => (
+      <ButtonStory
+        color={select('color', ['primary', 'secondary', 'default'], 'primary')}
+        invert={boolean('invert', false)}
+        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
+        disabled={boolean('disabled', false)}
+        loading={boolean('loading', false)}
+        onClick={action('Button click')}
+      >
+        {text('Content', 'This is `<Button />`!')}
+      </ButtonStory>
+    ))
+  );
 
 // storiesOf('Card', module);
 

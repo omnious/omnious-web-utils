@@ -1,25 +1,44 @@
 version: 2
 
-defaults: &defaults
-  docker:
-    - image: circleci/node:8.1.4
-
 jobs:
-  checkout:
-    <<: *defaults
+  test:
+    docker:
+      - image: circleci/node:8.9.4
     steps:
-  test_browser:
-  test_build:
-
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - dependencies-{{ .Branch }}-
+            - dependencies-master-
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - save_cache:
+          key: dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Lint and Test
+          command: |
+            mkdir -p ~/reports
+            yarn lint
+      - store_test_results:
+          path: ~/reports
+      - store_artifacts:
+          path: ~/reports
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
 
 workflows:
-  version: 2
-  pipeline:
-    jobs:
-      - checkout
-      - test_browser:
-          requires:
-            - checkout
-      - test_build:
-          requires:
-            - checkout
+    version: 2
+    build-and-deploy:
+        jobs:
+          - test:
+              filters:
+                tags:
+                  only: /^v.*/
+                branches:
+                  only: develop
