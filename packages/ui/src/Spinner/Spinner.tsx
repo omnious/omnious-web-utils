@@ -1,10 +1,15 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-import { COLORS } from '../Styles';
+import { STYLES } from '../constants/styles';
 
-export const Spinner: React.SFC = (): JSX.Element => (
-  <StyledSpinner />
+// interface
+interface Props {
+  className?: string;
+}
+
+const SpinnerComponent: React.SFC<Props> = ({ className }): JSX.Element => (
+  <div className={className} />
 );
 
 const spinFrame = keyframes`
@@ -17,10 +22,10 @@ const spinFrame = keyframes`
   }
 `;
 
-export const StyledSpinner = styled.div`
+export const Spinner = styled(SpinnerComponent)`
   animation: ${spinFrame} 1s infinite linear;
-  border-left: 4px solid ${COLORS.primaryBlue};
-  border-top: 4px solid ${COLORS.primaryBlue};
+  border-left: 4px solid ${STYLES.primaryBlue};
+  border-top: 4px solid ${STYLES.primaryBlue};
   border-right: 4px solid transparent;
   border-bottom: 4px solid transparent;
   border-radius: 50%;

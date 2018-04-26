@@ -2,18 +2,17 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { Spinner } from '../';
-import { COLORS, SIZES } from '../Styles';
+import { STYLES } from '../constants/styles';
 
 // interface
 interface Props {
   className?: string;
   color: string;
-  disabled: boolean;
-  fullWidth?: boolean;
   icon?: string;
   invert: boolean;
-  loading: boolean;
   size: string;
+  disabled: boolean;
+  loading: boolean;
   onClick(): void;
 }
 
@@ -27,49 +26,53 @@ const ButtonComponent: React.SFC<Props> = ({ children, className, disabled, icon
 
   return (
     <button className={className} disabled={disabled} onClick={onClick}>
-      {icon && <img src={icon} alt="Button icon" />}
+      {icon && <img src={icon} />}
       {children}
     </button>
   );
 };
 
 export const Button = styled(ButtonComponent)`
-  /* border: 1px solid transparent; */
-  border-radius: ${SIZES.xsRad};
-  /* box-shadow: ${COLORS.buttonShadow}; */
+  border: 2px solid transparent;
+  border-radius: ${STYLES.smRad};
+  box-shadow: 0 2px 4px 0 ${STYLES.buttonShadow};
   cursor: pointer;
   display: flex;
   justify-content: center;
   transition: all 0.2s;
-  width: ${({ fullWidth }) => fullWidth ? '100%' : ''};
 
   /* size */
   ${({ size }) => {
     switch (size) {
+      /* xl */
       case 'xl':
         return `
-          font-size: ${SIZES.h2};
-          padding: ${SIZES.lgRad} ${SIZES.xlRad};
+          font-size: ${STYLES.h2};
+          padding: ${STYLES.lgRad} ${STYLES.xlRad};
         `;
+      /* lg */
       case 'lg':
         return `
-          font-size: ${SIZES.h3};
-          padding: ${SIZES.mdRad} ${SIZES.lgRad};
+          font-size: ${STYLES.h3};
+          padding: ${STYLES.mdRad} ${STYLES.lgRad};
         `;
+      /* sm */
       case 'sm':
         return `
-          font-size: ${SIZES.h5};
-          padding: ${SIZES.xsRad} ${SIZES.smRad};
+          font-size: ${STYLES.h5};
+          padding: ${STYLES.xsRad} ${STYLES.smRad};
         `;
+      /* xs */
       case 'xs':
         return `
-          font-size: ${SIZES.h6};
-          padding: ${SIZES.xsPad};
+          font-size: ${STYLES.h6};
+          padding: ${STYLES.xsRad};
         `;
+      /* md */
       default:
         return `
-          font-size: ${SIZES.h4};
-          padding: ${SIZES.smRad} ${SIZES.mdRad};
+          font-size: ${STYLES.h4};
+          padding: ${STYLES.smRad} ${STYLES.mdRad};
         `;
     }
   }}
@@ -77,71 +80,69 @@ export const Button = styled(ButtonComponent)`
   /* color */
   ${({ color, invert }) => {
     switch (color) {
+      /* primary */
       case 'primary': {
-        if (invert) {
-          return `
-            background-color: transparent;
-            border: 1px solid ${COLORS.primaryBlue};
-            box-shadow: ${COLORS.lightShadow};
-            color: ${COLORS.primaryBlue};
-
-            &:hover {
-              background: ${COLORS.primaryBlue};
-              color: ${COLORS.white};
-            }
-          `;
-        }
-
-        return `
-          background-color: ${COLORS.primaryBlue};
-          border: 1px solid ${COLORS.darkBlue};
-          box-shadow: ${COLORS.buttonShadow};
-          color: ${COLORS.white};
-
-          &:hover {
-            background-color: ${COLORS.primaryBlueHov};
-          }
-        `;
-      }
-      case 'secondary': {
-        if (invert) {
-          return `
-            background-color: transparent;
-            border: 1px solid ${COLORS.secondaryBlue};
-            color: ${COLORS.white};
-          `;
-        }
-
-        return `
-          background-color: none;
-        `;
-      }
-      default: {
+        /* invert */
         if (invert) {
           return `
             background: transparent;
-            border: 2px solid ${COLORS.defaultGray};
-            color: ${COLORS.defaultGray};
+            border: 2px solid ${STYLES.primaryBlue};
+            color: ${STYLES.primaryBlue};
 
-            &:hover {
-              background: ${COLORS.defaultGray};
-              color: ${COLORS.black};
+            :hover {
+              background: ${STYLES.primaryBlue};
+              color: ${STYLES.white};
             }
           `;
         }
 
         return `
-          background: ${COLORS.defaultGray};
+          background: ${STYLES.primaryBlue};
+          color: ${STYLES.white};
+
+          :hover {
+          }
+        `;
+      }
+      /* secondary */
+      case 'secondary': {
+        /* invert */
+        if (invert) {
+          return `
+          `;
+        }
+
+        return `
+        `;
+      }
+      /* default */
+      default: {
+        /* invert */
+        if (invert) {
+          return `
+            background: transparent;
+            border: 2px solid ${STYLES.defaultGray};
+            color: ${STYLES.defaultGray};
+
+            :hover {
+              background: ${STYLES.defaultGray};
+              color: ${STYLES.black};
+            }
+          `;
+        }
+
+        return `
+          background: ${STYLES.defaultGray};
         `;
       }
     }
   }}
 
-  &:focus {
+  :focus {
     outline: none;
   }
 
-  &:disabled {
+  :disabled {
     color: graytext;
     cursor: not-allowed;
   }

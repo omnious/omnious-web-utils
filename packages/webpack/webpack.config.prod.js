@@ -11,12 +11,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const { resolve } = require('path');
-const { LoaderOptionsPlugin, optimize } = require('webpack');
+const {
+  resolve
+} = require('path');
+const {
+  LoaderOptionsPlugin,
+  optimize
+} = require('webpack');
 
 // Local import
-const { tag } = require('./config/env');
-const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./config/path');
+const {
+  tag
+} = require('./config/env');
+const {
+  distDir,
+  indexHtml,
+  polyfills,
+  srcDir,
+  staticDir,
+  vendor
+} = require('./config/path');
 
 module.exports = {
   mode: 'production',
@@ -32,21 +46,19 @@ module.exports = {
     chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          'postcss-loader'
-        ]
-      }
-    ]
+    rules: [{
+      test: /\.s?css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1
+          }
+        },
+        'postcss-loader'
+      ]
+    }]
   },
   performance: {
     hints: 'warning'
@@ -89,7 +101,10 @@ module.exports = {
       threshold: 10240,
       minRatio: 0.8
     }),
-    new CopyWebpackPlugin([{ from: staticDir, to: '..' }]),
+    new CopyWebpackPlugin([{
+      from: staticDir,
+      to: '..'
+    }]),
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: indexHtml,
