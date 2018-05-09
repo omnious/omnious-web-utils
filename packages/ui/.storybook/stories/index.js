@@ -1,37 +1,54 @@
+// CSS import
 import 'bootstrap/dist/css/bootstrap-reboot.min';
 import 'github-markdown-css/github-markdown';
 import '../assets/css';
 
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react';
+// Global import
+import {boolean,select,text,withKnobs} from '@storybook/addon-knobs';
+import {action} from '@storybook/addon-actions';
+import {storiesOf} from '@storybook/react';
 import React from 'react';
-import { withDocs } from 'storybook-readme';
+import {withDocs} from 'storybook-readme';
 
-import { WelcomeStory } from './WelcomeStory';
+// Local import
+import { ButtonDocs, ButtonStory } from './Button';
 import {
   GradientDocs,
   GradientStory,
-  PaletteDocs,
-  PaletteStory,
-  ShadowDocs,
-  ShadowStory
+  SolidDocs,
+  SolidStory
+  //   ShadowDocs,
+  //   ShadowStory
 } from './Color';
-import { ButtonStory, ButtonDocs } from './Button';
+import { LogoDocs, LogoStory } from './Logo';
+import {WelcomeStory} from './Welcome';
 
-storiesOf('Guide', module).add('README', () => <WelcomeStory />);
+storiesOf('Guide', module).add('README', () => <WelcomeStory /> );
+
+storiesOf('Guide', module).add('Typography', () => <TypographyStory />);
 
 storiesOf('Guide/Color', module)
-  .add('Palettes', withDocs(PaletteDocs, () => <PaletteStory />))
-  .add('Gradients', withDocs(GradientDocs, () => <GradientStory />))
-  .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory />));
+  .add('Solid', withDocs(SolidDocs, () => <SolidStory /> ))
+  .add('Gradient', withDocs(GradientDocs, () => <GradientStory /> ))
+  // .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory /> ));
 
-// storiesOf('Guide/Font', module)
 //   .add('Fonts', () => <FontStory />);
 //   .add('Font size', () => null)
 //   .add('Font weight', () => null)
 //   .add('Spacing', () => null)
 //   .add('Icon size', () => null);
+
+storiesOf('Logo', module)
+  .addDecorator(withKnobs)
+  .add(
+    'Omnious',
+    withDocs(LogoDocs, () => (
+      <LogoStory
+        color={select('color', ['blue', 'white', 'black'], 'blue')}
+        isVertical={boolean('isVertical', false)}
+      />
+    ))
+  );
 
 // storiesOf('Badge', module);
 
@@ -43,11 +60,11 @@ storiesOf('Button', module)
     'Single Button',
     withDocs(ButtonDocs, () => (
       <ButtonStory
-        color={select('color', ['primary', 'secondary', 'default'], 'primary')}
-        invert={boolean('invert', false)}
-        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
+        color={select('color', ['primary', 'danger'], 'primary')}
         disabled={boolean('disabled', false)}
-        loading={boolean('loading', false)}
+        isInvert={boolean('isInvert', false)}
+        isLoading={boolean('isLoading', false)}
+        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
         onClick={action('Button click')}
       >
         {text('Content', 'This is `<Button />`!')}
@@ -70,10 +87,6 @@ storiesOf('Button', module)
 // storiesOf('Input', module);
 
 // storiesOf('List', module);
-
-// storiesOf('Logo', module)
-//   .add('Omnious company logo', () => null)
-//   .add('Omnious tagger logo', () => null);
 
 // storiesOf('Modal', module);
 

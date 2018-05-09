@@ -1,16 +1,8 @@
-import * as React from 'react';
+// Global import
 import styled, { keyframes } from 'styled-components';
 
-import { STYLES } from '../constants/styles';
-
-// interface
-interface Props {
-  className?: string;
-}
-
-const SpinnerComponent: React.SFC<Props> = ({ className }): JSX.Element => (
-  <div className={className} />
-);
+// Local import
+import { COLORS } from '../';
 
 const spinFrame = keyframes`
   0% {
@@ -32,4 +24,3 @@ export const Spinner = styled(SpinnerComponent)`
   height: 30px;
   width: 30px;
 `;
-

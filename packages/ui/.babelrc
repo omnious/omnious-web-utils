@@ -1,4 +1,3 @@
 {
-  "presets": ["stage-2"],
-  "plugins": ["transform-react-jsx"]
+  "plugins": ["transform-es2015-arrow-functions", "transform-react-jsx", "transform-object-rest-spread"]
 }

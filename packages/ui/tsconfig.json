@@ -2,11 +2,9 @@
   "include": ["src/**/*"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir": "./src",
-    "outDir": "./dist",
-
+    // Basic
     "target": "es5",
+    "module": "commonjs",
     "lib": ["dom", "es2015"],
     "allowJs": false,
     "checkJs": false,
@@ -14,11 +12,8 @@
     "declaration": false,
     "sourceMap": true,
     "removeComments": true,
-    "noEmit": false,
-    "importHelpers": false,
-    "downlevelIteration": true,
-    "isolatedModules": false,
 
+    // Strict mode
     "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -27,13 +22,24 @@
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
 
+    // Additional checks
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
+    // Module resolution
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": false,
+
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    "noEmit": false,
+    "importHelpers": false,
+    "downlevelIteration": true,
+    "isolatedModules": false,
 
     "experimentalDecorators": false,
     "emitDecoratorMetadata": false,
@@ -46,10 +52,9 @@
     "emitBOM": false,
     "esModuleInterop": false,
     "forceConsistentCasingInFileNames": true,
-    "jsxFactory": "React.createElement",
+    // "jsxFactory": "React.createElement",
     "listEmittedFiles": false,
     "listFiles": false,
-    "module": "commonjs",
     "noEmitHelpers": false,
     "noEmitOnError": true,
     "noImplicitUseStrict": false,

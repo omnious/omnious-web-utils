@@ -1,4 +1,4 @@
-# Palettes
+# Solid
 
 > Solid color schema
 
@@ -7,3 +7,5 @@
 <!-- STORY -->
 
 ## Props
+
+none

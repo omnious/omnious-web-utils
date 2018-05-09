@@ -1,5 +1,6 @@
+// Global import
 import styled from 'styled-components';
 
-export const StoryContainer = styled.section`
+export const StyledStory = styled.section`
   padding: 1rem;
 `;

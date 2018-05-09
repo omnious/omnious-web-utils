@@ -7,24 +7,16 @@ const DotenvPlugin = require('dotenv-webpack');
 // const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const {
-  IgnorePlugin
-} = require('webpack');
+const { IgnorePlugin } = require('webpack');
 
 // Local import
-const {
-  cdn,
-  facebook,
-  google
-} = require('./config/env');
-const {
-  packageJson,
-  srcDir
-} = require('./config/path');
+const { cdn, facebook, google } = require('./config/env');
+const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         include: srcDir,
         use: 'source-map-loader',
@@ -56,9 +48,7 @@ module.exports = {
     plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },
   plugins: [
-    new DotenvPlugin({
-      systemvars: true
-    }),
+    new DotenvPlugin({ systemvars: true }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
     // new InterpolateHtmlPlugin({ cdn, facebook, google }),
     new StyleLintPlugin()

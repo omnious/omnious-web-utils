@@ -4,15 +4,19 @@ module.exports = {
     alias: {}
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        },
         exclude: /node_modules/
       },
       {

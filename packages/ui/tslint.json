@@ -1,3 +1,4 @@
 {
-  "extends": "tslint-config-omnious"
+  "extends": "@omnious/tslint-config-react",
+  "rules": {}
 }

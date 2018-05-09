@@ -9,10 +9,10 @@
 
   <Button
     color="primary"
-    invert={false}
-    size="md"
     disabled={false}
-    loading={false}
+    isInvert={false}
+    isLoading={false}
+    size="md"
     onClick={e => console.log(e)}
   >
     This is `<Button />`!
@@ -23,12 +23,12 @@
 
 ## Props
 
-| Name     | Type                                    | Required | Default   | Description |
-|----------|-----------------------------------------|----------|-----------|-------------|
-| children | node                                    | no       | -         ||
-| color    | enum: 'primary', 'secondary', 'default' | no       | 'default' ||
-| invert   | bool                                    | no       | false     ||
-| size     | enum: 'xl', 'lg', 'md', 'sm', 'xs'      | no       | 'md'      ||
-| disabled | bool                                    | no       | false     ||
-| loading  | bool                                    | no       | false     ||
-| onClick  | func                                    | no       | -         | - |
+| Name      | Type                     | Required | Default | Description |
+|-----------|--------------------------|----------|---------|-------------|
+| children  | node                     | no       | -       | -           |
+| color     | enum: primary, danger    | no       | primary | -           |
+| disabled  | boolean                  | no       | false   | -           |
+| isInvert  | boolean                  | no       | false   | -           |
+| isLoading | boolean                  | no       | false   | -           |
+| size      | enum: xl, lg, md, sm, xs | no       | md      | -           |
+| onClick   | function                 | no       | -       | -           |
