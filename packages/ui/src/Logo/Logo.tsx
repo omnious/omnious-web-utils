@@ -1,6 +1,6 @@
 // Global import
 import * as React from 'react';
-import { ReactNode, SFC } from 'react';
+import { SFC } from 'react';
 
 // Local import
 import { FillArea } from './Style';
@@ -12,7 +12,7 @@ interface Props {
 }
 
 // Component
-export const Logo: SFC<Props> = ({ color, isVertical }) => {
+export const Logo: SFC<Props> = ({ color, isVertical }: Props): JSX.Element => {
   if (isVertical) {
     return (
       <svg

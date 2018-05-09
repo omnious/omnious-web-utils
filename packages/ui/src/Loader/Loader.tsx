@@ -3,9 +3,7 @@ import * as React from 'react';
 import { SFC } from 'react';
 
 // Local import
-import {} from './Style';
+import { StyledLoader } from './Style';
 
 // Component
-export const Spinner: SFC = (): JSX.Element => (
-  <StyledSpinner />
-);
+export const Loader: SFC = (): JSX.Element => <StyledLoader />;
