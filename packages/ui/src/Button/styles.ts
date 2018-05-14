@@ -2,12 +2,12 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS, SIZES } from '../';
+import { COLORS, SIZES } from '../constants';
 
 export const StyledButton: any = styled.button`
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: ${(): any => SIZES.xsRad};
+  border-radius: ${SIZES.xsRad};
   cursor: pointer;
   line-height: 1;
   transition: all 0.2s;

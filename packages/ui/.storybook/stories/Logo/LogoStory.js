@@ -5,7 +5,7 @@ import React from 'react';
 import { COLORS, Logo } from '../../../src';
 import { StyledStory } from '../SharedStyle';
 
-export const LogoStory = (options) => (
+export const LogoStory = options => (
   <StyledStory>
     <Logo {...options} />
   </StyledStory>

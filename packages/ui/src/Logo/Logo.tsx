@@ -3,7 +3,7 @@ import * as React from 'react';
 import { SFC } from 'react';
 
 // Local import
-import { FillArea } from './Style';
+import { FillArea } from './styles';
 
 // Interface
 interface Props {
@@ -27,7 +27,11 @@ export const Logo: SFC<Props> = ({ color, isVertical }: Props): JSX.Element => {
         <desc>Created with Sketch.</desc>
         <defs />
         <g id="3.Logo" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-          <FillArea color={color} id="Color-Palette" transform="translate(-126.000000, -350.000000)">
+          <FillArea
+            color={color}
+            id="Color-Palette"
+            transform="translate(-126.000000, -350.000000)"
+          >
             <g id="Component/Logo/Vertical/White" transform="translate(126.000000, 350.000000)">
               <g id="logo-stacked-white">
                 <g id="Page-1" fillRule="nonzero">

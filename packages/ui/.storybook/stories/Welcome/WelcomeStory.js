@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local import
 import Readme from '../../../README.md';
-import { StyledWelcomeStory } from './Style';
+import { StyledWelcomeStory } from './styles';
 
 export const WelcomeStory = () => (
   <StyledWelcomeStory className="markdown-body">

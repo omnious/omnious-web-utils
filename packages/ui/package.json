@@ -29,6 +29,7 @@
     "lint:js": "eslint .",
     "lint:ts": "tslint -p . -t stylish",
     "lint:css": "stylelint . --syntax scss",
+    "prettier": "prettier --write '**/*.{js,ts,tsx}'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {

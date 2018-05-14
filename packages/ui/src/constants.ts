@@ -5,6 +5,7 @@ export enum COLORS {
   secondaryBlack = '#333',
   lightenBlack = '#485056',
   primaryGray = '#dbe9ed',
+  secondaryGray = '#dfe3e6',
   darkenGray = '#6f848d',
   primaryBlue = '#249cff',
   lightenBlue = '#a9e1ff',
@@ -14,7 +15,8 @@ export enum COLORS {
 
   // Shadow
   buttonShadow = '0 2px 4px 0 rgba(46, 74, 84, 0.15)',
-  hoverShadow = '0 1px 16px 0 rgba(78, 117, 111, 0.14)'
+  hoverShadow = '0 1px 16px 0 rgba(78, 117, 111, 0.14)',
+  tileShadow = '0 3px 5px 0 rgba(77, 122, 140, 0.27)'
 
   // primaryBlue: '#249cff',
   // primaryBlueHov: '#2486ff',
@@ -38,10 +40,10 @@ export enum SIZES {
   // Typography
   mega = '4.2rem',
   h1 = '2.6rem',
-  h2 = '2.4rem',
+  h2 = '1.6rem',
   h3 = '1.2rem',
   h4 = '1rem',
-  h5 = '0.725rem',
+  h5 = '0.8rem',
 
   // Spacing
   xlRad = '7px',

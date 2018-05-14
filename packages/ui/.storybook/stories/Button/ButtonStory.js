@@ -1,9 +1,10 @@
+// Global import
 import React from 'react';
 
 // Local import
 import { Button } from '../../../src';
 import { StyledStory } from '../SharedStyle';
-import { ButtonCollection, InvertCollection } from './Style';
+import { ButtonCollection, InvertCollection } from './styles';
 
 // Component
 export const ButtonStory = ({ children, ...options }) => (
@@ -19,8 +20,12 @@ export const ButtonStory = ({ children, ...options }) => (
     </ButtonCollection>
     <InvertCollection>
       <h1>Invert</h1>
-      <Button color="primary" isInvert>Primary</Button>
-      <Button color="danger" isInvert>Danger</Button>
+      <Button color="primary" isInvert>
+        Primary
+      </Button>
+      <Button color="danger" isInvert>
+        Danger
+      </Button>
     </InvertCollection>
     <ButtonCollection>
       <h1>Size</h1>
@@ -32,10 +37,18 @@ export const ButtonStory = ({ children, ...options }) => (
     </ButtonCollection>
     <ButtonCollection>
       <h1>Disabled</h1>
-      <Button color="primary" disabled>Primary</Button>
-      <Button color="danger" disabled>Danger</Button>
-      <Button color="primary" isInvert disabled>Primary</Button>
-      <Button color="danger" isInvert disabled>Danger</Button>
+      <Button color="primary" disabled>
+        Primary
+      </Button>
+      <Button color="danger" disabled>
+        Danger
+      </Button>
+      <Button color="primary" isInvert disabled>
+        Primary
+      </Button>
+      <Button color="danger" isInvert disabled>
+        Danger
+      </Button>
     </ButtonCollection>
   </StyledStory>
 );

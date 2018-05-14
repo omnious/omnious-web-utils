@@ -5,18 +5,18 @@
 ## Usage
 
 ```jsx
-  import { Button } from '@omnious/ui';
+import { Button } from '@omnious/ui';
 
-  <Button
-    color="primary"
-    disabled={false}
-    isInvert={false}
-    isLoading={false}
-    size="md"
-    onClick={e => console.log(e)}
-  >
-    This is `<Button />`!
-  </Button>
+<Button
+  color="primary"
+  disabled={false}
+  isInvert={false}
+  isLoading={false}
+  size="md"
+  onClick={e => console.log(e)}
+>
+  This is `<Button />`!
+</Button>
 ```
 
 <!-- STORY -->

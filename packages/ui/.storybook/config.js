@@ -1,5 +1,5 @@
-import {configure} from '@storybook/react';
-import {setOptions} from '@storybook/addon-options';
+import { configure } from '@storybook/react';
+import { setOptions } from '@storybook/addon-options';
 
 const loadStories = () => {
   require('./stories');
@@ -7,7 +7,7 @@ const loadStories = () => {
 
 setOptions({
   name: '@omnious/ui',
-  url: 'https://omniousui.netlify.com',
+  url: 'https://www.npmjs.com/package/@omnious/ui',
   downPanelInRight: window.innerWidth > 1200
 });
 

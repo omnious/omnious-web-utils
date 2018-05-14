@@ -4,7 +4,7 @@ import { ReactNode, SFC } from 'react';
 
 // Local import
 import { Loader } from '../';
-import { StyledButton } from './Style';
+import { StyledButton } from './styles';
 
 // Interface
 interface Props {
@@ -15,7 +15,12 @@ interface Props {
 }
 
 // Component
-export const Button: SFC<Props> = ({ children, icon, isLoading, ...options }: Props): JSX.Element => {
+export const Button: SFC<Props> = ({
+  children,
+  icon,
+  isLoading,
+  ...options
+}: Props): JSX.Element => {
   if (isLoading) {
     return (
       <StyledButton {...options}>

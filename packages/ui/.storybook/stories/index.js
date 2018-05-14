@@ -4,33 +4,28 @@ import 'github-markdown-css/github-markdown';
 import '../assets/css';
 
 // Global import
-import {boolean,select,text,withKnobs} from '@storybook/addon-knobs';
-import {action} from '@storybook/addon-actions';
-import {storiesOf} from '@storybook/react';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 import React from 'react';
-import {withDocs} from 'storybook-readme';
+import { withDocs } from 'storybook-readme';
 
 // Local import
 import { ButtonDocs, ButtonStory } from './Button';
-import {
-  GradientDocs,
-  GradientStory,
-  SolidDocs,
-  SolidStory
-  //   ShadowDocs,
-  //   ShadowStory
-} from './Color';
+import { GradientDocs, GradientStory, SolidDocs, SolidStory } from './Color';
 import { LogoDocs, LogoStory } from './Logo';
-import {WelcomeStory} from './Welcome';
+import { TileDocs, TileStory } from './Tile';
+import { TypographyDocs, TypographyStory } from './Typography';
+import { WelcomeStory } from './Welcome';
 
-storiesOf('Guide', module).add('README', () => <WelcomeStory /> );
+storiesOf('Guide', module).add('README', () => <WelcomeStory />);
 
-storiesOf('Guide', module).add('Typography', () => <TypographyStory />);
+storiesOf('Guide', module).add('Typography', withDocs(TypographyDocs, () => <TypographyStory />));
 
 storiesOf('Guide/Color', module)
-  .add('Solid', withDocs(SolidDocs, () => <SolidStory /> ))
-  .add('Gradient', withDocs(GradientDocs, () => <GradientStory /> ))
-  // .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory /> ));
+  .add('Solid', withDocs(SolidDocs, () => <SolidStory />))
+  .add('Gradient', withDocs(GradientDocs, () => <GradientStory />));
+// .add('Shadows', withDocs(ShadowDocs, () => <ShadowStory /> ));
 
 //   .add('Fonts', () => <FontStory />);
 //   .add('Font size', () => null)
@@ -67,7 +62,7 @@ storiesOf('Button', module)
         size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
         onClick={action('Button click')}
       >
-        {text('Content', 'This is `<Button />`!')}
+        {text('content', 'This is `<Button />`!')}
       </ButtonStory>
     ))
   );
@@ -107,6 +102,10 @@ storiesOf('Button', module)
 // storiesOf('Table', module);
 
 // storiesOf('Textarea', module);
+
+storiesOf('Tile', module)
+  .addDecorator(withKnobs)
+  .add('Basic Tile', withDocs(TileDocs, () => <TileStory />));
 
 // storiesOf('Toggle', module);
 

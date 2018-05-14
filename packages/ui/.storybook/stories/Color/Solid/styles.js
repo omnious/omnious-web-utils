@@ -6,8 +6,10 @@ import { COLORS } from '../../../../src';
 
 export const ColorCollection = styled.section`
   display: flex;
+  flex-wrap: wrap;
+  margin: 1rem;
 
-  & h1 {
+  & > h1 {
     width: 10rem;
   }
 `;
