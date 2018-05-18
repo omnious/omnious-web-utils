@@ -12,7 +12,7 @@ interface Props {
 }
 
 // Component
-export const Logo: SFC<Props> = ({ color, isVertical }: Props): JSX.Element => {
+export const Omnious: SFC<Props> = ({ color, isVertical }: Props): JSX.Element => {
   if (isVertical) {
     return (
       <svg
