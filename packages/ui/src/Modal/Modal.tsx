@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const ModalComponent = () => <div />;
+const ModalComponent: any = (): any => <div />;
 
-export const Modal = styled(ModalComponent)``;
+export const Modal: any = styled(ModalComponent)``;

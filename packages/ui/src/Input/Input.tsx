@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const InputComponent = () => <div />;
+const InputComponent: any = (): any => <div />;
 
-export const Input = styled(InputComponent)``;
+export const Input: any = styled(InputComponent)``;

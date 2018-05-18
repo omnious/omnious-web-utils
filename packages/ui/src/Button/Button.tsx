@@ -7,7 +7,7 @@ import { Loader } from '../';
 import { StyledButton } from './styles';
 
 // Interface
-interface Props {
+export interface ButtonProps {
   children: ReactNode;
   icon?: string;
   isLoading?: boolean;
@@ -15,12 +15,12 @@ interface Props {
 }
 
 // Component
-export const Button: SFC<Props> = ({
+export const Button: SFC<ButtonProps> = ({
   children,
   icon,
   isLoading,
   ...options
-}: Props): JSX.Element => {
+}: ButtonProps): JSX.Element => {
   if (isLoading) {
     return (
       <StyledButton {...options}>

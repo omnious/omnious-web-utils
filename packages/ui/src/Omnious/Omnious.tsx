@@ -6,13 +6,13 @@ import { SFC } from 'react';
 import { FillArea } from './styles';
 
 // Interface
-interface Props {
+export interface OmniousProps {
   color: string;
   isVertical: boolean;
 }
 
 // Component
-export const Omnious: SFC<Props> = ({ color, isVertical }: Props): JSX.Element => {
+export const Omnious: SFC<OmniousProps> = ({ color, isVertical }: OmniousProps): JSX.Element => {
   if (isVertical) {
     return (
       <svg

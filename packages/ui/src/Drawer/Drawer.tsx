@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const DrawerComponent = () => <div />;
+const DrawerComponent: any = (): any => <div />;
 
-export const Drawer = styled(DrawerComponent)``;
+export const Drawer: any = styled(DrawerComponent)``;
