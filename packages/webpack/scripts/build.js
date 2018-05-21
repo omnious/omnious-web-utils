@@ -13,14 +13,14 @@ const logger = require('./logger');
 const { env } = require('../config/env');
 const webpackConfig = require('../webpack.config');
 
-module.exports = (mode, options) => {
+module.exports = options => {
   // Initialize console
   clearConsole();
   logger.start(`Starting build in ${env} mode`);
 
   // Create spinner
   const spinner = ora('Building client');
-  const buildConfig = webpackConfig(env, { mode, ...options });
+  const buildConfig = webpackConfig(env, options);
   const compiler = webpack(buildConfig);
   spinner.start();
 

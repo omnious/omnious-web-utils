@@ -8,7 +8,7 @@ import { FillArea } from './styles';
 // Interface
 export interface OmniousProps {
   color: string;
-  isVertical: boolean;
+  isVertical?: boolean;
 }
 
 // Component

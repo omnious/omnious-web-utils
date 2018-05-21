@@ -1,6 +1,7 @@
 export enum COLORS {
   // Solid
   white = '#fff',
+  creamWhite = '#fcfeff',
   primaryBlack = '#2d3438',
   secondaryBlack = '#333',
   lightenBlack = '#485056',

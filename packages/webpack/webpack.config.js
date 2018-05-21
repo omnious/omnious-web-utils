@@ -10,7 +10,9 @@ module.exports = (env, options) => {
   const targetConfig = require(`./config/${mode}-${lang}`);
   let additionalConfig = {};
 
-  if (add) additionalConfig = require(resolve(process.cwd(), add));
+  if (add) {
+    additionalConfig = require(resolve(process.cwd(), add));
+  }
 
   switch (env) {
     case 'development': {
