@@ -1,7 +1,7 @@
 export * from './Button';
-// export * from './Card';
 // export * from './Checkbox';
 export * from './constants';
+export * from './Input';
 export * from './Loader';
 export * from './Omnious';
 // export * from './Drawer';

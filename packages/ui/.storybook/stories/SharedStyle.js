@@ -6,4 +6,5 @@ export const StyledStory = styled.section`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  text-align: left;
 `;

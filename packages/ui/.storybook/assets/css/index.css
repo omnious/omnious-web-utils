@@ -50,3 +50,7 @@ h5 {
 p {
   margin: 0;
 }
+
+input::placeholder {
+  font-family: 'sofia-pro';
+}

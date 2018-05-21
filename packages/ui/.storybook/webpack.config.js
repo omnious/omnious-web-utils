@@ -13,10 +13,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
+          loader: 'ts-loader'
         },
         exclude: /node_modules/
       },
