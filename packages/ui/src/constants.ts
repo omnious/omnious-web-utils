@@ -19,22 +19,16 @@ export enum COLORS {
   hoverShadow = '0 1px 16px 0 rgba(78, 117, 111, 0.14)',
   tileShadow = '0 3px 5px 0 rgba(77, 122, 140, 0.27)'
 
-  // primaryBlue: '#249cff',
-  // primaryBlueHov: '#2486ff',
+  // Gradient
+  // // secondaryBlue: 'rgba(255, 255, 255, 0.5)',
+  // // darkBlue: '#37ade9',
+  // // lightBlue: '#53c3fa',
+  // // defaultGray: '#e0e0e0',
 
-  // secondaryBlue: 'rgba(255, 255, 255, 0.5)',
-  // darkBlue: '#37ade9',
-  // lightBlue: '#53c3fa',
-  // defaultGray: '#e0e0e0',
-  // black: '#333',
-  // white: '#fff',
-
-  // // Gradients
-
-  // // Shadows
-  // primaryShadow: 'rgba(0, 0, 0, 0.1)',
-  // buttonShadow: '0 2px 4px 0 rgba(46, 74, 84, 0.15)',
-  // lightShadow: '0 2px 4px 0 rgba(255, 255, 255, 0.22)'
+  // // // Shadows
+  // // primaryShadow: 'rgba(0, 0, 0, 0.1)',
+  // // buttonShadow: '0 2px 4px 0 rgba(46, 74, 84, 0.15)',
+  // // lightShadow: '0 2px 4px 0 rgba(255, 255, 255, 0.22)'
 }
 
 export enum SIZES {
