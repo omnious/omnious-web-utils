@@ -3,36 +3,37 @@ import * as React from 'react';
 import { ReactNode, SFC } from 'react';
 
 // Local import
-import { Loader } from '../';
-import { StyledButton } from './styles';
+import { Loader } from '..';
 
 // Interface
 export interface ButtonProps {
   children: ReactNode;
+  className?: string;
   icon?: string;
   isLoading?: boolean;
   onClick(): void;
 }
 
 // Component
-export const Button: SFC<ButtonProps> = ({
+export const ButtonComponent: SFC<ButtonProps> = ({
   children,
+  className,
   icon,
   isLoading,
-  ...options
+  ...others
 }: ButtonProps): JSX.Element => {
   if (isLoading) {
     return (
-      <StyledButton {...options}>
+      <button className={className} {...others}>
         <Loader />
-      </StyledButton>
+      </button>
     );
   }
 
   return (
-    <StyledButton {...options}>
+    <button className={className} {...others}>
       {icon && <img src={icon} />}
       {children}
-    </StyledButton>
+    </button>
   );
 };

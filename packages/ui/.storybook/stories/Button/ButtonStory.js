@@ -3,8 +3,8 @@ import React from 'react';
 
 // Local import
 import { Button } from '../../../src';
-import { StyledStory } from '../SharedStyle';
-import { ButtonCollection, InvertCollection } from './styles';
+import { StyledStory } from '../SharedStyles';
+import { ButtonCollection, InvertCollection } from '.';
 
 // Component
 export const ButtonStory = ({ children, ...options }) => (

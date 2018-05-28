@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local import
 import { Tile } from '../../../src';
-import { StyledStory } from '../SharedStyle';
+import { StyledStory } from '../SharedStyles';
 
 // Component
 export const TileStory = () => (

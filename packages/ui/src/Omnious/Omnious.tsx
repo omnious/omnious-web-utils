@@ -3,19 +3,25 @@ import * as React from 'react';
 import { SFC } from 'react';
 
 // Local import
-import { FillArea } from './styles';
+import { FillArea } from '.';
 
 // Interface
 export interface OmniousProps {
+  className?: string;
   color: string;
   isVertical?: boolean;
 }
 
 // Component
-export const Omnious: SFC<OmniousProps> = ({ color, isVertical }: OmniousProps): JSX.Element => {
+export const OmniousComponent: SFC<OmniousProps> = ({
+  className,
+  color,
+  isVertical
+}: OmniousProps): JSX.Element => {
   if (isVertical) {
     return (
       <svg
+        className={className}
         width="143px"
         height="72px"
         viewBox="0 0 143 72"

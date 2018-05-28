@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS, SIZES } from '../constants';
+import { ButtonComponent } from '.';
+import { COLORS, SIZES } from '..';
 
-export const StyledButton: any = styled.button`
+export const Button: any = styled(ButtonComponent)`
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: ${SIZES.xsRad};

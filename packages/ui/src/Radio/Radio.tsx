@@ -3,27 +3,27 @@ import * as React from 'react';
 import { SFC } from 'react';
 
 // Interface
-export interface InputProps {
+export interface RadioProps {
   className?: string;
   disabled: boolean;
   id?: string;
   label: string;
   name: string;
-  type: string;
+  value: any;
 }
 
 // Component
-export const InputComponent: SFC<InputProps> = ({
+export const RadioComponent: SFC<RadioProps> = ({
   className,
   disabled,
   id,
   label,
   name,
-  type,
+  value,
   ...others
-}: any): JSX.Element => (
+}: RadioProps): JSX.Element => (
   <label className={className} htmlFor={id}>
+    <input disabled={disabled} id={id} name={name} type="radio" value={value} {...others} />
     <span>{label}</span>
-    <input disabled={disabled} id={id} name={name} type={type || 'text'} {...others} />
   </label>
 );

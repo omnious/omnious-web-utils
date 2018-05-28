@@ -2,7 +2,10 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS } from '../';
+import { OmniousComponent } from '.';
+import { COLORS } from '..';
+
+export const Omnious: any = styled(OmniousComponent)``;
 
 export const FillArea: any = styled.g`
   fill: ${({ color }: any): string => {

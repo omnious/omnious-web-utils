@@ -2,7 +2,8 @@
 import styled, { keyframes } from 'styled-components';
 
 // Local import
-import { COLORS } from '../';
+import { LoaderComponent } from '.';
+import { COLORS } from '..';
 
 const spinFrame: any = keyframes`
   0% {
@@ -14,7 +15,7 @@ const spinFrame: any = keyframes`
   }
 `;
 
-export const StyledLoader: any = styled.div`
+export const Loader: any = styled(LoaderComponent)`
   animation: ${spinFrame} 1s infinite linear;
   border-left: 4px solid ${COLORS.primaryBlue};
   border-top: 4px solid ${COLORS.primaryBlue};

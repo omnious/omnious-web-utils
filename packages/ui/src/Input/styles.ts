@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS, SIZES } from '../constants';
+import { InputComponent } from '.';
+import { COLORS, SIZES } from '..';
 
-export const StyledLabel: any = styled.label`
+export const Label: any = styled(InputComponent)`
   align-items: flex-start;
   display: flex;
   flex-direction: column;

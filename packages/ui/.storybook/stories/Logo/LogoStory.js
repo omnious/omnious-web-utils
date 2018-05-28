@@ -3,7 +3,7 @@ import React from 'react';
 
 // Local import
 import { COLORS, Logo } from '../../../src';
-import { StyledStory } from '../SharedStyle';
+import { StyledStory } from '../SharedStyles';
 
 export const LogoStory = options => (
   <StyledStory>

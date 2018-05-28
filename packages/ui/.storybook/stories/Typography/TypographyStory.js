@@ -2,8 +2,8 @@
 import React from 'react';
 
 // Local import
-import { StyledStory } from '../SharedStyle';
-import { Card, TypoCollection } from './styles';
+import { StyledStory } from '../SharedStyles';
+import { Card, TypoCollection } from '.';
 
 export const TypographyStory = () => (
   <StyledStory>

@@ -3,8 +3,8 @@ import React from 'react';
 
 // Local import
 import { COLORS } from '../../../../src';
-import { StyledStory } from '../../SharedStyle';
-import { Card, ColorCollection, Desc, Viewer } from './styles';
+import { StyledStory } from '../../SharedStyles';
+import { Card, ColorCollection, Desc, Viewer } from '.';
 
 export const SolidStory = () => (
   <StyledStory>
