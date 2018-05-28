@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { InputComponent } from '.';
 import { COLORS, SIZES } from '..';
 
-export const Label: any = styled(InputComponent)`
+export const Input: any = styled(InputComponent)`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -35,27 +35,5 @@ export const Label: any = styled(InputComponent)`
     &::placeholder {
       color: #5a6872;
     }
-  }
-`;
-
-export const StyledInput: any = styled.input.attrs({
-  type: ({ type }: any): string => type || 'text'
-})`
-  border: 1px solid #cfdadf;
-  border-radius: ${SIZES.xsRad};
-  margin-top: 0.5rem;
-  padding: 0.8rem 1rem;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  &:focus {
-    background-color: ${COLORS.white};
-    outline: 0;
-  }
-
-  &::placeholder {
-    color: #5a6872;
   }
 `;
