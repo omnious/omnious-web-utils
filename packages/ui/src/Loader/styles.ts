@@ -2,7 +2,6 @@
 import styled, { keyframes } from 'styled-components';
 
 // Local import
-import { LoaderComponent } from '.';
 import { COLORS } from '..';
 
 const spinFrame: any = keyframes`
@@ -15,13 +14,52 @@ const spinFrame: any = keyframes`
   }
 `;
 
-export const Loader: any = styled(LoaderComponent)`
+export const StyledLoader: any = styled.div`
   animation: ${spinFrame} 1s infinite linear;
-  border-left: 4px solid ${COLORS.primaryBlue};
-  border-top: 4px solid ${COLORS.primaryBlue};
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
+  border-style: solid;
+
+  ${({ size }: any): string => {
+    switch (size) {
+      case 'lg':
+        return `
+          border-width: 0.5rem;
+          height: 5rem;
+          width: 5rem;
+        `;
+      case 'sm':
+      default:
+        return `
+          border-width: 0.1rem;
+          height: 1rem;
+          width: 1rem;
+        `;
+    }
+  }};
+
+  ${({ color, isInvert }: any): string => {
+    switch (color) {
+      case 'primary': {
+        if (isInvert) {
+          return `border-color: ${COLORS.white} ${COLORS.white} transparent;`;
+        }
+
+        return `border-color: ${COLORS.primaryBlue} ${COLORS.primaryBlue} transparent;`;
+      }
+      case 'danger': {
+        if (isInvert) {
+          return `border-color: ${COLORS.white} ${COLORS.white} transparent;`;
+        }
+
+        return `border-color: ${COLORS.primaryRed} ${COLORS.primaryRed} transparent;`;
+      }
+      default: {
+        if (isInvert) {
+          return `border-color: ${COLORS.primaryBlack} ${COLORS.primaryBlack} transparent;`;
+        }
+
+        return `border-color: ${COLORS.primaryGray} ${COLORS.primaryGray} transparent;`;
+      }
+    }
+  }};
 `;

@@ -1,13 +1,13 @@
 // Global import
 import * as React from 'react';
 import { SFC } from 'react';
+import { generate } from 'shortid';
 
 // Local import
 import { Radio } from '..';
 
 // Interface
 export interface RadioGroupProps {
-  className?: string;
   items: any[];
   name: string;
   title: string;
@@ -16,14 +16,14 @@ export interface RadioGroupProps {
 
 // Component
 export const RadioGroupComponent: SFC<RadioGroupProps> = ({
-  className,
   items,
   name,
   title,
-  handleRadio
+  handleRadio,
+  ...others
 }: RadioGroupProps): JSX.Element => (
-  <form className={className} onChange={handleRadio}>
+  <form onChange={handleRadio} {...others}>
     <h4>{title}</h4>
-    {items.map((item: any): JSX.Element => <Radio name={name} {...item} />)}
+    {items.map((item: any): JSX.Element => <Radio key={generate()} name={name} {...item} />)}
   </form>
 );

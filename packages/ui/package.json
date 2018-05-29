@@ -12,12 +12,7 @@
   ],
   "license": "MIT",
   "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/ui",
-  "keywords": [
-    "omnious",
-    "ui",
-    "react",
-    "components"
-  ],
+  "keywords": ["omnious", "ui", "react", "components"],
   "engines": {
     "node": ">= 8.9.4"
   },
@@ -34,10 +29,14 @@
     "prettier": "prettier --write '**/*.{js,ts,tsx}'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
+  "dependencies": {
+    "shortid": "^2.2.8"
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.2",
     "@storybook/addon-knobs": "^3.4.2",
     "@storybook/addon-options": "^3.4.2",
+    "@types/shortid": "^0.0.29",
     "github-markdown-css": "^2.10.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

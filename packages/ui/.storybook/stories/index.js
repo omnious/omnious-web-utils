@@ -1,7 +1,7 @@
 // CSS import
 import 'bootstrap/dist/css/bootstrap-reboot.min';
 import 'github-markdown-css/github-markdown';
-import '../assets/css';
+import '../css';
 
 // Global import
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
@@ -13,7 +13,10 @@ import { withDocs } from 'storybook-readme';
 // Local import
 import { ButtonDocs, ButtonStory } from './Button';
 import { GradientDocs, GradientStory, SolidDocs, SolidStory } from './Color';
-import { LogoDocs, LogoStory } from './Logo';
+import { OmniousDocs, OmniousStory } from './Icons';
+import { InputDocs, InputStory } from './Input';
+import { LoaderDocs, LoaderStory } from './Loader';
+import { RadioDocs, RadioGroupDocs, RadioGroupStory, RadioStory } from './Radio';
 import { TileDocs, TileStory } from './Tile';
 import { TypographyDocs, TypographyStory } from './Typography';
 import { WelcomeStory } from './Welcome';
@@ -33,33 +36,33 @@ storiesOf('Guide/Color', module)
 //   .add('Spacing', () => null)
 //   .add('Icon size', () => null);
 
-storiesOf('Logo', module)
+storiesOf('Icons', module)
   .addDecorator(withKnobs)
   .add(
     'Omnious',
-    withDocs(LogoDocs, () => (
-      <LogoStory
+    withDocs(OmniousDocs, () => (
+      <OmniousStory
         color={select('color', ['blue', 'white', 'black'], 'blue')}
         isVertical={boolean('isVertical', false)}
       />
     ))
   );
 
-// storiesOf('Badge', module);
-
-// storiesOf('Banner', module);
+storiesOf('Tile', module)
+  .addDecorator(withKnobs)
+  .add('Basic tile', withDocs(TileDocs, () => <TileStory />));
 
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .add(
-    'Single Button',
+    'Single button',
     withDocs(ButtonDocs, () => (
       <ButtonStory
-        color={select('color', ['primary', 'danger'], 'primary')}
+        color={select('color', ['primary', 'danger', 'default'], 'primary')}
+        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
         disabled={boolean('disabled', false)}
         isInvert={boolean('isInvert', false)}
         isLoading={boolean('isLoading', false)}
-        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
         onClick={action('Button click')}
       >
         {text('content', 'This is `<Button />`!')}
@@ -67,7 +70,31 @@ storiesOf('Button', module)
     ))
   );
 
-// storiesOf('Card', module);
+storiesOf('Radio', module)
+  .addDecorator(withKnobs)
+  .add('Single radio', withDocs(RadioDocs, () => <RadioStory />))
+  .add('Group radio', withDocs(RadioGroupDocs, () => <RadioGroupStory />));
+
+storiesOf('Loader', module)
+  .addDecorator(withKnobs)
+  .add(
+    'Circular loader',
+    withDocs(LoaderDocs, () => (
+      <LoaderStory
+        color={select('color', ['primary', 'danger', 'default'], 'primary')}
+        size={select('size', ['lg', 'sm'], 'sm')}
+        isInvert={boolean('isInvert', false)}
+      />
+    ))
+  );
+
+storiesOf('Input', module)
+  .addDecorator(withKnobs)
+  .add('Single line input', withDocs(InputDocs, () => <InputStory />));
+
+// storiesOf('Badge', module);
+
+// storiesOf('Banner', module);
 
 // storiesOf('Checkbox', module);
 
@@ -79,33 +106,21 @@ storiesOf('Button', module)
 
 // storiesOf('Icon', module);
 
-// storiesOf('Input', module);
-
 // storiesOf('List', module);
 
 // storiesOf('Modal', module);
 
 // storiesOf('Pagination', module);
 
-// storiesOf('Paper', module);
-
 // storiesOf('Progress', module);
 
-// storiesOf('Radio', module);
-
 // storiesOf('Select', module);
-
-// storiesOf('Spinner', module);
 
 // storiesOf('Tab', module);
 
 // storiesOf('Table', module);
 
 // storiesOf('Textarea', module);
-
-storiesOf('Tile', module)
-  .addDecorator(withKnobs)
-  .add('Basic Tile', withDocs(TileDocs, () => <TileStory />));
 
 // storiesOf('Toggle', module);
 

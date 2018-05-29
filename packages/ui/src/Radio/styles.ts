@@ -12,4 +12,11 @@ export const Radio: any = styled(RadioComponent)`
   & > span {
     margin-left: 0.5rem;
   }
+
+  & > input {
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+  }
 `;

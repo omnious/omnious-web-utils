@@ -2,11 +2,11 @@
 import React from 'react';
 
 // Local import
-import { COLORS, Logo } from '../../../src';
+import { COLORS, Omnious } from '../../../src';
 import { StyledStory } from '../SharedStyles';
 
-export const LogoStory = options => (
+export const OmniousStory = options => (
   <StyledStory>
-    <Logo {...options} />
+    <Omnious {...options} />
   </StyledStory>
 );

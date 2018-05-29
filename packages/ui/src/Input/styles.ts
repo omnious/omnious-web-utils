@@ -20,7 +20,7 @@ export const Input: any = styled(InputComponent)`
   & > input {
     border: 1px solid #cfdadf;
     border-radius: ${SIZES.xsRad};
-    margin-top: 0.5rem;
+    margin: 0.5rem 0 1rem;
     padding: 0.8rem 1rem;
 
     &:disabled {

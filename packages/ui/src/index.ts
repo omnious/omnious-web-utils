@@ -1,8 +1,8 @@
 export * from './constants';
-export * from './Button';
-export * from './Input';
-export * from './Loader';
-export * from './Omnious';
-export * from './Radio';
-export * from './RadioGroup';
-export * from './Tile';
+export { Button } from './Button';
+export { Input } from './Input';
+export { Loader } from './Loader';
+export { Omnious } from './Omnious';
+export { Radio } from './Radio';
+export { RadioGroup } from './RadioGroup';
+export { Tile } from './Tile';

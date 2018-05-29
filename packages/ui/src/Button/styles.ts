@@ -2,10 +2,9 @@
 import styled from 'styled-components';
 
 // Local import
-import { ButtonComponent } from '.';
 import { COLORS, SIZES } from '..';
 
-export const Button: any = styled(ButtonComponent)`
+export const StyledButton: any = styled.button`
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: ${SIZES.xsRad};
@@ -31,6 +30,37 @@ export const Button: any = styled(ButtonComponent)`
 
   ${({ color, isInvert }: any): string => {
     switch (color) {
+      case 'primary': {
+        if (isInvert) {
+          return `
+            border: 1px solid ${COLORS.primaryBlue};
+            color: ${COLORS.primaryBlue};
+
+            &:focus {
+              outline: 1px auto ${COLORS.primaryBlue};
+            }
+
+            &:hover {
+              background-color: ${COLORS.primaryBlue};
+              color: ${COLORS.white};
+            }
+          `;
+        }
+
+        return `
+          background-color: ${COLORS.primaryBlue};
+          box-shadow: ${COLORS.buttonShadow};
+          color: ${COLORS.white};
+
+          &:focus {
+            outline: 1px auto ${COLORS.primaryBlue};
+          }
+
+          &:hover {
+            background-color: ${COLORS.darkenBlue};
+          }
+        `;
+      }
       case 'danger': {
         if (isInvert) {
           return `
@@ -62,35 +92,34 @@ export const Button: any = styled(ButtonComponent)`
           }
         `;
       }
-      case 'primary':
       default: {
         if (isInvert) {
           return `
-            border: 1px solid ${COLORS.primaryBlue};
-            color: ${COLORS.primaryBlue};
+            border: 1px solid ${COLORS.primaryGray};
+            color: ${COLORS.primaryBlack};
 
             &:focus {
-              outline: 1px auto ${COLORS.primaryBlue};
+              outline: 1px auto ${COLORS.primaryGray};
             }
 
             &:hover {
-              background-color: ${COLORS.primaryBlue};
-              color: ${COLORS.white};
+              background-color: ${COLORS.primaryGray};
             }
           `;
         }
 
         return `
-          background-color: ${COLORS.primaryBlue};
+          background-color: ${COLORS.primaryGray};
           box-shadow: ${COLORS.buttonShadow};
-          color: ${COLORS.white};
+          color: ${COLORS.primaryBlack};
 
           &:focus {
-            outline: 1px auto ${COLORS.primaryBlue};
+            outline: 1px auto ${COLORS.primaryGray};
           }
 
           &:hover {
-            background-color: ${COLORS.darkenBlue};
+            background-color: ${COLORS.darkenGray};
+            color: ${COLORS.white};
           }
         `;
       }

@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const RadioStory = props => {
+export const RadioGroupStory = props => {
   return <div>{props.children}</div>;
 };
