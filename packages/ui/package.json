@@ -35,12 +35,14 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
+    "react-select": "^2.0.0-beta.6",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.2",
     "@storybook/addon-knobs": "^3.4.2",
     "@storybook/addon-options": "^3.4.2",
+    "@types/react-select": "^1.2.6",
     "@types/shortid": "^0.0.29",
     "github-markdown-css": "^2.10.0",
     "react": "^16.3.2",

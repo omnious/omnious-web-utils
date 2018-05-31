@@ -1,29 +1,44 @@
 // Global import
 import * as React from 'react';
-import { SFC } from 'react';
+import { Component } from 'react';
+
+// Local import
+import { RadioDot, StyledRadio } from '.';
 
 // Interface
 export interface RadioProps {
   className?: string;
   disabled: boolean;
-  id?: string;
   label: string;
   name: string;
   value: any;
+  onChange(e: any): void;
 }
 
 // Component
-export const RadioComponent: SFC<RadioProps> = ({
-  className,
-  disabled,
-  id,
-  label,
-  name,
-  value,
-  ...others
-}: RadioProps): JSX.Element => (
-  <label className={className} htmlFor={id}>
-    <input disabled={disabled} id={id} name={name} type="radio" value={value} {...others} />
-    <span>{label}</span>
-  </label>
-);
+export class Radio extends Component<RadioProps, {}> {
+  private handleRadio = (): void => {
+    const { label, value, onChange }: RadioProps = this.props;
+
+    onChange({ label, value });
+  };
+
+  public render(): JSX.Element {
+    const { className, disabled, label, name, value, onChange, ...others }: RadioProps = this.props;
+
+    return (
+      <StyledRadio className={className}>
+        <input
+          disabled={disabled}
+          name={name}
+          type="radio"
+          value={value}
+          onChange={this.handleRadio}
+          {...others}
+        />
+        <RadioDot />
+        <span>{label}</span>
+      </StyledRadio>
+    );
+  }
+}

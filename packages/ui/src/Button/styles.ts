@@ -5,10 +5,13 @@ import styled from 'styled-components';
 import { COLORS, SIZES } from '..';
 
 export const StyledButton: any = styled.button`
+  align-items: center;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: ${SIZES.xsRad};
   cursor: pointer;
+  display: flex;
+  justify-content: center;
   line-height: 1;
   transition: all 0.2s;
 

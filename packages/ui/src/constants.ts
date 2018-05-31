@@ -7,6 +7,7 @@ export enum COLORS {
   lightenBlack = '#485056',
   primaryGray = '#dfe3e6',
   secondaryGray = '#dbe9ed',
+  lightenGray = '#f8f9fd',
   darkenGray = '#6f848d',
   primaryBlue = '#249cff',
   lightenBlue = '#a9e1ff',

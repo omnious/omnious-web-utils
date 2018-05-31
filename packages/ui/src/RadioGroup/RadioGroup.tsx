@@ -4,26 +4,39 @@ import { SFC } from 'react';
 import { generate } from 'shortid';
 
 // Local import
+import { GroupWrapper, StyledRadioGroup } from '.';
 import { Radio } from '..';
 
 // Interface
+export interface RadioItemProps {
+  disabled?: boolean;
+  label: string;
+  value: any;
+}
+
 export interface RadioGroupProps {
-  items: any[];
+  isVertical: boolean;
+  items: RadioItemProps[];
   name: string;
   title: string;
-  handleRadio(e: any): void;
+  onChange(e: any): void;
 }
 
 // Component
-export const RadioGroupComponent: SFC<RadioGroupProps> = ({
+export const RadioGroup: SFC<RadioGroupProps> = ({
+  isVertical,
   items,
   name,
   title,
-  handleRadio,
+  onChange,
   ...others
 }: RadioGroupProps): JSX.Element => (
-  <form onChange={handleRadio} {...others}>
-    <h4>{title}</h4>
-    {items.map((item: any): JSX.Element => <Radio key={generate()} name={name} {...item} />)}
-  </form>
+  <StyledRadioGroup {...others}>
+    <h3>{title}</h3>
+    <GroupWrapper isVertical={isVertical}>
+      {items.map((item: any): JSX.Element => (
+        <Radio key={generate()} name={name} onChange={onChange} {...item} />
+      ))}
+    </GroupWrapper>
+  </StyledRadioGroup>
 );

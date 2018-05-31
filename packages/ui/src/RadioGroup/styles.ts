@@ -1,11 +1,15 @@
 // Global import
 import styled from 'styled-components';
 
-// Local import
-import { RadioGroupComponent } from '.';
+export const StyledRadioGroup: any = styled.div``;
 
-export const RadioGroup: any = styled(RadioGroupComponent)`
-  & > h4 {
-    margin-bottom: 0.5rem;
-  }
+export const GroupWrapper: any = styled.div`
+  display: flex;
+
+  ${({ isVertical }: any): string =>
+    isVertical
+      ? `
+    flex-direction: column;
+  `
+      : ''};
 `;
