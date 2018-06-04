@@ -32,7 +32,7 @@ export const RadioGroup: SFC<RadioGroupProps> = ({
   ...others
 }: RadioGroupProps): JSX.Element => (
   <StyledRadioGroup {...others}>
-    <h3>{title}</h3>
+    <h4>{title}</h4>
     <GroupWrapper isVertical={isVertical}>
       {items.map((item: any): JSX.Element => (
         <Radio key={generate()} name={name} onChange={onChange} {...item} />

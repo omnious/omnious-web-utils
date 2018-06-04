@@ -15,7 +15,7 @@ const { resolve } = require('path');
 const { LoaderOptionsPlugin, optimize } = require('webpack');
 
 // Local import
-const { tag } = require('./config/env');
+const { cdn, facebook, google, tag } = require('./config/env');
 const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./config/path');
 
 module.exports = {
@@ -94,6 +94,9 @@ module.exports = {
       filename: '../index.html',
       template: indexHtml,
       inject: true,
+      cdn,
+      facebook,
+      google,
       minify: {
         removeComments: true,
         collapseWhitespace: true,

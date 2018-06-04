@@ -21,7 +21,7 @@ export const Dropdown: SFC<DropdownProps> = ({
   ...others
 }: DropdownProps): JSX.Element => (
   <StyledDropdown {...others}>
-    <h3>{title}</h3>
+    <h4>{title}</h4>
     <Select options={items} onChange={onChange} {...others} />
   </StyledDropdown>
 );

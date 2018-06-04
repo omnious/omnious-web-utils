@@ -9,8 +9,11 @@ dotenv.config();
 
 function getEnvOrDefault(key, defaultVal) {
   if (!process.env[key]) {
-    if (typeof defaultVal === 'undefined') logger.error(`WARNING: Missing ENV var ${key}`);
-    else process.env[key] = defaultVal;
+    if (typeof defaultVal === 'undefined') {
+      logger.error(`WARNING: Missing ENV var ${key}`);
+    } else {
+      process.env[key] = defaultVal;
+    }
   }
 
   return process.env[key];
@@ -21,18 +24,16 @@ const configValue = {
   // base env
   base: {
     env,
+    cdn: getEnvOrDefault('CDN_URL', ''),
     google: getEnvOrDefault('GA_ID', 'UA-XXXXX-Y'),
-    sentry: getEnvOrDefault('SENTRY_URL', ''),
-    cdn: getEnvOrDefault('CDN_URL', '')
+    facebook: getEnvOrDefault('FB_ID', '')
   },
   production: {
-    api: getEnvOrDefault('PROD_API_URL', ''),
     tag: getEnvOrDefault('CIRCLE_TAG', 'prod')
   },
   development: {
     host: getEnvOrDefault('HOST', 'localhost'),
-    port: getEnvOrDefault('PORT', 3000),
-    api: getEnvOrDefault('DEV_API_URL', '')
+    port: getEnvOrDefault('PORT', 3000)
   },
   test: {}
 };
