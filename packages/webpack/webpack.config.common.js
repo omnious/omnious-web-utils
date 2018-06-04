@@ -10,7 +10,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-const { cdn, facebook, google } = require('./config/env');
+// const { cdn, facebook, google } = require('./config/env');
 const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {

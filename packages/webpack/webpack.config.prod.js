@@ -93,10 +93,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: indexHtml,
+      templateParameters: {
+        cdn,
+        facebook,
+        google
+      },
       inject: true,
-      cdn,
-      facebook,
-      google,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
