@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'raw-loader'
+        loader: 'html-loader'
       },
       {
         test: /\.(jpg|png)$/,
