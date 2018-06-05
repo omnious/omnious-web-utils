@@ -17,7 +17,20 @@ export interface ButtonProps {
   onClick(e: any): void;
 }
 
-// Component
+/**
+ * @description Button Component
+ *
+ * @param {ButtonProps} {
+ *   children,
+ *   color,
+ *   icon,
+ *   isInvert,
+ *   isLoading,
+ *   size,
+ *   ...others
+ * }
+ * @returns {JSX.Element}
+ */
 export const Button: SFC<ButtonProps> = ({
   children,
   color,

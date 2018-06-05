@@ -2,10 +2,9 @@
 import styled from 'styled-components';
 
 // Local import
-import { InputComponent } from '.';
 import { COLORS, SIZES } from '..';
 
-export const Input: any = styled(InputComponent)`
+export const StyledLabel: any = styled.label`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -16,24 +15,25 @@ export const Input: any = styled(InputComponent)`
     cursor: not-allowed;
     opacity: 0.5;
   `};
+`;
 
-  & > input {
-    border: 1px solid #cfdadf;
-    border-radius: ${SIZES.xsRad};
-    margin: 0.5rem 0 1rem;
-    padding: 0.8rem 1rem;
+export const StyledInput: any = styled.input`
+  border: 1px solid #cfdadf;
+  border-radius: ${SIZES.xsRad};
+  margin: 0.5rem 0 1rem;
+  padding: 0.8rem 1rem;
 
-    &:disabled {
-      cursor: not-allowed;
-    }
+  &:disabled {
+    cursor: not-allowed;
+  }
 
-    &:focus {
-      background-color: ${COLORS.white};
-      outline: 0;
-    }
+  &:focus {
+    background-color: ${COLORS.white};
+    border: 1px solid #bccbd2;
+    outline: 0;
+  }
 
-    &::placeholder {
-      color: #5a6872;
-    }
+  &::placeholder {
+    color: #5a6872;
   }
 `;

@@ -13,6 +13,7 @@ import { withDocs } from 'storybook-readme';
 // Local import
 import { ButtonDocs, ButtonStory } from './Button';
 import { GradientDocs, GradientStory, SolidDocs, SolidStory } from './Color';
+import { DropdownDocs, DropdownStory } from './Dropdown';
 import { OmniousDocs, OmniousStory } from './Icons';
 import { InputDocs, InputStory } from './Input';
 import { LoaderDocs, LoaderStory } from './Loader';
@@ -91,6 +92,10 @@ storiesOf('Loader', module)
 storiesOf('Input', module)
   .addDecorator(withKnobs)
   .add('Single line input', withDocs(InputDocs, () => <InputStory />));
+
+storiesOf('Dropdown', module)
+  .addDecorator(withKnobs)
+  .add('Dropdown', withDocs(DropdownDocs, () => <DropdownStory />));
 
 // storiesOf('Badge', module);
 
