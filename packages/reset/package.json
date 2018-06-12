@@ -1,6 +1,6 @@
 {
   "name": "@omnious/reset",
-  "version": "0.0.2-rc.0",
+  "version": "0.0.2-rc.1",
   "main": "index.js",
   "license": "MIT"
 }
