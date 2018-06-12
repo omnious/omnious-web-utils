@@ -12,20 +12,20 @@ export interface RadioProps {
   label: string;
   name: string;
   value: any;
-  onChange(e: any): void;
+  handleRadio(e: any): void;
 }
 
 // Component
 export class Radio extends Component<RadioProps, {}> {
   private handleRadio = (e: any): void => {
     e.preventDefault();
-    const { label, value, onChange }: RadioProps = this.props;
+    const { label, value, handleRadio }: RadioProps = this.props;
 
-    onChange({ label, value });
+    handleRadio({ label, value });
   };
 
   public render(): JSX.Element {
-    const { className, disabled, label, name, value, onChange, ...others }: RadioProps = this.props;
+    const { className, disabled, label, name, value, ...others }: RadioProps = this.props;
 
     return (
       <StyledRadio className={className}>

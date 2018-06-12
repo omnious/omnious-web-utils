@@ -45,9 +45,11 @@ export class RadioGroup extends Component<RadioGroupProps> {
       return 'no items';
     }
 
-    return items.map((item: any): JSX.Element => (
-      <Radio key={generate()} name={name} onChange={onChange} {...item} />
-    ));
+    return items.map(
+      (item: any): JSX.Element => (
+        <Radio key={generate()} name={name} handleRadio={onChange} {...item} />
+      )
+    );
   };
 
   public render(): JSX.Element {
