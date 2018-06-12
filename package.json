@@ -15,6 +15,7 @@
     "packages/*"
   ],
   "scripts": {
+    "prelease": "lerna publish --cd-version prelease --preid=rc",
     "release": "lerna publish"
   },
   "devDependencies": {

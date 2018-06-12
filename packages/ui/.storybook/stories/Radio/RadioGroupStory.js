@@ -18,6 +18,12 @@ function handleRadio(e) {
 // Component
 export const RadioGroupStory = props => (
   <div>
-    <RadioGroup isVertical name="test" title="radio group" items={items} onChange={handleRadio} />
+    <RadioGroup
+      isVertical
+      name="test"
+      title="radio group"
+      items={items}
+      handleRadio={handleRadio}
+    />
   </div>
 );

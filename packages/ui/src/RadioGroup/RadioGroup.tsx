@@ -9,37 +9,24 @@ import { Radio } from '..';
 
 // Interface
 export interface RadioItemProps {
-  disabled?: boolean;
+  disabled: boolean;
   label: string;
   value: any;
 }
 
 export interface RadioGroupProps {
-  className?: string;
+  className: string;
   isVertical: boolean;
   items: RadioItemProps[];
   name: string;
   title: string;
-  onChange(e: any): void;
+  value: any;
+  handleRadio(e: any): void;
 }
 
-/**
- *
- *
- * @param {RadioGroupProps} {
- *   className,
- *   isVertical,
- *   items,
- *   name,
- *   title,
- *   onChange,
- *   ...others
- * }
- * @returns {JSX.Element}
- */
 export class RadioGroup extends Component<RadioGroupProps> {
   private renderRadio = (): any => {
-    const { items, name, onChange }: any = this.props;
+    const { items, name, value, handleRadio }: any = this.props;
 
     if (!items) {
       return 'no items';
@@ -47,7 +34,7 @@ export class RadioGroup extends Component<RadioGroupProps> {
 
     return items.map(
       (item: any): JSX.Element => (
-        <Radio key={generate()} name={name} handleRadio={onChange} {...item} />
+        <Radio key={generate()} name={name} selected={value} handleRadio={handleRadio} {...item} />
       )
     );
   };

@@ -7,10 +7,11 @@ import { RadioDot, StyledRadio } from '.';
 
 // Interface
 export interface RadioProps {
-  className?: string;
+  className: string;
   disabled: boolean;
   label: string;
   name: string;
+  selected: any;
   value: any;
   handleRadio(e: any): void;
 }
@@ -25,15 +26,24 @@ export class Radio extends Component<RadioProps, {}> {
   };
 
   public render(): JSX.Element {
-    const { className, disabled, label, name, value, ...others }: RadioProps = this.props;
+    const {
+      className,
+      disabled,
+      label,
+      name,
+      selected,
+      value,
+      handleRadio,
+      ...others
+    }: RadioProps = this.props;
 
     return (
       <StyledRadio className={className}>
         <input
+          checked={value === selected}
           disabled={disabled}
           name={name}
           type="radio"
-          value={value}
           onChange={this.handleRadio}
           {...others}
         />
