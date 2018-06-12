@@ -17,7 +17,8 @@ export interface RadioProps {
 
 // Component
 export class Radio extends Component<RadioProps, {}> {
-  private handleRadio = (): void => {
+  private handleRadio = (e: any): void => {
+    e.preventDefault();
     const { label, value, onChange }: RadioProps = this.props;
 
     onChange({ label, value });

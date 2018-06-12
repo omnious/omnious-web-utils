@@ -1,0 +1,92 @@
+@import 'variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0;
+}
+
+*::selection {
+  background-color: $primaryBlue;
+  color: $white;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 15px;
+  text-size-adjust: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  font-family: 'sofia-pro', 'Helvetica', 'Arial', sans-serif;
+  font-size: $h4;
+  font-weight: 400;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -ms-overflow-style: scrollbar;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: $h1;
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: $h2;
+  font-weight: 300;
+  line-height: 1.46;
+}
+
+h3 {
+  font-size: $h3;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+h5 {
+  font-size: $h5;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+a {
+  all: unset;
+}
+
+label {
+  cursor: pointer;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+}

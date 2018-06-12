@@ -60,10 +60,11 @@ storiesOf('Button', module)
     withDocs(ButtonDocs, () => (
       <ButtonStory
         color={select('color', ['primary', 'danger', 'default'], 'primary')}
-        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
         disabled={boolean('disabled', false)}
         isInvert={boolean('isInvert', false)}
         isLoading={boolean('isLoading', false)}
+        size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
+        to={text('to', 'https://www.omnious.com')}
         onClick={action('Button click')}
       >
         {text('content', 'This is `<Button />`!')}

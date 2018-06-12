@@ -1,10 +1,11 @@
 // Global import
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 // Local import
 import { COLORS, SIZES } from '..';
 
-export const StyledButton: any = styled.button`
+const StyledWrapper: any = css`
   align-items: center;
   background-color: transparent;
   border: 1px solid transparent;
@@ -133,6 +134,18 @@ export const StyledButton: any = styled.button`
     cursor: not-allowed;
     opacity: 0.5;
   }
+`;
+
+export const StyledAnchor: any = styled.a`
+  ${StyledWrapper};
+`;
+
+export const StyledButton: any = styled.button`
+  ${StyledWrapper};
+`;
+
+export const StyledLink: any = styled(Link)`
+  ${StyledWrapper};
 `;
 
 // TODO: Complete size
