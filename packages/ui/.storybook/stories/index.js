@@ -1,5 +1,5 @@
 // CSS import
-import 'bootstrap/dist/css/bootstrap-reboot.min';
+// import 'bootstrap/dist/css/bootstrap-reboot.min';
 import 'github-markdown-css/github-markdown';
 import '../css';
 

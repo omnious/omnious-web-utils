@@ -4,12 +4,13 @@
   "description": "React components for omnious.",
   "homepage": "https://omnious-ui.netlify.com",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
-  "contributors": [
+  "maintainers": [
     {
       "name": "Euihyun Yang",
       "email": "ykd1217@gmail.com"
     }
   ],
+  "contributors": [],
   "license": "MIT",
   "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/ui",
   "keywords": [
@@ -24,13 +25,14 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "build": "run-s build:**",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "build:ui": "tsc",
     "lint": "run-s lint:**",
     "lint:js": "eslint .",
     "lint:ts": "tslint -p . -t stylish",
     "lint:css": "stylelint . --syntax scss",
-    "prepublish": "yarn build:ui",
+    "prepublish": "yarn build",
     "prettier": "prettier --write '**/*.{js,ts,tsx}'",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
