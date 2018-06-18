@@ -15,7 +15,6 @@ const StyledWrapper: any = css`
   justify-content: center;
   line-height: 1;
   transition: all 0.2s;
-
   padding: ${({ size }: any): string => {
     switch (size) {
       case 'xs':
@@ -31,7 +30,6 @@ const StyledWrapper: any = css`
         return '12px 15px;';
     }
   }};
-
   ${({ color, isInvert }: any): string => {
     switch (color) {
       case 'primary': {
@@ -131,8 +129,15 @@ const StyledWrapper: any = css`
   }};
 
   &:disabled {
+    ${({ isLoading }) =>
+      isLoading
+        ? `
+      cursor: progress;
+    `
+        : `
     cursor: not-allowed;
     opacity: 0.5;
+    `};
   }
 `;
 

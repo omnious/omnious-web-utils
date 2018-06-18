@@ -70,8 +70,9 @@ export const Button: SFC<ButtonProps> = ({
       <StyledButton
         className={className}
         color={color}
-        disabled={disabled}
+        disabled
         isInvert={isInvert}
+        isLoading
         size={size}
         {...others}
       >
