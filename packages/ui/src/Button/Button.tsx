@@ -1,6 +1,6 @@
 // Global import
 import * as React from 'react';
-import { ReactNode, SFC } from 'react';
+import { ReactChildren, SFC } from 'react';
 
 // Local import
 import { StyledAnchor, StyledButton, StyledLink } from '.';
@@ -8,7 +8,7 @@ import { Loader } from '..';
 
 // Interface
 export interface ButtonProps {
-  children: ReactNode;
+  children: ReactChildren;
   className: string;
   color: string;
   disabled: boolean;

@@ -4,11 +4,10 @@ import styled from 'styled-components';
 // Local import
 import { COLORS, SIZES } from '..';
 
-export const StyledLabel: any = styled.label`
-  align-items: flex-start;
+export const StyledInput: any = styled.label`
+  align-items: stretch;
   display: flex;
   flex-direction: column;
-
   ${({ disabled }: any): any =>
     disabled &&
     `
@@ -17,7 +16,9 @@ export const StyledLabel: any = styled.label`
   `};
 `;
 
-export const StyledInput: any = styled.input`
+export const InputWrapper: any = styled.input.attrs({
+  type: ({ type }: any): string => type || 'text'
+})`
   border: 1px solid #cfdadf;
   border-radius: ${SIZES.xsRad};
   margin: 0.5rem 0 1rem;

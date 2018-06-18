@@ -1,76 +1,88 @@
 // Global import
 import * as React from 'react';
-import { SFC } from 'react';
+import { Component } from 'react';
 
 // Local import
-import { StyledDropdown, StyledSelect } from '.';
+import { ItemWrapper, StyledDropdown } from '.';
 import { COLORS, SIZES } from '..';
 
 // Interface
-export interface DropdownProps {
-  className: string;
-  items: any[];
-  placeholder: string;
-  title: string;
+export interface DropdownItemProps {
+  label: string;
   value: any;
-  onChange(e: any): void;
 }
 
-export const Dropdown: SFC<DropdownProps> = ({
-  className,
-  items = [],
-  placeholder = 'Choose an option',
-  title,
-  value,
-  onChange,
-  ...others
-}: DropdownProps): JSX.Element => (
-  <StyledDropdown className={className}>
-    <h4>{title}</h4>
-    <StyledSelect
-      options={items}
-      placeholder={placeholder}
-      styles={{
-        control: (base: any, state: any): any => ({
-          ...base,
-          backgroundColor: 'transparent',
-          borderColor: state.isFocused ? 'transparent' : '#cfdadf',
-          borderRadius: state.isFocused ? `${SIZES.xsRad} ${SIZES.xsRad} 0 0` : SIZES.xsRad,
-          borderWidth: '1px',
-          boxShadow: 0,
-          cursor: 'pointer',
-          padding: '0.3rem',
+export interface DropdownProps {
+  className: string;
+  items: DropdownItemProps[];
+  placeholder: string;
+  selected: any;
+  title: string;
+  handleDropdown(name: any, item: any): void;
+}
 
-          '&:hover': {
-            borderColor: state.isFocused ? 'transparent' : '#cfdadf'
-          }
-        }),
-        indicatorSeparator: (base: any): any => ({
-          ...base,
-          backgroundColor: 'transparent'
-        }),
-        menu: (base: any): any => ({
-          ...base,
-          borderRadius: `0 0 ${SIZES.xsRad} ${SIZES.xsRad}`,
-          boxShadow: COLORS.menuShadow,
-          margin: 0
-        }),
-        menuList: (base: any): any => ({
-          ...base,
-          padding: 0
-        }),
-        option: (base: any): any => ({
-          ...base,
-          cursor: 'pointer',
-          padding: `${SIZES.smPad} ${SIZES.mdPad}`,
+export class Dropdown extends Component<DropdownProps> {
+  private handleDropdown = (e: any): void => {
+    const { name, handleDropdown }: any = this.props;
+    const value: any = e ? e.value : null;
+    handleDropdown(name, value);
+  };
 
-          '&:hover': {
-            backgroundColor: '#f3fafd'
-          }
-        })
-      }}
-      onChange={onChange}
-      {...others}
-    />
-  </StyledDropdown>
-);
+  private renderItems = (): any => {
+    const {
+      items = [],
+      placeholder = 'Choose an option',
+      selected,
+      ...others
+    }: DropdownProps = this.props;
+    const value: any = items.find((item: any): boolean => item.value === selected);
+
+    return (
+      <ItemWrapper
+        options={items}
+        placeholder={placeholder}
+        styles={{
+          control: (base: any, state: any): any => ({
+            ...base,
+            backgroundColor: 'transparent',
+            borderColor: '#cfdadf',
+            borderRadius: state.isFocused ? `${SIZES.xsRad} ${SIZES.xsRad} 0 0` : SIZES.xsRad,
+            borderWidth: '1px',
+            boxShadow: 0,
+            cursor: 'pointer',
+            padding: '0.3rem',
+            '&:hover': { borderColor: '#cfdadf' }
+          }),
+          indicatorSeparator: (base: any): any => ({ ...base, backgroundColor: 'transparent' }),
+          menu: (base: any): any => ({
+            ...base,
+            borderRadius: `0 0 ${SIZES.xsRad} ${SIZES.xsRad}`,
+            boxShadow: COLORS.menuShadow,
+            margin: 0
+          }),
+          menuList: (base: any): any => ({ ...base, padding: 0 }),
+          option: (base: any): any => ({
+            ...base,
+            cursor: 'pointer',
+            padding: `${SIZES.smPad} ${SIZES.mdPad}`,
+            '&:hover': { backgroundColor: '#f3fafd' }
+          })
+        }}
+        value={value}
+        onChange={this.handleDropdown}
+        {...others}
+      />
+    );
+  };
+
+  public render(): JSX.Element {
+    const { className, title, ...others }: DropdownProps = this.props;
+
+    return (
+      <StyledDropdown className={className} {...others}>
+        <h4>{title}</h4>
+        {this.renderItems()}
+      </StyledDropdown>
+    );
+  }
+}

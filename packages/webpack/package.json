@@ -22,6 +22,7 @@
   },
   "main": "index.js",
   "scripts": {
+    "build": "echo 'There`s no @omnious/webpack build'",
     "lint": "eslint ."
   },
   "dependencies": {

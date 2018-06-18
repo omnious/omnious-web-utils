@@ -12,6 +12,7 @@ export enum COLORS {
   primaryBlue = '#249cff',
   lightenBlue = '#a9e1ff',
   darkenBlue = '#2486ff',
+  borderBlue = '#3d70b2',
   primaryRed = '#ff5252',
   darkenRed = '#e34953',
 

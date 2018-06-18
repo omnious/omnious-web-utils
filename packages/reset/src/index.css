@@ -21,7 +21,6 @@
 html,
 body {
   height: 100%;
-  color: black;
 }
 
 html {
@@ -61,6 +60,13 @@ h3 {
   line-height: 1.33;
 }
 
+h4,
+p {
+  font-size: $h4;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
 h5 {
   font-size: $h5;
   font-weight: 400;
@@ -70,6 +76,7 @@ h5 {
 
 a {
   all: unset;
+  cursor: pointer;
 }
 
 label {
@@ -90,4 +97,5 @@ textarea {
   font-weight: inherit;
   line-height: inherit;
   margin: 0;
+  user-select: none;
 }

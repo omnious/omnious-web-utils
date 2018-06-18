@@ -1,42 +1,54 @@
 // Global import
 import * as React from 'react';
-import { SFC } from 'react';
+import { Component } from 'react';
 
 // Local import
-import { StyledLabel, StyledInput } from '.';
+import { InputWrapper, StyledInput } from '.';
 
 // Interface
 export interface InputProps {
+  className: string;
   disabled: boolean;
-  id?: string;
   label: string;
   name: string;
   type: string;
+  value: any;
+  handleInput(name: string, value: string): void;
 }
 
-/**
- *
- *
- * @param {InputProps} {
- *   disabled,
- *   id,
- *   label,
- *   name,
- *   type,
- *   ...others
- * }
- * @returns {JSX.Element}
- */
-export const Input: SFC<InputProps> = ({
-  disabled,
-  id,
-  label,
-  name,
-  type,
-  ...others
-}: InputProps): JSX.Element => (
-  <StyledLabel htmlFor={id}>
-    <h4>{label}</h4>
-    <StyledInput disabled={disabled} id={id} name={name} type={type || 'text'} {...others} />
-  </StyledLabel>
-);
+export class Input extends Component<InputProps> {
+  private handleInput = (e: any): void => {
+    e.preventDefault();
+    const { name, handleInput }: any = this.props;
+
+    if (handleInput) {
+      handleInput(name, e.target.value);
+    }
+  };
+
+  public render(): JSX.Element {
+    const {
+      className,
+      disabled = false,
+      label,
+      name,
+      type = 'text',
+      value = ''
+    }: // ...others
+    InputProps = this.props;
+
+    return (
+      <StyledInput className={className}>
+        <h4>{label}</h4>
+        <InputWrapper
+          disabled={disabled}
+          name={name}
+          type={type}
+          value={value}
+          onChange={this.handleInput}
+          // {...others}
+        />
+      </StyledInput>
+    );
+  }
+}
