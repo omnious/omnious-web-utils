@@ -11,6 +11,12 @@ export interface MegaProps {
   className: string;
 }
 
-export const Mega: SFC<MegaProps> = ({ children, className }: MegaProps): JSX.Element => (
-  <StyledMega className={className}>{children}</StyledMega>
+export const Mega: SFC<MegaProps> = ({
+  children,
+  className,
+  ...others
+}: MegaProps): JSX.Element => (
+  <StyledMega className={className} {...others}>
+    {children}
+  </StyledMega>
 );
