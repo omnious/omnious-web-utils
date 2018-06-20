@@ -1,7 +1,7 @@
 // Global import
 import * as React from 'react';
 import { Component } from 'react';
-// import { generate } from 'shortid';
+import { generate } from 'shortid';
 
 // Local import
 import { ItemWrapper, StyledForm } from '.';
@@ -82,7 +82,7 @@ export class Form extends Component<FormProps> {
             );
           case 'submit':
             return (
-              <Button key={name} type={type} {...others}>
+              <Button key={generate()} type={type} {...others}>
                 {component}
               </Button>
             );

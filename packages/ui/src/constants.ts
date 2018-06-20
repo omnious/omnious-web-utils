@@ -9,12 +9,16 @@ export enum COLORS {
   secondaryGray = '#dbe9ed',
   lightenGray = '#f8f9fd',
   darkenGray = '#6f848d',
+  borderGray = '#cfdadf',
   primaryBlue = '#249cff',
-  lightenBlue = '#a9e1ff',
+  secondaryBlue = '#a9e1ff',
+  lightenBlue = '#ebf7fc',
   darkenBlue = '#2486ff',
   borderBlue = '#3d70b2',
   primaryRed = '#ff5252',
   darkenRed = '#e34953',
+  primaryGreen = '#23d798',
+  primaryYellow = '#ffca50',
 
   // Shadow
   buttonShadow = '0 2px 4px 0 rgba(46, 74, 84, 0.15)',

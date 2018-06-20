@@ -15,8 +15,8 @@
     "packages/*"
   ],
   "scripts": {
-    "release:pre": "lerna publish --cd-version prerelease --preid=rc",
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "release:pre": "lerna publish --cd-version prerelease --preid=rc --npm-tag next"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",

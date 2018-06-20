@@ -5,6 +5,7 @@ export { Form } from './Form';
 export { Arrow, Clear, Dot } from './Icons';
 export { Input, InputProps } from './Input';
 export { Loader } from './Loader';
+export { Mega } from './Mega';
 export { Omnious } from './Omnious';
 export { Radio } from './Radio';
 export { RadioItem, RadioItemProps } from './RadioItem';
