@@ -18,7 +18,7 @@
     "webpack"
   ],
   "engines": {
-    "node": ">= 8.9.4"
+    "node": ">= 8.10.0"
   },
   "main": "index.js",
   "scripts": {
@@ -41,7 +41,7 @@
     "ora": "^2.0.0",
     "postcss-loader": "^2.1.1",
     "raw-loader": "^0.5.1",
-    "react-dev-utils": "^6.0.0-next.66cc7a90",
+    "react-dev-utils": "^5.0.1",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.2",
     "stylelint-webpack-plugin": "^0.10.5",
@@ -54,13 +54,13 @@
   "peerDependencies": {
     "@babel/core": "^7.0.0-beta.51",
     "angular2-template-loader": "^0.6.2",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^8.0.0-beta.4",
     "fork-ts-checker-webpack-plugin": "^0.4.2",
-    "stylelint": "^9.2.0",
+    "stylelint": "^9.3.0",
     "ts-loader": "^4.4.1",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.5.0"
+    "webpack": "^4.12.1"
   },
   "bin": {
     "omnious-webpack": "index.js"

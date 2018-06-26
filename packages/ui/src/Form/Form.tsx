@@ -5,7 +5,7 @@ import { generate } from 'shortid';
 
 // Local import
 import { ItemWrapper, StyledForm } from '.';
-import { Button, Dropdown, Input, Radio } from '..';
+import { Button, Input, Radio } from '..';
 
 // Interface
 export interface FormProps {
@@ -38,9 +38,9 @@ export class Form extends Component<FormProps> {
     this.setState((state: any): any => ({ ...state, [name]: Number(value) }));
   };
 
-  private handleDropdown = (name: string, value: any): void => {
-    this.setState((state: any): any => ({ ...state, [name]: value }));
-  };
+  // private handleDropdown = (name: string, value: any): void => {
+  //   this.setState((state: any): any => ({ ...state, [name]: value }));
+  // };
 
   private handleInput = (name: string, value: string): void => {
     this.setState((state: any): any => ({ ...state, [name]: value }));
@@ -69,17 +69,17 @@ export class Form extends Component<FormProps> {
                 {...others}
               />
             );
-          case 'select':
-            return (
-              <Dropdown
-                key={name}
-                items={items}
-                name={name}
-                selected={this.state[name]}
-                handleDropdown={this.handleDropdown}
-                {...others}
-              />
-            );
+          // case 'select':
+          //   return (
+          //     <Dropdown
+          //       key={name}
+          //       items={items}
+          //       name={name}
+          //       selected={this.state[name]}
+          //       handleDropdown={this.handleDropdown}
+          //       {...others}
+          //     />
+          //   );
           case 'submit':
             return (
               <Button key={generate()} type={type} {...others}>

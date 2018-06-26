@@ -16,12 +16,15 @@ export const StyledInput: any = styled.label`
   `};
 `;
 
+export const InputTitle: any = styled.h4`
+  margin-bottom: 0.5rem;
+`;
+
 export const InputWrapper: any = styled.input.attrs({
   type: ({ type }: any): string => type || 'text'
 })`
   border: 1px solid #cfdadf;
   border-radius: ${SIZES.xsRad};
-  margin: 0.5rem 0 1rem;
   padding: 0.8rem 1rem;
 
   &:disabled {

@@ -4,13 +4,13 @@
 
 // Global import
 const DotenvPlugin = require('dotenv-webpack');
-// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-// const { cdn, facebook, google } = require('./config/env');
+const { cdn, facebook, google } = require('./config/env');
 const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new DotenvPlugin({ systemvars: true }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    // new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    new InterpolateHtmlPlugin({ cdn, facebook, google }),
     new StyleLintPlugin()
   ]
 };

@@ -7,8 +7,8 @@ import { StyledMega } from '.';
 
 // Interface
 export interface MegaProps {
-  children: ReactChildren;
-  className: string;
+  children: ReactChildren | string;
+  className?: string;
 }
 
 export const Mega: SFC<MegaProps> = ({

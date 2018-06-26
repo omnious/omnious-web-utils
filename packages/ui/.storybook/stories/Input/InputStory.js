@@ -8,7 +8,7 @@ import { StyledStory } from '../SharedStyles';
 export const InputStory = options => (
   <StyledStory>
     <Input type="text" {...options} />
-    <Input type="number" />
+    <Input label="Number" type="number" />
     <Input type="email" />
     <Input type="password" />
   </StyledStory>

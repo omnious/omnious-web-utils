@@ -74,16 +74,9 @@ h5 {
   text-transform: uppercase;
 }
 
-a {
-  all: unset;
-  cursor: pointer;
-}
-
+a,
+button,
 label {
-  cursor: pointer;
-}
-
-button {
   all: unset;
   cursor: pointer;
 }

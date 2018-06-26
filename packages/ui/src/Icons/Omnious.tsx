@@ -3,7 +3,7 @@ import * as React from 'react';
 import { SFC } from 'react';
 
 // Local import
-import { FillArea } from '.';
+import { FillArea, StyledOmnious } from '.';
 
 // Interface
 export interface OmniousProps {
@@ -12,15 +12,14 @@ export interface OmniousProps {
   isVertical?: boolean;
 }
 
-// Component
-export const OmniousComponent: SFC<OmniousProps> = ({
+export const Omnious: SFC<OmniousProps> = ({
   className,
   color,
   isVertical
 }: OmniousProps): JSX.Element => {
   if (isVertical) {
     return (
-      <svg
+      <StyledOmnious
         className={className}
         width="143px"
         height="72px"
@@ -128,12 +127,13 @@ export const OmniousComponent: SFC<OmniousProps> = ({
             </g>
           </FillArea>
         </g>
-      </svg>
+      </StyledOmnious>
     );
   }
 
   return (
-    <svg
+    <StyledOmnious
+      className={className}
       width="189px"
       height="29px"
       viewBox="0 0 189 29"
@@ -242,6 +242,6 @@ export const OmniousComponent: SFC<OmniousProps> = ({
           </g>
         </g>
       </g>
-    </svg>
+    </StyledOmnious>
   );
 };

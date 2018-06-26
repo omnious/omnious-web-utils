@@ -20,7 +20,7 @@
     "components"
   ],
   "engines": {
-    "node": ">= 8.9.4"
+    "node": ">= 8.10.0"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -37,13 +37,13 @@
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
-    "react-select": "^2.0.0-beta.6",
     "shortid": "^2.2.8"
   },
   "peerDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "styled-components": "^3.3.2"
+    "react-select": "^1.2.1",
+    "styled-components": "^3.3.3"
   }
 }
