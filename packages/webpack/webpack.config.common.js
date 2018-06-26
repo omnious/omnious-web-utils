@@ -4,13 +4,13 @@
 
 // Global import
 const DotenvPlugin = require('dotenv-webpack');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+// const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-const { CDN_URL, GOOGLE_ID, FACEBOOK_ID } = require('./config/env');
+// const { CDN_URL, GOOGLE_ID, FACEBOOK_ID } = require('./config/env');
 const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
@@ -22,10 +22,10 @@ module.exports = {
         use: 'source-map-loader',
         enforce: 'pre'
       },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
+      // {
+      //   test: /\.html$/,
+      //   loader: 'html-loader'
+      // },
       {
         test: /\.(jpg|png)$/,
         use: {
@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new DotenvPlugin({ systemvars: true }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new InterpolateHtmlPlugin({ CDN_URL, GOOGLE_ID, FACEBOOK_ID }),
+    // new InterpolateHtmlPlugin({ CDN_URL, GOOGLE_ID, FACEBOOK_ID }),
     new StyleLintPlugin()
   ]
 };

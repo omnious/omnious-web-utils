@@ -25,8 +25,8 @@ const configValue = {
   base: {
     env,
     CDN_URL: getEnvOrDefault('CDN_URL', ''),
-    GOOGLE_ID: getEnvOrDefault('GA_ID', 'UA-XXXXX-Y'),
-    FACEBOOK_ID: getEnvOrDefault('FB_ID', '')
+    FACEBOOK_ID: getEnvOrDefault('FACEBOOK_ID', ''),
+    GOOGLE_ID: getEnvOrDefault('GOOGLE_ID', 'UA-XXXXX-Y')
   },
   production: {
     tag: getEnvOrDefault('CIRCLE_TAG', 'prod')
