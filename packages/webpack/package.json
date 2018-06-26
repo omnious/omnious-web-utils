@@ -41,7 +41,7 @@
     "ora": "^2.0.0",
     "postcss-loader": "^2.1.1",
     "raw-loader": "^0.5.1",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^6.0.0-next.3e165448",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.2",
     "stylelint-webpack-plugin": "^0.10.5",
