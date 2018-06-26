@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 // Local import
-const { host, port } = require('./config/env');
+const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, host, port } = require('./config/env');
 const { distDir, indexHtml, polyfills, srcDir } = require('./config/path');
 
 module.exports = {
@@ -52,6 +52,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: indexHtml,
+      templateParameters: { CDN_URL, FACEBOOK_ID, GOOGLE_ID },
       inject: true,
       chunksSortMode: 'none'
     })
