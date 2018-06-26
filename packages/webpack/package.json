@@ -1,6 +1,6 @@
 {
   "name": "@omnious/webpack",
-  "version": "0.5.7-rc.8",
+  "version": "0.5.7-rc.9",
   "description": "Webpack scripts and configurations for omnious.",
   "homepage": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/webpack",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
