@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Local import
 import { COLORS, SIZES } from '..';
 
-export const StyledInput: any = styled.label`
+export const StyledLabel: any = styled.label`
   align-items: stretch;
   display: flex;
   flex-direction: column;
@@ -26,10 +26,6 @@ export const InputWrapper: any = styled.input.attrs({
   border: 1px solid #cfdadf;
   border-radius: ${SIZES.xsRad};
   padding: 0.8rem 1rem;
-
-  &:disabled {
-    cursor: not-allowed;
-  }
 
   &:focus {
     background-color: ${COLORS.white};

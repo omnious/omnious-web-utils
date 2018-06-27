@@ -555,6 +555,10 @@
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/shortid/-/shortid-0.0.29.tgz#8093ee0416a6e2bf2aa6338109114b3fbffa0e9b"
 
+"@types/storybook__addon-actions@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@types/storybook__addon-actions/-/storybook__addon-actions-3.0.3.tgz#99287c0b9ee6b84ea571ee4cb42d0779c56af208"
+
 "@types/storybook__addon-info@^3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@types/storybook__addon-info/-/storybook__addon-info-3.2.3.tgz#cfaa9b6511b0f336c11bd6c0b42726e804b55a5e"

@@ -1,14 +1,6 @@
 // Global import
 import styled from 'styled-components';
 
-export const StyledStory: any = styled.section`
-  /* align-items: flex-start; */
-  display: flex;
-  flex-direction: column;
-  padding: 20px 40px 40px;
-  /* text-align: left; */
-`;
-
 export const TypoCollection: any = styled.section`
   align-items: flex-end;
   display: flex;

@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Card, TypoCollection, StyledStory } from '.';
+import { Card, TypoCollection } from '.';
 import { Mega } from '..';
 
 storiesOf('Component | Typography', module).add(
@@ -14,7 +14,7 @@ storiesOf('Component | Typography', module).add(
     source: false,
     propTables: false
   })(() => (
-    <StyledStory>
+    <>
       <h1>{'Typeface'}</h1>
       <TypoCollection>
         <Card>
@@ -74,6 +74,6 @@ storiesOf('Component | Typography', module).add(
           <p>{'text-transform: uppercase'}</p>
         </Card>
       </TypoCollection>
-    </StyledStory>
+    </>
   ))
 );

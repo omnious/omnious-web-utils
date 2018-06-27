@@ -14,7 +14,7 @@ storiesOf('Component | Icons', module)
     withInfo('Omnious Logo')(
       (): JSX.Element => (
         <Omnious
-          color={select('color', ['primary'], 'primary')}
+          color={select('color', ['blue', 'black', 'white'], 'blue')}
           isVertical={boolean('isVertical', false)}
         />
       )

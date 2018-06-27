@@ -4,18 +4,31 @@ import { Component } from 'react';
 import { generate } from 'shortid';
 
 // Local import
-import { ItemWrapper, StyledRadio } from '.';
-import { RadioItem, RadioItemProps } from '..';
+import {
+  RadioDot,
+  RadioInput,
+  RadioItemWrapper,
+  RadioTitle,
+  StyledRadio,
+  StyledRadioItem
+} from '.';
+import { CommonProps } from '..';
 
 // Interface
-export interface RadioProps {
-  className: string;
-  isVertical: boolean;
-  items: RadioItemProps[];
+export interface RadioItemProps {
+  disabled?: boolean;
+  label: string;
+  value: any;
+}
+
+export interface RadioProps extends CommonProps {
+  disabled?: boolean;
+  isVertical?: boolean;
+  items?: RadioItemProps[];
   name: string;
-  selected: any;
-  title: string;
-  handleRadio(e: any): void;
+  selectedValue?: any;
+  title?: string;
+  handleRadio(name: string, value: any): void;
 }
 
 /**
@@ -26,41 +39,45 @@ export interface RadioProps {
  * @extends {Component<RadioProps>}
  */
 export class Radio extends Component<RadioProps> {
-  // private handleRadio = (e: any): void => {
-  //   e.preventDefault();
-  //   const { label, value, handleRadio }: any = this.props;
-  //   console.log('enter!', e.target);
+  private handleRadio = (e: any): void => {
+    e.preventDefault();
+    const { name, handleRadio }: RadioProps = this.props;
+    const value: any = e.target ? e.target.value : null;
+    handleRadio(name, value);
+  };
 
-  //   handleRadio({ label, value });
-  // };
-
-  private renderItems = (): any => {
-    const { items = [], name, selected, handleRadio }: RadioProps = this.props;
+  private renderItems = (): string | JSX.Element[] => {
+    const { items = [], name, selectedValue }: RadioProps = this.props;
 
     if (!items.length) {
       return 'No items';
     }
 
     return items.map(
-      (item: RadioItemProps): JSX.Element => (
-        <RadioItem
-          checked={selected === item.value}
-          key={generate()}
-          name={name}
-          handleRadio={handleRadio}
-          {...item}
-        />
+      ({ disabled = false, label, value }: RadioItemProps): JSX.Element => (
+        <StyledRadioItem key={generate()} disabled={disabled}>
+          <RadioDot checked={value === selectedValue} />
+          <RadioInput
+            checked={value === selectedValue}
+            disabled={disabled}
+            name={name}
+            value={value}
+          />
+          <span>{label}</span>
+        </StyledRadioItem>
       )
     );
   };
 
   public render(): JSX.Element {
-    const { className, isVertical = true, title, ...others }: RadioProps = this.props;
+    const { className, disabled = false, isVertical = true, title = '' }: RadioProps = this.props;
 
     return (
-      <StyledRadio className={className} {...others}>
-        <h4>{title}</h4>
-        <ItemWrapper isVertical={isVertical}>{this.renderItems()}</ItemWrapper>
+      <StyledRadio disabled={disabled}>
+        {title && <RadioTitle>{title}</RadioTitle>}
+        <RadioItemWrapper className={className} isVertical={isVertical} onChange={this.handleRadio}>
+          {this.renderItems()}
+        </RadioItemWrapper>
       </StyledRadio>
     );
   }

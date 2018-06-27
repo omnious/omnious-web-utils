@@ -3,51 +3,47 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { InputTitle, InputWrapper, StyledInput } from '.';
+import { InputTitle, InputWrapper, StyledLabel } from '.';
+import { FormItemProps } from '..';
 
 // Interface
-export interface InputProps {
-  className?: string;
-  disabled?: boolean;
-  label?: string;
-  name?: string;
+export interface InputProps extends FormItemProps {
   type?: string;
-  // value: any;
-  // handleInput(name: string, value: string): void;
+  handleInput(name: string, value: any): void;
 }
 
 export class Input extends Component<InputProps> {
-  // private handleInput = (e: any): void => {
-  //   e.preventDefault();
-  //   const { name, handleInput }: any = this.props;
+  private handleInput = (e: any): void => {
+    e.preventDefault();
+    const { name, handleInput }: InputProps = this.props;
+    const value: any = e.target ? e.target.value : null;
+    handleInput(name, value);
+  };
 
-  //   if (handleInput) {
-  //     handleInput(name, e.target.value);
-  //   }
-  // };
   public render(): JSX.Element {
     const {
       className,
       disabled = false,
-      label,
       name,
-      type = 'text'
-    }: // value = ''
-    // ...others
-    InputProps = this.props;
+      placeholder = '',
+      title = '',
+      type = 'text',
+      value
+    }: InputProps = this.props;
 
     return (
-      <StyledInput className={className}>
-        {label && <InputTitle>{label}</InputTitle>}
+      <StyledLabel disabled={disabled}>
+        {title && <InputTitle>{title}</InputTitle>}
         <InputWrapper
+          className={className}
           disabled={disabled}
           name={name}
+          placeholder={placeholder}
           type={type}
-          // value={value}
-          // onChange={this.handleInput}
-          // {...others}
+          value={value}
+          onChange={this.handleInput}
         />
-      </StyledInput>
+      </StyledLabel>
     );
   }
 }
