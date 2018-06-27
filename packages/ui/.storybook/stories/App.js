@@ -54,25 +54,6 @@ storiesOf('Guide', module).add('README', () => <WelcomeStory />);
 //   .addDecorator(withKnobs)
 //   .add('Basic tile', withDocs(TileDocs, () => <TileStory />));
 
-// storiesOf('Button', module)
-//   .addDecorator(withKnobs)
-//   .add(
-//     'Single button',
-//     withDocs(ButtonDocs, () => (
-//       <ButtonStory
-//         color={select('color', ['primary', 'danger', 'default'], 'primary')}
-//         disabled={boolean('disabled', false)}
-//         isInvert={boolean('isInvert', false)}
-//         isLoading={boolean('isLoading', false)}
-//         size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
-//         to={text('to', 'https://www.omnious.com')}
-//         onClick={action('Button click')}
-//       >
-//         {text('content', 'This is `<Button />`!')}
-//       </ButtonStory>
-//     ))
-//   );
-
 // // storiesOf('Radio', module)
 // //   .addDecorator(withKnobs)
 // //   .add('Single radio', withDocs(RadioDocs, () => <RadioStory />))
@@ -90,18 +71,6 @@ storiesOf('Guide', module).add('README', () => <WelcomeStory />);
 //       />
 //     ))
 //   );
-
-// storiesOf('Form', module)
-//   .addDecorator(withKnobs)
-//   .add('Input', withDocs(InputDocs, () => <InputStory />));
-// .add('Radio')
-// .add('Checkbox')
-// .add('Dropdown')
-// .add('Form');
-
-// storiesOf('Dropdown', module)
-//   .addDecorator(withKnobs)
-//   .add('Dropdown', withDocs(DropdownDocs, () => <DropdownStory />));
 
 // storiesOf('Badge', module);
 

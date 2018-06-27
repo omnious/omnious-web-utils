@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS } from '..';
+import { COLORS } from '../constants';
 
 export const StyledOmnious: any = styled.svg``;
 

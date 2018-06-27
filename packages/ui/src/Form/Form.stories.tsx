@@ -7,10 +7,16 @@ import * as React from 'react';
 // Local import
 import { Form } from '.';
 
-const formItems: any[] = [
-  { type: 'select', title: 'dropdown', items: [{ label: 'a' }, { label: 'b' }] },
-  { type: 'number', title: 'age' },
-  { type: 'password', title: 'text field' }
+const formFields: any[] = [
+  {
+    name: 'dropdown',
+    type: 'select',
+    title: 'dropdown',
+    items: [{ label: 'a', value: 'a' }, { label: 'b', value: 'b' }]
+  },
+  { name: 'age', type: 'number', title: 'age' },
+  { name: 'password', type: 'password', title: 'text field' },
+  { type: 'submit', component: 'submit form' }
 ];
 
 storiesOf('Component | Form / All', module)
@@ -18,15 +24,13 @@ storiesOf('Component | Form / All', module)
   .add(
     'Form',
     withInfo('Hello form')(
-      (): JSX.Element => {
-        return (
-          <Form
-            disabled={boolean('disabled', false)}
-            isVertical={boolean('isVertical', true)}
-            items={formItems}
-            title={text('title', '')}
-          />
-        );
-      }
+      (): JSX.Element => (
+        <Form
+          disabled={boolean('disabled', false)}
+          fields={formFields}
+          isVertical={boolean('isVertical', true)}
+          title={text('title', '')}
+        />
+      )
     )
   );

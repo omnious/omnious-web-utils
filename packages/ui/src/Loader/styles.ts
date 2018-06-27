@@ -2,7 +2,7 @@
 import styled, { keyframes } from 'styled-components';
 
 // Local import
-import { COLORS } from '..';
+import { COLORS } from '../constants';
 
 const spinFrame: any = keyframes`
   0% {

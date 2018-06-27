@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { SIZES } from '..';
+import { SIZES } from '../constants';
 
 export const StyledMega: any = styled.p`
   font-size: ${SIZES.mega};

@@ -3,23 +3,7 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { DropdownTitle, DropdownWrapper, StyledLabel } from '.';
-import { FormItemProps } from '..';
-
-// Interface
-export interface DropdownItemProps {
-  disabled?: boolean;
-  label: string;
-  value: any;
-}
-
-export interface DropdownProps extends FormItemProps {
-  clearable?: boolean;
-  items?: DropdownItemProps[];
-  searchable?: boolean;
-  selectedValue?: any;
-  handleDropdown(name: string, value: any): void;
-}
+import { DropdownProps, DropdownTitle, DropdownWrapper, StyledLabel } from '.';
 
 /**
  *

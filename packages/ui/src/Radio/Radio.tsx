@@ -7,29 +7,13 @@ import { generate } from 'shortid';
 import {
   RadioDot,
   RadioInput,
+  RadioItemProps,
   RadioItemWrapper,
+  RadioProps,
   RadioTitle,
   StyledRadio,
   StyledRadioItem
 } from '.';
-import { CommonProps } from '..';
-
-// Interface
-export interface RadioItemProps {
-  disabled?: boolean;
-  label: string;
-  value: any;
-}
-
-export interface RadioProps extends CommonProps {
-  disabled?: boolean;
-  isVertical?: boolean;
-  items?: RadioItemProps[];
-  name: string;
-  selectedValue?: any;
-  title?: string;
-  handleRadio(name: string, value: any): void;
-}
 
 /**
  *

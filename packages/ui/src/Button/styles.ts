@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 // Local import
-import { COLORS, SIZES } from '..';
+import { ButtonProps } from '.';
+import { COLORS, SIZES } from '../constants';
 
 const StyledWrapper: any = css`
   align-items: center;
@@ -15,7 +16,7 @@ const StyledWrapper: any = css`
   justify-content: center;
   line-height: 1;
   transition: all 0.2s;
-  padding: ${({ size }: any): string => {
+  padding: ${({ size }: ButtonProps): string => {
     switch (size) {
       case 'xs':
         return '8px 6px';
@@ -30,7 +31,7 @@ const StyledWrapper: any = css`
         return '12px 15px;';
     }
   }};
-  ${({ color, isInvert }: any): string => {
+  ${({ color, isInvert }: ButtonProps): string => {
     switch (color) {
       case 'primary': {
         if (isInvert) {
@@ -129,7 +130,7 @@ const StyledWrapper: any = css`
   }};
 
   &:disabled {
-    ${({ isLoading }) =>
+    ${({ isLoading }: ButtonProps): string =>
       isLoading
         ? `
       cursor: progress;

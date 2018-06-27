@@ -3,20 +3,20 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { InputTitle, InputWrapper, StyledLabel } from '.';
-import { FormItemProps } from '..';
+import { InputProps, InputTitle, InputWrapper, StyledLabel } from '.';
 
-// Interface
-export interface InputProps extends FormItemProps {
-  type?: string;
-  handleInput(name: string, value: any): void;
-}
-
+/**
+ *
+ *
+ * @export
+ * @class Input
+ * @extends {Component<InputProps>}
+ */
 export class Input extends Component<InputProps> {
   private handleInput = (e: any): void => {
     e.preventDefault();
     const { name, handleInput }: InputProps = this.props;
-    const value: any = e.target ? e.target.value : null;
+    const value: string | null = e.target ? e.target.value : null;
     handleInput(name, value);
   };
 

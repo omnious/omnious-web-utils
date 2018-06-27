@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS, SIZES } from '..';
+import { COLORS, SIZES } from '../constants';
 
 export const StyledLabel: any = styled.label`
   align-items: stretch;

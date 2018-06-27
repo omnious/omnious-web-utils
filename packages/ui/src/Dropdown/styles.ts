@@ -3,7 +3,7 @@ import Select from 'react-select';
 import styled from 'styled-components';
 
 // Local import
-import { SIZES } from '..';
+import { SIZES } from '../constants';
 
 export const StyledLabel: any = styled.label`
   ${({ disabled }: any): any =>

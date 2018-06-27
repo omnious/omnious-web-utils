@@ -1,69 +1,40 @@
 // Global import
 import * as React from 'react';
-import { ReactChildren, SFC } from 'react';
+import { SFC } from 'react';
 
 // Local import
-import { StyledAnchor, StyledButton, StyledLink } from '.';
-import { Loader } from '..';
-
-// Interface
-export interface ButtonProps {
-  children: ReactChildren;
-  className: string;
-  color: string;
-  disabled: boolean;
-  href: string;
-  icon: string;
-  isInvert: boolean;
-  isLoading: boolean;
-  size: string;
-  to: string;
-  onClick(e: any): void;
-}
+import { ButtonProps, StyledButton } from '.';
+import { Loader } from '../Loader';
 
 export const Button: SFC<ButtonProps> = ({
   children,
   className,
-  color,
-  disabled,
-  href,
+  color = 'primary',
+  disabled = false,
+  // href,
   icon,
-  isInvert,
-  isLoading,
+  isInvert = false,
+  isLoading = false,
   size,
-  to,
-  onClick,
-  ...others
+  // to,
+  type = 'button',
+  handleButton
 }: ButtonProps): JSX.Element => {
-  if (href) {
-    return (
-      <StyledAnchor
-        className={className}
-        color={color}
-        href={href}
-        isInvert={isInvert}
-        size={size}
-        {...others}
-      >
-        {children}
-      </StyledAnchor>
-    );
-  }
+  // if (href) {
+  //   return (
+  //     <StyledAnchor className={className} color={color} href={href} isInvert={isInvert} size={size}>
+  //       {children}
+  //     </StyledAnchor>
+  //   );
+  // }
 
-  if (to) {
-    return (
-      <StyledLink
-        className={className}
-        color={color}
-        isInvert={isInvert}
-        size={size}
-        to={to}
-        {...others}
-      >
-        {children}
-      </StyledLink>
-    );
-  }
+  // if (to) {
+  //   return (
+  //     <StyledLink className={className} color={color} isInvert={isInvert} size={size} to={to}>
+  //       {children}
+  //     </StyledLink>
+  //   );
+  // }
 
   if (isLoading) {
     return (
@@ -74,7 +45,6 @@ export const Button: SFC<ButtonProps> = ({
         isInvert={isInvert}
         isLoading
         size={size}
-        {...others}
       >
         <Loader color={color} isInvert={!isInvert} size="sm" />
       </StyledButton>
@@ -88,8 +58,8 @@ export const Button: SFC<ButtonProps> = ({
       disabled={disabled}
       isInvert={isInvert}
       size={size}
-      onClick={onClick}
-      {...others}
+      type={type}
+      onClick={handleButton}
     >
       {icon && <img src={icon} />}
       {children}

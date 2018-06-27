@@ -6,7 +6,7 @@ import * as React from 'react';
 
 // Local import
 import { Card, TypoCollection } from '.';
-import { Mega } from '..';
+import { Mega } from '../Mega';
 
 storiesOf('Component | Typography', module).add(
   'Overview',

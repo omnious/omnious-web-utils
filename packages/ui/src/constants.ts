@@ -1,4 +1,7 @@
-export enum COLORS {
+// Global import
+import { ReactChildren } from 'react';
+
+export const enum COLORS {
   // Solid
   white = '#fff',
   creamWhite = '#fcfeff',
@@ -38,7 +41,7 @@ export enum COLORS {
   // // lightShadow: '0 2px 4px 0 rgba(255, 255, 255, 0.22)'
 }
 
-export enum SIZES {
+export const enum SIZES {
   // Typography
   mega = '4.2rem',
   h1 = '2.6rem',
@@ -59,4 +62,14 @@ export enum SIZES {
   mdPad = '1rem',
   smPad = '0.8rem',
   xsPad = '0.5rem'
+}
+
+export interface CommonProps {
+  children?: ReactChildren | string;
+  className?: string;
+}
+
+export interface FormItemProps extends CommonProps {
+  disabled?: boolean;
+  name: string;
 }

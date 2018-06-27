@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { Dot } from '..';
+import { Dot } from '../Icons';
 
 export const StyledRadio: any = styled.div`
   ${({ disabled }: any): any =>

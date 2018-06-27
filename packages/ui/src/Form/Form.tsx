@@ -1,20 +1,13 @@
 // Global import
 import * as React from 'react';
 import { Component } from 'react';
-// import { generate } from 'shortid';
+import { generate } from 'shortid';
 
 // Local import
-import { FormItemWrapper, FormTitle, StyledForm } from '.';
-import { CommonProps, Dropdown, Input } from '..';
-
-// Interface
-export interface FormProps extends CommonProps {
-  disabled?: boolean;
-  isVertical?: boolean;
-  items?: any[];
-  title?: string;
-  // handleForm(e: any): void;
-}
+import { FormFieldWrapper, FormProps, FormTitle, StyledForm } from '.';
+import { Button } from '../Button';
+import { Dropdown } from '../Dropdown';
+import { Input } from '../Input';
 
 /**
  *
@@ -24,10 +17,11 @@ export interface FormProps extends CommonProps {
  * @extends {Component<FormProps>}
  */
 export class Form extends Component<FormProps> {
-  // public state: any = {};
+  public state: any = {};
 
   private handleForm = (e: any): void => {
     e.preventDefault();
+    console.log('enter!', this.state);
     //   const { handleForm }: FormProps = this.props;
     //   handleForm(this.state);
   };
@@ -44,15 +38,15 @@ export class Form extends Component<FormProps> {
     this.setState((state: any): any => ({ ...state, [name]: value }));
   };
 
-  private renderItems = (): string | JSX.Element[] => {
-    const { items = [] }: FormProps = this.props;
+  private renderFields = (): string | JSX.Element[] => {
+    const { fields = [] }: FormProps = this.props;
 
-    if (!items.length) {
-      return 'No items';
+    if (!fields.length) {
+      return 'No fields';
     }
 
-    return items.map(
-      ({ items, name, title, type }: any): JSX.Element => {
+    return fields.map(
+      ({ component, items, name, title, type }: any): JSX.Element => {
         switch (type) {
           //         case 'checkbox':
           //           return <div>checkbox</div>;
@@ -70,23 +64,19 @@ export class Form extends Component<FormProps> {
           case 'select':
             return (
               <Dropdown
-                // key={name}
+                key={name}
                 items={items}
                 name={name}
-                placeholder=""
                 title={title}
-                selectedValue={null}
-                // selected={this.state[name]}
                 handleDropdown={this.handleDropdown}
-                // {...others}
               />
             );
-          //         case 'submit':
-          //           return (
-          //             <Button key={generate()} type={type} {...others}>
-          //               {component}
-          //             </Button>
-          //           );
+          case 'submit':
+            return (
+              <Button key={generate()} type={type}>
+                {component}
+              </Button>
+            );
           default:
             return (
               <Input
@@ -94,9 +84,7 @@ export class Form extends Component<FormProps> {
                 name={name}
                 title={title}
                 type={type}
-                // value={this.state[name]}
                 handleInput={this.handleInput}
-                // {...others}
               />
             );
         }
@@ -110,9 +98,9 @@ export class Form extends Component<FormProps> {
     return (
       <StyledForm disabled={disabled}>
         {title && <FormTitle>{title}</FormTitle>}
-        <FormItemWrapper className={className} isVertical={isVertical} onSubmit={this.handleForm}>
-          {this.renderItems()}
-        </FormItemWrapper>
+        <FormFieldWrapper className={className} isVertical={isVertical} onSubmit={this.handleForm}>
+          {this.renderFields()}
+        </FormFieldWrapper>
       </StyledForm>
     );
   }
