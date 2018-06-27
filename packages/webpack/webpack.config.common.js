@@ -10,7 +10,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-const { cdn, facebook, google } = require('./config/env');
+// const { CDN_URL, GOOGLE_ID, FACEBOOK_ID } = require('./config/env');
 const { packageJson, srcDir } = require('./config/path');
 
 module.exports = {
@@ -22,10 +22,10 @@ module.exports = {
         use: 'source-map-loader',
         enforce: 'pre'
       },
-      {
-        test: /\.html$/,
-        loader: 'raw-loader'
-      },
+      // {
+      //   test: /\.html$/,
+      //   loader: 'html-loader'
+      // },
       {
         test: /\.(jpg|png)$/,
         use: {
@@ -50,7 +50,7 @@ module.exports = {
   plugins: [
     new DotenvPlugin({ systemvars: true }),
     new IgnorePlugin(/^\.\/locale$/, /moment$/),
-    // new InterpolateHtmlPlugin({ cdn, facebook, google }),
+    // new InterpolateHtmlPlugin({ CDN_URL, GOOGLE_ID, FACEBOOK_ID }),
     new StyleLintPlugin()
   ]
 };

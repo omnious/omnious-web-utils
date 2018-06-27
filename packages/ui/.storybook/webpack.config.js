@@ -1,42 +1,37 @@
-module.exports = {
+// module.exports = {
+//   resolve: { extensions: ['.css', '.js', '.json', '.jsx', '.md', '.ts', '.tsx'], alias: {} },
+//   module: {
+//     rules: [
+//       { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
+//       { test: /\.tsx?$/, use: { loader: 'ts-loader' }, exclude: /node_modules/ },
+//       {
+//         test: /\.s?css$/,
+//         use: [
+//           'style-loader',
+//           { loader: 'css-loader', options: { importLoaders: 1 } },
+//           { loader: 'postcss-loader', options: { plugins: [require('autoprefixer')] } }
+//         ]
+//       }
+//     ]
+//   }
+// };
+const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
+
+module.exports = (baseConfig, env, defaultConfig) => ({
+  ...defaultConfig,
   resolve: {
-    extensions: ['.css', '.js', '.json', '.jsx', '.md', '.ts', '.tsx'],
-    alias: {}
+    ...defaultConfig.resolve,
+    extensions: [...defaultConfig.resolve.extensions, '.ts', '.tsx']
   },
   module: {
-    rules: [{
-        test: /\.jsx?$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
-      },
+    ...defaultConfig.module,
+    rules: [
+      ...defaultConfig.module.rules,
       {
         test: /\.tsx?$/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        },
-        exclude: /node_modules/
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [require('autoprefixer')]
-            }
-          }
-        ]
+        use: 'ts-loader'
       }
     ]
-  }
-};
+  },
+  plugins: [...defaultConfig.plugins, new TSDocgenPlugin()]
+});

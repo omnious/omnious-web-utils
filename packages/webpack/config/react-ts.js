@@ -1,5 +1,5 @@
 // Global import
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 // Local import
 const { srcDir } = require('./path');
@@ -12,17 +12,17 @@ module.exports = {
         include: srcDir,
         use: {
           loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
+          // options: {
+          //   transpileOnly: true
+          // }
         }
       }
     ]
   },
-  plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      watch: srcDir
-    })
-  ]
+  // plugins: [
+  //   new ForkTsCheckerWebpackPlugin({
+  //     tslint: true,
+  //     watch: srcDir
+  //   })
+  // ]
 };

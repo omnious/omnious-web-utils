@@ -6,3 +6,4 @@ test
 .babelrc
 postcss.config.js
 tsconfig.json
+!**/dist

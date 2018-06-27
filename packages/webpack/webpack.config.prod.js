@@ -15,7 +15,7 @@ const { resolve } = require('path');
 const { LoaderOptionsPlugin, optimize } = require('webpack');
 
 // Local import
-const { tag } = require('./config/env');
+const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, tag } = require('./config/env');
 const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./config/path');
 
 module.exports = {
@@ -93,6 +93,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: '../index.html',
       template: indexHtml,
+      templateParameters: { CDN_URL, FACEBOOK_ID, GOOGLE_ID },
       inject: true,
       minify: {
         removeComments: true,

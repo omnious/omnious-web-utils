@@ -1,15 +1,16 @@
 {
   "name": "@omnious/webpack",
-  "version": "0.5.6-rc0",
+  "version": "0.5.7-rc.10",
   "description": "Webpack scripts and configurations for omnious.",
   "homepage": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/webpack",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
-  "contributors": [
+  "maintainers": [
     {
       "name": "Euihyun Yang",
       "email": "ykd1217@gmail.com"
     }
   ],
+  "contributors": [],
   "license": "MIT",
   "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/webpack",
   "keywords": [
@@ -17,10 +18,11 @@
     "webpack"
   ],
   "engines": {
-    "node": ">= 8.9.4"
+    "node": ">= 8.10.0"
   },
   "main": "index.js",
   "scripts": {
+    "build": "echo 'There`s no @omnious/webpack build'",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -32,32 +34,33 @@
     "dotenv": "^5.0.1",
     "dotenv-webpack": "^1.5.5",
     "file-loader": "^1.1.9",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "ora": "^2.0.0",
     "postcss-loader": "^2.1.1",
     "raw-loader": "^0.5.1",
-    "react-dev-utils": "^6.0.0-next.66cc7a90",
+    "react-dev-utils": "^6.0.0-next.3e165448",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.20.2",
-    "stylelint-webpack-plugin": "^0.10.3",
+    "stylelint-webpack-plugin": "^0.10.5",
     "sw-precache-webpack-plugin": "^0.11.5",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^0.6.2",
-    "webpack": "^4.5.0",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
   },
   "peerDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.51",
     "angular2-template-loader": "^0.6.2",
-    "babel-loader": "^8.0.0-beta",
-    "fork-ts-checker-webpack-plugin": "^0.4.1",
-    "stylelint": "^8.0.0",
-    "ts-loader": "^4.1.0",
-    "tslint": "^5.9.1",
-    "typescript": "^2.8.1"
+    "babel-loader": "^8.0.0-beta.4",
+    "fork-ts-checker-webpack-plugin": "^0.4.2",
+    "stylelint": "^9.3.0",
+    "ts-loader": "^4.4.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.12.1"
   },
   "bin": {
     "omnious-webpack": "index.js"
