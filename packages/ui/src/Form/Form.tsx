@@ -21,9 +21,7 @@ export class Form extends Component<FormProps> {
 
   private handleForm = (e: any): void => {
     e.preventDefault();
-    console.log('enter!', this.state);
-    //   const { handleForm }: FormProps = this.props;
-    //   handleForm(this.state);
+    this.props.handleForm(this.state);
   };
 
   // private handleRadio = (name: string, value: string): void => {

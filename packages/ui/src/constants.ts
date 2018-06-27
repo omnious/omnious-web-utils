@@ -1,7 +1,7 @@
 // Global import
 import { ReactChildren } from 'react';
 
-export const enum COLORS {
+export enum COLORS {
   // Solid
   white = '#fff',
   creamWhite = '#fcfeff',
@@ -41,7 +41,7 @@ export const enum COLORS {
   // // lightShadow: '0 2px 4px 0 rgba(255, 255, 255, 0.22)'
 }
 
-export const enum SIZES {
+export enum SIZES {
   // Typography
   mega = '4.2rem',
   h1 = '2.6rem',
