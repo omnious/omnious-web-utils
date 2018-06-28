@@ -5,6 +5,6 @@ export interface InputProps extends FormItemProps {
   placeholder?: string;
   title?: string;
   type?: string;
-  value?: string;
-  handleInput(name: string, value: any): void;
+  value?: string | null;
+  handleInput(name: string, value: string | null): void;
 }

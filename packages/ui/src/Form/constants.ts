@@ -6,5 +6,5 @@ export interface FormProps extends CommonProps {
   fields?: any[];
   isVertical?: boolean;
   title?: string;
-  // handleForm(e: any): void;
+  handleForm(data: any): void;
 }

@@ -1,4 +1,5 @@
 // Global import
+import { debounce } from 'lodash';
 import * as React from 'react';
 import { Component } from 'react';
 
@@ -14,11 +15,14 @@ import { InputProps, InputTitle, InputWrapper, StyledLabel } from '.';
  */
 export class Input extends Component<InputProps> {
   private handleInput = (e: any): void => {
-    e.preventDefault();
-    const { name, handleInput }: InputProps = this.props;
     const value: string | null = e.target ? e.target.value : null;
-    handleInput(name, value);
+    this.debouncedHandleInput(value);
   };
+
+  private debouncedHandleInput: any = debounce((value: string | null) => {
+    const { name, handleInput }: InputProps = this.props;
+    handleInput(name, value);
+  }, 200);
 
   public render(): JSX.Element {
     const {
