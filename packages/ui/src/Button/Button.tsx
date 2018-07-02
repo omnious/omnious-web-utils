@@ -1,68 +1,85 @@
 // Global import
+import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { SFC } from 'react';
+import { Component } from 'react';
 
 // Local import
-import { ButtonProps, StyledButton } from '.';
+import { ButtonProps, StyledAnchor, StyledButton } from '.';
 import { Loader } from '../Loader';
 
-export const Button: SFC<ButtonProps> = ({
-  children,
-  className,
-  color = 'primary',
-  disabled = false,
-  // href,
-  icon,
-  isInvert = false,
-  isLoading = false,
-  size,
-  // to,
-  type = 'button',
-  handleButton
-}: ButtonProps): JSX.Element => {
-  // if (href) {
-  //   return (
-  //     <StyledAnchor className={className} color={color} href={href} isInvert={isInvert} size={size}>
-  //       {children}
-  //     </StyledAnchor>
-  //   );
-  // }
+export class Button extends Component<ButtonProps> {
+  public static contextTypes: any = {
+    router: PropTypes.any
+  };
 
-  // if (to) {
-  //   return (
-  //     <StyledLink className={className} color={color} isInvert={isInvert} size={size} to={to}>
-  //       {children}
-  //     </StyledLink>
-  //   );
-  // }
+  private handleAnchor = (e: any): void => {
+    e.preventDefault();
+    const { history }: any = this.context.router;
+    const { href }: ButtonProps = this.props;
 
-  if (isLoading) {
+    history.push(href);
+  };
+
+  public render(): JSX.Element {
+    const {
+      children,
+      className,
+      color = 'default',
+      disabled = false,
+      href,
+      icon,
+      isInvert = false,
+      isLoading = false,
+      size,
+      type = 'button',
+      handleButton
+    }: ButtonProps = this.props;
+
+    if (isLoading) {
+      return (
+        <StyledButton
+          className={className}
+          color={color}
+          disabled
+          isInvert={isInvert}
+          isLoading
+          size={size}
+        >
+          <Loader color={color} isInvert={!isInvert} size="sm" />
+        </StyledButton>
+      );
+    }
+
+    if (href) {
+      return (
+        <StyledAnchor
+          className={className}
+          color={color}
+          disabled={disabled}
+          href={href}
+          isInvert={isInvert}
+          size={size}
+          onClick={this.handleAnchor}
+        >
+          {icon && <img src={icon} />}
+          {children}
+        </StyledAnchor>
+      );
+    }
+
     return (
       <StyledButton
         className={className}
         color={color}
-        disabled
+        disabled={disabled}
         isInvert={isInvert}
-        isLoading
         size={size}
+        type={type}
+        onClick={handleButton}
       >
-        <Loader color={color} isInvert={!isInvert} size="sm" />
+        {icon && <img src={icon} />}
+        {children}
       </StyledButton>
     );
   }
-
-  return (
-    <StyledButton
-      className={className}
-      color={color}
-      disabled={disabled}
-      isInvert={isInvert}
-      size={size}
-      type={type}
-      onClick={handleButton}
-    >
-      {icon && <img src={icon} />}
-      {children}
-    </StyledButton>
-  );
-};
+}

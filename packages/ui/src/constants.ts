@@ -64,6 +64,13 @@ export enum SIZES {
   xsPad = '0.5rem'
 }
 
+export enum ColorSet {
+  primary = 'primary',
+  danger = 'danger',
+  default = 'default',
+  none = 'none'
+}
+
 export interface CommonProps {
   children?: ReactChildren | string;
   className?: string;

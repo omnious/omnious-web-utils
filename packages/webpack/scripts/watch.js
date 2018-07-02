@@ -30,6 +30,7 @@ module.exports = options => {
     host,
     hot: true,
     noInfo: true,
+    open: true,
     publicPath: devConfig.output.publicPath,
     stats: {
       colors: true
@@ -44,7 +45,7 @@ module.exports = options => {
     } else {
       const url = `http://${host}:${port}`;
       logger.end(`Setting timer to open browser at ${url}, in ${env}`);
-      openBrowser(url);
+      // openBrowser(url);
     }
   });
 

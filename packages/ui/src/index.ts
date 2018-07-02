@@ -1,4 +1,6 @@
 export * from './constants';
+// export * from './SharedStyles';
+export { A } from './A';
 export { Button } from './Button';
 export { Dropdown } from './Dropdown';
 export { Arrow, Clear, Dot, Omnious } from './Icons';

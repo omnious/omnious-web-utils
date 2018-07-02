@@ -1,22 +1,19 @@
 // Global import
-import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 // Local import
 import { ButtonProps } from '.';
 import { COLORS, SIZES } from '../constants';
 
-const StyledWrapper: any = css`
+const BasicButton: any = css`
   align-items: center;
-  background-color: transparent;
   border: 1px solid transparent;
   border-radius: ${SIZES.xsRad};
   cursor: pointer;
   display: flex;
   justify-content: center;
-  line-height: 1;
   transition: all 0.2s;
-  padding: ${({ size }: ButtonProps): string => {
+  padding: ${({ size }: any): string => {
     switch (size) {
       case 'xs':
         return '8px 6px';
@@ -31,7 +28,114 @@ const StyledWrapper: any = css`
         return '12px 15px;';
     }
   }};
-  ${({ color, isInvert }: ButtonProps): string => {
+`;
+
+export const StyledAnchor: any = styled.a`
+  ${BasicButton};
+  text-decoration: none;
+  ${({ color, isInvert }: any): string => {
+    switch (color) {
+      case 'primary': {
+        if (isInvert) {
+          return `
+            border: 1px solid ${COLORS.primaryBlue};
+            color: ${COLORS.primaryBlue};
+
+            &:focus {
+              outline: 1px auto ${COLORS.primaryBlue};
+              text-decoration: underline ${COLORS.primaryBlue};
+            }
+
+            &:hover {
+              background-color: ${COLORS.primaryBlue};
+              color: ${COLORS.white};
+              text-decoration: underline ${COLORS.white};
+            }
+          `;
+        }
+
+        return `
+          background-color: ${COLORS.primaryBlue};
+          box-shadow: ${COLORS.buttonShadow};
+          color: ${COLORS.white};
+
+          &:focus {
+            outline: 1px auto ${COLORS.primaryBlue};
+            text-decoration: underline ${COLORS.white};
+          }
+
+          &:hover {
+            background-color: ${COLORS.darkenBlue};
+            text-decoration: underline ${COLORS.white};
+          }
+        `;
+      }
+      case 'danger': {
+        return ``;
+      }
+      case 'none':
+        return `
+          color: ${COLORS.primaryBlack};
+
+          &:focus {
+            outline: 1px auto ${COLORS.primaryBlue};
+            text-decoration: underline ${COLORS.primaryBlack};
+          }
+
+          &:hover {
+            text-decoration: underline ${COLORS.primaryBlack};
+          }
+        `;
+      case 'default':
+      default: {
+        if (isInvert) {
+          return `
+            border: 1px solid ${COLORS.primaryGray};
+            color: ${COLORS.primaryBlack};
+
+            &:focus {
+              outline: 1px auto ${COLORS.primaryGray};
+              text-decoration: underline ${COLORS.primaryBlack};
+            }
+
+            &:hover {
+              background-color: ${COLORS.primaryGray};
+              text-decoration: underline ${COLORS.primaryBlack};
+            }
+          `;
+        }
+
+        return `
+          background-color: ${COLORS.primaryGray};
+          box-shadow: ${COLORS.buttonShadow};
+          color: ${COLORS.primaryBlack};
+
+          &:focus {
+            outline: 1px auto ${COLORS.primaryGray};
+            text-decoration: underline ${COLORS.primaryBlack};
+          }
+
+          &:hover {
+            background-color: ${COLORS.darkenGray};
+            color: ${COLORS.white};
+            text-decoration: underline ${COLORS.white};
+          }
+        `;
+      }
+    }
+  }};
+  ${({ disabled }: any): any =>
+    disabled &&
+    `
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  `};
+`;
+
+export const StyledButton: any = styled.button`
+  ${BasicButton};
+  ${({ color, isInvert }: any): string => {
     switch (color) {
       case 'primary': {
         if (isInvert) {
@@ -95,6 +199,12 @@ const StyledWrapper: any = css`
           }
         `;
       }
+      case 'none': {
+        return `
+          color: ${COLORS.primaryBlack};
+        `;
+      }
+      case 'default':
       default: {
         if (isInvert) {
           return `
@@ -128,8 +238,14 @@ const StyledWrapper: any = css`
       }
     }
   }};
-
-  &:disabled {
+  ${({ disabled }: any): any =>
+    disabled &&
+    `
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  `};
+  /* &:disabled {
     ${({ isLoading }: ButtonProps): string =>
       isLoading
         ? `
@@ -139,20 +255,12 @@ const StyledWrapper: any = css`
     cursor: not-allowed;
     opacity: 0.5;
     `};
-  }
+  } */
 `;
 
-export const StyledAnchor: any = styled.a`
-  ${StyledWrapper};
-`;
-
-export const StyledButton: any = styled.button`
-  ${StyledWrapper};
-`;
-
-export const StyledLink: any = styled(Link)`
-  ${StyledWrapper};
-`;
+// export const StyledLink: any = styled(Link)`
+//   ${StyledWrapper};
+// `;
 
 // TODO: Complete size
 // /* size */
