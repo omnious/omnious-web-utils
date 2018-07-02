@@ -2,7 +2,6 @@
 import styled, { css } from 'styled-components';
 
 // Local import
-import { ButtonProps } from '.';
 import { COLORS, SIZES } from '../constants';
 
 const BasicButton: any = css`
@@ -71,7 +70,39 @@ export const StyledAnchor: any = styled.a`
         `;
       }
       case 'danger': {
-        return ``;
+        if (isInvert) {
+          return `
+            border: 1px solid ${COLORS.primaryRed};
+            color: ${COLORS.primaryRed};
+
+            &:focus {
+              outline: 1px auto ${COLORS.primaryRed};
+              text-decoration: underline ${COLORS.primaryRed};
+            }
+
+            &:hover {
+              background-color: ${COLORS.primaryRed};
+              color: ${COLORS.white};
+              text-decoration: underline ${COLORS.white};
+            }
+          `;
+        }
+
+        return `
+          background-color: ${COLORS.primaryRed};
+          box-shadow: ${COLORS.buttonShadow};
+          color: ${COLORS.white};
+
+          &:focus {
+            outline: 1px auto ${COLORS.primaryRed};
+            text-decoration: underline ${COLORS.white};
+          }
+
+          &:hover {
+            background-color: ${COLORS.darkenRed};
+            text-decoration: underline ${COLORS.white};
+          }
+        `;
       }
       case 'none':
         return `
@@ -245,17 +276,6 @@ export const StyledButton: any = styled.button`
     opacity: 0.5;
     pointer-events: none;
   `};
-  /* &:disabled {
-    ${({ isLoading }: ButtonProps): string =>
-      isLoading
-        ? `
-      cursor: progress;
-    `
-        : `
-    cursor: not-allowed;
-    opacity: 0.5;
-    `};
-  } */
 `;
 
 // export const StyledLink: any = styled(Link)`
