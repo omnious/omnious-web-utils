@@ -20,6 +20,7 @@
   ],
   "main": "dist/reset.min.css",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "run-s build:**",
     "build:css": "postcss src/index.css -o dist/reset.min.css",
     "lint": "run-s lint:**",

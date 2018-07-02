@@ -24,6 +24,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "prebuild": "rimraf .out dist",
     "build": "run-s build:**",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "build:ui": "tsc",
@@ -45,7 +46,6 @@
   "peerDependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
     "react-select": "^1.2.1",
     "styled-components": "^3.3.3"
   }
