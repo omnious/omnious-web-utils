@@ -14,5 +14,6 @@ export interface DropdownProps extends FormItemProps {
   searchable?: boolean;
   selectedValue?: any;
   title?: string;
+  width?: string;
   handleDropdown(name: string, value: any): void;
 }

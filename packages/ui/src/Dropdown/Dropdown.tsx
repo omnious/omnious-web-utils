@@ -29,14 +29,14 @@ export class Dropdown extends Component<DropdownProps> {
       placeholder = 'Choose an option',
       searchable = true,
       selectedValue,
-      title = ''
+      title = '',
+      width
     }: DropdownProps = this.props;
 
     return (
-      <StyledLabel disabled={disabled}>
+      <StyledLabel className={className} disabled={disabled}>
         {title && <DropdownTitle>{title}</DropdownTitle>}
         <DropdownWrapper
-          className={className}
           clearable={clearable}
           disabled={disabled}
           name={name}
@@ -44,6 +44,7 @@ export class Dropdown extends Component<DropdownProps> {
           placeholder={placeholder}
           searchable={searchable}
           value={selectedValue}
+          width={width}
           onChange={this.handleDropdown}
         />
       </StyledLabel>
