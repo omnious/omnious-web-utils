@@ -27,9 +27,10 @@ export class Input extends Component<InputProps> {
   public render(): JSX.Element {
     const {
       className,
+      defaultValue,
       disabled = false,
       name,
-      placeholder = '',
+      placeholder,
       title = '',
       type = 'text',
       value
@@ -40,6 +41,7 @@ export class Input extends Component<InputProps> {
         {title && <InputTitle>{title}</InputTitle>}
         <InputWrapper
           className={className}
+          defaultValue={defaultValue}
           disabled={disabled}
           name={name}
           placeholder={placeholder}

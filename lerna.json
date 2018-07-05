@@ -1,9 +1,10 @@
 {
-  "lerna": "2.8.0",
+  "lerna": "2.9.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packages": ["packages/*"]
 }

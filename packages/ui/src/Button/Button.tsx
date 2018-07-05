@@ -32,6 +32,7 @@ export class Button extends Component<ButtonProps> {
       isLoading = false,
       size,
       type = 'button',
+      value,
       handleButton
     }: ButtonProps = this.props;
 
@@ -75,6 +76,7 @@ export class Button extends Component<ButtonProps> {
         isInvert={isInvert}
         size={size}
         type={type}
+        value={value}
         onClick={handleButton}
       >
         {icon && <img src={icon} />}

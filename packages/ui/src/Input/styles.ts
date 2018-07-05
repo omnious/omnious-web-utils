@@ -20,9 +20,7 @@ export const InputTitle: any = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
-export const InputWrapper: any = styled.input.attrs({
-  type: ({ type }: any): string => type || 'text'
-})`
+export const InputWrapper: any = styled.input`
   border: 1px solid #cfdadf;
   border-radius: ${SIZES.xsRad};
   padding: 0.8rem 1rem;

@@ -41,7 +41,7 @@ export const RadioDot: any = styled(Dot)`
   margin-right: 0.5rem;
 `;
 
-export const RadioInput: any = styled.input.attrs({ type: 'radio' })`
+export const RadioInput: any = styled.input`
   left: 0;
   opacity: 0;
   position: absolute;

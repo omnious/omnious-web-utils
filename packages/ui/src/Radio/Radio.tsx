@@ -38,13 +38,15 @@ export class Radio extends Component<RadioProps> {
     }
 
     return items.map(
-      ({ disabled = false, label, value }: RadioItemProps): JSX.Element => (
+      ({ defaultChecked = false, disabled = false, label, value }: RadioItemProps): JSX.Element => (
         <StyledRadioItem key={generate()} disabled={disabled}>
           <RadioDot checked={value === String(selectedValue)} />
           <RadioInput
             checked={value === String(selectedValue)}
+            defaultChecked={defaultChecked}
             disabled={disabled}
             name={name}
+            type="radio"
             value={value}
             onChange={this.handleRadio}
           />

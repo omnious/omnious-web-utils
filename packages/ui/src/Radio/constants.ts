@@ -2,6 +2,7 @@
 import { CommonProps } from '../constants';
 
 export interface RadioItemProps {
+  defaultChecked?: boolean;
   disabled?: boolean;
   label: string;
   value: any;

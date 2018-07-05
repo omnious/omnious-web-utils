@@ -10,5 +10,6 @@ export interface ButtonProps extends CommonProps {
   isLoading?: boolean;
   size?: string;
   type?: string;
+  value?: string;
   handleButton?(e: any): void;
 }

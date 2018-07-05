@@ -3,13 +3,16 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { StyledTile } from '.';
-import { CommonProps } from '../constants';
+import { StyledTile, TileProps } from '.';
 
-export class Tile extends Component<CommonProps> {
+export class Tile extends Component<TileProps> {
   public render(): JSX.Element {
-    const { children, className }: CommonProps = this.props;
+    const { children, className, passedRef }: TileProps = this.props;
 
-    return <StyledTile className={className}>{children}</StyledTile>;
+    return (
+      <StyledTile className={className} innerRef={passedRef}>
+        {children}
+      </StyledTile>
+    );
   }
 }
