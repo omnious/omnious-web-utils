@@ -9,9 +9,9 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 // Local import
-const { log } = require('.');
-const { env, host, port } = require('../config/env');
+const log = require('./log');
 const webpackConfig = require('../webpack.config');
+const { env, host, port } = require('../config/env');
 
 module.exports = options => {
   // Initialize console

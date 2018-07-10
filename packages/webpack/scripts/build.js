@@ -9,10 +9,11 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const webpack = require('webpack');
 
 // Local import
-const { log, remove } = require('.');
+const log = require('./log');
+const remove = require('./remove');
+const webpackConfig = require('../webpack.config');
 const { env } = require('../config/env');
 const { distDir } = require('../config/path');
-const webpackConfig = require('../webpack.config');
 
 module.exports = async options => {
   try {

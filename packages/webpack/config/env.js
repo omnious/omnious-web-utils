@@ -2,7 +2,7 @@
 const dotenv = require('dotenv');
 
 // Local import
-const { log } = require('../scripts');
+const log = require('../scripts/log');
 
 // Load environment variables from .env file
 dotenv.config();
