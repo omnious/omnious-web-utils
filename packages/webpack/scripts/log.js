@@ -37,14 +37,11 @@ function write(status, text, verbose) {
   }
 }
 
-exports.start = text => write('start', text);
-
-exports.task = text => write('task', text);
-
-exports.end = text => write('end', text);
-
-exports.info = (text, data) => write('info', text, data);
-
-exports.warn = (text, data) => write('warn', text, data);
-
-exports.error = (text, err) => write('error', text, err);
+module.exports = {
+  start: text => write('start', text),
+  task: text => write('task', text),
+  end: text => write('end', text),
+  info: (text, data) => write('info', text, data),
+  warn: (text, data) => write('warn', text, data),
+  error: (text, err) => write('error', text, err)
+};
