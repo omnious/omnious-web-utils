@@ -30,13 +30,13 @@ if (!taskName) {
 function webpackScript(task, options = {}) {
   switch (task) {
     case 'build': {
-      const builder = require('./scripts/build');
-      builder(options);
+      const { build } = require('./scripts');
+      build(options);
       break;
     }
     case 'watch': {
-      const watcher = require('./scripts/watch');
-      watcher(options);
+      const { watch } = require('./scripts');
+      watch(options);
       break;
     }
     case 'test':

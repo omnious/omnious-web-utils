@@ -3,7 +3,6 @@
  */
 
 // Global import
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,7 +11,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { resolve } = require('path');
-const { LoaderOptionsPlugin, optimize } = require('webpack');
+const { LoaderOptionsPlugin } = require('webpack');
 
 // Local import
 const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, tag } = require('./config/env');
@@ -81,7 +80,6 @@ module.exports = {
     runtimeChunk: true
   },
   plugins: [
-    new CleanWebpackPlugin(distDir),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
@@ -125,9 +123,5 @@ module.exports = {
       //   'src/**.html'
       // ]
     })
-    // new optimize.SplitChunksPlugin()
-    // NOTE: already contained in `production` mode
-    // new optimize.ModuleConcatenationPlugin(),
-    // new NoEmitOnErrorsPlugin()
   ]
 };

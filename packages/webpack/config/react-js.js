@@ -1,12 +1,9 @@
-// Local import
-const { srcDir } = require('./path');
-
 module.exports = {
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        include: srcDir,
+        exclude: /node_modules/,
         use: 'babel-loader'
       }
     ]

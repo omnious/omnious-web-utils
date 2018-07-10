@@ -10,7 +10,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        include: srcDir,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'ts-loader',

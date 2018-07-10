@@ -9,49 +9,34 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 // Local import
+const { log } = require('.');
 const { env, host, port } = require('../config/env');
-const { staticDir } = require('../config/path');
 const webpackConfig = require('../webpack.config');
-const logger = require('./logger');
 
 module.exports = options => {
   // Initialize console
   clearConsole();
-  logger.start(`Starting build in ${env} mode`);
+  log.start(`Starting build in ${env} mode`);
 
   // Set DevServer
   const devConfig = webpackConfig(env, options);
   const compiler = webpack(devConfig);
-  const devOptions = {
-    contentBase: staticDir,
-    historyApiFallback: {
-      disableDotRule: true
-    },
-    host,
-    hot: true,
-    noInfo: true,
-    open: true,
-    publicPath: devConfig.output.publicPath,
-    stats: {
-      colors: true
-    }
-  };
-  const devServer = new WebpackDevServer(compiler, devOptions);
+  const devServer = new WebpackDevServer(compiler);
 
   // Start server
   devServer.listen(port, host, err => {
     if (err) {
-      logger.error(err);
+      log.error(err);
     } else {
       const url = `http://${host}:${port}`;
-      logger.end(`Setting timer to open browser at ${url}, in ${env}`);
-      // openBrowser(url);
+      log.end(`Setting timer to open browser at ${url}, in ${env}`);
+      openBrowser(url);
     }
   });
 
   for (const sig of ['SIGINT', 'SIGTERM']) {
     process.on(sig, code => {
-      logger.info('Shutting down app');
+      log.info('Shutting down app');
       devServer.close();
       process.exit(code || 0);
     });
