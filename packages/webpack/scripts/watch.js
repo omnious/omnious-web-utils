@@ -12,6 +12,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const log = require('./log');
 const webpackConfig = require('../webpack.config');
 const { env, host, port } = require('../config/env');
+const { staticDir } = require('../config/path');
 
 module.exports = options => {
   // Initialize console
@@ -21,7 +22,19 @@ module.exports = options => {
   // Set DevServer
   const devConfig = webpackConfig(env, options);
   const compiler = webpack(devConfig);
-  const devServer = new WebpackDevServer(compiler);
+  const devServer = new WebpackDevServer(compiler, {
+    contentBase: staticDir,
+    historyApiFallback: {
+      disableDotRule: true
+    },
+    host,
+    hot: true,
+    noInfo: true,
+    publicPath: '/',
+    stats: {
+      colors: true
+    }
+  });
 
   // Start server
   devServer.listen(port, host, err => {

@@ -8,7 +8,7 @@ const { HotModuleReplacementPlugin } = require('webpack');
 
 // Local import
 const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, host, port } = require('./config/env');
-const { distDir, indexHtml, polyfills, srcDir, staticDir } = require('./config/path');
+const { distDir, indexHtml, polyfills, srcDir } = require('./config/path');
 
 module.exports = {
   mode: 'development',
@@ -56,18 +56,5 @@ module.exports = {
       inject: true,
       chunksSortMode: 'none'
     })
-  ],
-  devServer: {
-    contentBase: staticDir,
-    historyApiFallback: {
-      disableDotRule: true
-    },
-    host,
-    hot: true,
-    noInfo: true,
-    publicPath: '/',
-    stats: {
-      colors: true
-    }
-  }
+  ]
 };
