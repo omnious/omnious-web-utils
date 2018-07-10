@@ -5,7 +5,7 @@ const commander = require('commander');
 
 // Local import
 const packageJson = require('./package');
-const logger = require('./scripts/logger');
+const { log } = require('./scripts');
 
 let taskName;
 const program = new commander.Command('omnious-webpack')
@@ -21,7 +21,7 @@ const program = new commander.Command('omnious-webpack')
   .parse(process.argv);
 
 if (!taskName) {
-  logger.error(`Please specify webpack task!
+  log.error(`Please specify webpack task!
    Usage: omnious-webpack <task> [options]
   `);
   process.exit(1);
@@ -40,10 +40,8 @@ function webpackScript(task, options = {}) {
       break;
     }
     case 'test':
-      require('./scripts/test');
-      break;
     default:
-      return logger.error(`Unknown task: ${task}`);
+      return log.error(`Unknown task: ${task}`);
   }
 }
 
