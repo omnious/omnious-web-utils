@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Dropdown } from '.';
+import { Dropdown } from './Dropdown';
 
 const dropdownItems: any[] = [
   { label: 'one', value: 1 },
@@ -32,6 +32,7 @@ storiesOf('Component | Form / Dropdown', module)
           searchable={boolean('searchable', true)}
           selectedValue={select('selectedValue', [1, 2, 3, 4, 5], 1)}
           title={text('title', '')}
+          width={text('width', '')}
           handleDropdown={action('handle-dropdown')}
         />
       )

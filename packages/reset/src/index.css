@@ -92,3 +92,8 @@ textarea {
   margin: 0;
   user-select: none;
 }
+
+img {
+  user-select: none;
+  vertical-align: middle;
+}

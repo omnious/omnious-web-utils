@@ -4,7 +4,8 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { InputProps, InputTitle, InputWrapper, StyledLabel } from '.';
+import { InputProps } from './constants';
+import { InputTitle, InputWrapper, StyledLabel } from './styles';
 
 /**
  *
@@ -33,7 +34,8 @@ export class Input extends Component<InputProps> {
       placeholder,
       title = '',
       type = 'text',
-      value
+      value,
+      width
     }: InputProps = this.props;
 
     return (
@@ -47,6 +49,7 @@ export class Input extends Component<InputProps> {
           placeholder={placeholder}
           type={type}
           value={value}
+          width={width}
           onChange={this.handleInput}
         />
       </StyledLabel>

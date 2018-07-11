@@ -3,7 +3,8 @@ import * as React from 'react';
 import { Component } from 'react';
 
 // Local import
-import { DropdownProps, DropdownTitle, DropdownWrapper, StyledLabel } from '.';
+import { DropdownProps } from './constants';
+import { DropdownTitle, DropdownWrapper, StyledLabel } from './styles';
 
 /**
  *

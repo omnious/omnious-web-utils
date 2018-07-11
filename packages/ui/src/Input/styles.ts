@@ -24,6 +24,7 @@ export const InputWrapper: any = styled.input`
   border: 1px solid #cfdadf;
   border-radius: ${SIZES.xsRad};
   padding: 0.8rem 1rem;
+  width: ${({ width }: any): string => width || '20rem'};
 
   &:focus {
     background-color: ${COLORS.white};

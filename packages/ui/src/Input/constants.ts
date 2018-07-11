@@ -7,5 +7,6 @@ export interface InputProps extends FormItemProps {
   title?: string;
   type?: string;
   value?: string | null;
+  width?: string;
   handleInput(name: string, value: string | null): void;
 }
