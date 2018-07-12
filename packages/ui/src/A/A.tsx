@@ -1,10 +1,17 @@
 // Global import
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
-import { Component } from 'react';
+import { AnchorHTMLAttributes, Component } from 'react';
 
 // Local import
-import { AnchorProps, StyledAnchor } from '.';
+import { StyledAnchor } from './styles';
+
+export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  disabled?: boolean;
+  icon?: string;
+  isInvert?: boolean;
+  size?: string;
+}
 
 export class A extends Component<AnchorProps> {
   public static contextTypes: any = {
@@ -28,7 +35,7 @@ export class A extends Component<AnchorProps> {
       href,
       icon,
       isInvert = false,
-      size
+      size = 'md'
     }: AnchorProps = this.props;
 
     return (

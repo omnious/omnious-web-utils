@@ -2,7 +2,8 @@
 import styled, { keyframes } from 'styled-components';
 
 // Local import
-import { COLORS } from '../constants';
+import { LoaderProps } from './Loader';
+import { black, blue, gray, red, white } from '../colors';
 
 const spinFrame: any = keyframes`
   0% {
@@ -18,8 +19,7 @@ export const StyledLoader: any = styled.div`
   animation: ${spinFrame} 1s infinite linear;
   border-radius: 50%;
   border-style: solid;
-
-  ${({ size }: any): string => {
+  ${({ size }: LoaderProps): string => {
     switch (size) {
       case 'lg':
         return `
@@ -36,29 +36,30 @@ export const StyledLoader: any = styled.div`
         `;
     }
   }};
-
-  ${({ color, isInvert }: any): string => {
+  ${({ color, isInvert }: LoaderProps): string => {
     switch (color) {
-      case 'primary': {
+      case 'primary':
+      case 'blue': {
         if (isInvert) {
-          return `border-color: ${COLORS.white} ${COLORS.white} transparent;`;
+          return `border-color: ${white.primary} ${white.primary} transparent;`;
         }
 
-        return `border-color: ${COLORS.primaryBlue} ${COLORS.primaryBlue} transparent;`;
+        return `border-color: ${blue.primary} ${blue.primary} transparent;`;
       }
-      case 'danger': {
+      case 'danger':
+      case 'red': {
         if (isInvert) {
-          return `border-color: ${COLORS.white} ${COLORS.white} transparent;`;
+          return `border-color: ${white.primary} ${white.primary} transparent;`;
         }
 
-        return `border-color: ${COLORS.primaryRed} ${COLORS.primaryRed} transparent;`;
+        return `border-color: ${red.primary} ${red.primary} transparent;`;
       }
       default: {
         if (isInvert) {
-          return `border-color: ${COLORS.primaryBlack} ${COLORS.primaryBlack} transparent;`;
+          return `border-color: ${black.primary} ${black.primary} transparent;`;
         }
 
-        return `border-color: ${COLORS.primaryGray} ${COLORS.primaryGray} transparent;`;
+        return `border-color: ${gray.primary} ${gray.primary} transparent;`;
       }
     }
   }};

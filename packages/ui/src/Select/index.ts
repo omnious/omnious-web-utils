@@ -1,2 +1,1 @@
-export * from './Select';
-export * from './styles';
+// export * from './Select';
