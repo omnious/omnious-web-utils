@@ -17,18 +17,18 @@ $ yarn add @omnious/ui
 ## Usage
 
 ```jsx
-import { Button, Logo, /* ...etc */ } from '@omnious/ui';
+import { Button, Logo /* ...etc */ } from '@omnious/ui';
 ```
 
 ## Resources
 
-* [Components Showcase](https://omnious-ui.netlify.com) (external site)
+- [Components Showcase](https://omnious-ui.netlify.com) (external site)
 
 ## Browser Support
 
-* Chrome
-* Firefox
-* Safari
+- Chrome
+- Firefox
+- Safari
 
 [node]: https://img.shields.io/node/v/@omnious/ui.svg
 [node-url]: https://nodejs.org
