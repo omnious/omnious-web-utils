@@ -8,3 +8,5 @@ export { Loader } from './Loader';
 // export { Mega } from './Mega';
 // export { Radio } from './Radio';
 export { Tile } from './Tile';
+export * from './colors';
+export * from './sizes';
