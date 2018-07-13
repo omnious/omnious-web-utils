@@ -51,15 +51,15 @@
     "webpack-merge": "^4.1.2"
   },
   "peerDependencies": {
-    "@babel/core": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.53",
     "angular2-template-loader": "^0.6.2",
     "babel-loader": "^8.0.0-beta.4",
-    "fork-ts-checker-webpack-plugin": "^0.4.2",
+    "fork-ts-checker-webpack-plugin": "^0.4.3",
     "stylelint": "^9.3.0",
     "ts-loader": "^4.4.1",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.12.1"
+    "webpack": "^4.16.0"
   },
   "bin": {
     "omnious-webpack": "index.js"
