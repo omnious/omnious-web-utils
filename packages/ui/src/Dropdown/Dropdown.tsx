@@ -16,7 +16,6 @@ export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
   items: DropdownItemProps[];
   searchable?: boolean;
   selectedValue: any;
-  title?: string;
   width?: string;
   handleDropdown(name: string | undefined, value: any): void;
 }

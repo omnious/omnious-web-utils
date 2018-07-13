@@ -37,6 +37,10 @@ export const DropdownWrapper: any = styled(Select)`
     cursor: pointer;
   }
 
+  & .Select-value {
+    line-height: 3rem;
+  }
+
   & .Select-placeholder {
     line-height: 3rem;
   }
