@@ -1,3 +1,4 @@
 export const white = {
-  primary: '#fff'
+  primary: '#fff',
+  cream: '#fcfeff'
 };

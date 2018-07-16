@@ -9,9 +9,11 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
 
+export interface FormFieldProps {}
+
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   disabled?: boolean;
-  fields?: any[];
+  fields?: FormFieldProps[];
   isVertical?: boolean;
   width?: string;
   handleForm(data: any): void;
