@@ -9,8 +9,8 @@ export type TileProps = HTMLAttributes<HTMLElement>;
 
 export class Tile extends Component<TileProps> {
   public render(): JSX.Element {
-    const { children, className }: TileProps = this.props;
+    const { children, className, ...others }: TileProps = this.props;
 
-    return <StyledTile className={className}>{children}</StyledTile>;
+    return <StyledTile className={className} {...others}>{children}</StyledTile>;
   }
 }
