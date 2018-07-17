@@ -14,6 +14,7 @@ export interface DropdownItemProps {
 export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
   clearable?: boolean;
   items: DropdownItemProps[];
+  resetValue?: DropdownItemProps;
   searchable?: boolean;
   selectedValue: any;
   width?: string;
@@ -41,6 +42,7 @@ export class Dropdown extends Component<DropdownProps> {
       disabled = false,
       items = [],
       placeholder = 'Choose an option',
+      resetValue,
       searchable = true,
       selectedValue,
       title = '',
@@ -55,6 +57,7 @@ export class Dropdown extends Component<DropdownProps> {
           disabled={disabled}
           options={items}
           placeholder={placeholder}
+          resetValue={resetValue}
           searchable={searchable}
           value={selectedValue}
           width={width}
