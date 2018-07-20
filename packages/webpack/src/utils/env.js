@@ -1,16 +1,13 @@
 // Global import
 const dotenv = require('dotenv');
 
-// Local import
-const log = require('../scripts/log');
-
 // Load environment variables from .env file
 dotenv.config();
 
 function getEnvOrDefault(key, defaultVal) {
   if (!process.env[key]) {
     if (typeof defaultVal === 'undefined') {
-      log.error(`WARNING: Missing ENV var ${key}`);
+      console.error(`WARNING: Missing ENV var ${key}`);
     } else {
       process.env[key] = defaultVal;
     }

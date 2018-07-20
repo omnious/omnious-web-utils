@@ -7,7 +7,7 @@ const commonConfig = require('./webpack.config.common');
 
 module.exports = (env, options) => {
   const { add, lang, mode } = options;
-  const targetConfig = require(`./config/${mode}-${lang}`);
+  const targetLanguage = require('./utils/language');
   let additionalConfig = {};
 
   if (add) {
@@ -17,11 +17,21 @@ module.exports = (env, options) => {
   switch (env) {
     case 'development': {
       const devConfig = require('./webpack.config.dev');
-      return smart(commonConfig, targetConfig, devConfig, additionalConfig);
+      return smart(
+        commonConfig,
+        targetLanguage[`${mode}${lang.toUpperCase()}`],
+        devConfig,
+        additionalConfig
+      );
     }
     case 'production': {
       const prodConfig = require('./webpack.config.prod');
-      return smart(commonConfig, targetConfig, prodConfig, additionalConfig);
+      return smart(
+        commonConfig,
+        targetLanguage[`${mode}${lang.toUpperCase()}`],
+        prodConfig,
+        additionalConfig
+      );
     }
     case 'test':
     default:

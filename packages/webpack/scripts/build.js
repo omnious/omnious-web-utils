@@ -11,13 +11,14 @@ const webpack = require('webpack');
 // Local import
 const log = require('./log');
 const remove = require('./remove');
-const webpackConfig = require('../webpack.config');
-const { env } = require('../config/env');
-const { distDir } = require('../config/path');
+const webpackConfig = require('../src/Bundler');
+const { env } = require('../src/utils/env');
+const { distDir } = require('../src/utils/path');
 
 module.exports = async options => {
   try {
     await remove(distDir);
+
     // Initialize console
     clearConsole();
     log.start(`Starting build in ${env} mode`);

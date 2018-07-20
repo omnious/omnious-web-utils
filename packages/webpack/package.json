@@ -23,7 +23,8 @@
   "main": "index.js",
   "scripts": {
     "build": "echo 'There`s no @omnious/webpack build'",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start": "omnious-webpack watch"
   },
   "dependencies": {
     "commander": "^2.15.1",
@@ -62,6 +63,6 @@
     "webpack": "^4.16.0"
   },
   "bin": {
-    "omnious-webpack": "index.js"
+    "omnious-webpack": "bin"
   }
 }

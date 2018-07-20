@@ -7,15 +7,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { HotModuleReplacementPlugin } = require('webpack');
 
 // Local import
-const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, host, port } = require('./config/env');
-const { distDir, indexHtml, polyfills, srcDir } = require('./config/path');
+const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, host, port } = require('./utils/env');
+const { distDir, indexHtml, srcDir } = require('./utils/path');
 
 module.exports = {
   mode: 'development',
   entry: [
     `webpack-dev-server/client?http://${host}:${port}`,
     'webpack/hot/only-dev-server',
-    polyfills,
     srcDir
   ],
   output: {
@@ -44,9 +43,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: 'eval-source-map',
-  // TODO: Add optimization options
-  // optimization: {},
+  devtool: 'inline-source-map',
   plugins: [
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({

@@ -4,8 +4,8 @@
 const commander = require('commander');
 
 // Local import
-const packageJson = require('./package');
-const log = require('./scripts/log');
+const packageJson = require('../package');
+const log = require('../scripts/log');
 
 let taskName;
 const program = new commander.Command('omnious-webpack')
@@ -30,12 +30,12 @@ if (!taskName) {
 function webpackScript(task, options = {}) {
   switch (task) {
     case 'build': {
-      const build = require('./scripts/build');
+      const build = require('../scripts/build');
       build(options);
       break;
     }
     case 'watch': {
-      const watch = require('./scripts/watch');
+      const watch = require('../scripts/watch');
       watch(options);
       break;
     }

@@ -10,9 +10,9 @@ const WebpackDevServer = require('webpack-dev-server');
 
 // Local import
 const log = require('./log');
-const webpackConfig = require('../webpack.config');
-const { env, host, port } = require('../config/env');
-const { staticDir } = require('../config/path');
+const webpackConfig = require('../src/Bundler');
+const { env, host, port } = require('../src/utils/env');
+const { staticDir } = require('../src/utils/path');
 
 module.exports = options => {
   // Initialize console
@@ -28,8 +28,10 @@ module.exports = options => {
       disableDotRule: true
     },
     host,
-    hot: true,
+    hotOnly: true,
+    inline: true,
     noInfo: true,
+    port,
     publicPath: '/',
     stats: {
       colors: true

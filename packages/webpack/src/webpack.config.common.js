@@ -5,22 +5,28 @@
 // Global import
 const DotenvPlugin = require('dotenv-webpack');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const { resolve } = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { IgnorePlugin } = require('webpack');
 
 // Local import
-const { packageJson, srcDir } = require('./config/path');
+const {
+  componentsDir,
+  containersDir,
+  hocDir,
+  packageJson,
+  srcDir,
+  utilsDir
+} = require('./utils/path');
 
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        include: srcDir,
-        use: 'source-map-loader',
-        enforce: 'pre'
-      },
+      // {
+      //   test: /\.js$/,
+      //   include: srcDir,
+      //   use: 'source-map-loader',
+      //   enforce: 'pre'
+      // },
       // {
       //   test: /\.html$/,
       //   loader: 'html-loader'
@@ -42,12 +48,13 @@ module.exports = {
     ]
   },
   resolve: {
+    modules: ['node_modules'],
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      '@components': resolve(srcDir, 'components'),
-      '@containers': resolve(srcDir, 'containers'),
-      '@hoc': resolve(srcDir, 'hoc'),
-      '@utils': resolve(srcDir, 'utils')
+      '@components': componentsDir,
+      '@containers': containersDir,
+      '@hoc': hocDir,
+      '@utils': utilsDir
     },
     plugins: [new ModuleScopePlugin(srcDir, [packageJson])]
   },

@@ -14,8 +14,8 @@ const { resolve } = require('path');
 const { LoaderOptionsPlugin } = require('webpack');
 
 // Local import
-const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, tag } = require('./config/env');
-const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./config/path');
+const { CDN_URL, FACEBOOK_ID, GOOGLE_ID, tag } = require('./utils/env');
+const { distDir, indexHtml, polyfills, srcDir, staticDir, vendor } = require('./utils/path');
 
 module.exports = {
   mode: 'production',
