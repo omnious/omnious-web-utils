@@ -10,7 +10,7 @@ const indexHtml = resolve(srcDir, 'index.html');
 const polyfills = resolve(srcDir, 'polyfills');
 const vendor = resolve(srcDir, 'vendor');
 const componentsDir = resolve(srcDir, 'components');
-const containersDir = resolve(srcDir, 'containersDir');
+const containersDir = resolve(srcDir, 'containers');
 const hocDir = resolve(srcDir, 'hoc');
 const utilsDir = resolve(srcDir, 'utils');
 
