@@ -20,7 +20,7 @@
   "engines": {
     "node": ">= 8.10.0"
   },
-  "main": "index.js",
+  "main": "./bin/cli.js",
   "scripts": {
     "build": "echo 'There`s no @omnious/webpack build'",
     "lint": "eslint .",
@@ -63,6 +63,6 @@
     "webpack": "^4.16.0"
   },
   "bin": {
-    "omnious-webpack": "bin"
+    "omnious-webpack": "./bin/cli.js"
   }
 }
