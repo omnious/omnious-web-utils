@@ -26,5 +26,9 @@
     "lint": "run-s lint:**",
     "lint:css": "stylelint 'src/**/*.css'",
     "prepublish": "yarn build"
+  },
+  "dependencies": {
+    "postcss": "^7.0.1",
+    "postcss-scss": "^2.0.0"
   }
 }
