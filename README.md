@@ -5,7 +5,9 @@
   <br />
 </div>
 
-# omnious-web-utils [![CircleCI][CircleCI]][CircleCI-url]
+# omnious-web-utils
+
+[![CircleCI][circleci]][circleci.url]
 
 [React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
 
@@ -13,5 +15,5 @@
 
 [MIT](LICENSE)
 
-[CircleCI]: https://circleci.com/gh/omnious-dev/omnious-web-utils.svg?style=svg
-[CircleCI-url]: https://circleci.com/gh/omnious-dev/omnious-web-utils
+[circleci]: https://circleci.com/gh/omnious-dev/omnious-web-utils.svg?style=svg
+[circleci.url]: https://circleci.com/gh/omnious-dev/omnious-web-utils

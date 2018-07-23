@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { COLORS } from '../constants';
+import { black, blue, white } from '../colors';
 
 export const StyledOmnious: any = styled.svg``;
 
@@ -10,12 +10,12 @@ export const FillArea: any = styled.g`
   fill: ${({ color }: any): string => {
     switch (color) {
       case 'white':
-        return COLORS.white;
+        return white.primary;
       case 'black':
-        return COLORS.lightenBlack;
+        return black.primary;
       case 'blue':
       default:
-        return COLORS.primaryBlue;
+        return blue.primary;
     }
   }};
 `;

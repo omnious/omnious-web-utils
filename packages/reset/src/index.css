@@ -79,6 +79,7 @@ button,
 label {
   all: unset;
   cursor: pointer;
+  user-select: none;
 }
 
 button,
@@ -88,7 +89,11 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  line-height: inherit;
   margin: 0;
   user-select: none;
+}
+
+img {
+  user-select: none;
+  vertical-align: middle;
 }

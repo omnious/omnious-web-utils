@@ -1,6 +1,6 @@
 {
   "name": "@omnious/ui",
-  "version": "0.0.9-rc.14",
+  "version": "0.1.1-rc.4",
   "description": "React components for omnious.",
   "homepage": "https://omnious-ui.netlify.com",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
@@ -24,6 +24,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "prebuild": "rimraf .out dist",
     "build": "run-s build:**",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "build:ui": "tsc",
@@ -33,15 +34,18 @@
     "lint:css": "stylelint . --syntax scss",
     "prepublish": "yarn build",
     "prettier": "prettier --write '**/*.{js,ts,tsx}'",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook --quiet",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --watch"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
     "shortid": "^2.2.8"
   },
   "peerDependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
     "react-select": "^1.2.1",
     "styled-components": "^3.3.3"
   }

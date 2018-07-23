@@ -1,9 +1,14 @@
 // Global import
+import { debounce } from 'lodash';
 import * as React from 'react';
-import { Component } from 'react';
+import { Component, InputHTMLAttributes } from 'react';
 
 // Local import
-import { InputProps, InputTitle, InputWrapper, StyledLabel } from '.';
+import { InputTitle, InputWrapper, StyledLabel } from './styles';
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  handleInput(name: string | undefined, value: any): void;
+}
 
 /**
  *
@@ -14,21 +19,24 @@ import { InputProps, InputTitle, InputWrapper, StyledLabel } from '.';
  */
 export class Input extends Component<InputProps> {
   private handleInput = (e: any): void => {
-    e.preventDefault();
-    const { name, handleInput }: InputProps = this.props;
-    const value: string | null = e.target ? e.target.value : null;
-    handleInput(name, value);
+    const value: string = e.target ? e.target.value : null;
+    this.debouncedHandleInput(value);
   };
+
+  private debouncedHandleInput: any = debounce((value: any) => {
+    const { name, handleInput }: InputProps = this.props;
+    handleInput(name, value);
+  }, 200);
 
   public render(): JSX.Element {
     const {
       className,
       disabled = false,
-      name,
-      placeholder = '',
+      placeholder,
       title = '',
       type = 'text',
-      value
+      value,
+      width
     }: InputProps = this.props;
 
     return (
@@ -37,10 +45,10 @@ export class Input extends Component<InputProps> {
         <InputWrapper
           className={className}
           disabled={disabled}
-          name={name}
           placeholder={placeholder}
           type={type}
           value={value}
+          width={width}
           onChange={this.handleInput}
         />
       </StyledLabel>

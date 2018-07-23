@@ -1,13 +1,23 @@
 // Global import
 import * as React from 'react';
-import { Component } from 'react';
+import { Component, FormHTMLAttributes } from 'react';
 import { generate } from 'shortid';
 
 // Local import
-import { FormFieldWrapper, FormProps, FormTitle, StyledForm } from '.';
+import { FormFieldWrapper, FormTitle, StyledForm } from './styles';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
+
+export interface FormFieldProps {}
+
+export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
+  disabled?: boolean;
+  fields?: FormFieldProps[];
+  isVertical?: boolean;
+  width?: string;
+  handleForm(data: any): void;
+}
 
 /**
  *
@@ -19,11 +29,8 @@ import { Input } from '../Input';
 export class Form extends Component<FormProps> {
   public state: any = {};
 
-  private handleForm = (e: any): void => {
-    e.preventDefault();
-    console.log('enter!', this.state);
-    //   const { handleForm }: FormProps = this.props;
-    //   handleForm(this.state);
+  private handleForm = (): void => {
+    this.props.handleForm(this.state);
   };
 
   // private handleRadio = (name: string, value: string): void => {
@@ -62,18 +69,21 @@ export class Form extends Component<FormProps> {
           //             />
           //           );
           case 'select':
+          case 'dropdown':
             return (
               <Dropdown
                 key={name}
                 items={items}
                 name={name}
+                selectedValue={this.state[name]}
                 title={title}
+                width="100%"
                 handleDropdown={this.handleDropdown}
               />
             );
           case 'submit':
             return (
-              <Button key={generate()} type={type}>
+              <Button key={generate()} color="blue" type={type} handleButton={this.handleForm}>
                 {component}
               </Button>
             );
@@ -84,6 +94,7 @@ export class Form extends Component<FormProps> {
                 name={name}
                 title={title}
                 type={type}
+                width="100%"
                 handleInput={this.handleInput}
               />
             );
@@ -93,12 +104,23 @@ export class Form extends Component<FormProps> {
   };
 
   public render(): JSX.Element {
-    const { className, disabled = false, isVertical = true, title = '' }: FormProps = this.props;
+    const {
+      className,
+      disabled = false,
+      isVertical = true,
+      title = '',
+      width
+    }: FormProps = this.props;
 
     return (
       <StyledForm disabled={disabled}>
         {title && <FormTitle>{title}</FormTitle>}
-        <FormFieldWrapper className={className} isVertical={isVertical} onSubmit={this.handleForm}>
+        <FormFieldWrapper
+          className={className}
+          isVertical={isVertical}
+          width={width}
+          onSubmit={this.handleForm}
+        >
           {this.renderFields()}
         </FormFieldWrapper>
       </StyledForm>

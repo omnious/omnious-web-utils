@@ -1,16 +1,17 @@
 // Global import
+import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Form } from '.';
+import { Form } from './Form';
 
 const formFields: any[] = [
   {
     name: 'dropdown',
-    type: 'select',
+    type: 'dropdown',
     title: 'dropdown',
     items: [{ label: 'a', value: 'a' }, { label: 'b', value: 'b' }]
   },
@@ -30,6 +31,7 @@ storiesOf('Component | Form / All', module)
           fields={formFields}
           isVertical={boolean('isVertical', true)}
           title={text('title', '')}
+          handleForm={action('handle-form')}
         />
       )
     )

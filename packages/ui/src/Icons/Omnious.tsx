@@ -1,14 +1,11 @@
 // Global import
 import * as React from 'react';
-import { SFC } from 'react';
+import { SFC, SVGAttributes } from 'react';
 
 // Local import
-import { FillArea, StyledOmnious } from '.';
+import { FillArea, StyledOmnious } from './styles';
 
-// Interface
-export interface OmniousProps {
-  className?: string;
-  color: string;
+export interface OmniousProps extends SVGAttributes<SVGElement> {
   isVertical?: boolean;
 }
 

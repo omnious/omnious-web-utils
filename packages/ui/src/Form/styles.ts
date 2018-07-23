@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 // Local import
-import { FormProps } from '.';
+import { FormProps } from './Form';
 
 export const StyledForm: any = styled.div``;
 
@@ -12,6 +12,8 @@ export const FormTitle: any = styled.h4`
 
 export const FormFieldWrapper: any = styled.form`
   display: flex;
+  width: ${({ width }: any): string => width || '20rem'};
+
   ${({ isVertical }: FormProps): string =>
     isVertical
       ? `

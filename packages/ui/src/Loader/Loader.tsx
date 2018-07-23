@@ -1,23 +1,20 @@
 // Global import
 import * as React from 'react';
-import { SFC } from 'react';
+import { HTMLAttributes, SFC } from 'react';
 
 // Local import
-import { StyledLoader } from '.';
+import { StyledLoader } from './styles';
 
-// Interface
-export interface LoaderProps {
-  color: string;
+export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
   isInvert?: boolean;
-  size: string;
+  size?: string;
 }
 
-// Component
 export const Loader: SFC<LoaderProps> = ({
-  color,
-  isInvert,
-  size,
-  ...others
+  className,
+  color = 'blue',
+  isInvert = false,
+  size = 'sm'
 }: LoaderProps): JSX.Element => (
-  <StyledLoader color={color} isInvert={isInvert} size={size} {...others} />
+  <StyledLoader className={className} color={color} isInvert={isInvert} size={size} />
 );

@@ -1,9 +1,25 @@
 // Global import
 import * as React from 'react';
-import { Component } from 'react';
+import { Component, SelectHTMLAttributes } from 'react';
 
 // Local import
-import { DropdownProps, DropdownTitle, DropdownWrapper, StyledLabel } from '.';
+import { DropdownTitle, DropdownWrapper, StyledLabel } from './styles';
+
+export interface DropdownItemProps {
+  disabled?: boolean;
+  label: string;
+  value: any;
+}
+
+export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  clearable?: boolean;
+  items: DropdownItemProps[];
+  resetValue?: DropdownItemProps;
+  searchable?: boolean;
+  selectedValue: any;
+  width?: string;
+  handleDropdown(name: string | undefined, value: any): void;
+}
 
 /**
  *
@@ -25,25 +41,26 @@ export class Dropdown extends Component<DropdownProps> {
       clearable = true,
       disabled = false,
       items = [],
-      name,
       placeholder = 'Choose an option',
+      resetValue,
       searchable = true,
       selectedValue,
-      title = ''
+      title = '',
+      width
     }: DropdownProps = this.props;
 
     return (
-      <StyledLabel disabled={disabled}>
+      <StyledLabel className={className} disabled={disabled}>
         {title && <DropdownTitle>{title}</DropdownTitle>}
         <DropdownWrapper
-          className={className}
           clearable={clearable}
           disabled={disabled}
-          name={name}
           options={items}
           placeholder={placeholder}
+          resetValue={resetValue}
           searchable={searchable}
           value={selectedValue}
+          width={width}
           onChange={this.handleDropdown}
         />
       </StyledLabel>

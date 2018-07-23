@@ -3,15 +3,18 @@ import Select from 'react-select';
 import styled from 'styled-components';
 
 // Local import
-import { SIZES } from '../constants';
+import { DropdownProps } from './Dropdown';
+import { radius } from '../sizes';
 
 export const StyledLabel: any = styled.label`
-  ${({ disabled }: any): any =>
-    disabled &&
-    `
+  ${({ disabled }: DropdownProps): string =>
+    disabled
+      ? `
     cursor: not-allowed;
     opacity: 0.5;
-  `};
+    pointer-events: none;
+  `
+      : ''};
 `;
 
 export const DropdownTitle: any = styled.h4`
@@ -29,8 +32,29 @@ export const DropdownWrapper: any = styled(Select)`
   & .Select-control {
     background-color: #fafdfd;
     border: 1px solid #bccbd2;
-    border-radius: ${SIZES.xsRad};
+    border-radius: ${radius.xs};
+    height: 3rem;
     cursor: pointer;
+  }
+
+  & .Select-value {
+    line-height: 3rem;
+
+    &-label {
+      line-height: 3rem;
+    }
+  }
+
+  & .Select-placeholder {
+    line-height: 3rem;
+  }
+
+  & .Select-input {
+    height: 2.8rem;
+
+    & > input {
+      line-height: 25px;
+    }
   }
 
   & .Select-menu-outer {

@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Omnious } from '.';
+import { Omnious } from './Omnious';
 
 storiesOf('Component | Icons', module)
   .addDecorator(withKnobs)
