@@ -1,7 +1,7 @@
 // CSS import
-import 'react-select/dist/react-select.css';
-import './index.css';
 // import '@omnious/reset';
+import './index.css';
+// import 'react-select/dist/react-select.css';
 // import 'github-markdown-css/github-markdown';
 
 // Global import
@@ -21,8 +21,10 @@ setDefaults({
     ...base,
     infoStory: {
       alignItems: 'flex-start',
+      backgroundColor: '#dfe3e6',
       display: 'flex',
       flexDirection: 'column',
+      minHeight: '35vh',
       padding: '20px 40px 40px'
     },
     infoBody: {
