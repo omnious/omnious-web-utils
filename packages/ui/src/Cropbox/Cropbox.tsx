@@ -36,6 +36,7 @@ export class Cropbox extends Component<CropboxProps, CropboxState> {
   private cropboxRef: any = this.props.innerRef || createRef();
 
   private renderBox = (): void => {
+    const { handleDrag, handleResize } = this.props;
     this.cropbox = interact(this.cropboxRef.current)
       .draggable({
         restrict: {
@@ -43,7 +44,7 @@ export class Cropbox extends Component<CropboxProps, CropboxState> {
           restriction: 'parent'
         },
         onmove: this.moveBox,
-        onend: this.props.handleDrag || null
+        onend: handleDrag || null
       })
       .resizable({
         edges: {
@@ -56,7 +57,7 @@ export class Cropbox extends Component<CropboxProps, CropboxState> {
           outer: 'parent'
         },
         onmove: this.resizeBox,
-        onend: this.props.handleResize || null
+        onend: handleResize || null
       });
   };
 

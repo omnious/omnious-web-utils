@@ -9,4 +9,4 @@ import { Cropbox } from './Cropbox';
 
 storiesOf('Component | Cropbox', module)
   .addDecorator(withKnobs)
-  .add('DIY', withInfo('Hello cropbox')((): JSX.Element => <Cropbox>cropbox</Cropbox>));
+  .add('DIY', (): JSX.Element => <Cropbox>cropbox</Cropbox>);

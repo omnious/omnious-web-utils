@@ -5,8 +5,9 @@ import './index.css';
 // import 'github-markdown-css/github-markdown';
 
 // Global import
-import { configure } from '@storybook/react';
-import { setDefaults } from '@storybook/addon-info';
+import { addDecorator, configure } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
 
 setOptions({
@@ -15,24 +16,27 @@ setOptions({
   hierarchyRootSeparator: /\|/
 });
 
-setDefaults({
-  inline: true,
-  styles: base => ({
-    ...base,
-    infoStory: {
-      alignItems: 'flex-start',
-      backgroundColor: '#dfe3e6',
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '35vh',
-      padding: '20px 40px 40px'
-    },
-    infoBody: {
-      ...base.infoBody,
-      border: 0
-    }
+addDecorator(
+  withInfo({
+    inline: true,
+    styles: base => ({
+      ...base,
+      infoStory: {
+        alignItems: 'flex-start',
+        backgroundColor: '#dfe3e6',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '35vh',
+        padding: '20px 40px 40px'
+      },
+      infoBody: {
+        ...base.infoBody,
+        border: 0
+      }
+    })
   })
-});
+);
+addDecorator(withKnobs);
 
 const req = require.context('../src', true, /\.stories.tsx$/);
 const loadStories = () => {

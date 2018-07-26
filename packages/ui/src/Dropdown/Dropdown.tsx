@@ -6,19 +6,22 @@ import { Component, SelectHTMLAttributes } from 'react';
 import { DropdownTitle, DropdownWrapper, StyledLabel } from './styles';
 
 export interface DropdownItemProps {
-  disabled?: boolean;
+  isDisabled?: boolean;
   label: string;
   value: any;
 }
 
 export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  clearable?: boolean;
+  isClearable?: boolean;
+  isDisabled?: boolean;
+  isSearchable?: boolean;
   items: DropdownItemProps[];
-  resetValue?: DropdownItemProps;
-  searchable?: boolean;
-  selectedValue: any;
   width?: string;
   handleDropdown(name: string | undefined, value: any): void;
+}
+
+export interface DropdownState {
+  value: DropdownItemProps;
 }
 
 /**
@@ -26,12 +29,17 @@ export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
  *
  * @export
  * @class Dropdown
- * @extends {Component<DropdownProps>}
+ * @extends {Component<DropdownProps, DropdownState>}
  */
-export class Dropdown extends Component<DropdownProps> {
+export class Dropdown extends Component<DropdownProps, DropdownState> {
+  public state: DropdownState = {
+    value: null
+  };
+
   private handleDropdown = (e: any): void => {
     const { name, handleDropdown }: any = this.props;
     const value: any = e ? e.value : null;
+    this.setState((state: DropdownState): DropdownState => ({ ...state, value: e }));
     handleDropdown(name, value);
   };
 
@@ -85,27 +93,27 @@ export class Dropdown extends Component<DropdownProps> {
   public render(): JSX.Element {
     const {
       className,
-      clearable = true,
-      disabled = false,
+      isClearable = true,
+      isDisabled = false,
+      isSearchable = true,
       items = [],
       placeholder = 'Choose an option',
-      resetValue,
-      searchable = true,
-      selectedValue,
-      title = '',
+      title,
+      value,
       width
     }: DropdownProps = this.props;
+    const selectedValue: DropdownItemProps =
+      items.find((item: DropdownItemProps): boolean => value === item.value) || this.state.value;
 
     return (
-      <StyledLabel className={className} disabled={disabled}>
+      <StyledLabel className={className} disabled={isDisabled}>
         {title && <DropdownTitle>{title}</DropdownTitle>}
         <DropdownWrapper
-          clearable={clearable}
-          disabled={disabled}
+          isClearable={isClearable}
+          isDisabled={isDisabled}
+          isSearchable={isSearchable}
           options={items}
           placeholder={placeholder}
-          resetValue={resetValue}
-          searchable={searchable}
           value={selectedValue}
           width={width}
           onChange={this.handleDropdown}

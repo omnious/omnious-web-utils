@@ -10,16 +10,25 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   handleInput(name: string | undefined, value: any): void;
 }
 
+export interface InputState {
+  value: string;
+}
+
 /**
  *
  *
  * @export
  * @class Input
- * @extends {Component<InputProps>}
+ * @extends {Component<InputProps, InputState>}
  */
-export class Input extends Component<InputProps> {
+export class Input extends Component<InputProps, InputState> {
+  public state: InputState = {
+    value: ''
+  };
+
   private handleInput = (e: any): void => {
-    const value: string = e.target ? e.target.value : null;
+    const value: string = e.target ? e.target.value : '';
+    this.setState((state: InputState): InputState => ({ ...state, value }));
     this.debouncedHandleInput(value);
   };
 
@@ -33,21 +42,21 @@ export class Input extends Component<InputProps> {
       className,
       disabled = false,
       placeholder,
-      title = '',
+      title,
       type = 'text',
       value,
       width
     }: InputProps = this.props;
+    const inputValue: string = value || this.state.value;
 
     return (
-      <StyledLabel disabled={disabled}>
+      <StyledLabel className={className} disabled={disabled}>
         {title && <InputTitle>{title}</InputTitle>}
         <InputWrapper
-          className={className}
           disabled={disabled}
           placeholder={placeholder}
           type={type}
-          value={value}
+          value={inputValue}
           width={width}
           onChange={this.handleInput}
         />
