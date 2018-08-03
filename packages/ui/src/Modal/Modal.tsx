@@ -1,9 +1,9 @@
 // Global import
 import * as React from 'react';
-import { Component, createRef, HTMLAttributes } from 'react';
+import { Component, HTMLAttributes } from 'react';
 import SkyLight from 'react-skylight';
 
-export interface ModalProps {
+export interface ModalProps extends HTMLAttributes<HTMLElement> {
   innerRef: any;
 }
 

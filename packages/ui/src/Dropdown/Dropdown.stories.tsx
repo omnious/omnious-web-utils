@@ -1,6 +1,6 @@
 // Global import
 import { action } from '@storybook/addon-actions';
-import { boolean, number, select, text } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -15,22 +15,20 @@ const dropdownItems: any[] = [
   { label: 'five', value: 5, isDisabled: true }
 ];
 
-storiesOf('Component | Form / Dropdown', module)
-  // .add('Overview', withInfo()())
-  .add(
-    'DIY',
-    (): JSX.Element => (
-      <Dropdown
-        isClearable={boolean('isClearable', true)}
-        isDisabled={boolean('isDisabled', false)}
-        isSearchable={boolean('isSearchable', true)}
-        items={dropdownItems}
-        name={text('name', 'dropdown')}
-        placeholder={text('placeholder', 'Choose an option')}
-        title={text('title', '')}
-        value={number('value', 1)}
-        width={text('width', '')}
-        handleDropdown={action('handle-dropdown')}
-      />
-    )
-  );
+storiesOf('Component | Form / Dropdown', module).add(
+  'DIY',
+  (): JSX.Element => (
+    <Dropdown
+      isClearable={boolean('isClearable', true)}
+      isDisabled={boolean('isDisabled', false)}
+      isSearchable={boolean('isSearchable', true)}
+      items={dropdownItems}
+      name={text('name', 'dropdown')}
+      placeholder={text('placeholder', 'Choose an option')}
+      title={text('title', '')}
+      value={number('value', 1)}
+      width={text('width', '')}
+      onChange={action('handle-dropdown')}
+    />
+  )
+);

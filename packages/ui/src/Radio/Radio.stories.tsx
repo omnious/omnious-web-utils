@@ -1,6 +1,5 @@
 // // Global import
 // import { action } from '@storybook/addon-actions';
-// import { withInfo } from '@storybook/addon-info';
 // import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 // import { storiesOf } from '@storybook/react';
 // import * as React from 'react';
@@ -17,12 +16,9 @@
 // ];
 
 // storiesOf('Component | Form / Radio', module)
-//   .addDecorator(withKnobs)
-//   // .add('Overview', withInfo()())
 //   .add(
 //     'DIY',
-//     withInfo('Hello radio')(
-//       (): JSX.Element => (
+//     (): JSX.Element => (
 //         <Radio
 //           disabled={boolean('disabled', false)}
 //           isVertical={boolean('isVertical', true)}
@@ -33,5 +29,4 @@
 //           handleRadio={action('handle-radio')}
 //         />
 //       )
-//     )
 //   );

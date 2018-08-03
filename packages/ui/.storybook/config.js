@@ -1,8 +1,6 @@
 // CSS import
 // import '@omnious/reset';
 import './index.css';
-// import 'react-select/dist/react-select.css';
-// import 'github-markdown-css/github-markdown';
 
 // Global import
 import { addDecorator, configure } from '@storybook/react';
@@ -15,7 +13,6 @@ setOptions({
   url: 'https://www.npmjs.com/package/@omnious/ui',
   hierarchyRootSeparator: /\|/
 });
-
 addDecorator(
   withInfo({
     inline: true,

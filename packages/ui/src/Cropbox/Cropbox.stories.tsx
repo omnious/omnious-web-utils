@@ -1,12 +1,8 @@
 // Global import
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
 import { Cropbox } from './Cropbox';
 
-storiesOf('Component | Cropbox', module)
-  .addDecorator(withKnobs)
-  .add('DIY', (): JSX.Element => <Cropbox>cropbox</Cropbox>);
+storiesOf('Component | Cropbox', module).add('DIY', (): JSX.Element => <Cropbox>cropbox</Cropbox>);

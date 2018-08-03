@@ -56,7 +56,7 @@
     "listEmittedFiles": false,
     "listFiles": false,
     "noEmitHelpers": false,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "noImplicitUseStrict": false,
     "noLib": false,
     "noResolve": false,

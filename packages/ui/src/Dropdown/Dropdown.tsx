@@ -1,9 +1,10 @@
 // Global import
 import * as React from 'react';
 import { Component, SelectHTMLAttributes } from 'react';
+import Select, { ReactSelectProps } from 'react-select';
 
 // Local import
-import { DropdownTitle, DropdownWrapper, StyledLabel } from './styles';
+import { StyledDropdown } from './styles';
 
 export interface DropdownItemProps {
   isDisabled?: boolean;
@@ -11,17 +12,9 @@ export interface DropdownItemProps {
   value: any;
 }
 
-export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  isClearable?: boolean;
-  isDisabled?: boolean;
-  isSearchable?: boolean;
+export interface DropdownProps extends ReactSelectProps {
   items: DropdownItemProps[];
   width?: string;
-  handleDropdown(name: string | undefined, value: any): void;
-}
-
-export interface DropdownState {
-  value: DropdownItemProps;
 }
 
 /**
@@ -29,18 +22,13 @@ export interface DropdownState {
  *
  * @export
  * @class Dropdown
- * @extends {Component<DropdownProps, DropdownState>}
+ * @extends {Component<DropdownProps>}
  */
-export class Dropdown extends Component<DropdownProps, DropdownState> {
-  public state: DropdownState = {
-    value: null
-  };
-
-  private handleDropdown = (e: any): void => {
-    const { name, handleDropdown }: any = this.props;
-    const value: any = e ? e.value : null;
-    this.setState((state: DropdownState): DropdownState => ({ ...state, value: e }));
-    handleDropdown(name, value);
+export class Dropdown extends Component<DropdownProps> {
+  private onChange = (item: DropdownItemProps): void => {
+    const { name, onChange }: DropdownProps = this.props;
+    const value: any = item ? item.value : null;
+    onChange && onChange(name, value);
   };
 
   //   private renderItems = (): any => {
@@ -103,12 +91,13 @@ export class Dropdown extends Component<DropdownProps, DropdownState> {
       width
     }: DropdownProps = this.props;
     const selectedValue: DropdownItemProps =
-      items.find((item: DropdownItemProps): boolean => value === item.value) || this.state.value;
+      items.find((item: DropdownItemProps): boolean => value === item.value) || null;
 
     return (
-      <StyledLabel className={className} disabled={isDisabled}>
-        {title && <DropdownTitle>{title}</DropdownTitle>}
-        <DropdownWrapper
+      <StyledDropdown className={className} disabled={isDisabled}>
+        {title && <h4 className="title">{title}</h4>}
+        <Select
+          className="dropdown"
           isClearable={isClearable}
           isDisabled={isDisabled}
           isSearchable={isSearchable}
@@ -116,9 +105,9 @@ export class Dropdown extends Component<DropdownProps, DropdownState> {
           placeholder={placeholder}
           value={selectedValue}
           width={width}
-          onChange={this.handleDropdown}
+          onChange={this.onChange}
         />
-      </StyledLabel>
+      </StyledDropdown>
     );
   }
 }

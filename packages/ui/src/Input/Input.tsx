@@ -4,10 +4,10 @@ import * as React from 'react';
 import { Component, InputHTMLAttributes } from 'react';
 
 // Local import
-import { InputTitle, InputWrapper, StyledLabel } from './styles';
+import { StyledInput } from './styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  handleInput(name: string | undefined, value: any): void;
+  width?: string;
 }
 
 export interface InputState {
@@ -22,19 +22,14 @@ export interface InputState {
  * @extends {Component<InputProps, InputState>}
  */
 export class Input extends Component<InputProps, InputState> {
-  public state: InputState = {
-    value: ''
-  };
-
-  private handleInput = (e: any): void => {
+  private onChange = (e: any): void => {
     const value: string = e.target ? e.target.value : '';
-    this.setState((state: InputState): InputState => ({ ...state, value }));
-    this.debouncedHandleInput(value);
+    this.debouncedOnChange(value);
   };
 
-  private debouncedHandleInput: any = debounce((value: any) => {
-    const { name, handleInput }: InputProps = this.props;
-    handleInput(name, value);
+  private debouncedOnChange: any = debounce((value: any) => {
+    const { name, onChange }: InputProps = this.props;
+    onChange && onChange(name, value);
   }, 200);
 
   public render(): JSX.Element {
@@ -44,23 +39,20 @@ export class Input extends Component<InputProps, InputState> {
       placeholder,
       title,
       type = 'text',
-      value,
       width
     }: InputProps = this.props;
-    const inputValue: string = value || this.state.value;
 
     return (
-      <StyledLabel className={className} disabled={disabled}>
-        {title && <InputTitle>{title}</InputTitle>}
-        <InputWrapper
+      <StyledInput className={className} disabled={disabled} width={width}>
+        {title && <h4 className="title">{title}</h4>}
+        <input
+          className="input"
           disabled={disabled}
           placeholder={placeholder}
           type={type}
-          value={inputValue}
-          width={width}
-          onChange={this.handleInput}
+          onChange={this.onChange}
         />
-      </StyledLabel>
+      </StyledInput>
     );
   }
 }
