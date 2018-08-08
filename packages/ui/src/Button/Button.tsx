@@ -14,7 +14,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export class Button extends Component<ButtonProps> {
-  private onClick = (): void => {
+  private onClick = (e: any): void => {
+    e.preventDefault();
     const { name, value = null, onClick }: ButtonProps = this.props;
     onClick && onClick(name, value);
   };

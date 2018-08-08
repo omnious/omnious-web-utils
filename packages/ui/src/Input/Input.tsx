@@ -23,6 +23,7 @@ export interface InputState {
  */
 export class Input extends Component<InputProps, InputState> {
   private onChange = (e: any): void => {
+    e.preventDefault();
     const value: string = e.target ? e.target.value : '';
     this.debouncedOnChange(value);
   };

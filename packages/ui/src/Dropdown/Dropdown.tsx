@@ -94,7 +94,7 @@ export class Dropdown extends Component<DropdownProps> {
       items.find((item: DropdownItemProps): boolean => value === item.value) || null;
 
     return (
-      <StyledDropdown className={className} disabled={isDisabled}>
+      <StyledDropdown className={className} disabled={isDisabled} width={width}>
         {title && <h4 className="title">{title}</h4>}
         <Select
           className="dropdown"
@@ -104,7 +104,6 @@ export class Dropdown extends Component<DropdownProps> {
           options={items}
           placeholder={placeholder}
           value={selectedValue}
-          width={width}
           onChange={this.onChange}
         />
       </StyledDropdown>
