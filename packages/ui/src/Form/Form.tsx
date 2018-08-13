@@ -68,6 +68,7 @@ export class Form extends Component<FormProps> {
                 key={name}
                 items={items}
                 name={name}
+                selectedValue={this.state[name]}
                 title={title}
                 value={this.state[name]}
                 width="100%"

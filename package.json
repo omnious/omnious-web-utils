@@ -7,10 +7,24 @@
   "workspaces": [
     "packages/*"
   ],
+<<<<<<< HEAD
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
     "@omnious/stylelint-config": "^0.1.0",
     "@omnious/tslint-config-react": "^0.1.0",
+=======
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "release": "lerna publish",
+    "release:pre": "lerna publish --cd-version prerelease --preid=rc --npm-tag next"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.53",
+    "@omnious/eslint-config": "^0.0.2-rc4",
+    "@omnious/eslint-config-react": "^0.0.2-rc5",
+    "@omnious/stylelint-config": "^0.0.2-rc5",
+    "@omnious/tslint-config-react": "^0.0.2-rc7",
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
     "@storybook/addon-actions": "^4.0.0-alpha.14",
     "@storybook/addon-info": "^4.0.0-alpha.14",
     "@storybook/addon-knobs": "^4.0.0-alpha.14",
@@ -18,17 +32,27 @@
     "@storybook/react": "^4.0.0-alpha.14",
     "@types/enzyme": "^3.1.11",
     "@types/jest": "^23.1.5",
+<<<<<<< HEAD
     "@types/lodash": "^4.14.113",
     "@types/prop-types": "^15.5.4",
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.5",
     "@types/react-router-dom": "^4.2.7",
     "@types/react-select": "^1.3.0",
+=======
+    "@types/lodash": "^4.14.111",
+    "@types/prop-types": "^15.5.3",
+    "@types/react": "^16.4.1",
+    "@types/react-dom": "^16.0.5",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/react-select": "^1.2.9",
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
     "@types/shortid": "^0.0.29",
     "@types/storybook__addon-actions": "^3.0.3",
     "@types/storybook__addon-info": "^3.2.3",
     "@types/storybook__addon-knobs": "^3.3.1",
     "@types/storybook__react": "^3.0.8",
+<<<<<<< HEAD
     "autoprefixer": "^9.0.1",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
@@ -41,12 +65,34 @@
     "jest": "^23.4.0",
     "lerna": "^2.11.0",
     "moment": "^2.22.2",
+=======
+    "angular2-template-loader": "^0.6.2",
+    "autoprefixer": "^8.6.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-runtime": "^6.26.0",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.1.0",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.9.1",
+    "fork-ts-checker-webpack-plugin": "^0.4.3",
+    "github-markdown-css": "^2.10.0",
+    "jest": "^23.4.0",
+    "lerna": "^2.9.1",
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
     "npm-run-all": "^4.1.3",
     "postcss": "^7.0.1",
     "postcss-cli": "^6.0.0",
     "postcss-nested": "^3.0.0",
     "postcss-partial-import": "^4.1.0",
+<<<<<<< HEAD
     "postcss-scss": "^2.0.0",
+=======
+    "postcss-scss": "^1.0.6",
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
     "postcss-simple-vars": "^4.1.0",
     "postcss-strip-inline-comments": "^0.1.5",
     "postcss-svg": "^2.4.0",
@@ -56,10 +102,17 @@
     "react-dates": "^17.1.1",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.4.1",
+<<<<<<< HEAD
     "react-select": "^2.0.0",
     "react-skylight": "^0.5.1",
     "react-with-direction": "^1.1.0",
     "rimraf": "^2.6.2",
+=======
+    "react-router-dom": "^4.3.1",
+    "react-select": "^1.2.1",
+    "rimraf": "^2.6.2",
+    "storybook-readme": "^3.3.0",
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
     "styled-components": "^3.3.3",
     "stylelint": "^9.4.0",
     "stylelint-config-standard": "^18.2.0",
@@ -75,6 +128,11 @@
     "tslint-microsoft-contrib": "^5.0.3",
     "tslint-react": "^3.6.0",
     "typescript": "^2.9.2",
+<<<<<<< HEAD
     "webpack": "^4.16.2"
+=======
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
+>>>>>>> 145e76f51f40e3ad4a286ec5fd9d1ef1c21f620d
   }
 }

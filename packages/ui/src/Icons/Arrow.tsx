@@ -1,5 +1,5 @@
-// Global import
-import * as React from 'react';
+// // Global import
+// import * as React from 'react';
 
 // Local import
 import { white } from '../colors';
