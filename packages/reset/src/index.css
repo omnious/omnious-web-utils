@@ -78,6 +78,7 @@ a,
 button,
 label {
   all: unset;
+  box-sizing: border-box;
   cursor: pointer;
   user-select: none;
 }
@@ -96,4 +97,8 @@ textarea {
 img {
   user-select: none;
   vertical-align: middle;
+}
+
+ul {
+  list-style: none;
 }

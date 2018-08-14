@@ -4,10 +4,14 @@ import * as React from 'react';
 import { Component, InputHTMLAttributes } from 'react';
 
 // Local import
-import { InputTitle, InputWrapper, StyledLabel } from './styles';
+import { StyledInput } from './styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  handleInput(name: string | undefined, value: any): void;
+  width?: string;
+}
+
+export interface InputState {
+  value: string;
 }
 
 /**
@@ -15,17 +19,18 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
  *
  * @export
  * @class Input
- * @extends {Component<InputProps>}
+ * @extends {Component<InputProps, InputState>}
  */
-export class Input extends Component<InputProps> {
-  private handleInput = (e: any): void => {
-    const value: string = e.target ? e.target.value : null;
-    this.debouncedHandleInput(value);
+export class Input extends Component<InputProps, InputState> {
+  private onChange = (e: any): void => {
+    e.preventDefault();
+    const value: string = e.target ? e.target.value : '';
+    this.debouncedOnChange(value);
   };
 
-  private debouncedHandleInput: any = debounce((value: any) => {
-    const { name, handleInput }: InputProps = this.props;
-    handleInput(name, value);
+  private debouncedOnChange: any = debounce((value: any) => {
+    const { name, onChange }: InputProps = this.props;
+    onChange && onChange(name, value);
   }, 200);
 
   public render(): JSX.Element {
@@ -33,25 +38,22 @@ export class Input extends Component<InputProps> {
       className,
       disabled = false,
       placeholder,
-      title = '',
+      title,
       type = 'text',
-      value,
       width
     }: InputProps = this.props;
 
     return (
-      <StyledLabel disabled={disabled}>
-        {title && <InputTitle>{title}</InputTitle>}
-        <InputWrapper
-          className={className}
+      <StyledInput className={className} disabled={disabled} width={width}>
+        {title && <h4 className="title">{title}</h4>}
+        <input
+          className="input"
           disabled={disabled}
           placeholder={placeholder}
           type={type}
-          value={value}
-          width={width}
-          onChange={this.handleInput}
+          onChange={this.onChange}
         />
-      </StyledLabel>
+      </StyledInput>
     );
   }
 }

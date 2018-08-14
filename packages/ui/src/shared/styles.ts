@@ -2,7 +2,7 @@
 import { css } from 'styled-components';
 
 // Local import
-import { black, blue, gray, red, shadow, white } from '../colors';
+import { black, blue, gray, red, shadow, white, green } from '../colors';
 import { radius } from '../sizes';
 
 export const ButtonBase: any = css`
@@ -30,6 +30,7 @@ export const ButtonBase: any = css`
         return '12px 15px;';
     }
   }};
+  width: ${({ width }: any): string => width || ''};
   ${({ color, isInvert }: any): string => {
     switch (color) {
       case 'primary':
@@ -65,7 +66,35 @@ export const ButtonBase: any = css`
         `;
       }
       case 'green': {
-        return ``;
+        if (isInvert) {
+          return `
+            border: 1px solid ${green.primary};
+            color: ${green.primary};
+
+            &:focus {
+              outline: 1px auto ${red.primary};
+            }
+
+            &:hover {
+              background-color: ${green.primary};
+              color: ${white.primary};
+            }
+          `;
+        }
+
+        return `
+          background-color: ${green.primary};
+          box-shadow: ${shadow.button};
+          color: ${white.primary};
+
+          &:focus {
+            outline: 1px auto ${green.primary};
+          }
+
+          &:hover {
+            background-color: ${green.darken};
+          }
+        `;
       }
       case 'danger':
       case 'red': {

@@ -11,14 +11,13 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isInvert?: boolean;
   isLoading?: boolean;
   size?: string;
-  handleButton(name: string | undefined, value: any): void;
 }
 
 export class Button extends Component<ButtonProps> {
-  private handleButton = (e: any): void => {
+  private onClick = (e: any): void => {
     e.preventDefault();
-    const { name, value, handleButton }: ButtonProps = this.props;
-    handleButton(name, value);
+    const { name, value = null, onClick }: ButtonProps = this.props;
+    onClick && onClick(name, value);
   };
 
   public render(): JSX.Element {
@@ -31,7 +30,8 @@ export class Button extends Component<ButtonProps> {
       isInvert = false,
       isLoading = false,
       size = 'md',
-      type = 'button'
+      type = 'button',
+      width
     }: ButtonProps = this.props;
 
     if (isLoading) {
@@ -41,8 +41,9 @@ export class Button extends Component<ButtonProps> {
           color={color}
           disabled
           isInvert={isInvert}
-          isLoading
           size={size}
+          type={type}
+          width={width}
         >
           <Loader color={color} isInvert={!isInvert} size="sm" />
         </StyledButton>
@@ -57,7 +58,8 @@ export class Button extends Component<ButtonProps> {
         isInvert={isInvert}
         size={size}
         type={type}
-        onClick={this.handleButton}
+        width={width}
+        onClick={this.onClick}
       >
         {icon && <img src={icon} />}
         {children}

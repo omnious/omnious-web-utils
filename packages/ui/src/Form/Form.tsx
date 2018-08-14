@@ -29,19 +29,12 @@ export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
 export class Form extends Component<FormProps> {
   public state: any = {};
 
-  private handleForm = (): void => {
-    this.props.handleForm(this.state);
+  private onSubmit = (): void => {
+    const { onSubmit }: FormProps = this.props;
+    onSubmit && onSubmit(this.state);
   };
 
-  // private handleRadio = (name: string, value: string): void => {
-  //   this.setState((state: any): any => ({ ...state, [name]: Number(value) }));
-  // };
-
-  private handleDropdown = (name: string, value: any): void => {
-    this.setState((state: any): any => ({ ...state, [name]: value }));
-  };
-
-  private handleInput = (name: string, value: string): void => {
+  private onChange = (name: string, value: any): void => {
     this.setState((state: any): any => ({ ...state, [name]: value }));
   };
 
@@ -77,13 +70,14 @@ export class Form extends Component<FormProps> {
                 name={name}
                 selectedValue={this.state[name]}
                 title={title}
+                value={this.state[name]}
                 width="100%"
-                handleDropdown={this.handleDropdown}
+                onChange={this.onChange}
               />
             );
           case 'submit':
             return (
-              <Button key={generate()} color="blue" type={type} handleButton={this.handleForm}>
+              <Button key={generate()} color="blue" type={type} onClick={this.onSubmit}>
                 {component}
               </Button>
             );
@@ -95,7 +89,7 @@ export class Form extends Component<FormProps> {
                 title={title}
                 type={type}
                 width="100%"
-                handleInput={this.handleInput}
+                onChange={this.onChange}
               />
             );
         }
@@ -119,7 +113,7 @@ export class Form extends Component<FormProps> {
           className={className}
           isVertical={isVertical}
           width={width}
-          onSubmit={this.handleForm}
+          onSubmit={this.onSubmit}
         >
           {this.renderFields()}
         </FormFieldWrapper>

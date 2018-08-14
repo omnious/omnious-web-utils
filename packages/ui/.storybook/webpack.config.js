@@ -1,4 +1,4 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
 module.exports = (baseConfig, env, defaultConfig) => ({
@@ -23,5 +23,5 @@ module.exports = (baseConfig, env, defaultConfig) => ({
       }
     ]
   },
-  plugins: [...defaultConfig.plugins, new ForkTsCheckerWebpackPlugin(), new TSDocgenPlugin()]
+  plugins: [...defaultConfig.plugins, new TSDocgenPlugin()]
 });
