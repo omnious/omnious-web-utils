@@ -1,5 +1,5 @@
 // Global import
-import { debounce } from 'lodash';
+import debounce from 'debounce';
 import * as React from 'react';
 import { Component, InputHTMLAttributes } from 'react';
 

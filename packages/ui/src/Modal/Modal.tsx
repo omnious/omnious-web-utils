@@ -1,20 +1,32 @@
 // Global import
 import * as React from 'react';
 import { Component, HTMLAttributes } from 'react';
-import SkyLight from 'react-skylight';
 
-export interface ModalProps extends HTMLAttributes<HTMLElement> {
-  innerRef: any;
-}
+// Local import
+import { StyledModal } from './styles';
+import { Cancel } from '../Icons';
+import { black } from '../colors';
+
+export interface ModalProps extends HTMLAttributes<HTMLElement> {}
 
 export class Modal extends Component<ModalProps> {
+  public shouldComponentUpdate(): boolean {
+    return true;
+  }
+
   public render(): JSX.Element {
-    const { children, innerRef }: ModalProps = this.props;
+    const { children, show, onHide }: ModalProps = this.props;
 
     return (
-      <SkyLight ref={innerRef} hideOnOverlayClicked>
-        {children}
-      </SkyLight>
+      <StyledModal show={show}>
+        <div className="overlay" onClick={onHide} />
+        <section className="dialog">
+          <button className="hide" onClick={onHide}>
+            <Cancel color={black.primary} />
+          </button>
+          {children}
+        </section>
+      </StyledModal>
     );
   }
 }
