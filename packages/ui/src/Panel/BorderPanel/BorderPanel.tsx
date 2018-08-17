@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // Local import
 import { IBorderLayout } from './IBorderLayout';
-import { Panel } from '../';
+import { Panel } from '../Panel';
 
 export interface Props extends IBorderLayout {
 }
