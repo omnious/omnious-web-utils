@@ -4,7 +4,7 @@ import { HTMLAttributes } from 'react';
 
 // Local import
 import { ILayout } from './ILayout';
-import { Wrapper } from './styles';
+import { StyleWrapper } from './styles';
 
 export interface Props extends HTMLAttributes<HTMLElement>, ILayout {
 };
@@ -14,9 +14,9 @@ export class Panel extends React.PureComponent<Props> {
     const { children } = this.props;
 
     return (
-      <Wrapper>
+      <StyleWrapper>
         {children}
-      </Wrapper>
+      </StyleWrapper>
     );
   }
 };

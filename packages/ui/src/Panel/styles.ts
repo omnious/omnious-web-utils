@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // Local import
 
-export const Wrapper: any = styled.div`
+export const StyleWrapper: any = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;

@@ -1,7 +1,7 @@
 // Global import
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Local import
 import { BorderPanel } from './BorderPanel';
@@ -9,22 +9,30 @@ import { BorderPanel } from './BorderPanel';
 storiesOf('Component | BorderPanel', module).add(
   'DIY',
   (): JSX.Element => {
-    const SampleTop: any = styled.header`
-      text-align: center;
+    const commonStyles = css`
+      border: 1px solid black;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `;
+
+    const SampleTop: any = styled.div`
+      height: 100px;
+      ${commonStyles}
+    `;
+    const SampleLeft: any = styled.div`
+      ${commonStyles}
+    `;
+    const SampleCenter: any = styled.div`
+      ${commonStyles}
+    `;
+    const SampleRight: any = styled.div`
+      ${commonStyles}
+    `;
+    const SampleBottom: any = styled.div`
       height: 50px;
-    `;
-    const SampleLeft: any = styled.aside`
-      flex: 1 auto;
-    `;
-    const SampleCenter: any = styled.article`
-      flex: 1 0px;
-    `;
-    const SampleRight: any = styled.aside`
-      flex: 1 auto;
-    `;
-    const SampleBottom: any = styled.footer`
-      text-align: center;
-      height: 50px;
+      ${commonStyles}
     `;
 
     return (
