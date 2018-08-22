@@ -1,5 +1,10 @@
 # Changelog for @omnious/ui
 
+## 0.3.1 (August 23, 2018)
+
+- Add `<Panel />`
+- Add `<BorderPanel />`
+
 ## 0.1.0 (July 13, 2018)
 
 - Add `<A />`
