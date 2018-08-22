@@ -48,7 +48,7 @@
     "postcss-simple-vars": "^4.1.0",
     "postcss-strip-inline-comments": "^0.1.5",
     "postcss-svg": "^2.4.0",
-    "postcss-syntax": "^0.32.0",
+    "postcss-syntax": "^0.33.0",
     "prettier": "^1.12.1",
     "react": "^16.4.1",
     "react-dates": "^17.1.1",
