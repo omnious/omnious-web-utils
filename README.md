@@ -7,6 +7,8 @@
 
 # omnious-web-utils
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/omnious-dev/omnious-web-utils.svg)](https://greenkeeper.io/)
+
 [![CircleCI][circleci]][circleci.url]
 [![lerna][lerna]][lerna.url]
 
