@@ -30,13 +30,8 @@ export class Menu extends React.PureComponent<Props, State> {
     expanded: true,
   }
 
-  constructor(props: Props) {
-    super(props);
-    
-    const { expanded } = props;
-    this.state = {
-      expand: expanded,
-    };
+  state = {
+    expand: this.props.expanded,
   }
 
   handleRootClick = (e: React.MouseEvent<HTMLLIElement>): void => {

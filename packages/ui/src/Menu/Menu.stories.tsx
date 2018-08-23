@@ -34,15 +34,12 @@ storiesOf('Component | Menu', module).add(
 storiesOf('Component | Menu', module).add(
   'Horizontal',
   (): JSX.Element => {
-    const style: React.CSSProperties = {
-      fontWeight: 'bold',
-    };
     const itemStyle: React.CSSProperties = {
       margin: '10px',
     };
 
     return (
-      <Menu vertical={false} collapsible={false} style={style}>
+      <Menu vertical={false} collapsible={false}>
         <MenuItem text='MenuItem_1' onClick={action('handle-click')} style={itemStyle} />
         <MenuItem text='MenuItem_2' onClick={action('handle-click')} style={itemStyle} />
         <MenuItem style={itemStyle}>

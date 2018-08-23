@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // Local import
 
 const Ul: any = styled.ul`
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
   display: inline;
