@@ -1,7 +1,7 @@
 // Global import
 import * as React from 'react';
 import { Component, SelectHTMLAttributes } from 'react';
-import Select, { ReactSelectProps } from 'react-select';
+import Select from 'react-select';
 
 // Local import
 import { StyledDropdown } from './styles';
@@ -12,18 +12,14 @@ export interface DropdownItemProps {
   value: any;
 }
 
-export interface DropdownProps extends ReactSelectProps {
+export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  clearable?: boolean;
   items: DropdownItemProps[];
+  searchable?: boolean;
   width?: string;
+  onChange?(name, value): void;
 }
 
-/**
- *
- *
- * @export
- * @class Dropdown
- * @extends {Component<DropdownProps>}
- */
 export class Dropdown extends Component<DropdownProps> {
   private onChange = (item: DropdownItemProps): void => {
     const { name, onChange }: DropdownProps = this.props;
@@ -81,11 +77,11 @@ export class Dropdown extends Component<DropdownProps> {
   public render(): JSX.Element {
     const {
       className,
-      isClearable = true,
-      isDisabled = false,
-      isSearchable = true,
+      clearable = true,
+      disabled = false,
       items = [],
       placeholder = 'Choose an option',
+      searchable = true,
       title,
       value,
       width
@@ -94,13 +90,13 @@ export class Dropdown extends Component<DropdownProps> {
       items.find((item: DropdownItemProps): boolean => value === item.value) || null;
 
     return (
-      <StyledDropdown className={className} disabled={isDisabled} width={width}>
+      <StyledDropdown className={className} disabled={disabled} width={width}>
         {title && <h4 className="title">{title}</h4>}
         <Select
           className="dropdown"
-          isClearable={isClearable}
-          isDisabled={isDisabled}
-          isSearchable={isSearchable}
+          isClearable={clearable}
+          isDisabled={disabled}
+          isSearchable={searchable}
           options={items}
           placeholder={placeholder}
           value={selectedValue}

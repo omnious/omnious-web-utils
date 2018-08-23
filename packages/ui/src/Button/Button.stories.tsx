@@ -13,8 +13,8 @@ storiesOf('Component | Button', module).add(
     <Button
       color={select('color', ['blue', 'red', 'green', 'default', 'none'], 'default')}
       disabled={boolean('disabled', false)}
-      isInvert={boolean('isInvert', false)}
-      isLoading={boolean('isLoading', false)}
+      invert={boolean('invert', false)}
+      loading={boolean('loading', false)}
       name={text('name', 'button')}
       size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
       type={select('type', ['button', 'reset', 'submit'], 'button')}

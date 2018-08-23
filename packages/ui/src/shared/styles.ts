@@ -31,11 +31,11 @@ export const ButtonBase: any = css`
     }
   }};
   width: ${({ width }: any): string => width || ''};
-  ${({ color, isInvert }: any): string => {
+  ${({ color, invert }: any): string => {
     switch (color) {
       case 'primary':
       case 'blue': {
-        if (isInvert) {
+        if (invert) {
           return `
             border: 1px solid ${blue.primary};
             color: ${blue.primary};
@@ -66,7 +66,7 @@ export const ButtonBase: any = css`
         `;
       }
       case 'green': {
-        if (isInvert) {
+        if (invert) {
           return `
             border: 1px solid ${green.primary};
             color: ${green.primary};
@@ -98,7 +98,7 @@ export const ButtonBase: any = css`
       }
       case 'danger':
       case 'red': {
-        if (isInvert) {
+        if (invert) {
           return `
             border: 1px solid ${red.primary};
             color: ${red.primary};
@@ -132,7 +132,7 @@ export const ButtonBase: any = css`
         return ``;
       }
       default: {
-        if (isInvert) {
+        if (invert) {
           return `
             border: 1px solid ${gray.primary};
             color: ${black.primary};

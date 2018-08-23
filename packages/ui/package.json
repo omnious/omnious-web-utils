@@ -31,8 +31,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook --quiet"
   },
   "dependencies": {
-    "debounce": "^1.1.0",
     "interactjs": "^1.3.4",
+    "recompose": "^0.28.2",
     "shortid": "^2.2.8"
   },
   "peerDependencies": {

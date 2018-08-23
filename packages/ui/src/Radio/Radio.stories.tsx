@@ -21,7 +21,7 @@
 //     (): JSX.Element => (
 //         <Radio
 //           disabled={boolean('disabled', false)}
-//           isVertical={boolean('isVertical', true)}
+//           vertical={boolean('vertical', true)}
 //           items={radioItems}
 //           name={text('name', 'radio')}
 //           selectedValue={select('selectedValue', ['1', '2', '3', '4', '5'], '1')}

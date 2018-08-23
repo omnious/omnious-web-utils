@@ -8,9 +8,11 @@ import { Loader } from '../Loader';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string;
-  isInvert?: boolean;
-  isLoading?: boolean;
+  invert?: boolean;
+  loading?: boolean;
   size?: string;
+  width?: string;
+  onClick?(name, value): void;
 }
 
 export class Button extends Component<ButtonProps> {
@@ -27,25 +29,25 @@ export class Button extends Component<ButtonProps> {
       color,
       disabled = false,
       icon,
-      isInvert = false,
-      isLoading = false,
+      invert = false,
+      loading = false,
       size = 'md',
       type = 'button',
       width
     }: ButtonProps = this.props;
 
-    if (isLoading) {
+    if (loading) {
       return (
         <StyledButton
           className={className}
           color={color}
           disabled
-          isInvert={isInvert}
+          invert={invert}
           size={size}
           type={type}
           width={width}
         >
-          <Loader color={color} isInvert={!isInvert} size="sm" />
+          <Loader color={color} invert={!invert} size="sm" />
         </StyledButton>
       );
     }
@@ -55,7 +57,7 @@ export class Button extends Component<ButtonProps> {
         className={className}
         color={color}
         disabled={disabled}
-        isInvert={isInvert}
+        invert={invert}
         size={size}
         type={type}
         width={width}

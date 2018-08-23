@@ -1,5 +1,4 @@
 // Global import
-import Select from 'react-select';
 import styled from 'styled-components';
 
 // Local import

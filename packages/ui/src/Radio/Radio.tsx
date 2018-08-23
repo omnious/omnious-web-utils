@@ -57,12 +57,12 @@
 //   };
 
 //   public render(): JSX.Element {
-//     const { className, disabled = false, isVertical = true, title = '' }: RadioProps = this.props;
+//     const { className, disabled = false, vertical = true, title = '' }: RadioProps = this.props;
 
 //     return (
 //       <StyledRadio disabled={disabled}>
 //         {title && <RadioTitle>{title}</RadioTitle>}
-//         <RadioItemWrapper className={className} isVertical={isVertical}>
+//         <RadioItemWrapper className={className} vertical={vertical}>
 //           {this.renderItems()}
 //         </RadioItemWrapper>
 //       </StyledRadio>
