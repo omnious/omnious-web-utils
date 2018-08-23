@@ -12,3 +12,5 @@ export { Modal } from './Modal';
 // export { Mega } from './Mega';
 // export { Radio } from './Radio';
 export { Tile } from './Tile';
+export { Panel } from './Panel';
+export { BorderPanel } from './Panel/BorderPanel';
