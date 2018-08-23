@@ -37,9 +37,9 @@
   },
   "peerDependencies": {
     "moment": "^2.22.2",
-    "react": "^16.4.1",
+    "react": "*",
     "react-dates": "^17.1.1",
-    "react-dom": "^16.4.1",
+    "react-dom": "*",
     "react-select": "^2.0.0",
     "react-with-direction": "^1.1.0",
     "styled-components": "^3.3.3"

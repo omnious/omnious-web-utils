@@ -37,7 +37,7 @@
     "newLine": "LF",
     "noEmit": false,
     "noEmitHelpers": false,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     // "noErrorTruncation": boolean,
     // "noFallthroughCasesInSwitch": boolean,
     // "noImplicitAny": boolean,
