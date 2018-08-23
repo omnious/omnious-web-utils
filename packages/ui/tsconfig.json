@@ -56,7 +56,7 @@
     "pretty": true,
     "removeComments": true,
     "resolveJsonModule": false,
-    "rootDir": ".",
+    "rootDir": "src",
     "skipLibCheck": false,
     "sourceMap": true,
     // "sourceRoot": string,
