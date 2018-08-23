@@ -7,7 +7,10 @@ import { StyledModal } from './styles';
 import { Cancel } from '../Icons';
 import { black } from '../colors';
 
-export interface ModalProps extends HTMLAttributes<HTMLElement> {}
+export interface ModalProps extends HTMLAttributes<HTMLElement> {
+  show: boolean;
+  onHide(): void;
+}
 
 export class Modal extends Component<ModalProps> {
   public shouldComponentUpdate(): boolean {

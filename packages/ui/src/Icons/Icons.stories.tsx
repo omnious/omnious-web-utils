@@ -14,7 +14,7 @@ storiesOf('Component | Icons', module).add(
   (): JSX.Element => (
     <Omnious
       color={select('color', ['blue', 'black', 'white'], 'blue')}
-      isVertical={boolean('isVertical', false)}
+      vertical={boolean('vertical', false)}
     />
   )
 );

@@ -1,5 +1,4 @@
 // Global import
-import debounce from 'debounce';
 import * as React from 'react';
 import { Component, InputHTMLAttributes } from 'react';
 
@@ -8,30 +7,20 @@ import { StyledInput } from './styles';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   width?: string;
+  onChange?(name, value): void;
 }
 
 export interface InputState {
   value: string;
 }
 
-/**
- *
- *
- * @export
- * @class Input
- * @extends {Component<InputProps, InputState>}
- */
 export class Input extends Component<InputProps, InputState> {
   private onChange = (e: any): void => {
     e.preventDefault();
-    const value: string = e.target ? e.target.value : '';
-    this.debouncedOnChange(value);
-  };
-
-  private debouncedOnChange: any = debounce((value: any) => {
     const { name, onChange }: InputProps = this.props;
+    const value: string = e.target ? e.target.value : '';
     onChange && onChange(name, value);
-  }, 200);
+  };
 
   public render(): JSX.Element {
     const {

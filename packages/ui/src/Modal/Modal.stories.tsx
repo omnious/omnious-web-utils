@@ -10,6 +10,8 @@ import { Modal } from './Modal';
 storiesOf('Component | Modal', module).add(
   'DIY',
   (): JSX.Element => (
-    <Modal show={boolean('show', false)}>{text('children', 'This is `Modal` component')}</Modal>
+    <Modal show={boolean('show', false)} onHide={action('handle-modal')}>
+      {text('children', 'This is `Modal` component')}
+    </Modal>
   )
 );

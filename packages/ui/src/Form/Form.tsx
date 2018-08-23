@@ -14,18 +14,11 @@ export interface FormFieldProps {}
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   disabled?: boolean;
   fields?: FormFieldProps[];
-  isVertical?: boolean;
+  vertical?: boolean;
   width?: string;
-  handleForm(data: any): void;
+  onSubmit(data: any): void;
 }
 
-/**
- *
- *
- * @export
- * @class Form
- * @extends {Component<FormProps>}
- */
 export class Form extends Component<FormProps> {
   public state: any = {};
 
@@ -68,7 +61,6 @@ export class Form extends Component<FormProps> {
                 key={name}
                 items={items}
                 name={name}
-                selectedValue={this.state[name]}
                 title={title}
                 value={this.state[name]}
                 width="100%"
@@ -101,7 +93,7 @@ export class Form extends Component<FormProps> {
     const {
       className,
       disabled = false,
-      isVertical = true,
+      vertical = true,
       title = '',
       width
     }: FormProps = this.props;
@@ -111,7 +103,7 @@ export class Form extends Component<FormProps> {
         {title && <FormTitle>{title}</FormTitle>}
         <FormFieldWrapper
           className={className}
-          isVertical={isVertical}
+          vertical={vertical}
           width={width}
           onSubmit={this.onSubmit}
         >

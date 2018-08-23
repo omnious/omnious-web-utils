@@ -19,12 +19,12 @@ storiesOf('Component | Form / Dropdown', module).add(
   'DIY',
   (): JSX.Element => (
     <Dropdown
-      isClearable={boolean('isClearable', true)}
-      isDisabled={boolean('isDisabled', false)}
-      isSearchable={boolean('isSearchable', true)}
+      clearable={boolean('clearable', true)}
+      disabled={boolean('disabled', false)}
       items={dropdownItems}
       name={text('name', 'dropdown')}
       placeholder={text('placeholder', 'Choose an option')}
+      searchable={boolean('searchable', true)}
       title={text('title', '')}
       value={number('value', 1)}
       width={text('width', '')}

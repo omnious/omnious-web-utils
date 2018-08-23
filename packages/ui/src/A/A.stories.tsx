@@ -13,7 +13,7 @@ storiesOf('Component | A', module).add(
       color={select('color', ['blue', 'red', 'green', 'none'], 'none')}
       disabled={boolean('disabled', false)}
       href={text('href', '')}
-      isInvert={boolean('isInvert', false)}
+      invert={boolean('invert', false)}
       size={select('size', ['xl', 'lg', 'md', 'sm', 'xs'], 'md')}
     >
       {text('content', 'This is `A` Component')}

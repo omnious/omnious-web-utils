@@ -25,7 +25,7 @@ body {
 
 html {
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   text-size-adjust: 100%;
 }
 
@@ -76,7 +76,8 @@ h5 {
 
 a,
 button,
-label {
+label,
+[role='button'] {
   all: unset;
   box-sizing: border-box;
   cursor: pointer;
@@ -92,6 +93,16 @@ textarea {
   font-weight: inherit;
   margin: 0;
   user-select: none;
+}
+
+a {
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 img {
