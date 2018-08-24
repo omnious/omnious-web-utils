@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import styled from 'styled-components';
 
 // Local import
 import { Menu } from './Menu';
@@ -30,22 +31,22 @@ storiesOf('Component | Menu', module).add(
 storiesOf('Component | Menu', module).add(
   'Horizontal',
   (): JSX.Element => {
-    const itemStyle: React.CSSProperties = {
-      margin: '10px',
-    };
+    const StyledMenuItem: any = styled(MenuItem)`
+      margin: 10px;
+    `;
 
     return (
       <Menu vertical={false} collapsible={false}>
-        <MenuItem text='MenuItem_1' onClick={action('handle-click')} style={itemStyle} />
-        <MenuItem text='MenuItem_2' onClick={action('handle-click')} style={itemStyle} />
-        <MenuItem style={itemStyle}>
+        <StyledMenuItem text='MenuItem_1' onClick={action('handle-click')} />
+        <StyledMenuItem text='MenuItem_2' onClick={action('handle-click')} />
+        <StyledMenuItem>
           <Menu vertical={false} text='MenuItem_3_expandable' expanded={false}>
-            <MenuItem onClick={action('handle-click')} style={itemStyle}>SubMenuItem_1</MenuItem>
-            <MenuItem onClick={action('handle-click')} style={itemStyle}>SubMenuItem_2</MenuItem>
-            <MenuItem onClick={action('handle-click')} style={itemStyle}>SubMenuItem_3</MenuItem>
+            <StyledMenuItem onClick={action('handle-click')}>SubMenuItem_1</StyledMenuItem>
+            <StyledMenuItem onClick={action('handle-click')}>SubMenuItem_2</StyledMenuItem>
+            <StyledMenuItem onClick={action('handle-click')}>SubMenuItem_3</StyledMenuItem>
           </Menu>
-        </MenuItem>
-        <MenuItem text='MenuItem_4' onClick={action('handle-click')} style={itemStyle} />
+        </StyledMenuItem>
+        <StyledMenuItem text='MenuItem_4' onClick={action('handle-click')} />
       </Menu>
     );
   }

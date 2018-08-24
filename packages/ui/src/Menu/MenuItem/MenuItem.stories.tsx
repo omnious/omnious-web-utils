@@ -5,29 +5,23 @@ import { action } from '@storybook/addon-actions';
 
 // Local import
 import { MenuItem } from './MenuItem';
+import styled from 'styled-components';
+
 
 storiesOf('Component | Menu.MenuItem', module).add(
   'Inline',
   (): JSX.Element => {
-    const style: React.CSSProperties = {
-      color: 'green',
-    };
-
     return (
-      <MenuItem text='MenuItemText' onClick={action('handle-click')} style={style} />
+      <MenuItem text='MenuItemText' onClick={action('handle-click')} />
     );
   }
 );
 
 storiesOf('Component | Menu.MenuItem', module).add(
   'Block',
-  (): JSX.Element => {
-    const style: React.CSSProperties = {
-      color: 'green',
-    };
-
+  () => {
     return (
-      <MenuItem onClick={action('handle-click')} style={style}>
+      <MenuItem onClick={action('handle-click')}>
         MenuItemText
       </MenuItem>
     );

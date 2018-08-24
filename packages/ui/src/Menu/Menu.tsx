@@ -4,7 +4,6 @@ import { Collapse } from 'react-collapse';
 
 // Local import
 import { Root } from './Root';
-import { MenuItem } from './MenuItem';
 import {
   VerticalUl,
   HorizontalUl,
