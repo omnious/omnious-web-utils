@@ -8,7 +8,7 @@ export interface Props extends HTMLAttributes<HTMLLIElement> {
   text?: string,
 }
 
-export class MenuItem extends React.PureComponent<Props> {
+export class Root extends React.PureComponent<Props> {
   render() {
     const {
       text,

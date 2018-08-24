@@ -10,12 +10,8 @@ import { MenuItem } from './MenuItem';
 storiesOf('Component | Menu', module).add(
   'Vertical',
   (): JSX.Element => {
-    const style: React.CSSProperties = {
-      fontWeight: 'bold',
-    };
-
     return (
-      <Menu vertical collapsible={false} style={style}>
+      <Menu vertical collapsible={false}>
         <MenuItem text='MenuItem_1' onClick={action('handle-click')} />
         <MenuItem text='MenuItem_2' onClick={action('handle-click')} />
         <MenuItem>

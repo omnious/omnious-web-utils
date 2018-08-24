@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Collapse } from 'react-collapse';
 
 // Local import
+import { Root } from './Root';
 import { MenuItem } from './MenuItem';
 import {
   VerticalUl,
@@ -14,7 +15,6 @@ export interface Props {
   text?: string,
   collapsible?: boolean,
   expanded?: boolean,
-  style?: React.CSSProperties,
   onClick?: (event: React.MouseEvent<HTMLLIElement>) => void
 }
 
@@ -48,10 +48,8 @@ export class Menu extends React.PureComponent<Props, State> {
   }
 
   createRoot = (text: string): JSX.Element => {
-    const { style } = this.props;
-
     return (
-      <MenuItem text={text} onClick={this.handleRootClick} style={style} />
+      <Root text={text} onClick={this.handleRootClick} />
     );
   }
 
