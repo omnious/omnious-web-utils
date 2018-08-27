@@ -4,7 +4,14 @@ import * as React from 'react';
 import styled, { css } from 'styled-components';
 
 // Local import
-import { BorderPanel } from './BorderPanel';
+import {
+  BorderPanel,
+  Top,
+  Left,
+  Center,
+  Right,
+  Bottom,
+} from './BorderPanel';
 
 storiesOf('Component | BorderPanel', module).add(
   'DIY',
@@ -17,20 +24,23 @@ storiesOf('Component | BorderPanel', module).add(
       justify-content: center;
     `;
 
-    const SampleTop: any = styled.div`
+    const SampleTop: any = styled(Top)`
       height: 100px;
       ${commonStyles}
     `;
-    const SampleLeft: any = styled.div`
+    const SampleLeft: any = styled(Left)`
       ${commonStyles}
+      flex: 0 0 150px;
     `;
-    const SampleCenter: any = styled.div`
+    const SampleCenter: any = styled(Center)`
       ${commonStyles}
+      flex: 1 1 auto;
     `;
-    const SampleRight: any = styled.div`
+    const SampleRight: any = styled(Right)`
       ${commonStyles}
+      flex: 0 0 100px;
     `;
-    const SampleBottom: any = styled.div`
+    const SampleBottom: any = styled(Bottom)`
       height: 50px;
       ${commonStyles}
     `;

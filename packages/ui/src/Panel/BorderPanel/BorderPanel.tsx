@@ -5,11 +5,11 @@ import * as React from 'react';
 import { IBorderLayout } from './IBorderLayout';
 import { Panel, Props as PanelProps } from '../Panel';
 import {
-  TopStyleWrapper,
-  LeftStyleWrapper,
-  CenterStyleWrapper,
-  RightStyleWrapper,
-  BottomStyleWrapper,
+  Top,
+  Left,
+  Center,
+  Right,
+  Bottom,
 } from './styles';
 
 export interface Props extends PanelProps, IBorderLayout {
@@ -25,15 +25,23 @@ export class BorderPanel extends React.PureComponent<Props> {
       bottom,
       ...props
     } = this.props;
-    
+
     return (
       <Panel {...props}>
-        {top && (<TopStyleWrapper>{top}</TopStyleWrapper>)}
-        {left && (<LeftStyleWrapper>{left}</LeftStyleWrapper>)}
-        {center && (<CenterStyleWrapper>{center}</CenterStyleWrapper>)}
-        {right && (<RightStyleWrapper>{right}</RightStyleWrapper>)}
-        {bottom && (<BottomStyleWrapper>{bottom}</BottomStyleWrapper>)}
+        {top}
+        {left}
+        {center}
+        {right}
+        {bottom}
       </Panel>
     );
   }
 }
+
+export {
+  Top,
+  Left,
+  Center,
+  Right,
+  Bottom,
+};
