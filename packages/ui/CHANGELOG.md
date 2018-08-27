@@ -1,6 +1,6 @@
 # Changelog for @omnious/ui
 
-## 0.5.1 (August 27, 2018)
+## 0.5.2 (August 27, 2018)
 
 - Add `<Menu />`
 
