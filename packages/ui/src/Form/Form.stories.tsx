@@ -25,9 +25,9 @@ storiesOf('Component | Form / All', module).add(
     <Form
       disabled={boolean('disabled', false)}
       fields={formFields}
-      isVertical={boolean('isVertical', true)}
       title={text('title', '')}
-      handleForm={action('handle-form')}
+      vertical={boolean('vertical', true)}
+      onSubmit={action('handle-form')}
     />
   )
 );

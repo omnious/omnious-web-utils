@@ -9,11 +9,11 @@ import { ButtonBase } from '../shared';
 export const StyledAnchor: any = styled.a`
   ${ButtonBase};
   text-decoration: none;
-  ${({ color, isInvert }: AnchorProps): string => {
+  ${({ color, invert }: AnchorProps): string => {
     switch (color) {
       case 'primary':
       case 'blue': {
-        if (isInvert) {
+        if (invert) {
           return ``;
         }
 

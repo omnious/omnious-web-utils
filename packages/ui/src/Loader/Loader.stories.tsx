@@ -9,7 +9,7 @@ import { Loader } from './Loader';
 storiesOf('Component | Loader', module).add('DIY', () => (
   <Loader
     color={select('color', ['blue', 'red', 'green'], 'blue')}
-    isInvert={boolean('isInvert', false)}
+    invert={boolean('invert', false)}
     size={select('size', ['lg', 'sm'], 'sm')}
   />
 ));

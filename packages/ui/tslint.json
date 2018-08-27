@@ -1,6 +1,7 @@
 {
   "extends": "@omnious/tslint-config-react",
   "rules": {
-    "member-ordering": false
+    "member-ordering": false,
+    "typedef": false
   }
 }

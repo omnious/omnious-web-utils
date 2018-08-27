@@ -6,15 +6,15 @@ import { HTMLAttributes, SFC } from 'react';
 import { StyledLoader } from './styles';
 
 export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
-  isInvert?: boolean;
+  invert?: boolean;
   size?: string;
 }
 
 export const Loader: SFC<LoaderProps> = ({
   className,
   color = 'blue',
-  isInvert = false,
+  invert = false,
   size = 'sm'
 }: LoaderProps): JSX.Element => (
-  <StyledLoader className={className} color={color} isInvert={isInvert} size={size} />
+  <StyledLoader className={className} color={color} invert={invert} size={size} />
 );
