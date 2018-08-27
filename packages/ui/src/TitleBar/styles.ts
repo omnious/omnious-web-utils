@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyleWrapper = styled.div`
+export const StyleWrapper = styled.header`
   width: 100%;
 `;
 
