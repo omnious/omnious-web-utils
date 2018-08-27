@@ -9,7 +9,7 @@ import { StyledAnchor } from './styles';
 export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   disabled?: boolean;
   icon?: string;
-  isInvert?: boolean;
+  invert?: boolean;
   size?: string;
 }
 
@@ -34,7 +34,7 @@ export class A extends Component<AnchorProps> {
       disabled = false,
       href,
       icon,
-      isInvert = false,
+      invert = false,
       size = 'md'
     }: AnchorProps = this.props;
 
@@ -44,7 +44,7 @@ export class A extends Component<AnchorProps> {
         color={color}
         disabled={disabled}
         href={href}
-        isInvert={isInvert}
+        invert={invert}
         size={size}
         onClick={this.handleAnchor}
       >

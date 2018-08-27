@@ -19,8 +19,8 @@
 
 // export const RadioItemWrapper: any = styled.form`
 //   display: flex;
-//   ${({ isVertical }: any): string =>
-//     isVertical ? 'flex-direction: column;' : 'flex-direction: row'};
+//   ${({ vertical }: any): string =>
+//     vertical ? 'flex-direction: column;' : 'flex-direction: row'};
 // `;
 
 // export const StyledRadioItem: any = styled.label`

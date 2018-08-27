@@ -36,11 +36,11 @@ export const StyledLoader: any = styled.div`
         `;
     }
   }};
-  ${({ color, isInvert }: LoaderProps): string => {
+  ${({ color, invert }: LoaderProps): string => {
     switch (color) {
       case 'primary':
       case 'blue': {
-        if (isInvert) {
+        if (invert) {
           return `border-color: ${white.primary} ${white.primary} transparent;`;
         }
 
@@ -48,14 +48,14 @@ export const StyledLoader: any = styled.div`
       }
       case 'danger':
       case 'red': {
-        if (isInvert) {
+        if (invert) {
           return `border-color: ${white.primary} ${white.primary} transparent;`;
         }
 
         return `border-color: ${red.primary} ${red.primary} transparent;`;
       }
       default: {
-        if (isInvert) {
+        if (invert) {
           return `border-color: ${black.primary} ${black.primary} transparent;`;
         }
 

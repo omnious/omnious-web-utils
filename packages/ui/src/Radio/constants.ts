@@ -10,7 +10,7 @@
 
 // export interface RadioProps extends CommonProps {
 //   disabled?: boolean;
-//   isVertical?: boolean;
+//   vertical?: boolean;
 //   items?: RadioItemProps[];
 //   name: string;
 //   selectedValue?: any;

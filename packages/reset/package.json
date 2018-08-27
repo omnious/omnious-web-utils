@@ -1,6 +1,6 @@
 {
   "name": "@omnious/reset",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
   "maintainers": [
@@ -26,9 +26,5 @@
     "lint": "run-s lint:**",
     "lint:css": "stylelint 'src/**/*.css'",
     "prepublish": "yarn build"
-  },
-  "dependencies": {
-    "postcss": "^7.0.1",
-    "postcss-scss": "^2.0.0"
   }
 }

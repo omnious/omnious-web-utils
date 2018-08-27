@@ -14,8 +14,8 @@ export const FormFieldWrapper: any = styled.form`
   display: flex;
   width: ${({ width }: any): string => width || '20rem'};
 
-  ${({ isVertical }: FormProps): string =>
-    isVertical
+  ${({ vertical }: FormProps): string =>
+    vertical
       ? `
       flex-direction: column;
 

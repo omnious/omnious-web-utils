@@ -6,15 +6,15 @@ import { SFC, SVGAttributes } from 'react';
 import { FillArea, StyledOmnious } from './styles';
 
 export interface OmniousProps extends SVGAttributes<SVGElement> {
-  isVertical?: boolean;
+  vertical?: boolean;
 }
 
 export const Omnious: SFC<OmniousProps> = ({
   className,
   color,
-  isVertical
+  vertical
 }: OmniousProps): JSX.Element => {
-  if (isVertical) {
+  if (vertical) {
     return (
       <StyledOmnious
         className={className}
