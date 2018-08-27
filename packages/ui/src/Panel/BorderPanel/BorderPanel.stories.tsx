@@ -37,6 +37,8 @@ storiesOf('Component | BorderPanel', module).add(
 
     return (
       <BorderPanel
+        title='BorderPanel'
+
         top={
           <SampleTop>
             Top
