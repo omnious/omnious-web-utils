@@ -7,11 +7,11 @@
 
 # omnious-web-utils
 
+> [React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
+
 [![CircleCI][circleci]][circleci.url]
 [![Greenkeeper badge][greenkeeper]][greenkeeper.url]
 [![lerna][lerna]][lerna.url]
-
-[React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
 
 ## Packages
 

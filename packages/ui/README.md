@@ -7,11 +7,11 @@
 
 ## Installation
 
-```bash
+```sh
 # NPM
-$ npm install --save @omnious/ui
+npm install --save @omnious/ui
 # Yarn
-$ yarn add @omnious/ui
+yarn add @omnious/ui
 ```
 
 ## Usage
@@ -19,6 +19,10 @@ $ yarn add @omnious/ui
 ```jsx
 import { Button, Logo /* ...etc */ } from '@omnious/ui';
 ```
+
+## Dependencies
+
+<img alt="dependencygraph" src="dependencygraph.svg" />
 
 ## Resources
 
