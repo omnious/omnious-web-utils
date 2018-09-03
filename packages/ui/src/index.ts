@@ -13,4 +13,6 @@ export { Modal } from './Modal';
 // export { Radio } from './Radio';
 export { Tile } from './Tile';
 export { Panel } from './Panel';
-export { BorderPanel } from './Panel/BorderPanel';
+export { BorderPanel, Top, Left, Center, Right, Bottom } from './Panel/BorderPanel';
+export { Menu } from './Menu';
+export { MenuItem } from './Menu/MenuItem';

@@ -32,7 +32,7 @@ html {
 body {
   align-items: center;
   display: flex;
-  font-family: 'sofia-pro', 'Helvetica', 'Arial', sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: $h4;
   font-weight: 400;
   line-height: 1.6;
