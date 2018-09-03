@@ -15,21 +15,24 @@ export class Panel extends React.PureComponent<Props> {
   createTitleBar = () => {
     const { title } = this.props;
 
-    return (
-      <TitleBar text={title} />
-    )
+    if (title) {
+      return (
+        <TitleBar text={title} />
+      );
+    }
+
+    return null;
   }
 
   render() {
     const titleBar = this.createTitleBar();
     const {
-      title,
       children,
     } = this.props;
 
     return (
       <StyleWrapper>
-        {title && titleBar}
+        {titleBar}
         {children}
       </StyleWrapper>
     );
