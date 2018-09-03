@@ -1,5 +1,9 @@
 # Changelog for @omnious/ui
 
+## 0.6.0 (September 3, 2018)
+- Add '<TitleBar />'
+- Change the way to use of '<BorderPanel />'
+
 ## 0.5.2 (August 27, 2018)
 
 - Add `<Menu />`
