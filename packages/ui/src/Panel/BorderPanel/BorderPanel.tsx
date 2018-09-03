@@ -3,16 +3,16 @@ import * as React from 'react';
 
 // Local import
 import { IBorderLayout } from './IBorderLayout';
-import { Panel } from '../Panel';
+import { Panel, Props as PanelProps } from '../Panel';
 import {
-  TopStyleWrapper,
-  LeftStyleWrapper,
-  CenterStyleWrapper,
-  RightStyleWrapper,
-  BottomStyleWrapper,
+  Top,
+  Left,
+  Center,
+  Right,
+  Bottom,
 } from './styles';
 
-export interface Props extends IBorderLayout {
+export interface Props extends PanelProps, IBorderLayout {
 }
 
 export class BorderPanel extends React.PureComponent<Props> {
@@ -23,16 +23,25 @@ export class BorderPanel extends React.PureComponent<Props> {
       center,
       right,
       bottom,
+      ...props
     } = this.props;
-    
+
     return (
-      <Panel>
-        {top && (<TopStyleWrapper>{top}</TopStyleWrapper>)}
-        {left && (<LeftStyleWrapper>{left}</LeftStyleWrapper>)}
-        {center && (<CenterStyleWrapper>{center}</CenterStyleWrapper>)}
-        {right && (<RightStyleWrapper>{right}</RightStyleWrapper>)}
-        {bottom && (<BottomStyleWrapper>{bottom}</BottomStyleWrapper>)}
+      <Panel {...props}>
+        {top}
+        {left}
+        {center}
+        {right}
+        {bottom}
       </Panel>
     );
   }
 }
+
+export {
+  Top,
+  Left,
+  Center,
+  Right,
+  Bottom,
+};

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 // Local import
 
-export const TopStyleWrapper: any = styled.header``;
-export const LeftStyleWrapper: any = styled.aside`
+export const Top: any = styled.header``;
+export const Left: any = styled.aside`
   flex: 1 auto;
 `;
-export const CenterStyleWrapper: any = styled.article`
+export const Center: any = styled.article`
   flex: 1 0px;
 `;
-export const RightStyleWrapper: any = styled.aside`
+export const Right: any = styled.aside`
   flex: 1 auto;
 `;
-export const BottomStyleWrapper: any = styled.footer``;
+export const Bottom: any = styled.footer``;
