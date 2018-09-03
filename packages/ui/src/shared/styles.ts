@@ -1,9 +1,9 @@
 // Global import
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Local import
 import { black, blue, gray, red, shadow, white, green } from '../colors';
-import { radius } from '../sizes';
+import { radius, font } from '../sizes';
 
 export const ButtonBase: any = css`
   align-items: center;
@@ -164,4 +164,21 @@ export const ButtonBase: any = css`
       }
     }
   }};
+`;
+
+export const Viewer = styled.div`
+  align-items: center;
+  background-color: ${({ color }) => color};
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  width: 15rem;
+
+  & > * {
+    color: ${({ invert }) => (invert ? white.primary : black.primary)};
+  }
+
+  & > strong {
+    font-size: ${font.h3};
+  }
 `;

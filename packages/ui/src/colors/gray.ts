@@ -1,5 +1,6 @@
 export const gray = {
-  primary: '#dfe3e6',
+  primary: '#ededee',
+
   secondary: '#dbe9ed',
   lighten: '#f8f9fd',
   darken: '#6f848d',
