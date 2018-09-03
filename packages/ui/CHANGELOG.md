@@ -1,5 +1,13 @@
 # Changelog for @omnious/ui
 
+## 0.5.2 (August 27, 2018)
+
+- Add `<Menu />`
+
+## 0.4.1 (August 23, 2018)
+
+- Remove the prefix `is` for boolean props of react components.
+
 ## 0.3.4 (August 23, 2018)
 
 - Add `<Panel />`
