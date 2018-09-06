@@ -39,7 +39,7 @@
     "moment": "^2.22.2",
     "react": "*",
     "react-collapse": "^4.0.3",
-    "react-dates": "^17.1.1",
+    "react-dates": "^18.0.0",
     "react-dom": "*",
     "react-motion": "^0.5.2",
     "react-select": "^2.0.0",
