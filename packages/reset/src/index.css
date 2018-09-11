@@ -13,11 +13,6 @@
   width: 0;
 }
 
-*::selection {
-  background-color: $primaryBlue;
-  color: $white;
-}
-
 html,
 body {
   height: 100%;
@@ -25,14 +20,14 @@ body {
 
 html {
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   text-size-adjust: 100%;
 }
 
 body {
   align-items: center;
   display: flex;
-  font-family: 'sofia-pro', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Helvetica', 'Arial', sans-serif;
   font-size: $h4;
   font-weight: 400;
   line-height: 1.6;

@@ -1,15 +1,15 @@
 // Global import
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 // Local import
 import { black, blue, gray, red, shadow, white, green } from '../colors';
-import { radius } from '../sizes';
+import { radius, font } from '../sizes';
 
 export const ButtonBase: any = css`
   align-items: center;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: ${radius.xs};
+  /* border-radius: ${radius.xs}; */
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -31,68 +31,61 @@ export const ButtonBase: any = css`
     }
   }};
   width: ${({ width }: any): string => width || ''};
+
+  &:hover {
+    box-shadow: ${shadow.button};
+  }
+
+  &:disabled {
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
   ${({ color, invert }: any): string => {
     switch (color) {
       case 'primary':
       case 'blue': {
         if (invert) {
           return `
+            background-color: transparent;
             border: 1px solid ${blue.primary};
             color: ${blue.primary};
 
             &:focus {
               outline: 1px auto ${blue.primary};
             }
-
-            &:hover {
-              background-color: ${blue.primary};
-              color: ${white.primary};
-            }
           `;
         }
 
         return `
           background-color: ${blue.primary};
-          box-shadow: ${shadow.button};
           color: ${white.primary};
 
           &:focus {
             outline: 1px auto ${blue.primary};
-          }
-
-          &:hover {
-            background-color: ${blue.darken};
           }
         `;
       }
       case 'green': {
         if (invert) {
           return `
+            background-color: transparent;
             border: 1px solid ${green.primary};
             color: ${green.primary};
 
             &:focus {
-              outline: 1px auto ${red.primary};
-            }
-
-            &:hover {
-              background-color: ${green.primary};
-              color: ${white.primary};
+              outline: 1px auto ${green.primary};
             }
           `;
         }
 
         return `
           background-color: ${green.primary};
-          box-shadow: ${shadow.button};
           color: ${white.primary};
 
           &:focus {
             outline: 1px auto ${green.primary};
-          }
-
-          &:hover {
-            background-color: ${green.darken};
           }
         `;
       }
@@ -100,31 +93,22 @@ export const ButtonBase: any = css`
       case 'red': {
         if (invert) {
           return `
+            background-color: transparent;
             border: 1px solid ${red.primary};
             color: ${red.primary};
 
             &:focus {
               outline: 1px auto ${red.primary};
             }
-
-            &:hover {
-              background-color: ${red.primary};
-              color: ${white.primary};
-            }
           `;
         }
 
         return `
           background-color: ${red.primary};
-          box-shadow: ${shadow.button};
           color: ${white.primary};
 
           &:focus {
             outline: 1px auto ${red.primary};
-          }
-
-          &:hover {
-            background-color: ${red.darken};
           }
         `;
       }
@@ -134,34 +118,42 @@ export const ButtonBase: any = css`
       default: {
         if (invert) {
           return `
+            background-color: transparent;
             border: 1px solid ${gray.primary};
-            color: ${black.primary};
+            color: ${gray.primary};
 
             &:focus {
               outline: 1px auto ${gray.primary};
-            }
-
-            &:hover {
-              background-color: ${gray.primary};
             }
           `;
         }
 
         return `
           background-color: ${gray.primary};
-          box-shadow: ${shadow.button};
           color: ${black.primary};
 
           &:focus {
             outline: 1px auto ${gray.primary};
           }
-
-          &:hover {
-            background-color: ${gray.darken};
-            color: ${white.primary};
-          }
         `;
       }
     }
   }};
+`;
+
+export const Viewer = styled.div`
+  align-items: center;
+  background-color: ${({ color }) => color};
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  width: 15rem;
+
+  & > * {
+    color: ${({ invert }) => (invert ? white.primary : black.primary)};
+  }
+
+  & > strong {
+    font-size: ${font.h3};
+  }
 `;

@@ -1,5 +1,6 @@
-export const black = {
-  primary: '#2d3438',
-  secondary: '#333',
-  lighten: '#485056'
+// Local import
+import { Colors } from './colors';
+
+export const black: Colors = {
+  primary: '#1e232d'
 };

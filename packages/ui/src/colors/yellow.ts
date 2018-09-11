@@ -1,3 +1,6 @@
-export const yellow = {
-  primary: '#ffca50'
+// Local import
+import { Colors } from './colors';
+
+export const yellow: Colors = {
+  primary: '#ffc828'
 };

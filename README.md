@@ -11,8 +11,6 @@
 [![Greenkeeper badge][greenkeeper]][greenkeeper.url]
 [![lerna][lerna]][lerna.url]
 
-[React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
-
 ## Packages
 
 - [![@omnious/reset][@omnious/reset]][@omnious/reset.url]
