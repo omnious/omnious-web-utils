@@ -52,7 +52,7 @@
     "prettier": "^1.12.1",
     "react": "^16.4.1",
     "react-collapse": "^4.0.3",
-    "react-dates": "^17.1.1",
+    "react-dates": "^18.0.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-dom": "^16.4.1",
     "react-motion": "^0.5.2",
