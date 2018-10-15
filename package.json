@@ -59,7 +59,7 @@
     "react-select": "^2.0.0",
     "react-with-direction": "^1.1.0",
     "rimraf": "^2.6.2",
-    "styled-components": "^3.3.3",
+    "styled-components": "^4.0.0",
     "stylelint": "^9.4.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-no-unsupported-browser-features": "^3.0.0",
