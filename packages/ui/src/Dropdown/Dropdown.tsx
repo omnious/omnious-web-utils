@@ -1,108 +1,89 @@
 // Global import
 import * as React from 'react';
-import { Component, SelectHTMLAttributes } from 'react';
-import Select from 'react-select';
+import { Component } from 'react';
 
 // Local import
-import { StyledDropdown } from './styles';
+import { StyledDropdown, StyledLabel, Title } from './styles';
+import { DropdownItem, Props } from './types';
 
-export interface DropdownItemProps {
-  isDisabled?: boolean;
-  label: string;
-  value: any;
-}
+export class Dropdown extends Component<Props> {
+  // getter
+  private getValue = (items, value, multi) => {
+    if (multi) {
+      return items.reduce((result, item) => {
+        if (value.includes(item.value)) {
+          return [...result, item];
+        }
 
-export interface DropdownProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  clearable?: boolean;
-  items: DropdownItemProps[];
-  searchable?: boolean;
-  width?: string;
-  onChange?(name, value): void;
-}
+        if (item.options) {
+          return this.getValue(item.options, value, true);
+        }
 
-export class Dropdown extends Component<DropdownProps> {
-  private onChange = (item: DropdownItemProps): void => {
-    const { name, onChange }: DropdownProps = this.props;
-    const value: any = item ? item.value : null;
-    onChange && onChange(name, value);
+        return result;
+      }, []);
+    }
+
+    return items.reduce((result, item) => {
+      if (!result) {
+        if (item.value === value) {
+          return item;
+        }
+
+        if (item.options) {
+          return this.getValue(item.options, value, false);
+        }
+      }
+
+      return result;
+    }, null);
   };
 
-  //   private renderItems = (): any => {
-  //     const {
-  //       items = [],
-  //       placeholder = 'Choose an option',
-  //       selected,
-  //       ...others
-  //     }: DropdownProps = this.props;
-  //     const value: any = items.find((item: any): boolean => item.value === selected);
+  // handler
+  private onChange = (item: DropdownItem): void => {
+    const { name, multi, onChange }: Props = this.props;
+    let value;
 
-  //     return (
-  //       <ItemWrapper
-  //         options={items}
-  //         placeholder={placeholder}
-  //         styles={{
-  //           control: (base: any, state: any): any => ({
-  //             ...base,
-  //             backgroundColor: 'transparent',
-  //             borderColor: '#cfdadf',
-  //             borderRadius: state.isFocused ? `${SIZES.xsRad} ${SIZES.xsRad} 0 0` : SIZES.xsRad,
-  //             borderWidth: '1px',
-  //             boxShadow: 0,
-  //             cursor: 'pointer',
-  //             padding: '0.3rem',
-  //             '&:hover': { borderColor: '#cfdadf' }
-  //           }),
-  //           indicatorSeparator: (base: any): any => ({ ...base, backgroundColor: 'transparent' }),
-  //           menu: (base: any): any => ({
-  //             ...base,
-  //             borderRadius: `0 0 ${SIZES.xsRad} ${SIZES.xsRad}`,
-  //             boxShadow: COLORS.menuShadow,
-  //             margin: 0
-  //           }),
-  //           menuList: (base: any): any => ({ ...base, padding: 0 }),
-  //           option: (base: any): any => ({
-  //             ...base,
-  //             cursor: 'pointer',
-  //             padding: `${SIZES.smPad} ${SIZES.mdPad}`,
-  //             '&:hover': { backgroundColor: '#f3fafd' }
-  //           })
-  //         }}
-  //         value={value}
-  //         onChange={this.handleDropdown}
-  //         {...others}
-  //       />
-  //     );
-  //   };
+    if (multi) {
+    } else {
+      value = item ? item.value : null;
+    }
+
+    onChange && onChange(value, name);
+  };
 
   public render(): JSX.Element {
     const {
       className,
       clearable = true,
       disabled = false,
+      dropdownClass,
       items = [],
+      multi = false,
       placeholder = 'Choose an option',
       searchable = true,
       title,
+      titleClass,
       value,
       width
-    }: DropdownProps = this.props;
-    const selectedValue: DropdownItemProps =
-      items.find((item: DropdownItemProps): boolean => value === item.value) || null;
+    }: Props = this.props;
+    const selectedValue = this.getValue(items, value, multi);
 
     return (
-      <StyledDropdown className={className} disabled={disabled} width={width}>
-        {title && <h4 className="title">{title}</h4>}
-        <Select
-          className="dropdown"
+      <StyledLabel className={className} disabled={disabled}>
+        {title && <Title className={titleClass}>{title}</Title>}
+        <StyledDropdown
+          className={dropdownClass}
           isClearable={clearable}
           isDisabled={disabled}
+          isMulti={multi}
           isSearchable={searchable}
           options={items}
           placeholder={placeholder}
           value={selectedValue}
+          width={width}
           onChange={this.onChange}
         />
-      </StyledDropdown>
+      </StyledLabel>
     );
   }
 }
