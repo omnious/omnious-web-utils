@@ -12,6 +12,7 @@ export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   clearable?: boolean;
   dropdownClass?: string;
   items: DropdownItem[];
+  multi?: boolean;
   searchable?: boolean;
   titleClass?: string;
   width?: string;
