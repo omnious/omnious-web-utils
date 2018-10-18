@@ -16,7 +16,7 @@
   dependencies:
     "@babel/highlight" "7.0.0-beta.44"
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-beta.54":
+"@babel/core@^7.0.0", "@babel/core@^7.1.2":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.1.2.tgz#f8d2a9ceb6832887329a7b60f9d035791400ba4e"
   integrity sha512-IFeSSnjXdhDaoysIlev//UzHZbdEmm7D0EIH2qtse9xK7mXEZQpYjs2P00XlP1qYsYvid79p+Zgg6tz1mp6iVw==
@@ -948,7 +948,7 @@
   resolved "https://registry.yarnpkg.com/@omnious/tslint-config/-/tslint-config-0.1.1.tgz#f0bcca1297120cc4589ae9d4f5845b307c050219"
   integrity sha512-0DOQhaEZysF24dc0ZogSH/vxIuXFt/+1fC7JoTjqifiqIzyAi02Hw9u3CmPXpk5rVb2P/yY04aIMOwB+3EfAsw==
 
-"@storybook/addon-actions@^4.0.0-alpha.14":
+"@storybook/addon-actions@^4.0.0-rc.1":
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-4.0.0-rc.1.tgz#672ae2fdef62304b5f35bb18a1e98a420cfafee9"
   integrity sha512-IO4JQryYu8K8yQe5byOAJPjK2FxmIhl53kx8CD3SqXj9nfasYh4fNtxkTwJ/Lur3kgh+OBi0wNpSt8go+KG7Mg==
@@ -967,7 +967,7 @@
     react-inspector "^2.3.0"
     uuid "^3.3.2"
 
-"@storybook/addon-info@^4.0.0-alpha.14":
+"@storybook/addon-info@^4.0.0-rc.1":
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-info/-/addon-info-4.0.0-rc.1.tgz#30e76f0991678e9b6203af34c746f7744865b23f"
   integrity sha512-mCawdYJkm6GuQS9Q60qcGpeCGwFlYw0BcvjNPAbMAnZjjtGG74mCrCBrOqmmsl7/m0YT20Gnkxpmvj7qHxR0Ng==
@@ -985,7 +985,7 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-knobs@^4.0.0-alpha.14":
+"@storybook/addon-knobs@^4.0.0-rc.1":
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-4.0.0-rc.1.tgz#8463fc6b8189870abfff4adc2263f6969c70f491"
   integrity sha512-iSXpRINMz40dxnd2qTr8kvobT5Fwm71a0G7FW+YIdoOwXKDaIZXF93hHJHGNl2WuaGqgg2cqxO0V8eWW6s7rog==
@@ -1004,7 +1004,7 @@
     react-lifecycles-compat "^3.0.4"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-options@^4.0.0-alpha.14":
+"@storybook/addon-options@^4.0.0-rc.1":
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@storybook/addon-options/-/addon-options-4.0.0-rc.1.tgz#0b2ba8c195c0a3615f451f15b0dee6a51454f865"
   integrity sha512-rrJaKWll7gdcCH+8n/VoGBC0BGAyTeQwlQTW1JENwHzUH8pP0t/tJgZ+9OPdNHd3xUwwSB1UIsq7bsS/WjHMPw==
@@ -1180,7 +1180,7 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/react@^4.0.0-alpha.14":
+"@storybook/react@^4.0.0-rc.1":
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-4.0.0-rc.1.tgz#eecd82eb1b05499b8aae0ceff082cc9eb1787681"
   integrity sha512-Za9HQdBErDCiSQOdRHcArPDwYZ7+iOXxZCXnedIdraihVuP3mnbfqnvMLLFIYAZwrDM8Bf3+FUB+vZKTlT8Kug==
@@ -2024,6 +2024,16 @@ babel-jest@^23.4.2, babel-jest@^23.6.0:
   dependencies:
     babel-plugin-istanbul "^4.1.6"
     babel-preset-jest "^23.2.0"
+
+babel-loader@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
+  integrity sha512-fhBhNkUToJcW9nV46v8w87AJOwAJDz84c1CL57n3Stj73FANM/b9TbCUK4YhdOwEyZ+OxhYpdeZDNzSI29Firw==
+  dependencies:
+    find-cache-dir "^1.0.0"
+    loader-utils "^1.0.2"
+    mkdirp "^0.5.1"
+    util.promisify "^1.0.0"
 
 babel-messages@^6.23.0:
   version "6.23.0"
@@ -8511,11 +8521,6 @@ postcss-svgo@^4.0.1:
     postcss-value-parser "^3.0.0"
     svgo "^1.0.0"
 
-postcss-syntax@^0.33.0:
-  version "0.33.0"
-  resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.33.0.tgz#59c0c678d2f9ecefa84c6ce9ef46fc805c54ab3a"
-  integrity sha512-A9ABlaRy7KWUfG5E39GVTUoc5TXNuNTts5GzwDLwnSaVG151CSLCTcr51/m8cHi4KXcYa+5ImLyeSfBOhEYtGw==
-
 postcss-syntax@^0.34.0:
   version "0.34.0"
   resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.34.0.tgz#4a85c022f1cdecea72102775c91af1e7f506d83a"
@@ -10787,10 +10792,10 @@ ts-jest@^23.0.0:
     semver "^5.5"
     yargs-parser "10.x"
 
-ts-loader@^4.4.1:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-4.5.0.tgz#a1ce70b2dc799941fb2197605f0d67874097859b"
-  integrity sha512-ihgVaSmgrX4crGV4n7yuoHPoCHbDzj9aepCZR9TgIx4SgJ9gdnB6xLHgUBb7bsFM/f0K6x9iXa65KY/Fu1Klkw==
+ts-loader@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.2.2.tgz#a707849b08ca754cc46f5c7053e79fe1c84caf0e"
+  integrity sha512-vM/TrEKXBqRYq5yLatsXyKFnYSpv53klmGtrILGlNqcMsxPVi8+e4yr1Agbu9oMZepx/4szDVn5QpFo83IQdQg==
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
