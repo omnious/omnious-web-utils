@@ -5,13 +5,7 @@ import { AnchorHTMLAttributes, Component } from 'react';
 
 // Local import
 import { StyledAnchor } from './styles';
-
-export interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  disabled?: boolean;
-  icon?: string;
-  invert?: boolean;
-  size?: string;
-}
+import { Props } from './types';
 
 export class A extends Component<AnchorProps> {
   public static contextTypes: any = {
