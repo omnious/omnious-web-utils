@@ -28,7 +28,7 @@ export class Input extends PureComponent<Props> {
     } = this.props;
 
     return (
-      <StyledLabel className={className} disabled={disabled} width={width}>
+      <StyledLabel className={className} disabled={disabled}>
         {title && <Title className={titleClass}>{title}</Title>}
         <StyledInput
           className={inputClass}
@@ -36,6 +36,7 @@ export class Input extends PureComponent<Props> {
           placeholder={placeholder}
           type={type}
           value={value}
+          width={width}
           onChange={this.onChange}
         />
       </StyledLabel>

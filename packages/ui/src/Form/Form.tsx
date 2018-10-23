@@ -1,38 +1,39 @@
 // Global import
 import * as React from 'react';
-import { Component, FormHTMLAttributes } from 'react';
+import { Component } from 'react';
 import { generate } from 'shortid';
 
 // Local import
-import { FormFieldWrapper, FormTitle, StyledForm } from './styles';
+import { FieldWrapper, StyledForm, Title } from './styles';
+import { Props, State } from './types';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
 
-export interface FormFieldProps {}
-
-export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
-  disabled?: boolean;
-  fields?: FormFieldProps[];
-  vertical?: boolean;
-  width?: string;
-  onSubmit(data: any): void;
-}
-
-export class Form extends Component<FormProps> {
-  public state: any = {};
-
-  private onSubmit = (): void => {
-    const { onSubmit }: FormProps = this.props;
-    onSubmit && onSubmit(this.state);
+export class Form extends Component<Props, State> {
+  public state = {
+    data: {}
   };
 
-  private onChange = (name: string, value: any): void => {
-    this.setState((state: any): any => ({ ...state, [name]: value }));
+  private onSubmit = (e: any): void => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.data);
+  };
+
+  private onChange = (value: any, name: any): void => {
+    this.setState(
+      (state: any): any => ({
+        ...state,
+        data: {
+          ...state.data,
+          [name]: value
+        }
+      })
+    );
   };
 
   private renderFields = (): string | JSX.Element[] => {
-    const { fields = [] }: FormProps = this.props;
+    const { fields = [] } = this.props;
 
     if (!fields.length) {
       return 'No fields';
@@ -62,7 +63,7 @@ export class Form extends Component<FormProps> {
                 items={items}
                 name={name}
                 title={title}
-                value={this.state[name]}
+                value={this.state.data[name]}
                 width="100%"
                 onChange={this.onChange}
               />
@@ -80,6 +81,7 @@ export class Form extends Component<FormProps> {
                 name={name}
                 title={title}
                 type={type}
+                value={this.state.data[name]}
                 width="100%"
                 onChange={this.onChange}
               />
@@ -93,22 +95,24 @@ export class Form extends Component<FormProps> {
     const {
       className,
       disabled = false,
-      vertical = true,
+      fieldClass,
       title = '',
+      titleClass,
+      vertical = true,
       width
-    }: FormProps = this.props;
+    } = this.props;
 
     return (
-      <StyledForm disabled={disabled}>
-        {title && <FormTitle>{title}</FormTitle>}
-        <FormFieldWrapper
-          className={className}
+      <StyledForm className={className} disabled={disabled}>
+        {title && <Title className={titleClass}>{title}</Title>}
+        <FieldWrapper
+          className={fieldClass}
           vertical={vertical}
           width={width}
           onSubmit={this.onSubmit}
         >
           {this.renderFields()}
-        </FormFieldWrapper>
+        </FieldWrapper>
       </StyledForm>
     );
   }

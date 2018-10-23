@@ -2,19 +2,19 @@
 import styled from 'styled-components';
 
 // Local import
-import { FormProps } from './Form';
+import { Props } from './types';
 
 export const StyledForm: any = styled.div``;
 
-export const FormTitle: any = styled.h4`
+export const Title: any = styled.h4`
   margin-bottom: 0.5rem;
 `;
 
-export const FormFieldWrapper: any = styled.form`
+export const FieldWrapper: any = styled.form`
   display: flex;
   width: ${({ width }: any): string => width || '20rem'};
 
-  ${({ vertical }: FormProps): string =>
+  ${({ vertical }: Props): string =>
     vertical
       ? `
       flex-direction: column;
