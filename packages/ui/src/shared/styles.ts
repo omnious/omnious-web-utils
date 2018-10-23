@@ -9,7 +9,6 @@ export const ButtonBase: any = css`
   align-items: center;
   background-color: transparent;
   border: 1px solid transparent;
-  /* border-radius: ${radius.xs}; */
   cursor: pointer;
   display: flex;
   justify-content: center;

@@ -2,15 +2,15 @@
 import styled from 'styled-components';
 
 // Local import
-import { InputProps } from './Input';
+import { Props } from './types';
 import { white } from '../colors';
 import { radius } from '../sizes';
 
-export const StyledInput: any = styled.label`
+export const StyledLabel: any = styled.label`
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  ${({ disabled }: InputProps): string =>
+  ${({ disabled }: Props): string =>
     disabled
       ? `
     cursor: not-allowed;
@@ -18,25 +18,25 @@ export const StyledInput: any = styled.label`
     pointer-events: none;
   `
       : ''};
+`;
 
-  & .title {
-    margin-bottom: 0.5rem;
+export const Title = styled.h4`
+  margin-bottom: 0.5rem;
+`;
+
+export const StyledInput = styled.input`
+  border: 1px solid #cfdadf;
+  border-radius: ${radius.xs};
+  padding: 0.8rem 1rem;
+  width: ${({ width }: any): string => width || '20rem'};
+
+  &:focus {
+    background-color: ${white.primary};
+    border: 1px solid #bccbd2;
+    outline: 0;
   }
 
-  & .input {
-    border: 1px solid #cfdadf;
-    border-radius: ${radius.xs};
-    padding: 0.8rem 1rem;
-    width: ${({ width }: any): string => width || '20rem'};
-
-    &:focus {
-      background-color: ${white.primary};
-      border: 1px solid #bccbd2;
-      outline: 0;
-    }
-
-    &::placeholder {
-      color: #5a6872;
-    }
+  &::placeholder {
+    color: #5a6872;
   }
 `;
