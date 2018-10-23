@@ -1,48 +1,44 @@
 // Global import
 import * as React from 'react';
-import { Component, InputHTMLAttributes } from 'react';
+import { PureComponent } from 'react';
 
 // Local import
-import { StyledInput } from './styles';
+import { StyledInput, StyledLabel, Title } from './styles';
+import { Props } from './types';
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  width?: string;
-  onChange?(name, value): void;
-}
-
-export interface InputState {
-  value: string;
-}
-
-export class Input extends Component<InputProps, InputState> {
+export class Input extends PureComponent<Props> {
   private onChange = (e: any): void => {
     e.preventDefault();
-    const { name, onChange }: InputProps = this.props;
+    const { name, onChange } = this.props;
     const value: string = e.target ? e.target.value : '';
-    onChange && onChange(name, value);
+    onChange && onChange(value, name);
   };
 
   public render(): JSX.Element {
     const {
       className,
       disabled = false,
+      inputClass,
       placeholder,
       title,
+      titleClass,
       type = 'text',
+      value,
       width
-    }: InputProps = this.props;
+    } = this.props;
 
     return (
-      <StyledInput className={className} disabled={disabled} width={width}>
-        {title && <h4 className="title">{title}</h4>}
-        <input
-          className="input"
+      <StyledLabel className={className} disabled={disabled} width={width}>
+        {title && <Title className={titleClass}>{title}</Title>}
+        <StyledInput
+          className={inputClass}
           disabled={disabled}
           placeholder={placeholder}
           type={type}
+          value={value}
           onChange={this.onChange}
         />
-      </StyledInput>
+      </StyledLabel>
     );
   }
 }

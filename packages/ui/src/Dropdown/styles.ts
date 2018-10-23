@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 // Local import
 import { Props } from './types';
-import { radius } from '../sizes';
 
 export const StyledLabel: any = styled.label`
   ${({ disabled }: Props): string =>

@@ -1,25 +1,17 @@
 // Global import
 import * as React from 'react';
-import { ButtonHTMLAttributes, Component } from 'react';
+import { PureComponent } from 'react';
 
 // Local import
 import { StyledButton } from './styles';
+import { Props } from './types';
 import { Loader } from '../Loader';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: string;
-  invert?: boolean;
-  loading?: boolean;
-  size?: string;
-  width?: string;
-  onClick?(name, value): void;
-}
-
-export class Button extends Component<ButtonProps> {
+export class Button extends PureComponent<Props> {
   private onClick = (e: any): void => {
     e.preventDefault();
-    const { name, value = null, onClick }: ButtonProps = this.props;
-    onClick && onClick(name, value);
+    const { name, value = null, onClick } = this.props;
+    onClick && onClick(value, name);
   };
 
   public render(): JSX.Element {
@@ -34,7 +26,7 @@ export class Button extends Component<ButtonProps> {
       size = 'md',
       type = 'button',
       width
-    }: ButtonProps = this.props;
+    } = this.props;
 
     if (loading) {
       return (

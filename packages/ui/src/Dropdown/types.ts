@@ -16,5 +16,5 @@ export type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   searchable?: boolean;
   titleClass?: string;
   width?: string;
-  onChange?: (name, value) => void;
+  onChange?: (value: any, name: any) => void;
 };
