@@ -10,13 +10,22 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
 
+function initializeData(fields = []) {
+  return fields.reduce(
+    (result, item) => ({
+      ...result,
+      [item.name]: ''
+    }),
+    {}
+  );
+}
+
 export class Form extends Component<Props, State> {
   public state = {
-    data: {}
+    data: initializeData(this.props.fields)
   };
 
-  private onSubmit = (e: any): void => {
-    e.preventDefault();
+  private onSubmit = (): void => {
     this.props.onSubmit(this.state.data);
   };
 

@@ -28,7 +28,7 @@
     "build": "run-s build:**",
     "build:storybook": "build-storybook -c .storybook -o .out",
     "build:ui": "tsc",
-    "storybook": "webpack-dashboard -- start-storybook -p 9001 -c .storybook --quiet"
+    "storybook": "start-storybook -p 9001 -c .storybook --quiet"
   },
   "dependencies": {
     "interactjs": "^1.3.4",
