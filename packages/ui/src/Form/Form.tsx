@@ -10,7 +10,6 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
 
-<<<<<<< HEAD
 function initializeData(fields = []) {
   return fields.reduce(
     (result, item) => ({
@@ -27,15 +26,6 @@ export class Form extends Component<Props, State> {
   };
 
   private onSubmit = (): void => {
-=======
-export class Form extends Component<Props, State> {
-  public state = {
-    data: {}
-  };
-
-  private onSubmit = (e: any): void => {
-    e.preventDefault();
->>>>>>> 66e4b2a54716ef67a12a2ad64f8ae0c8680dc4d4
     this.props.onSubmit(this.state.data);
   };
 
