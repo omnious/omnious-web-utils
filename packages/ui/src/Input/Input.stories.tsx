@@ -11,6 +11,7 @@ storiesOf('Component | Form / Input', module).add(
   'DIY',
   (): JSX.Element => (
     <Input
+      defaultValue={text('defaultValue', '')}
       disabled={boolean('disabled', false)}
       name={text('name', 'input')}
       placeholder={text('placeholder', '')}

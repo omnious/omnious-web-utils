@@ -1,12 +1,12 @@
 // Global import
 import * as React from 'react';
-import { Component } from 'react';
+import { PureComponent } from 'react';
 
 // Local import
 import { StyledDropdown, StyledLabel, Title } from './styles';
 import { DropdownItem, Props } from './types';
 
-export class Dropdown extends Component<Props> {
+export class Dropdown extends PureComponent<Props> {
   // getter
   private getValue = (items, value, multi) => {
     if (multi) {
@@ -65,7 +65,7 @@ export class Dropdown extends Component<Props> {
       titleClass,
       value,
       width
-    }: Props = this.props;
+    } = this.props;
     const selectedValue = this.getValue(items, value, multi);
 
     return (

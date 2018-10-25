@@ -17,6 +17,7 @@ export class Input extends PureComponent<Props> {
   public render(): JSX.Element {
     const {
       className,
+      defaultValue,
       disabled = false,
       inputClass,
       placeholder,
@@ -32,6 +33,7 @@ export class Input extends PureComponent<Props> {
         {title && <Title className={titleClass}>{title}</Title>}
         <StyledInput
           className={inputClass}
+          defaultValue={defaultValue}
           disabled={disabled}
           placeholder={placeholder}
           type={type}
