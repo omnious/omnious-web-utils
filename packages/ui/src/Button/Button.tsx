@@ -3,11 +3,10 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 
 // Local import
-import { StyledButton } from './styles';
 import { Props } from './types';
 import { Loader } from '../Loader';
 
-export class Button extends PureComponent<Props> {
+export class ButtonComponent extends PureComponent<Props> {
   private onClick = (e: any): void => {
     e.preventDefault();
     const { name, value = null, onClick } = this.props;
@@ -30,7 +29,7 @@ export class Button extends PureComponent<Props> {
 
     if (loading) {
       return (
-        <StyledButton
+        <button
           className={className}
           color={color}
           disabled
@@ -40,12 +39,12 @@ export class Button extends PureComponent<Props> {
           width={width}
         >
           <Loader color={color} invert={!invert} size="sm" />
-        </StyledButton>
+        </button>
       );
     }
 
     return (
-      <StyledButton
+      <button
         className={className}
         color={color}
         disabled={disabled}
@@ -57,7 +56,7 @@ export class Button extends PureComponent<Props> {
       >
         {icon && <img src={icon} />}
         {children}
-      </StyledButton>
+      </button>
     );
   }
 }
