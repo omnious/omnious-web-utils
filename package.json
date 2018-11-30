@@ -46,7 +46,7 @@
     "postcss-scss": "^2.0.0",
     "postcss-simple-vars": "^5.0.0",
     "postcss-strip-inline-comments": "^0.1.5",
-    "postcss-svg": "^2.4.0",
+    "postcss-svg": "^3.0.0",
     "postcss-syntax": "^0.34.0",
     "prettier": "^1.12.1",
     "react": "^16.4.1",
