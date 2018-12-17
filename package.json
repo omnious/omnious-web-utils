@@ -34,7 +34,7 @@
     "cssnano": "4.1.7",
     "emotion": "9.2.12",
     "enzyme": "3.8.0",
-    "enzyme-adapter-react-16": "1.6.0",
+    "enzyme-adapter-react-16": "1.7.1",
     "fork-ts-checker-webpack-plugin": "0.4.10",
     "jest": "23.6.0",
     "moment": "2.22.2",
