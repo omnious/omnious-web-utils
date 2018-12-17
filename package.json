@@ -65,7 +65,7 @@
     "stylelint-processor-styled-components": "1.5.0",
     "stylelint-scss": "3.3.1",
     "stylelint-selector-bem-pattern": "2.0.0",
-    "ts-jest": "23.10.4",
+    "ts-jest": "23.10.5",
     "ts-loader": "5.2.2",
     "tslint": "5.11.0",
     "tslint-eslint-rules": "5.4.0",
