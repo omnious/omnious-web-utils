@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: /tmp/ui
   docker:
-    - image: circleci/node:8.10.0
+    - image: circleci/node:8.14.0
 restore_repo: &restore_repo
   restore_cache:
     key: v1-repo-{{ .Branch }}-{{ .Revision }}
