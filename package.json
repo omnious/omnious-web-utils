@@ -48,7 +48,7 @@
     "postcss-strip-inline-comments": "0.1.5",
     "postcss-svg": "2.4.0",
     "postcss-syntax": "0.34.0",
-    "prettier": "1.14.3",
+    "prettier": "1.15.3",
     "react": "16.5.2",
     "react-collapse": "4.0.3",
     "react-dates": "18.1.1",
