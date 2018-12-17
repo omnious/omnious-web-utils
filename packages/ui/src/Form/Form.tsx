@@ -1,7 +1,6 @@
 // Global import
 import * as React from 'react';
-import { Component } from 'react';
-import { generate } from 'shortid';
+import { PureComponent } from 'react';
 
 // Local import
 import { FieldWrapper, StyledForm, Title } from './styles';
@@ -20,7 +19,7 @@ function initializeData(fields = []) {
   );
 }
 
-export class Form extends Component<Props, State> {
+export class FormComponent extends PureComponent<Props, State> {
   public state = {
     data: initializeData(this.props.fields)
   };
@@ -79,7 +78,7 @@ export class Form extends Component<Props, State> {
             );
           case 'submit':
             return (
-              <Button key={generate()} color="blue" type={type} onClick={this.onSubmit}>
+              <Button color="blue" type={type} onClick={this.onSubmit}>
                 {component}
               </Button>
             );
@@ -100,7 +99,7 @@ export class Form extends Component<Props, State> {
     );
   };
 
-  public render(): JSX.Element {
+  public render() {
     const {
       className,
       disabled = false,
@@ -112,7 +111,7 @@ export class Form extends Component<Props, State> {
     } = this.props;
 
     return (
-      <StyledForm className={className} disabled={disabled}>
+      <div className={className} disabled={disabled}>
         {title && <Title className={titleClass}>{title}</Title>}
         <FieldWrapper
           className={fieldClass}
@@ -122,7 +121,7 @@ export class Form extends Component<Props, State> {
         >
           {this.renderFields()}
         </FieldWrapper>
-      </StyledForm>
+      </div>
     );
   }
 }
