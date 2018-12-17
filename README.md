@@ -5,13 +5,32 @@
   <br />
 </div>
 
-# omnious-web-utils [![CircleCI][CircleCI]][CircleCI-url]
+# omnious-web-utils
 
-[React](http://facebook.github.io/react/) components for [omnious](https://www.omnious.com).
+[![CircleCI][circleci]][circleci.url]
+[![Greenkeeper badge][greenkeeper]][greenkeeper.url]
+[![lerna][lerna]][lerna.url]
+
+## Packages
+
+- [![@omnious/reset][@omnious/reset]][@omnious/reset.url]
+- [![@omnious/ui][@omnious/ui]][@omnious/ui.url]
+
+## Contributing
+
+## Authors
 
 ## License
 
 [MIT](LICENSE)
 
-[CircleCI]: https://circleci.com/gh/omnious-dev/omnious-web-utils.svg?style=svg
-[CircleCI-url]: https://circleci.com/gh/omnious-dev/omnious-web-utils
+[circleci]: https://circleci.com/gh/omnious-dev/omnious-web-utils.svg?style=svg
+[circleci.url]: https://circleci.com/gh/omnious-dev/omnious-web-utils
+[greenkeeper]: https://badges.greenkeeper.io/omnious-dev/omnious-web-utils.svg
+[greenkeeper.url]: https://greenkeeper.io/
+[lerna]: https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg
+[lerna.url]: https://lernajs.io/
+[@omnious/reset]: https://img.shields.io/npm/v/@omnious/ui.svg?label=@omnious/reset
+[@omnious/reset.url]: https://www.npmjs.com/package/@omnious/reset
+[@omnious/ui]: https://img.shields.io/npm/v/@omnious/ui.svg?label=@omnious/ui
+[@omnious/ui.url]: https://www.npmjs.com/package/@omnious/ui

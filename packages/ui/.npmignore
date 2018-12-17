@@ -1,3 +1,4 @@
+.out
 .storybook
 examples
 src
@@ -5,3 +6,4 @@ test
 .babelrc
 postcss.config.js
 tsconfig.json
+!**/dist

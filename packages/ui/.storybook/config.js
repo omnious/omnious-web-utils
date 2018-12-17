@@ -1,15 +1,44 @@
-import { configure } from '@storybook/react';
+// CSS import
+// import '@omnious/reset';
+import './index.css';
+
+// Global import
+import { addDecorator, configure } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs } from '@storybook/addon-knobs';
 import { setOptions } from '@storybook/addon-options';
-
-
-const loadStories = () => {
-  require('./stories');
-}
 
 setOptions({
   name: '@omnious/ui',
-  url: 'https://omniousui.netlify.com',
-  downPanelInRight: window.innerWidth > 1200
+  url: 'https://www.npmjs.com/package/@omnious/ui',
+  hierarchyRootSeparator: /\|/
 });
+addDecorator(
+  withInfo({
+    inline: true,
+    styles: base => ({
+      ...base,
+      infoStory: {
+        alignItems: 'flex-start',
+        backgroundColor: '#dfe3e6',
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '35vh',
+        padding: '20px 40px 40px'
+      },
+      infoBody: {
+        ...base.infoBody,
+        border: 0
+      }
+    })
+  })
+);
+addDecorator(withKnobs);
+
+const req = require.context('../src', true, /\.stories.tsx$/);
+const loadStories = () => {
+  require('./Welcome.stories');
+  req.keys().forEach(file => req(file));
+};
 
 configure(loadStories, module);

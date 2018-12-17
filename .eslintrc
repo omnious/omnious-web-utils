@@ -1,13 +1,8 @@
 {
   "root": true,
-  "extends": "eslint:recommended",
+  "extends": "@omnious",
   "env": {
     "es6": true,
     "node": true
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
   }
 }

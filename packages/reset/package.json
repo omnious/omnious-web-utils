@@ -1,0 +1,29 @@
+{
+  "name": "@omnious/reset",
+  "version": "0.3.1-alpha.0",
+  "description": "",
+  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
+  "maintainers": [
+    {
+      "name": "Euihyun Yang",
+      "email": "ykd1217@gmail.com"
+    }
+  ],
+  "contributors": [],
+  "license": "MIT",
+  "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/reset",
+  "keywords": [
+    "omnious",
+    "css",
+    "scss",
+    "reset"
+  ],
+  "main": "dist/reset.min.css",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "postcss src/index.css -o dist/reset.min.css",
+    "lint": "run-s lint:**",
+    "lint:css": "stylelint 'src/**/*.css'",
+    "watch": "yarn build -- -w"
+  }
+}

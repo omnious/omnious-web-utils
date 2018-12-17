@@ -1,0 +1,110 @@
+@import 'variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// *::-webkit-scrollbar {
+//   background-color: transparent;
+//   width: 0;
+// }
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 14px;
+  text-size-adjust: 100%;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: $h4;
+  font-weight: 400;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -ms-overflow-style: scrollbar;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-size: $h1;
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: $h2;
+  font-weight: 300;
+  line-height: 1.46;
+}
+
+h3 {
+  font-size: $h3;
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+h4,
+p {
+  font-size: $h4;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+h5 {
+  font-size: $h5;
+  font-weight: 400;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+a,
+button,
+label,
+[role='button'] {
+  all: unset;
+  box-sizing: border-box;
+  cursor: pointer;
+  user-select: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  user-select: none;
+}
+
+a {
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  user-select: none;
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}

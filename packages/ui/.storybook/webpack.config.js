@@ -1,35 +1,27 @@
-module.exports = {
+// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
+
+module.exports = (baseConfig, env, defaultConfig) => ({
+  ...defaultConfig,
   resolve: {
-    extensions: ['.css', '.js', '.json', '.jsx', '.md', '.ts', '.tsx'],
-    alias: {}
+    ...defaultConfig.resolve,
+    extensions: [...defaultConfig.resolve.extensions, '.ts', '.tsx']
   },
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      use: 'babel-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/
-    }, {
-      test: /\.s?css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
+    ...defaultConfig.module,
+    rules: [
+      ...defaultConfig.module.rules,
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
           options: {
-            importLoaders: 1
-          }
-        }, {
-          loader: 'postcss-loader',
-          options: {
-            plugins: [
-              require('autoprefixer')
-            ]
+            transpileOnly: true
           }
         }
-      ]
-    }]
-  }
-}
+      }
+    ]
+  },
+  plugins: [...defaultConfig.plugins, new TSDocgenPlugin()]
+});

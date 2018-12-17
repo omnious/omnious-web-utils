@@ -1,25 +1,63 @@
 version: 2
 
 defaults: &defaults
+  working_directory: /tmp/ui
   docker:
-    - image: circleci/node:8.1.4
+    - image: circleci/node:8.10.0
+restore_repo: &restore_repo
+  restore_cache:
+    key: v1-repo-{{ .Branch }}-{{ .Revision }}
 
 jobs:
   checkout:
     <<: *defaults
     steps:
-  test_browser:
-  test_build:
-
+      - *restore_repo
+      - checkout
+      - run:
+          name: Check versions
+          command: |
+            yarn --version
+            node --version
+            docker --version
+            docker-compose --version
+            yarn cache dir
+      - restore_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - save_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn/v1
+      - save_cache:
+          key: v1-repo-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - /tmp/ui
+  lint:
+    <<: *defaults
+    steps:
+      - run:
+          name: ESLint
+          command: yarn lint:js
+  build-reset:
+    <<: *defaults
+    steps:
+      - *restore_repo
+      - run:
+          name: omnious/reset build
+          command: cd packages/reset && yarn build
+  build-ui:
+    <<: *defaults
+    steps:
+      - *restore_repo
+      - run:
+          name: omnious/ui build
+          command: cd packages/ui && yarn build
 
 workflows:
   version: 2
   pipeline:
     jobs:
       - checkout
-      - test_browser:
-          requires:
-            - checkout
-      - test_build:
-          requires:
-            - checkout
