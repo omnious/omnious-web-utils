@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "7.1.2",
+    "@babel/core": "7.2.2",
     "@omnious/stylelint-config": "0.1.1",
     "@omnious/tslint-config-react": "0.1.1",
     "@storybook/addon-actions": "4.0.0-rc.2",
