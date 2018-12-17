@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "7.2.2",
+    "@babel/core": "7.1.2",
     "@omnious/stylelint-config": "0.1.1",
     "@omnious/tslint-config-react": "0.1.1",
     "@storybook/addon-actions": "4.0.0-rc.2",
@@ -13,7 +13,7 @@
     "@storybook/addon-knobs": "4.0.0-rc.2",
     "@storybook/addon-options": "4.0.0-rc.2",
     "@storybook/react": "4.0.0-rc.2",
-    "@types/enzyme": "3.1.14",
+    "@types/enzyme": "3.1.15",
     "@types/jest": "23.3.7",
     "@types/prop-types": "15.5.6",
     "@types/react": "16.4.18",
@@ -33,7 +33,7 @@
     "cross-env": "5.2.0",
     "cssnano": "4.1.7",
     "emotion": "9.2.12",
-    "enzyme": "3.7.0",
+    "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.6.0",
     "fork-ts-checker-webpack-plugin": "0.4.10",
     "jest": "23.6.0",
