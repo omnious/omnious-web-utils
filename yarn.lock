@@ -1269,10 +1269,10 @@
     "@types/node" "*"
     "@types/react" "*"
 
-"@types/react-select@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-2.0.6.tgz#70e9d5ebe5de6015c192e8a1a3248b16dd69d5e6"
-  integrity sha512-cjkkhk4kf7R1e03Ml+Sk4Of8sKOvPl+lSTCkiOSaY03/5Bg3h1Son4bO9UbtyKAzrdTiZJiWWgFgGP0bczXkGQ==
+"@types/react-select@2.0.11":
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-2.0.11.tgz#9b2b1fdb12b67a5a617c5f572e15617636cc65af"
+  integrity sha512-kITn4R50eUJCi2YT3JFZS4z5M2SJJqqYiVUX1HyLSFWbHbF6J25ZPKCCXANQrsnQzSrac2XiNpR5oYBif6l93g==
   dependencies:
     "@types/react" "*"
     "@types/react-dom" "*"
@@ -9073,10 +9073,10 @@ react-portal@^4.1.5:
   dependencies:
     prop-types "^15.5.8"
 
-react-select@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.1.0.tgz#95977a763b14f2fc42255a510acd73bef9561f7d"
-  integrity sha512-3SdRAKX64hNzDF/DT1J1Ei3fIoQlLMkMJuB3yOY6oOYwl2A9SFJMsqXLgsveiu7UGrdo+4lyZi3mSqvw8qeGMA==
+react-select@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.1.2.tgz#7a3e4c2b9efcd8c44ae7cf6ebb8b060ef69c513c"
+  integrity sha512-+ceiz2KwIeEBxT/PgAXBIGohLXfa9YhkfwFSHMlqpTL55JYvjhgkGoBxoasGcMGeQ49J3RhAKZDD+x6ZHKmj6g==
   dependencies:
     classnames "^2.2.5"
     emotion "^9.1.2"
