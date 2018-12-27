@@ -1,8 +1,0 @@
-{
-  "extends": "@omnious/tslint-config-react",
-  "rules": {
-    "member-ordering": false,
-    "typedef": false,
-    "no-unused-variable": true
-  }
-}

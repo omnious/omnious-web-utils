@@ -1,8 +1,46 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import { PureComponent } from 'react';
 
-import { Spinner } from '../';
-import { STYLES } from '../constants/styles';
+// Local import
+import { Props } from './types';
+import { Loader } from '../Loader';
+
+export class ButtonComponent extends PureComponent<Props> {
+  private onClick = (e: any): void => {
+    e.preventDefault();
+    const { name, value = null, onClick } = this.props;
+    onClick && onClick(value, name);
+  };
+
+  public render(): JSX.Element {
+    const {
+      children,
+      className,
+      color,
+      disabled = false,
+      icon,
+      invert = false,
+      loading = false,
+      size = 'md',
+      type = 'button',
+      width
+    } = this.props;
+
+    if (loading) {
+      return (
+        <button
+          className={className}
+          color={color}
+          disabled
+          invert={invert}
+          size={size}
+          type={type}
+          width={width}
+        >
+          <Loader color={color} invert={!invert} size="sm" />
+        </button>
+      );
+    }
 
 // interface
 interface Props {
@@ -19,8 +57,18 @@ interface Props {
 const ButtonComponent: React.SFC<Props> = ({ children, className, disabled, icon, loading, onClick }): JSX.Element => {
   if (loading)
     return (
-      <button className={className} disabled={disabled} onClick={onClick}>
-        <Spinner />
+      <button
+        className={className}
+        color={color}
+        disabled={disabled}
+        invert={invert}
+        size={size}
+        type={type}
+        width={width}
+        onClick={this.onClick}
+      >
+        {icon && <img src={icon} />}
+        {children}
       </button>
     );
 
