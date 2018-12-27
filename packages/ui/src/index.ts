@@ -16,6 +16,5 @@ export { Panel } from './Panel';
 export { BorderPanel, Top, Left, Center, Right, Bottom } from './Panel/BorderPanel';
 export { Menu } from './Menu';
 export { MenuItem } from './Menu/MenuItem';
-
 export * from './Table';
 export * from './shared';

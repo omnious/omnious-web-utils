@@ -1,28 +1,29 @@
 {
   "name": "@omnious/ui",
-  "version": "0.6.2-beta.2",
+  "version": "0.6.2-beta.3",
   "description": "React components for omnious.",
-  "homepage": "https://omnious-ui.netlify.com",
-  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
-  "maintainers": [
-    {
-      "name": "Euihyun Yang",
-      "email": "ykd1217@gmail.com"
-    }
-  ],
-  "license": "MIT",
-  "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/ui",
   "keywords": [
     "omnious",
     "ui",
     "react",
     "components"
   ],
-  "engines": {
-    "node": ">= 8.10.0"
+  "homepage": "https://omnious-ui.netlify.com",
+  "bugs": {
+    "email": "dev@omnious.com",
+    "url": "https://github.com/omnious-dev/omnious-web-utils/issues"
   },
+  "license": "MIT",
+  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
+  "contributors": [
+    "Euihyun Yang <ykd1217@gmail.com>"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/omnious-dev/omnious-web-utils.git"
+  },
   "scripts": {
     "prebuild": "rimraf .out dist",
     "build": "run-s build:**",
@@ -36,12 +37,15 @@
   },
   "peerDependencies": {
     "moment": "*",
-    "react": "*",
+    "react": ">= 16.0.0",
     "react-collapse": "*",
     "react-dates": "*",
-    "react-dom": "*",
-    "react-select": "*",
+    "react-dom": ">= 16.0.0",
+    "react-select": ">= 2.0.0",
     "react-with-direction": "*",
-    "styled-components": "*"
+    "styled-components": ">= 4.0.0"
+  },
+  "engines": {
+    "node": ">= 8.10.0"
   }
 }
