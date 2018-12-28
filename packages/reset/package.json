@@ -2,29 +2,32 @@
   "name": "@omnious/reset",
   "version": "0.3.1-alpha.0",
   "description": "",
-  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
-  "maintainers": [
-    {
-      "name": "Euihyun Yang",
-      "email": "ykd1217@gmail.com"
-    }
-  ],
-  "contributors": [],
-  "license": "MIT",
-  "repository": "https://github.com/omnious-dev/omnious-web-utils/tree/master/packages/reset",
   "keywords": [
     "omnious",
     "css",
     "scss",
     "reset"
   ],
+  "homepage": "https://github.com/omnious-dev/omnious-web-utils",
+  "bugs": {
+    "email": "dev@omnious.com",
+    "url": "https://github.com/omnious-dev/omnious-web-utils/issues"
+  },
+  "license": "MIT",
+  "author": "Omnious Dev Team <dev@omnious.com> (https://www.omnious.com)",
+  "contributors": [
+    "Euihyun Yang <ykd1217@gmail.com>"
+  ],
   "main": "dist/reset.min.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omnious-dev/omnious-web-utils.git"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "run-s build:**",
-    "build:css": "postcss src/index.css -o dist/reset.min.css",
+    "build": "postcss src/index.css -o dist/reset.min.css",
     "lint": "run-s lint:**",
     "lint:css": "stylelint 'src/**/*.css'",
-    "prepublish": "yarn build"
+    "watch": "yarn build -- -w"
   }
 }

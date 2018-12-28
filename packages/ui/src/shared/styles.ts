@@ -2,8 +2,8 @@
 import styled, { css } from 'styled-components';
 
 // Local import
-import { black, blue, gray, red, shadow, white, green } from '../colors';
-import { radius, font } from '../sizes';
+import { PRIMARY, SECONDARY, SPECTRUM, black, white } from '../colors';
+import { font } from '../sizes';
 
 export const ButtonBase: any = css`
   align-items: center;
@@ -31,113 +31,127 @@ export const ButtonBase: any = css`
   }};
   width: ${({ width }: any): string => width || ''};
 
-  &:hover {
-    box-shadow: ${shadow.button};
-  }
-
   &:disabled {
-    box-shadow: none;
+    /* box-shadow: none; */
     cursor: not-allowed;
-    opacity: 0.5;
+    /* opacity: 0.5; */
   }
 
-  ${({ color, invert }: any): string => {
-    switch (color) {
-      case 'primary':
-      case 'blue': {
-        if (invert) {
+  outline: 3px
+    ${({ color, invert }) => {
+      switch (color) {
+        case 'primary':
+        case 'blue': {
           return `
-            background-color: transparent;
-            border: 1px solid ${blue.primary};
-            color: ${blue.primary};
+          background-color: ${SPECTRUM.gray8c};
+          color: ${SPECTRUM.white};
 
-            &:focus {
-              outline: 1px auto ${blue.primary};
-            }
-          `;
-        }
+          &:active,
+          &:hover {
+            background-color: ${PRIMARY.blue};
+          }
 
-        return `
-          background-color: ${blue.primary};
-          color: ${white.primary};
+          &:disabled {
+            opacity: 0.5;
+          }
 
           &:focus {
-            outline: 1px auto ${blue.primary};
+            background-color: ${PRIMARY.blue};
+            outline: 3px solid ${SPECTRUM.gray3c};
           }
         `;
-      }
-      case 'green': {
-        if (invert) {
-          return `
-            background-color: transparent;
-            border: 1px solid ${green.primary};
-            color: ${green.primary};
-
-            &:focus {
-              outline: 1px auto ${green.primary};
-            }
-          `;
         }
+        case 'green': {
+          return `
+          background-color: ${SPECTRUM.gray8c};
+          color: ${SPECTRUM.white};
 
-        return `
-          background-color: ${green.primary};
-          color: ${white.primary};
+          &:active,
+          &:hover {
+            background-color: ${SECONDARY.green};
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
 
           &:focus {
-            outline: 1px auto ${green.primary};
+            background-color: ${SECONDARY.green};
+            outline: 3px solid ${SPECTRUM.gray3c};
           }
         `;
-      }
-      case 'danger':
-      case 'red': {
-        if (invert) {
-          return `
-            background-color: transparent;
-            border: 1px solid ${red.primary};
-            color: ${red.primary};
-
-            &:focus {
-              outline: 1px auto ${red.primary};
-            }
-          `;
         }
+        case 'danger':
+        case 'red': {
+          return `
+          background-color: ${SPECTRUM.gray8c};
+          color: ${SPECTRUM.white};
 
-        return `
-          background-color: ${red.primary};
-          color: ${white.primary};
+          &:active,
+          &:hover {
+            background-color: ${PRIMARY.red};
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
 
           &:focus {
-            outline: 1px auto ${red.primary};
+            background-color: ${PRIMARY.red};
+            outline: 3px solid ${SPECTRUM.gray3c};
           }
         `;
-      }
-      case 'none': {
-        return ``;
-      }
-      default: {
-        if (invert) {
-          return `
+        }
+        case 'none': {
+          return ``;
+        }
+        default: {
+          if (invert) {
+            return `
             background-color: transparent;
-            border: 1px solid ${gray.primary};
-            color: ${gray.primary};
+            border: 1px solid ${SPECTRUM.gray6c};
+            color: ${SPECTRUM.gray8c};
+
+            &:active,
+            &:hover {
+              background-color: ${SPECTRUM.gray8c};
+              border: 1px solid ${SPECTRUM.gray8c};
+              color: ${SPECTRUM.white};
+            }
+
+            &:disabled {
+              opacity: 0.5;
+            }
 
             &:focus {
-              outline: 1px auto ${gray.primary};
+              background-color: ${SPECTRUM.gray8c};
+              color: ${SPECTRUM.white};
+              outline: 3px solid ${SPECTRUM.gray3c};
             }
           `;
-        }
+          }
 
-        return `
-          background-color: ${gray.primary};
-          color: ${black.primary};
+          return `
+          background-color: ${SPECTRUM.gray8c};
+          color: ${SPECTRUM.white};
+
+          &:active,
+          &:hover {
+            background-color: ${SPECTRUM.gray11c};
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
 
           &:focus {
-            outline: 1px auto ${gray.primary};
+            background-color: ${SPECTRUM.gray11c};
+            outline: 3px solid ${SPECTRUM.gray3c};
           }
         `;
+        }
       }
-    }
-  }};
+    }};
 `;
 
 export const Viewer = styled.div`

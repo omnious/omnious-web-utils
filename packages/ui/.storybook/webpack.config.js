@@ -1,4 +1,5 @@
 // const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { resolve } = require('path');
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
 module.exports = (baseConfig, env, defaultConfig) => ({
@@ -12,14 +13,10 @@ module.exports = (baseConfig, env, defaultConfig) => ({
     rules: [
       ...defaultConfig.module.rules,
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        }
+        test: /\.(ts|tsx)$/,
+        use: 'babel-loader',
+        include: resolve(process.cwd(), 'src'),
+        exclude: /node_modules/
       }
     ]
   },
