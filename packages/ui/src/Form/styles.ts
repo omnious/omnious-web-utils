@@ -2,9 +2,10 @@
 import styled from 'styled-components';
 
 // Local import
+import { FormComponent } from './Form';
 import { Props } from './types';
 
-export const StyledForm: any = styled.div``;
+export const Form: any = styled(FormComponent)``;
 
 export const Title: any = styled.h4`
   margin-bottom: 0.5rem;

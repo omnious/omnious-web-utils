@@ -3,7 +3,7 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 
 // Local import
-import { FieldWrapper, StyledForm, Title } from './styles';
+import { FieldWrapper, Title } from './styles';
 import { Props, State } from './types';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';

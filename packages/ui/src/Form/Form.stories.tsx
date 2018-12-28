@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Form } from './Form';
+import { Form } from '.';
 
 const formFields: any[] = [
   {

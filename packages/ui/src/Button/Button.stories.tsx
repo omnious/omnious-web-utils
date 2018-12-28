@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Button } from './Button';
+import { Button } from '.';
 
 storiesOf('Component | Button', module).add(
   'DIY',

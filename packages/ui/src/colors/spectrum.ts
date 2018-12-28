@@ -1,4 +1,4 @@
-export const enum SPECTRUM {
+export enum SPECTRUM {
   white = '#fff',
   gray1c25 = '#f5f5f4',
   gray1c50 = '#ececea',
