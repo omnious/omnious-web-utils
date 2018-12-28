@@ -22,7 +22,7 @@
   "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url":"https://github.com/omnious-dev/omnious-web-utils.git"
+    "url": "https://github.com/omnious-dev/omnious-web-utils.git"
   },
   "scripts": {
     "prebuild": "rimraf .out dist",
@@ -47,5 +47,8 @@
   },
   "engines": {
     "node": ">= 8.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
