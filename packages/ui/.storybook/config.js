@@ -36,9 +36,12 @@ addDecorator(
 addDecorator(withKnobs);
 
 const req = require.context('../src', true, /\.stories.tsx$/);
-const loadStories = () => {
+function loadStories() {
   require('./Welcome.stories');
-  req.keys().forEach(file => req(file));
-};
+
+  for (const filename of req.keys()) {
+    req(filename);
+  }
+}
 
 configure(loadStories, module);

@@ -2,8 +2,9 @@
 import styled from 'styled-components';
 
 // Local import
+import { ButtonComponent } from './Button';
 import { ButtonBase } from '../shared';
 
-export const StyledButton: any = styled.button`
+export const Button = styled(ButtonComponent)`
   ${ButtonBase};
 `;

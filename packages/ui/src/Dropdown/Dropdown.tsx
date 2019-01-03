@@ -73,6 +73,7 @@ export class Dropdown extends Component<Props> {
         {title && <Title className={titleClass}>{title}</Title>}
         <StyledDropdown
           className={dropdownClass}
+          classNamePrefix="select"
           isClearable={clearable}
           isDisabled={disabled}
           isMulti={multi}
