@@ -4,12 +4,15 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 // Local import
-import { Loader } from './Loader';
+import { ProgressCircle } from './ProgressCircle';
+import { Spinner } from './Spinner';
 
-storiesOf('Component | Loader', module).add('DIY', () => (
-  <Loader
-    color={select('color', ['blue', 'red', 'green'], 'blue')}
-    invert={boolean('invert', false)}
-    size={select('size', ['lg', 'sm'], 'sm')}
-  />
-));
+storiesOf('Component | Loader', module)
+  .add('ProgressBar', () => null)
+  .add('ProgressCircle', () => <ProgressCircle />)
+  .add('Spinner', () => (
+    <Spinner
+      color={select('color', ['blue', 'red', 'green'], 'blue')}
+      size={select('size', ['sm', 'md', 'lg'], 'md')}
+    />
+  ));

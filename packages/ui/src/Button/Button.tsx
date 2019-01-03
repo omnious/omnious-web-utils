@@ -19,7 +19,6 @@ export class ButtonComponent extends PureComponent<Props> {
       className,
       color,
       disabled = false,
-      icon,
       invert = false,
       loading = false,
       size = 'md',
@@ -43,6 +42,10 @@ export class ButtonComponent extends PureComponent<Props> {
       );
     }
 
-    return <button className={className}>{children}</button>;
+    return (
+      <button className={className} onClick={this.onClick}>
+        {children}
+      </button>
+    );
   }
 }
