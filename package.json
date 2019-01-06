@@ -5,7 +5,7 @@
     "watch": "lerna run watch --parallel"
   },
   "dependencies": {
-    "emotion": "10.0.5",
+    "emotion": "10.0.6",
     "moment": "2.23.0",
     "react": "16.7.0",
     "react-collapse": "4.0.3",
