@@ -1,27 +1,22 @@
 // Global import
 import * as React from 'react';
-import { Component, HTMLAttributes } from 'react';
+import { HTMLAttributes, PureComponent } from 'react';
 
 // Local import
-import { StyledModal } from './styles';
 import { Cancel } from '../Icons';
 import { black } from '../colors';
 
 export interface ModalProps extends HTMLAttributes<HTMLElement> {
   show: boolean;
-  onHide(): void;
+  onHide: () => void;
 }
 
-export class Modal extends Component<ModalProps> {
-  public shouldComponentUpdate(): boolean {
-    return true;
-  }
-
+export class ModalComponent extends PureComponent<ModalProps> {
   public render(): JSX.Element {
-    const { children, show, onHide }: ModalProps = this.props;
+    const { children, className, onHide } = this.props;
 
     return (
-      <StyledModal show={show}>
+      <div className={className}>
         <div className="overlay" onClick={onHide} />
         <section className="dialog">
           <button className="hide" onClick={onHide}>
@@ -29,7 +24,7 @@ export class Modal extends Component<ModalProps> {
           </button>
           {children}
         </section>
-      </StyledModal>
+      </div>
     );
   }
 }
