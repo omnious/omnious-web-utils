@@ -64,7 +64,7 @@
     "react-docgen-typescript-webpack-plugin": "1.1.0",
     "rimraf": "2.6.2",
     "rollup": "1.0.0",
-    "rollup-plugin-babel": "4.2.0",
+    "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-node-resolve": "4.0.0",
     "stylelint": "9.9.0",
