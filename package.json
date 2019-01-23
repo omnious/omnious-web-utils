@@ -48,7 +48,7 @@
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "1.7.1",
     "jest": "23.6.0",
-    "lerna": "3.8.0",
+    "lerna": "3.10.7",
     "nodemon": "1.18.9",
     "npm-run-all": "4.1.5",
     "postcss": "7.0.7",
