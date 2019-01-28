@@ -1,3 +1,3 @@
 import * as React from 'react';
 
-export const TableHead = ({ children }) => <thead>{children}</thead>;
+export const TableHead: React.SFC = ({ children }) => <thead>{children}</thead>;

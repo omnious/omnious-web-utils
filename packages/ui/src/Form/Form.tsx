@@ -11,9 +11,9 @@ import { Input } from '../Input';
 
 function initializeData(fields = []) {
   return fields.slice(0, -1).reduce(
-    (result, item) => ({
+    (result, { name, value }) => ({
       ...result,
-      [item.name]: ''
+      [name]: value || ''
     }),
     {}
   );
@@ -47,7 +47,7 @@ export class FormComponent extends PureComponent<Props, State> {
       return 'No fields';
     }
 
-    return fields.map(({ component, items, name, title, type }, index) => {
+    return fields.map(({ component, disabled, items, name, title, type }, index) => {
       switch (type) {
         //         case 'checkbox':
         //           return <div>checkbox</div>;
@@ -84,6 +84,7 @@ export class FormComponent extends PureComponent<Props, State> {
         default:
           return (
             <Input
+              disabled={disabled}
               key={`${name}-${index}`}
               name={name}
               title={title}

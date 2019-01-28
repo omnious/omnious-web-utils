@@ -2,10 +2,11 @@
 import styled from 'styled-components';
 
 // Local import
+import { ModalComponent } from './Modal';
 import { white } from '../colors';
 import { space } from '../sizes';
 
-export const StyledModal = styled.section`
+export const Modal = styled(ModalComponent)`
   align-items: center;
   display: ${({ show }) => (show ? 'flex' : 'none')};
   height: 100vh;
@@ -16,13 +17,13 @@ export const StyledModal = styled.section`
   width: 100vw;
   z-index: 10;
 
-  & .overlay {
+  .overlay {
     background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
     width: 100%;
   }
 
-  & .dialog {
+  .dialog {
     background-color: ${white.primary};
     border-radius: 5px;
     box-shadow: 0 1px 16px 0 rgba(78, 117, 131, 0.14);
@@ -33,7 +34,7 @@ export const StyledModal = styled.section`
     position: absolute;
   }
 
-  & .hide {
+  .hide {
     all: unset;
     position: absolute;
     right: ${space.md};

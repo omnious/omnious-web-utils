@@ -32,6 +32,7 @@
     "storybook": "start-storybook -p 9001",
     "watch": "yarn build:ui -w"
   },
+  "dependencies": {},
   "peerDependencies": {
     "moment": "*",
     "react": ">= 16.0.0",

@@ -1,27 +1,22 @@
 // Global import
 import * as React from 'react';
-import { Component, HTMLAttributes } from 'react';
+import styled from 'styled-components';
 
 // Local import
-import { StyledModal } from './styles';
 import { Cancel } from '../Icons';
-import { black } from '../colors';
+import { black, white } from '../colors';
 
-export interface ModalProps extends HTMLAttributes<HTMLElement> {
+export interface ModalProps extends React.HTMLAttributes<HTMLElement> {
   show: boolean;
-  onHide(): void;
+  onHide: () => void;
 }
 
-export class Modal extends Component<ModalProps> {
-  public shouldComponentUpdate(): boolean {
-    return true;
-  }
-
+class Component extends React.PureComponent<ModalProps> {
   public render(): JSX.Element {
-    const { children, show, onHide }: ModalProps = this.props;
+    const { children, className, onHide } = this.props;
 
     return (
-      <StyledModal show={show}>
+      <div className={className}>
         <div className="overlay" onClick={onHide} />
         <section className="dialog">
           <button className="hide" onClick={onHide}>
@@ -29,7 +24,42 @@ export class Modal extends Component<ModalProps> {
           </button>
           {children}
         </section>
-      </StyledModal>
+      </div>
     );
   }
 }
+
+export const Modal = styled(Component)`
+  align-items: center;
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+  }
+
+  .dialog {
+    background-color: ${white.primary};
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    max-width: 50vw;
+    overflow: auto;
+    padding: 40px;
+    position: absolute;
+  }
+
+  .hide {
+    all: unset;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+`;

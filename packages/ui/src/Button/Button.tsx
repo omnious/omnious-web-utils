@@ -20,23 +20,12 @@ export class ButtonComponent extends PureComponent<Props> {
       color,
       disabled = false,
       invert = false,
-      loading = false,
-      size = 'md',
-      type = 'button',
-      width
+      loading = false
     } = this.props;
 
     if (loading) {
       return (
-        <button
-          className={className}
-          color={color}
-          disabled
-          invert={invert}
-          size={size}
-          type={type}
-          width={width}
-        >
+        <button className={className} disabled>
           <Loader color={color} invert={!invert} size="sm" />
         </button>
       );
