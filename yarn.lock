@@ -2988,10 +2988,10 @@ babel-plugin-dynamic-import-node@2.2.0:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-emotion@^10.0.5:
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.5.tgz#05ec47cde94f984b0b2aebdd41f81876cf9cbb24"
-  integrity sha512-ezct2vKACg4juSV0/A/4QIDJu2+5Sjna/8rX/LXY8D0qG8YEP3fu8pe5FqZ9yFGa8WOJ1sivf3/QKM/5C8naIg==
+babel-plugin-emotion@^10.0.6:
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.6.tgz#fd9bb4a5dc6cf2289b656215dbbc80469fd251b3"
+  integrity sha512-JD2st8enZJn8h7W1s8kcb40r3RBCJwV9E8ZAhyyhELUMP8OYwyI9K1rz7MxRi0CoorX15kVo2NXZ+OJ6CeMY8A==
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@emotion/hash" "0.7.1"
@@ -4389,10 +4389,10 @@ create-ecdh@^4.0.0:
     bn.js "^4.1.0"
     elliptic "^6.0.0"
 
-create-emotion@^10.0.5:
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-10.0.5.tgz#22487f19b59a7ed10144f808289eadffebcfab06"
-  integrity sha512-MIOSeFiMtPrAULEtd2GFYGZEzeN2xnCFoiHrjvUYjxruYCJfGqUOBmh4YEN1yU+Ww5yXr+DIZibFl7FEOP57iA==
+create-emotion@^10.0.6:
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-10.0.6.tgz#a431a4181b3f333b5deae30985efdc5971774f94"
+  integrity sha512-pfaSo7swLlmHxizPYF5Oi09e1uPseueX/CirE6mZpPeeoH1Yb4I2cmx0VCN6KlCRko4yKFTErorect9y0+ARZQ==
   dependencies:
     "@emotion/cache" "10.0.0"
     "@emotion/serialize" "^0.11.3"
@@ -5234,13 +5234,13 @@ emojis-list@^2.0.0:
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
   integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
-emotion@10.0.5:
-  version "10.0.5"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.5.tgz#9b22cee820de0a45bc102e4750553c1b81098b00"
-  integrity sha512-bYti4oM6k1oDm/qZ3w/AcJNJDitTt++/EWy9TqYu2Th7YEJw2H5hesihynHszsfn4TAf5TS43y+51/KWHFnuBA==
+emotion@10.0.6:
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-10.0.6.tgz#2dc2d759d243a96d74f0833ea5a74c64f875181b"
+  integrity sha512-k+3eFJ9OqzwZdRVahPB4Gt9C7BLfOnzYHnD++QrGsrDno1VU1IEOBKdCsgkRneNaFVkUjg3DCmBlgE6GGwd27w==
   dependencies:
-    babel-plugin-emotion "^10.0.5"
-    create-emotion "^10.0.5"
+    babel-plugin-emotion "^10.0.6"
+    create-emotion "^10.0.6"
 
 emotion@^9.1.2:
   version "9.2.12"
