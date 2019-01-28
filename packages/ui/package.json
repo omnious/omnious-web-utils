@@ -1,6 +1,6 @@
 {
   "name": "@omnious/ui",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "React components for omnious.",
   "keywords": [
     "omnious",
@@ -32,7 +32,6 @@
     "storybook": "start-storybook -p 9001",
     "watch": "yarn build:ui -w"
   },
-  "dependencies": {},
   "peerDependencies": {
     "moment": "*",
     "react": ">= 16.0.0",
