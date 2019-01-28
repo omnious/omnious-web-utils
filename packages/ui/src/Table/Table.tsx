@@ -1,6 +1,5 @@
 // Global import
 import * as React from 'react';
-import { PureComponent } from 'react';
 import styled from 'styled-components';
 
 // Local import
@@ -10,7 +9,7 @@ import { TableHead } from './TableHead';
 import { TableHeadCell } from './TableHeadCell';
 import { TableRow } from './TableRow';
 
-class TableComponent extends PureComponent {
+class Component extends React.PureComponent {
   static Body = TableBody;
   static BodyCell = TableBodyCell;
   static Head = TableHead;
@@ -24,7 +23,7 @@ class TableComponent extends PureComponent {
   }
 }
 
-export const Table = styled(TableComponent)`
+export const Table = styled(Component)`
   border-collapse: collapse;
   width: 100%;
 `;

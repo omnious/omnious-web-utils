@@ -1,1 +1,1 @@
-export { Modal } from './styles';
+export { Modal } from './Modal';

@@ -1,3 +1,3 @@
 import * as React from 'react';
 
-export const TableBody = ({ children }) => <tbody>{children}</tbody>;
+export const TableBody: React.SFC = ({ children }) => <tbody>{children}</tbody>;

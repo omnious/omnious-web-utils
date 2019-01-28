@@ -2,10 +2,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const TableBodyCellComponent = ({ children, className }) => (
-  <td className={className}>{children}</td>
+const Component: React.SFC = ({ children, className, colSpan }) => (
+  <td className={className} colSpan={colSpan}>
+    {children}
+  </td>
 );
 
-export const TableBodyCell = styled(TableBodyCellComponent)`
-  padding: 15px 30px;
+export const TableBodyCell = styled(Component)`
+  &:first-child {
+    padding: 15px 30px;
+  }
+
+  &:not(:first-child) {
+    padding: 15px 30px 15px 0;
+  }
 `;

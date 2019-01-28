@@ -2,12 +2,17 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const TableHeadCellComponent = ({ children, className }) => (
-  <th className={className}>{children}</th>
-);
+const Component: React.SFC = ({ children, className }) => <th className={className}>{children}</th>;
 
-export const TableHeadCell = styled(TableHeadCellComponent)`
+export const TableHeadCell = styled(Component)`
   font-weight: 600;
-  padding: 15px 30px;
   text-align: start;
+
+  &:first-child {
+    padding: 15px 30px;
+  }
+
+  &:not(:first-child) {
+    padding: 15px 30px 15px 0;
+  }
 `;
