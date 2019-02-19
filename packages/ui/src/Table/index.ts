@@ -1,7 +1,7 @@
-export { Table } from './Table';
-export { TableBody } from './TableBody';
-export { TableBodyCell } from './TableBodyCell';
-export { TableFoot } from './TableFoot';
-export { TableHead } from './TableHead';
-export { TableHeadCell } from './TableHeadCell';
-export { TableRow } from './TableRow';
+export { Table } from './table';
+export { TableBody } from './table-body';
+export { TableDataCell } from './table-data-cell';
+export { TableFoot } from './table-foot';
+export { TableHead } from './table-head';
+export { TableHeaderCell } from './table-header-cell';
+export { TableRow } from './table-row';

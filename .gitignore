@@ -197,7 +197,8 @@ $RECYCLE.BIN/
 .vscode
 
 # client bundles
-.happypack
+.linaria-cache
 .out
+.rpt2_cache
 dist
 lib

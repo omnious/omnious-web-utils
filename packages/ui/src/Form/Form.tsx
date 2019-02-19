@@ -1,13 +1,31 @@
 // Global import
+import { styled } from 'linaria/react';
 import * as React from 'react';
-import { PureComponent } from 'react';
+import { PureComponent, FormHTMLAttributes } from 'react';
 
 // Local import
-import { FieldWrapper, Title } from './styles';
-import { Props, State } from './types';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { Input } from '../Input';
+
+interface FieldItem {
+  name: string;
+  title: string;
+}
+
+interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
+  // disabled?: boolean;
+  // fieldClass?: string;
+  // fields?: FieldItem[];
+  // titleClass?: string;
+  vertical: boolean;
+  // width?: string;
+  // onSubmit: (data: any) => void;
+}
+
+interface FormState {
+  data: any;
+}
 
 function initializeData(fields = []) {
   return fields.slice(0, -1).reduce(
@@ -19,7 +37,28 @@ function initializeData(fields = []) {
   );
 }
 
-export class FormComponent extends PureComponent<Props, State> {
+const FormWrapper = styled.div``;
+
+const Title = styled.h4`
+  margin-bottom: 0.5rem;
+`;
+
+const StyledForm = styled.form`
+  align-items: ${({ vertical }) => (vertical ? `stretch` : 'flex-end')};
+  display: flex;
+  flex-direction: ${({ vertical }) => (vertical ? `column` : 'row')};
+  width: ${({ width }) => width || '100%'};
+
+  & > button {
+    margin-top: 15px;
+  }
+
+  & > label:not(:first-of-type) {
+    margin-top: 15px;
+  }
+`;
+
+export class Form extends PureComponent<FormProps, FormState> {
   readonly state = {
     data: initializeData(this.props.fields)
   };
@@ -40,7 +79,7 @@ export class FormComponent extends PureComponent<Props, State> {
     );
   };
 
-  renderFields = () => {
+  private renderFields = () => {
     const { fields = [] } = this.props;
 
     if (!fields.length) {
@@ -99,15 +138,15 @@ export class FormComponent extends PureComponent<Props, State> {
   };
 
   public render() {
-    const { className, fieldClass, title = '', titleClass, vertical = true, width } = this.props;
+    const { title = '', vertical = true, width } = this.props;
 
     return (
-      <div className={className}>
-        {title && <Title className={titleClass}>{title}</Title>}
-        <FieldWrapper className={fieldClass} vertical={vertical} width={width}>
+      <FormWrapper>
+        {title && <Title>{title}</Title>}
+        <StyledForm vertical={vertical} width={width}>
           {this.renderFields()}
-        </FieldWrapper>
-      </div>
+        </StyledForm>
+      </FormWrapper>
     );
   }
 }

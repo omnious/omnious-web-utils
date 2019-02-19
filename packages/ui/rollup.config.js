@@ -1,5 +1,8 @@
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
+import linaria from 'linaria/rollup';
+// import babel from 'rollup-plugin-babel';
+import css from 'rollup-plugin-css-only';
+// import resolve from 'rollup-plugin-node-resolve';
+import typescript from 'rollup-plugin-typescript';
 
 export default {
   input: 'src/index.ts',
@@ -8,6 +11,8 @@ export default {
     format: 'cjs'
   },
   external: [
+    '@emotion/styled',
+    'linaria/react',
     'moment',
     'react',
     'react-collapse',
@@ -16,11 +21,16 @@ export default {
     'styled-components'
   ],
   plugins: [
-    resolve({
-      extensions: ['.js', '.jsx', '.ts', '.tsx']
-    }),
-    babel({
-      extensions: ['.js', '.jsx', '.ts', '.tsx']
+    // resolve({
+    //   extensions: ['.js', '.jsx', '.ts', '.tsx']
+    // }),
+    // babel({
+    //   extensions: ['.js', '.jsx', '.ts', '.tsx']
+    // }),
+    typescript(),
+    linaria(),
+    css({
+      output: 'lib/style.css'
     })
   ]
 };

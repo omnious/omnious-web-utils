@@ -1,29 +1,39 @@
 // Global import
+import { styled } from 'linaria/react';
 import * as React from 'react';
-import styled from 'styled-components';
+import { PureComponent, TableHTMLAttributes } from 'react';
 
 // Local import
-import { TableBody } from './TableBody';
-import { TableBodyCell } from './TableBodyCell';
-import { TableHead } from './TableHead';
-import { TableHeadCell } from './TableHeadCell';
-import { TableRow } from './TableRow';
+import { TableBody } from './table-body';
+import { TableDataCell } from './table-data-cell';
+import { TableFoot } from './table-foot';
+import { TableHead } from './table-head';
+import { TableHeaderCell } from './table-header-cell';
+import { TableRow } from './table-row';
 
-class Component extends React.PureComponent {
+interface TableProps extends TableHTMLAttributes<HTMLTableElement> {}
+
+const StyledTable = styled.table`
+  background-color: #fff;
+  border-collapse: collapse;
+  width: 100%;
+
+  & > tr:not(:first-of-type) {
+    background-color: #333;
+  }
+`;
+
+export class Table extends PureComponent<TableProps> {
   static Body = TableBody;
-  static BodyCell = TableBodyCell;
+  static DataCell = TableDataCell;
+  static Foot = TableFoot;
   static Head = TableHead;
-  static HeadCell = TableHeadCell;
+  static HeaderCell = TableHeaderCell;
   static Row = TableRow;
 
   render() {
-    const { children, className } = this.props;
+    const { children } = this.props;
 
-    return <table className={className}>{children}</table>;
+    return <StyledTable>{children}</StyledTable>;
   }
 }
-
-export const Table = styled(Component)`
-  border-collapse: collapse;
-  width: 100%;
-`;

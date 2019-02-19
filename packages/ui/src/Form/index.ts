@@ -1,1 +1,1 @@
-export { Form } from './styles';
+export { Form } from './form';

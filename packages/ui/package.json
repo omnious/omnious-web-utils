@@ -37,13 +37,12 @@
     "react": ">= 16.0.0",
     "react-collapse": "*",
     "react-dates": "*",
-    "react-dom": ">= 16.0.0",
     "react-select": ">= 2.0.0",
     "react-with-direction": "*",
     "styled-components": ">= 4.0.0"
   },
   "engines": {
-    "node": ">= 8.10.0"
+    "node": ">= 8.15.0"
   },
   "publishConfig": {
     "access": "public"

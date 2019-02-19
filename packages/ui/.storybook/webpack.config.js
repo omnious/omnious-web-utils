@@ -1,4 +1,4 @@
-// const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { resolve } = require('path');
 const TSDocgenPlugin = require('react-docgen-typescript-webpack-plugin');
 
@@ -14,11 +14,20 @@ module.exports = (baseConfig, env, defaultConfig) => ({
       ...defaultConfig.module.rules,
       {
         test: /\.(ts|tsx)$/,
-        use: 'babel-loader',
+        use: [
+          'babel-loader',
+          'linaria/loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            }
+          }
+        ],
         include: resolve(process.cwd(), 'src'),
         exclude: /node_modules/
       }
     ]
   },
-  plugins: [...defaultConfig.plugins, new TSDocgenPlugin()]
+  plugins: [...defaultConfig.plugins, new ForkTsCheckerWebpackPlugin(), new TSDocgenPlugin()]
 });
