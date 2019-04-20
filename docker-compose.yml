@@ -1,2 +1,2 @@
 chrome:
-  image: selenium/node-chrome:3.4.0
+  image: selenium/node-chrome:3.141.59
